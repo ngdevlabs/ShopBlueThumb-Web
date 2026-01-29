@@ -1,0 +1,49 @@
+{{#if reviews.total}}
+<section class="toggle productReviews" id="product-reviews" data-product-reviews>
+    <h3>
+        {{lang 'products.reviews.header' total=reviews.total}}
+
+        <a href="{{product.url}}{{#if is_ajax}}#write_review{{/if}}"
+           class="productView-reviewLink productView-reviewLink--new ob-btn ob-btn-border"
+           {{#unless is_ajax}}data-reveal-id="modal-review-form"{{/unless}}
+           role="button"
+        >
+            {{#if theme_settings.theme_type '==' 'vogue'}}
+                <svg><use xlink:href="#icon-duo-star" /></svg>
+            {{else}}
+                <svg><use xlink:href="#icon-star-outline" /></svg>
+            {{/if}}
+            {{lang 'products.reviews.new'}}
+        </a>
+    </h3>
+    <div id="productReviews-content" aria-hidden="false">
+        <ul class="productReviews-list" id="productReviews-list">
+            {{#each reviews.list}}
+            <li class="productReview">
+                <article>
+                    <header>
+                        <span class="productReview-rating">
+                            {{> components/products/ratings rating=rating}}
+                            <span class="productReview-ratingNumber">{{ rating }}</span>
+                        </span>
+                        {{#if name}}
+                            <p class="productReview-author">
+                                {{{lang 'products.reviews.post_on_by' date=date name=(sanitize name) }}}
+                            </p>
+                        {{else}}
+                            <p class="productReview-author">
+                                {{lang 'products.reviews.post_on_by' date=date name=(lang 'products.reviews.anonymous_poster')}}
+                            </p>
+                        {{/if}}
+
+                        <h5 class="productReview-title">{{{ sanitize title }}}</h5>
+                    </header>
+                    <p class="productReview-body">{{{ sanitize text }}}</p>
+                </article>
+            </li>
+            {{/each}}
+        </ul>
+        {{> components/common/paginator pagination.reviews reload=true}}
+    </div>
+</section>
+{{/if}}

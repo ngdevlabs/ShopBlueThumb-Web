@@ -1,0 +1,78 @@
+---
+brand:
+    products:
+        limit: {{theme_settings.brandpage_products_per_page}}
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+---
+
+{{inject "brandProductsPerPage" theme_settings.brandpage_products_per_page}}
+{{#partial "head"}}
+    {{#if pagination.brand.previous}}
+        <link rel="prev" href="{{pagination.brand.previous}}">
+    {{/if}}
+    {{#if pagination.brand.next}}
+        <link rel="next" href="{{pagination.brand.next}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "page"}}
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+<div class="ob-category-header ob-title-banner ob-full-width-mobile
+{{#unless theme_settings.show_title_banner_gradient}} no-overlay{{/unless}}
+{{#if theme_settings.category_banner_text_only}} no-image{{/if}}">
+    {{#unless theme_settings.category_banner_text_only}}
+        <img rel="preload" class="category-header-image" 
+            src="{{ multiConcat '/product_images/uploaded_images/' (dashcase brand.name) '.jpg' }}" 
+            alt="{{brand.name}}" 
+            onerror="this.style.display='none'" />
+    {{/unless}}
+
+    <div class="category-header-text">
+        <h1 class="page-heading">{{brand.name}}</h1>
+    </div>
+</div>
+
+{{{region name="brand_below_header"}}}
+
+<div class="page">
+    {{> components/ob-custom/category/ob-compare-bar show_compare=brand.show_compare}}
+    {{> components/ob-custom/brand/ob-product-actions-box }}
+    {{#any brand.faceted_search_enabled theme_settings.show_subcategory_list_in_filters}}
+        <aside class="page-sidebar" id="faceted-search-container">
+            {{> components/brand/sidebar}}
+        </aside>
+    {{/any}}
+
+    <div class="page-content" id="product-listing-container">
+        <div class="ob-product-listing-top">
+            <div class="ob-product-actions-box">
+                <div class="product-sort-wrap">
+                    {{#if brand.products}}
+                        {{> components/ob-custom/category/ob-per-page}}
+                        {{> components/products/filter sort=pagination.brand.sort}}
+                    {{/if}}
+                </div>
+            </div>
+            <h3>{{lang 'common.all'}} {{brand.name}}</h3>
+        </div>
+
+        <div class="brand-listing-wrap">
+            {{#if brand.search_error }}
+                <p>{{lang 'search.errorMessage'}}</p>
+            {{else}}
+                {{#if brand.products}}
+                    {{> components/brand/product-listing}}
+                {{else}}
+                    <p>{{lang 'brands.no_products'}}</p>
+                {{/if}}
+                {{{region name="brand_below_content"}}}
+            {{/if}}
+        </div>
+    </div>
+</div>
+
+{{/partial}}
+{{> layout/base}}

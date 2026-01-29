@@ -1,0 +1,3 @@
+{
+  "components/ob-custom/global/ob-header-promo": "    {{#if theme_settings.theme_type '==' 'vogue'}}\n        <span>{{theme_settings.header_promo_tag_1}}</span>\n        <span>{{theme_settings.header_promo_tag_2}}</span>\n    {{else}}\n        {{theme_settings.header_promo_message}}\n    {{/if}}"
+}

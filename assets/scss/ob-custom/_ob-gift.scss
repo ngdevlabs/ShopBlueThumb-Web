@@ -1,0 +1,232 @@
+[data-page-type="giftcertificates"],
+[data-page-type="giftcertificates_redeem"],
+[data-page-type="giftcertificates_purchase"],
+[data-page-type="giftcertificates_balance"] {
+	h1.page-heading {
+		margin: 0 0 1.5rem;
+
+		@include breakpoint("medium") {
+			margin: 0 0 3rem;
+		}
+	}
+
+	.navBar--sub {
+		margin: 0 0 2.25rem;
+
+		@include breakpoint("medium") {
+			margin: 4.5rem;
+		}
+	}
+
+	.account-navigation {
+		&:before,
+		&:after {
+			display: none;
+		}
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		flex-wrap: wrap;
+		width: 100%;
+
+		.navBar-item {
+			height: 50px;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0 25px;
+			background: stencilColor("tab_background");
+			color: stencilColor("tab_color");
+			margin: 0 0 8px;
+			width: 100%;
+			border-radius: $ob-border-radius;
+			border: none;
+
+			@include breakpoint("medium") {
+				width: auto;
+				margin: 0 5px;
+				max-width: 30%;
+			}
+			@include breakpoint("large") {
+				margin: 0 15px;
+			}
+
+			&.is-active {
+				box-shadow: inset 0px -3px 0px stencilColor("tab_active_bg");
+			}
+
+			a {
+				font-size: inherit;
+				line-height: inherit;
+				font-weight: inherit;
+				color: inherit;
+				text-decoration: none;
+				display: flex;
+				width: 100%;
+				height: 100%;
+				align-items: center;
+				justify-content: center;
+			}
+		}
+	}
+
+	.redemption-steps {
+		margin-top: 20px;
+
+		li {
+			margin-bottom: 20px;
+		}
+	}
+}
+
+.gift-certificate-form,
+.gift-balance {
+	.form-label {
+		small {
+			float: none;
+			margin: 0;
+			vertical-align: top;
+		}
+	}
+
+	.ob-gift-large-group {
+		.form-field {
+			padding: 0;
+
+			&.theme-options {
+				padding: 15px;
+				border: none;
+				background: stencilColor("input-bg-color");
+				border-radius: $ob-border-radius;
+			}
+		}
+	}
+
+	.form-prefixPostfix {
+		button {
+			height: 50px;
+		}
+	}
+
+	.form-actions {
+		display: flex;
+		width: 100%;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+
+		&:before,
+		&:after {
+			display: none;
+		}
+
+		button {
+			width: 100%;
+			margin: 0 0 20px!important;
+
+			&.ob-cta-link {
+				width: auto;
+			}
+		}
+
+		@include breakpoint("medium") {
+			button {
+				width: auto;
+				margin: 0!important;
+
+				&.ob-cta-link,
+				&.ob-btn-border {
+					margin-right: 50px!important;
+				}
+			}
+		}
+	}
+}
+
+.gift-balance {
+	.form-input {
+		height: 50px;
+	}
+}
+
+// NIGHT VARIANT
+[data-theme-variant="night"] {
+	&[data-page-type="giftcertificates"],
+	&[data-page-type="giftcertificates_redeem"],
+	&[data-page-type="giftcertificates_purchase"],
+	&[data-page-type="giftcertificates_balance"] {
+		.account-navigation {
+			.navBar-item {
+				background: stencilColor("tab_background");
+				color: stencilColor("tab_color");
+
+				&.is-active {
+					box-shadow: none;
+					background: stencilColor("tab_active_bg");
+					color: stencilColor("tab_active_color");
+				}
+			}
+		}
+	}
+
+	.gift-balance {
+		input {
+			height: 45px;
+
+			@include breakpoint("medium") {
+				height: 50px;
+			}
+		}
+	}
+}
+
+// VOGUE VARIANT
+[data-theme-variant="vogue"] {
+	&[data-page-type="giftcertificates"],
+	&[data-page-type="giftcertificates_redeem"],
+	&[data-page-type="giftcertificates_purchase"],
+	&[data-page-type="giftcertificates_balance"] {
+		h1.page-heading {
+			@include breakpoint("medium") {
+				text-align: center;
+			}
+		}
+		.account-navigation {
+			.navBar-item {
+				background: stencilColor("tab_background");
+				color: stencilColor("tab_color");
+				border-radius: $ob-border-radius / 3;
+				border: 3px solid stencilColor("tab_border");
+				padding-top: 2px;
+				margin: 0 10px 5px;
+
+				&.is-active {
+					box-shadow: none;
+					background: stencilColor("tab_active_bg");
+					color: stencilColor("tab_active_color");
+					border-color: stencilColor("tab_active_bg");
+				}
+			}
+		}
+		.gift-certificate-form {
+			.ob-gift-large-group {
+				.form-field.theme-options {
+					border-radius: $ob-border-radius / 2;
+					border: 1px solid stencilColor("input-border-color");
+				}
+			}
+			.form-actions {
+				@include breakpoint("medium") {
+					justify-content: flex-end;
+
+					#gift-certificate-submit {
+						width: 325px;
+					}
+				}
+			}
+			.form-input {
+				min-height: 50px;
+			}
+		}
+	}
+}

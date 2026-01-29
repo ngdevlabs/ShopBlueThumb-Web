@@ -1,0 +1,125 @@
+{{#if settings.add_this.buttons}}
+    {{assignVar 'encodedUrl' (encodeURI url)}}
+    {{assignVar 'encodedTitle' (encodeURI head.title)}}
+    <div class="{{#if product}}product-share{{/if}}">
+        <ul class="socialLinks">
+            <li class="socialLinks-item socialLinks-item--share">
+                <a class="socialLinks__link icon icon--share"
+                   href="#"
+                   data-dropdown="share-social"
+                   aria-controls="share-social"
+                   aria-expanded="false"
+                   title="Share"
+                >
+                    {{#if ../theme_settings.theme_type '==' 'vogue'}}
+                        <svg><use xlink:href="#icon-duo-share"/></svg>
+                    {{else}}
+                        <svg><use xlink:href="#icon-share"/></svg>
+                    {{/if}}
+                    {{lang 'products.sharing.share_action'}}
+                </a>
+                <div class="dropdown-menu" id="share-social" aria-hidden="true" data-dropdown-content>
+                    <ul>
+                        {{#each settings.add_this.buttons}}
+                            {{#if service '===' 'facebook'}}
+                                <li class="socialLinks-subItem socialLinks-subItem--{{service}}">
+                                    <a class="socialLinks__link icon icon--{{service}}"
+                                       title="{{{capitalize service}}}"
+                                       href="https://facebook.com/sharer/sharer.php?u={{getVar 'encodedUrl'}}"
+                                       target="_blank"
+                                       rel="noopener"
+                                       {{{annotation}}}
+                                    >
+                                        <svg><use xlink:href="#icon-facebook"/></svg>
+                                    </a>
+                                </li>
+                            {{else if service '===' 'twitter'}}
+                                <li class="socialLinks-subItem socialLinks-subItem--{{service}}">
+                                    <a class="socialLinks__link icon icon--{{service}}"
+                                       href="https://twitter.com/intent/tweet/?text={{getVar 'encodedTitle'}}&amp;url={{getVar 'encodedUrl'}}"
+                                       target="_blank"
+                                       rel="noopener"
+                                       title="{{{capitalize service}}}"
+                                       {{{annotation}}}
+                                    >
+                                        <svg><use xlink:href="#icon-twitter"/></svg>
+                                    </a>
+                                </li>
+                            {{else if service '===' 'linkedin'}}
+                                <li class="socialLinks-subItem socialLinks-subItem--{{service}}">
+                                    <a class="socialLinks__link icon icon--{{service}}"
+                                        title="{{{capitalize service}}}"
+                                        href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{getVar 'encodedUrl'}}&amp;title={{getVar 'encodedTitle'}}&amp;summary={{getVar 'encodedTitle'}}&amp;source={{getVar 'encodedUrl'}}"
+                                        target="_blank"
+                                        rel="noopener"
+                                        {{{annotation}}}
+                                    >
+                                        <svg><use xlink:href="#icon-linkedin"/></svg>
+                                    </a>
+                                </li>
+                            {{else if service '===' 'pinterest'}}
+                                <li class="socialLinks-subItem socialLinks-subItem--{{service}}">
+                                    <a class="socialLinks__link icon icon--{{service}}"
+                                       title="{{{capitalize service}}}"
+                                       href="https://pinterest.com/pin/create/button/?url={{getVar 'encodedUrl'}}&amp;description={{getVar 'encodedTitle'}}"
+                                       target="_blank"
+                                       rel="noopener"
+                                       {{{annotation}}}
+                                    >
+                                        <svg><use xlink:href="#icon-pinterest"/></svg>
+                                    </a>
+                                </li>
+                            {{/if}}
+                        {{/each}}
+                    </ul>
+                </div>
+            </li>
+            {{#each settings.add_this.buttons}}
+                {{#if service '===' 'email'}}
+                    <li class="socialLinks-item socialLinks-item--{{service}}">
+                        <a class="socialLinks__link icon icon--{{service}}"
+                           title="{{{capitalize service}}}"
+                           href="mailto:?subject={{getVar 'encodedTitle'}}&amp;body={{getVar 'encodedUrl'}}"
+                           target="_self"
+                           rel="noopener"
+                           {{{annotation}}}
+                        >
+                            {{#if ../theme_settings.theme_type '==' 'vogue'}}
+                                <svg><use xlink:href="#icon-duo-email"/></svg>
+                            {{else}}
+                                <svg><use xlink:href="#icon-envelope"/></svg>
+                            {{/if}}
+                            {{lang 'products.sharing.email_action'}}
+                        </a>
+                    </li>
+                {{else if service '===' 'print'}}
+                    <li class="socialLinks-item socialLinks-item--{{service}}">
+                        <a class="socialLinks__link icon icon--{{service}}"
+                           title="{{{capitalize service}}}"
+                           onclick="window.print();return false;"
+                           {{{annotation}}}
+                        >
+                            {{#if ../theme_settings.theme_type '==' 'vogue'}}
+                                <svg><use xlink:href="#icon-duo-print"/></svg>
+                            {{else}}
+                                <svg><use xlink:href="#icon-print"/></svg>
+                            {{/if}}
+                            {{lang 'products.sharing.print_action'}}
+                        </a>
+                    </li>
+                {{/if}}
+            {{/each}}
+        </ul>
+    </div>
+{{/if}}
+{{#if settings.facebook_like_button.enabled}}
+    <iframe
+        class="facebook{{#if settings.facebook_like_button.verb '===' 'recommend'}}Recommend{{else}}Like{{/if}}Btn"
+        style="border:none; overflow:hidden; margin: 0; padding: 0; position:absolute"
+        src="https://www.facebook.com/plugins/like.php?href={{settings.facebook_like_button.href}}&amp;layout=button_count{{#if settings.facebook_like_button.verb '===' 'recommend'}}&amp;action=recommend{{/if}}&amp;colorscheme=light&amp;height=20"
+        scrolling="no"
+        frameborder="0"
+        allowTransparency="true">
+    </iframe>
+{{/if}}
+

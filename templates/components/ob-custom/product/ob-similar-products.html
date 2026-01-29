@@ -1,0 +1,32 @@
+<h2 class="page-heading pre-title">{{lang 'products.related_products'}}</h2>
+<div class="productGrid productGrid--maxCol{{ columns }}" data-product-type="related" {{#if settings.data_tag_enabled}} data-list-name="RelatedProducts" {{/if}}
+    data-slick='{
+        "slidesToShow": 1.2,
+        "slidesToScroll": 1,
+        "arrows": false,
+        "dots": false,
+        "infinite": false,
+        "mobileFirst": true,
+        "swipeToSlide": true,
+        "responsive": [
+            {
+                "breakpoint": 767,
+                "settings": {
+                    "slidesToShow": 2.2
+                }
+            },
+            {
+                "breakpoint": 1023,
+                "settings": {
+                    "slidesToShow": 4,
+                    "arrows": true
+                }
+            }
+        ]
+    }'>
+    {{#each products}}
+        <div class="product">
+            {{>components/products/card settings=../settings theme_settings=../theme_settings customer=../customer event="list" position=(add @index 1)}}
+        </div>
+    {{/each}}
+</div>

@@ -1,0 +1,54 @@
+<div class="inner-wrap">
+	<div class="left-content">
+		<div class="sub-image ob-mobile">
+			{{#if theme_settings.cta_2_a}}
+				<img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" 
+					srcset="{{getImageManagerImageSrcset theme_settings.cta_2_a}}"
+					alt="{{theme_settings.cta_2_a_alt}}"
+					width="540" height="580" />
+			{{else}}
+				<img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" 
+					srcset="{{cdn (multiConcat 'assets/img/ob-custom/' theme_settings.theme_type '/cta-2-short.jpg')}}"
+					alt="{{theme_settings.cta_2_a_alt}}"
+					width="540" height="580" />
+			{{/if}}
+		</div>
+
+		<div class="heading-2">
+			{{{region name="cta_2_title"}}}
+		</div>
+		<div class="ob-body-md">
+			<a class="ob-btn ob-btn--primary" href="{{theme_settings.cta_2_btn_link}}">
+				{{theme_settings.cta_2_btn_text}}
+			</a>
+		</div>
+
+		<div class="sub-image ob-desktop">
+			{{#if theme_settings.cta_2_a}}
+				<img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" 
+					srcset="{{getImageManagerImageSrcset theme_settings.cta_2_a}}"
+					alt="{{theme_settings.cta_2_a_alt}}"
+					width="540" height="580" />
+			{{else}}
+				<img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" 
+					srcset="{{cdn (multiConcat 'assets/img/ob-custom/' theme_settings.theme_type '/cta-2-short.jpg')}}"
+					alt="{{theme_settings.cta_2_a_alt}}"
+					width="540" height="580" />
+			{{/if}}
+		</div>
+	</div>
+
+	<div class="top-image">
+		{{#if theme_settings.cta_2_a}}
+			<img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" 
+				srcset="{{getImageManagerImageSrcset theme_settings.cta_2_b}}"
+				alt="{{theme_settings.cta_2_b_alt}}"
+				width="540" height="810" />
+		{{else}}
+			<img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" 
+				srcset="{{cdn (multiConcat 'assets/img/ob-custom/' theme_settings.theme_type '/cta-2-tall.jpg')}}"
+				alt="{{theme_settings.cta_2_b_alt}}"
+				width="540" height="810" />
+		{{/if}}
+	</div>
+</div>

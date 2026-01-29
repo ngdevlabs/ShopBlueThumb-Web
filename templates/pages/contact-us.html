@@ -1,0 +1,114 @@
+---
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+---
+
+{{inject "page" page}}
+
+{{#partial "head"}}
+    {{#unless theme_settings.category_banner_text_only}}
+        {{!-- Preload banner image --}}
+        {{#if theme_settings.contact_banner}}
+            <link rel="preload" as="image" href="{{getImageManagerImage theme_settings.contact_banner}}" />
+        {{else}}
+            <link rel="preload" as="image" href="{{cdn (multiConcat 'assets/img/ob-custom/' theme_settings.theme_type '/contact-banner.jpg')}}" />
+        {{/if}}
+    {{/unless}}
+{{/partial}}
+
+{{#partial "page"}}
+    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+    <div class="ob-blog-header ob-title-banner{{#unless theme_settings.show_title_banner_gradient}} no-overlay{{/unless}}{{#if theme_settings.category_banner_text_only}} no-image{{/if}}">
+        {{#unless theme_settings.category_banner_text_only}}
+            {{#if theme_settings.contact_banner}}
+                <img src="{{getImageManagerImage theme_settings.contact_banner}}" fetchpriority="high" aria-hidden="true" />
+            {{else}}
+                <img src="{{cdn (multiConcat 'assets/img/ob-custom/' theme_settings.theme_type '/contact-banner.jpg')}}" fetchpriority="high" aria-hidden="true" />
+            {{/if}}
+        {{/unless}}
+        <div class="blog-header-text">
+            <h1 class="page-heading">{{page.title}}</h1>
+            <div class="blog-description">
+                <p>{{theme_settings.contact_intro_text}}</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="page">
+        <div id="contact-us-page" class="page-content">
+            <div class="container narrow-container">
+                <div class="ob-contact-icons">
+                    <div class="container base-content-page">
+                        {{#if theme_settings.contact_info_row_visible}}
+                            {{#if theme_settings.contact_icon_1_visible}}
+                                <div class="icon-box phone-box">
+                                    {{#if theme_settings.contact_icon_1_image}}
+                                        <img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}"
+                                            srcset="{{getImageManagerImage theme_settings.contact_icon_1_image}}" alt="{{theme_settings.contact_icon_1_label}}" />
+                                    {{else}}
+                                        <img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}"
+                                            srcset="{{cdn (multiConcat 'assets/img/ob-custom/' theme_settings.theme_type '/contact-icon-1.png')}}" alt="{{theme_settings.contact_icon_1_label}}" />
+                                    {{/if}}
+                                    <strong class="ob-body-md">{{theme_settings.contact_icon_1_label}}</strong>
+                                    <a class="ob-body-sm" href="{{theme_settings.contact_icon_1_url}}">{{theme_settings.contact_icon_1_link}}</a>
+                                </div>
+                            {{/if}}
+                            {{#if theme_settings.contact_icon_2_visible}}
+                                <div class="icon-box email-box">
+                                    {{#if theme_settings.contact_icon_2_image}}
+                                        <img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}"
+                                            srcset="{{getImageManagerImage theme_settings.contact_icon_2_image}}" alt="{{theme_settings.contact_icon_2_label}}" />
+                                    {{else}}
+                                        <img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}"
+                                            srcset="{{cdn (multiConcat 'assets/img/ob-custom/' theme_settings.theme_type '/contact-icon-2.png')}}" alt="{{theme_settings.contact_icon_2_label}}" />
+                                    {{/if}}
+                                    <strong class="ob-body-md">{{theme_settings.contact_icon_2_label}}</strong>
+                                    <a class="ob-body-sm" href="{{theme_settings.contact_icon_2_url}}">{{theme_settings.contact_icon_2_link}}</a>
+                                </div>
+                            {{/if}}
+                            {{#if theme_settings.contact_icon_3_visible}}
+                                <div class="icon-box">
+                                    {{#if theme_settings.contact_icon_1_image}}
+                                        <img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}"
+                                            srcset="{{getImageManagerImage theme_settings.contact_icon_3_image}}" alt="{{theme_settings.contact_icon_3_label}}" />
+                                    {{else}}
+                                        <img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}"
+                                            srcset="{{cdn (multiConcat 'assets/img/ob-custom/' theme_settings.theme_type '/contact-icon-3.png')}}" alt="{{theme_settings.contact_icon_3_label}}" />
+                                    {{/if}}
+                                    <strong class="ob-body-md">{{theme_settings.contact_icon_3_label}}</strong>
+                                    <a class="ob-body-sm" href="{{theme_settings.contact_icon_3_url}}">{{theme_settings.contact_icon_3_link}}</a>
+                                </div>
+                            {{/if}}
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="ob-contact-row">
+                    {{#if theme_settings.contact_form_image}}
+                        <div class="contact-box image-box">
+                            {{#if theme_settings.contact_icon_1_image}}
+                                <img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}"
+                                    srcset="{{getImageManagerImage theme_settings.contact_form_image}}" alt="{{theme_settings.contact_form_title}}" />
+                            {{else}}
+                                <img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}"
+                                    srcset="{{cdn (multiConcat 'assets/img/ob-custom/' theme_settings.theme_type '/contact-form.jpg')}}" alt="{{theme_settings.contact_form_title}}" />
+                            {{/if}}
+                        </div>
+                    {{/if}}
+                    <div class="contact-box form-box{{#unless theme_settings.contact_form_image}} full-form{{/unless}}">
+                        <h2>{{theme_settings.contact_form_title}}</h2>
+                        {{#if forms.contact.success}}
+                            <div id="contact-us-success">{{{lang 'forms.contact_us.successful' shopPath=urls.home}}}</div>
+                        {{else}}
+                            <p>{{{page.content}}}</p>
+                            {{> components/page/contact-us-form}}
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{{/partial}}
+
+{{> layout/base}}

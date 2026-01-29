@@ -1,0 +1,109 @@
+---
+products:
+    new:
+        limit: {{theme_settings.homepage_new_products_count}}
+    featured:
+        limit: {{theme_settings.homepage_featured_products_count}}
+    top_sellers:
+        limit: {{theme_settings.homepage_top_products_count}}
+carousel: {{theme_settings.homepage_show_carousel}}
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+---
+
+{{inject 'carousel' carousel}}
+
+{{#partial "hero"}}
+    {{{region name="home_below_menu"}}}
+    {{#and carousel carousel.slides.length}}
+        {{> components/ob-custom/home/ob-home-hero-carousel}}
+    {{/and}}
+    {{{region name="home_below_carousel"}}}
+{{/partial}}
+
+{{#partial "page"}}
+
+    {{#each shipping_messages}}
+        {{> components/common/alert/alert-info message}}
+    {{/each}}
+
+{{{region name="home_above_featured_products"}}}
+{{#all products.featured theme_settings.home_show_featured_prod}}
+    <div class="container narrow-container ob-home-carousel ob-home-featured-container">
+        {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
+    </div>
+{{/all}}
+{{{region name="home_below_featured_products"}}}
+
+{{#if theme_settings.home_show_cta_1}}
+    <div class="container ob-home-cta-1">
+        {{> components/ob-custom/home/ob-home-cta-1}}
+    </div>
+{{/if}}
+
+{{{region name="home_content_1"}}}
+
+{{#if theme_settings.home_show_newsletter}}
+    <div 
+        class="ob-home-newsletter"
+        {{#all theme_settings.is_night (if theme_settings.home_newsletter_has_bg_image '==' 'default')}}style="--background-image: url('{{cdn 'assets/img/ob-custom/news-bg-desktop.png'}}'); --background-image-mobile: url('{{cdn 'assets/img/ob-custom/news-bg-mobile.png'}}');"{{/all}}
+        {{#all theme_settings.is_night (if theme_settings.home_newsletter_has_bg_image '==' 'custom') theme_settings.home_newsletter_has_bg_image_file}}style="--background-image: url('{{getImageManagerImage theme_settings.home_newsletter_has_bg_image_file}}'); --background-image-mobile: url('{{getImageManagerImage theme_settings.home_newsletter_has_bg_image_file_mobile}}');"{{/all}}
+    >
+        {{> components/ob-custom/home/ob-home-newsletter}}
+    </div>
+{{/if}}
+
+{{{region name="home_content_2"}}}
+
+{{#if theme_settings.home_show_cta_2}}
+    <div class="container ob-home-cta-2">
+        {{> components/ob-custom/home/ob-home-cta-2}}
+    </div>
+{{/if}}
+
+{{{region name="home_above_new_products"}}}
+{{#all products.new theme_settings.home_show_new_prod}}
+    <div class="container narrow-container ob-home-carousel ob-home-new-container">
+        {{> components/products/new products=products.new columns=theme_settings.homepage_new_products_column_count}}
+    </div>
+{{/all}}
+{{{region name="home_below_new_products"}}}
+
+{{#if theme_settings.home_show_cta_3}}
+    <div class="container ob-home-cta-3">
+        {{> components/ob-custom/home/ob-home-cta-3}}
+    </div>
+{{/if}}
+
+{{{region name="home_content_3"}}}
+
+{{#if theme_settings.home_show_reviews}}
+    <div class="ob-home-review-slider">
+        {{#if theme_settings.theme_type '==' 'vogue'}}
+            <h2 class="ob-text-center">{{theme_settings.reviews_title}}</h2>
+        {{/if}}
+        {{> components/ob-custom/home/ob-home-reviews}}
+    </div>
+{{/if}}
+
+{{{region name="home_content_4"}}}
+
+{{#if theme_settings.home_show_promo_hero}}
+    <div class="container ob-home-promo-container">
+        {{> components/ob-custom/home/ob-home-promo-hero}}
+    </div>
+{{/if}}
+
+{{{region name="home_content_5"}}}
+
+{{#if theme_settings.home_show_blog_feed}}
+    <div class="container narrow-container ob-home-blog-feed">
+        {{> components/ob-custom/home/ob-home-blog-feed}}
+    </div>
+{{/if}}
+
+{{{region name="home_content_6"}}}
+
+{{/partial}}
+{{> layout/base}}

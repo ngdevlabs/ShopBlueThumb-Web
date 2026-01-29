@@ -1,0 +1,119 @@
+<nav class="navUser">
+    <ul class="navUser-section navUser-section--alt">
+        <li class="navUser-item navUser-item--account">
+            <a class="user-nav-toggle account-toggle">
+                {{#if theme_settings.theme_type '==' 'vogue'}}
+                    <svg class="vogue"><use xlink:href="#icon-duo-account" /></svg>
+                {{else}}
+                    <svg><use xlink:href="#icon-account" /></svg>
+                {{/if}}
+            </a>
+            <div class="account-toggle-container">
+                <span class="account-close">
+                    <svg><use xlink:href="#icon-close" /></svg>
+                </span>
+                
+                {{#if customer}}
+                    <a class="navUser-action ob-btn"
+                       href="{{urls.auth.logout}}"
+                       aria-label="{{lang 'common.logout'}}"
+                    >
+                        {{lang 'common.logout'}}
+                    </a>
+
+                    <div class="ob-quick-links">
+                        <h4>Quick Links</h4>
+                            <a href="{{urls.account.index}}"
+                               aria-label="{{lang 'common.account'}}"
+                            >
+                                {{lang 'common.account'}}
+                            </a>
+                            <a href="{{urls.account.orders.all}}"
+                               aria-label="{{lang 'account.nav.orders'}}"
+                            >
+                                {{lang 'account.nav.orders'}}
+                            </a>
+                            {{#if settings.returns_enabled}}
+                                <a href="{{urls.account.returns}}"
+                                   aria-label="{{lang 'account.nav.returns'}}"
+                                >
+                                    {{lang 'account.nav.returns'}}
+                                </a>
+                            {{/if}}
+                            <a href="{{urls.account.inbox}}"
+                               aria-label="{{lang 'account.mobile_nav.messages'}}"
+                            >
+                                {{lang 'account.mobile_nav.messages'}}
+                            </a>
+                            <a href="{{urls.account.addresses}}"
+                               aria-label="{{lang 'account.nav.addresses'}}"
+                            >
+                                {{lang 'account.nav.addresses'}}
+                            </a>
+                            <a href="{{urls.account.details}}"
+                               aria-label="{{lang 'account.nav.settings'}}"
+                            >
+                                {{lang 'account.nav.settings'}}
+                            </a>
+                    </div>
+                {{else}}
+                    <a class="navUser-action ob-btn"
+                       href="{{urls.auth.login}}"
+                       aria-label="{{lang 'common.login'}}"
+                    >
+                        {{lang 'common.login'}}
+                    </a>
+                    {{#if settings.account_creation_enabled}}
+                        <span class="account-or">or</span>
+
+                        <a class="navUser-action ob-btn"
+                           href="{{urls.auth.create_account}}"
+                           aria-label="{{lang 'common.sign_up'}}"
+                        >
+                            {{lang 'common.sign_up'}}
+                        </a>
+                    {{/if}}
+                {{/if}}
+            </div>
+        </li>
+        {{#if settings.show_wishlist}}
+        <li class="navUser-item navUser-item--wishlist ob-desktop">
+            <a class="navUser-action"
+               href="{{urls.account.wishlists.all}}"
+               aria-label="{{lang 'account.mobile_nav.wishlists'}}"
+            >
+                {{#if theme_settings.theme_type '==' 'vogue'}}
+                    <svg class="vogue"><use xlink:href="#icon-duo-heart" /></svg>
+                {{else}}
+                    <svg><use xlink:href="#icon-heart" /></svg>
+                {{/if}}
+            </a>
+        </li>
+        {{/if}}
+        <li class="navUser-item navUser-item--cart">
+            <a class="navUser-action"
+               data-cart-preview
+               data-dropdown="cart-preview-dropdown"
+               data-options="align:right"
+               href="{{urls.cart}}"
+               aria-label="{{lang 'cart.nav_aria_label'}}"
+            >
+                <span class="navUser-item-cartLabel">
+                    {{#if theme_settings.theme_type '==' 'vogue'}}
+                        <svg class="vogue"><use xlink:href="#icon-duo-bag" /></svg>
+                    {{else}}
+                        <svg><use xlink:href="#icon-bag" /></svg>
+                    {{/if}}
+                </span>
+                <span class="countPill cart-quantity"></span>
+            </a>
+
+            <div class="dropdown-menu" id="cart-preview-dropdown" data-dropdown-content aria-hidden="true"></div>
+        </li>
+        {{#if currency_selector.currencies.length '>' 1}}
+            <li class="navUser-item navUser-item--currencySelector">
+                {{> components/common/currency-selector}}
+            </li>
+        {{/if}}
+    </ul>
+</nav>

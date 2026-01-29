@@ -1,0 +1,42 @@
+---
+blog:
+    recent_posts:
+        limit: 4
+---
+{{#partial "page"}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+<section class="page">
+    <div class="ob-blog-header ob-title-banner ob-full-width-mobile
+    {{#unless theme_settings.show_title_banner_gradient}} no-overlay{{/unless}}
+    {{#if theme_settings.category_banner_text_only}} no-image{{/if}}">
+        {{#unless theme_settings.category_banner_text_only}}
+            {{#if theme_settings.blog_banner}}
+                <img rel="preload" src="{{getImageManagerImageSrcset theme_settings.blog_banner}}" alt="{{blog.name}}" />
+            {{else}}
+                <img rel="preload" src="{{cdn (multiConcat 'assets/img/ob-custom/' theme_settings.theme_type '/blog-banner.jpg')}}" alt="{{blog.name}}" />
+            {{/if}}
+        {{/unless}}
+        <div class="blog-header-text">
+            <h1 class="page-heading">{{blog.name}}</h1>
+            <div class="blog-description">
+                <p>{{blog.description}}</p>
+            </div>
+        </div>
+    </div>
+
+    <aside class="page-sidebar ob-desktop">
+        <h3 class="recent-posts">{{lang 'blog.recent_posts'}}</h3>
+        {{#each blog.recent_posts}}
+            {{> components/blog/sidebar-post post=this}}
+        {{/each}}
+    </aside>
+
+    <div class="page-content">
+        {{> components/blog/post post=blog.post show_tags=true}}
+    </div>
+</section>
+
+{{/partial}}
+{{> layout/base}}

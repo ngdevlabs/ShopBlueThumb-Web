@@ -1,0 +1,116 @@
+---
+product:
+    videos:
+        limit: {{theme_settings.productpage_videos_count}}
+    reviews:
+        limit: {{theme_settings.productpage_reviews_count}}
+    related_products:
+        limit: {{theme_settings.productpage_related_products_count}}
+    similar_by_views:
+        limit: {{theme_settings.productpage_similar_by_views_count}}
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+---
+
+{{inject 'productId' product.id}}
+{{inject 'customFields' product.custom_fields}}
+{{inject 'videos' product.videos}}
+
+{{#partial "page"}}
+
+    {{#any product.price.sale_price_with_tax.value product.price.sale_price_without_tax.value product.price.non_sale_price_with_tax.value product.price.non_sale_price_without_tax.value}}
+        <div class="container narrow-container product-bread">
+            {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+        </div>
+    {{else}}
+        <div class="container narrow-container">
+            {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+        </div>
+    {{/any}}
+
+    {{#each product.shipping_messages}}
+        {{> components/common/alert/alert-info message}}
+    {{/each}}
+
+    <div>
+        <div class="container narrow-container">
+            {{#if theme_settings.theme_type '==' 'vogue'}}
+                {{> components/ob-custom/product/ob-product-view-vogue}}
+            {{else}}
+                {{> components/products/product-view}}
+            {{/if}}
+        </div>
+
+        <div class="ob-product-below-image">
+            <div class="container narrow-container">
+                <div class="ob-description-block ob-mb-100 ob-mb-75-mobile">
+                    <div class="ob-description-col">
+                        {{#if product.description}}
+                            <h3>{{lang 'products.description'}}</h3>
+                            <div>{{{product.description}}}</div>
+                        {{/if}}
+                    </div>
+
+                    <div class="ob-warranty-col">
+                        {{#if product.warranty}}
+                            <div class="ob-warranty">
+                                <h3>{{lang 'products.warranty'}}</h3>
+                                <div>{{{product.warranty}}}</div>
+                            </div>
+                        {{/if}}
+                        <div class="ob-downloads">
+                            <h3>{{theme_settings.product_download_title}}</h3>
+                            <div class="download-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{#if theme_settings.show_custom_fields}}
+                {{#unless theme_settings.show_custom_fields_tabs}}
+                    {{#if product.custom_fields}}
+                    <div class="ob-custom-fields-content ob-mb-100 ob-mb-75-mobile">
+                        <div class="container narrow-container">
+                            <h3>{{theme_settings.pdp-custom-fields-tab-label}}</h3>
+                            {{#each product.custom_fields}}
+                                {{#unless name '==' 'Download'}}
+                                <div class="custom-field-row">
+                                    <dt class="productView-info-name">{{name}}</dt>
+                                    <dd class="productView-info-value">{{value}}</dd>
+                                </div>
+                                {{/unless}}
+                            {{/each}}
+                        </div>
+                    </div>
+                    {{/if}}
+                {{/unless}}
+            {{/if}}
+
+            {{{region name="product_above_similar"}}}
+
+            {{#if product.related_products}}
+                <div class="container narrow-container ob-similar-container">
+                    <div class="ob-similar-products">
+                        {{> components/ob-custom/product/ob-similar-products products=product.related_products columns=theme_settings.productpage_related_products_count}}
+                    </div>
+                </div>
+            {{/if}}
+        </div>
+
+        {{#if product.videos.list.length}}
+            {{> components/products/videos product.videos}}
+        {{/if}}
+
+        {{#all settings.show_product_reviews theme_settings.show_product_reviews product.reviews.total}}
+            <div class="ob-product-reviews">
+                <div class="container narrow-container">
+                    {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
+                </div>
+            </div>
+        {{/all}}
+    </div>
+
+    {{> components/products/schema}}
+{{/partial}}
+{{> layout/base}}

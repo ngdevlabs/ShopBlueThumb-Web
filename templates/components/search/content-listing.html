@@ -1,0 +1,20 @@
+{{#if content_results}}
+    {{!-- {{> components/search/content-sort-box sort=pagination.content_results.sort}} --}}
+    <div class="ob-product-listing-top">
+        <div class="ob-product-actions-box">
+            <div class="product-sort-wrap">
+                {{#if product_results.products.length}}
+                    {{> components/products/filter sort=pagination.product_results.sort}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+
+    <ul>
+        {{#each content_results}}
+            <strong><a href="{{url}}">{{{title}}}</a></strong>({{type}})
+            <p>{{{content}}}</p>
+        {{/each}}
+    </ul>
+    {{> components/common/paginator pagination.content_results reload=true}}
+{{/if}}

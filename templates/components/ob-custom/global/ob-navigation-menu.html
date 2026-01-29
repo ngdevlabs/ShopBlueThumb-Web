@@ -1,0 +1,83 @@
+<nav class="navPages">
+    <div class="container ob-mobile">
+        <div class="header-promo">
+                {{#if theme_settings.show_header_promo}}
+                    {{> components/ob-custom/global/ob-header-promo}}
+                {{/if}}
+                {{> components/ob-custom/global/ob-mobile-currency-selector}}
+            </div>
+        <div class="navPages-quickSearch ob-mobile"></div>
+    </div>
+    <ul class="navPages-list">
+        {{#each categories}}
+            <li class="navPages-item parent-item">
+                {{> components/ob-custom/global/ob-navigation-list theme_settings=../theme_settings}}
+            </li>
+        {{/each}}
+        
+        {{#unless theme_settings.hide_content_navigation}}
+            {{#each pages}}
+                {{#if (occurrences ../theme_settings.navPages_included_pages name) '>' 0}}
+                <li class="navPages-item parent-item">
+                    {{> components/ob-custom/global/ob-navigation-list-pages theme_settings=../theme_settings}}
+                </li>
+                {{/if}}
+            {{/each}}
+        {{/unless}}
+    </ul>
+    <ul class="navPages-list navPages-list--user">
+        {{#if settings.show_wishlist}}
+            <li class="navPages-item">
+                <a class="navPages-action"
+                   href="{{urls.account.wishlists.all}}"
+                   aria-label="{{lang 'account.mobile_nav.wishlists'}}"
+                >
+                    {{#if theme_settings.theme_type '==' 'vogue'}}
+                        <svg><use xlink:href="#icon-duo-heart" /></svg>
+                    {{else}} 
+                        <svg><use xlink:href="#icon-heart" /></svg>
+                    {{/if}}
+                    {{lang 'account.mobile_nav.wishlists'}}
+                </a>
+            </li>
+        {{/if}}
+        {{#if theme_settings.show_gift_blog_links}}
+            {{#if settings.gift_certificates_enabled}}
+                <li class="navPages-item">
+                    <a class="navPages-action"
+                       href="{{urls.gift_certificate.purchase}}"
+                       aria-label="{{lang 'common.gift_cert'}}"
+                    >
+                        {{#if theme_settings.theme_type '==' 'vogue'}}
+                            <svg><use xlink:href="#icon-duo-gift" /></svg>
+                        {{else}} 
+                            <svg><use xlink:href="#icon-gift" /></svg>
+                        {{/if}}
+                        {{lang 'common.gift_cert'}}
+                    </a>
+                </li>
+            {{/if}}
+            {{#if settings.blog_enabled}}
+                <li class="navPages-item">
+                    <a class="navPages-action"
+                       href="{{blog.url}}"
+                       aria-label="{{blog.name}}"
+                    >
+                        {{#if theme_settings.theme_type '==' 'vogue'}}
+                            <svg><use xlink:href="#icon-duo-blog" /></svg>
+                        {{else}} 
+                            <svg><use xlink:href="#icon-blog" /></svg>
+                        {{/if}}
+                        {{blog.name}}
+                    </a>
+                </li>
+            {{/if}}
+        {{/if}}
+    </ul>
+
+    <div class="ob-mobile">
+        {{#if social_media}}
+            {{> components/common/social-links}}
+        {{/if}}
+    </div>
+</nav>

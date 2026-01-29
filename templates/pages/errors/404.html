@@ -1,0 +1,30 @@
+---
+products:
+    new:
+        limit: 4
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+---
+
+{{#partial "page"}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+<div class="container narrow-container ob-not-found">
+    <h1 class="page-heading">{{lang 'page_not_found.page_heading'}}</h1>
+    <p class="u-textAlignCenter">
+        {{lang 'page_not_found.message'}}
+    </p>
+
+    <div class="ob-mb-100 ob-mb-75-mobile">
+        {{> components/common/search-box}}
+    </div>
+
+    <div class="ob-error-carousel ob-mb-25">
+        {{> components/ob-custom/ob-suggested-products products=products.new columns=4}}
+    </div>
+</div>
+
+{{/partial}}
+{{> layout/base}}

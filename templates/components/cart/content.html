@@ -1,0 +1,192 @@
+<div class="cart" data-cart-quantity="{{cart.quantity}}">
+    <div class="cart-list">
+        {{#each cart.items}}
+            <div class="cart-item" data-item-row data-product-id="{{product_id}}">
+                <div class="cart-item-image">
+                    {{#if type '==' 'GiftCertificate'}}
+                        <img
+                            class="cart-item-fixed-image"
+                            src="{{cdn ../theme_settings.default_image_gift_certificate}}"
+                            alt="{{lang 'cart.gift_certificates.gift_certificate'}}"
+                            title="{{lang 'cart.gift_certificates.gift_certificate'}}"
+                        >
+                    {{else}}
+                        {{> components/common/responsive-img
+                            image=image
+                            class="cart-item-image"
+                            fallback_size="200x200"
+                            lazyload=../theme_settings.lazyload_mode
+                            default_image=../theme_settings.default_image_product
+                        }}
+                    {{/if}}
+                </div>
+                <div class="cart-item-details">
+                    <div class="main-details">
+                        {{#if brand}}
+                            <a class="cart-item-category" href="/{{dashcase brand.name}}/">{{brand.name}}</a>
+                        {{/if}}
+                        <h2 class="cart-item-name">
+                            <a class="cart-item-name__label" href="{{url}}">{{name}}</a>
+                        </h2>
+
+                        {{#or ../customer (if ../settings.hide_price_from_guests '!==' true)}}
+                            <span class="cart-item-value {{#if price_discounted}}price--discounted{{/if}}">{{price.formatted}}</span>
+                            {{#if price_discounted}}
+                                <span class="cart-item-value">{{price_discounted.formatted}}</span>
+                            {{/if}}
+                        {{else}}
+                            {{> components/common/login-for-pricing}}
+                        {{/or}}
+
+                        {{#if options}}
+                            <dl class="definitionList">
+                                {{#each options}}
+                                    <div class="ob-product-option">
+                                        <dt class="definitionList-key">{{name}}:</dt>
+                                        <dd class="definitionList-value">
+                                            {{#if is_file}}
+                                                <a href="/viewfile.php?attributeId={{id}}&cartitem={{../id}}">{{value}}</a>
+                                            {{else}}
+                                                {{{ sanitize value}}}
+                                            {{/if}}
+                                        </dd>
+                                    </div>
+                                {{/each}}
+                            </dl>
+                        {{/if}}
+
+                        {{#if type '==' 'GiftCertificate'}}
+                            <a href="{{edit_url}}"
+                               aria-label="{{lang 'cart.gift_certificates.change_gift_certificate' certificate_name=name}}"
+                            >
+                                {{lang 'common.change'}}
+                            </a>
+                        {{/if}}
+
+                        {{> components/cart/item-giftwrap this}}
+
+                        {{#if event_date}}
+                            <dl class="cart-item-options">
+                                <dt class="cart-item-option-title">
+                                    {{event_date.name}}
+                                </dt>
+
+                                <dd class="cart-item-option-description">
+                                    {{event_date.date}}
+                                </dd>
+                            </dl>
+                        {{/if}}
+
+                        {{#if release_date}}
+                            <p>({{release_date}})</p>
+                        {{/if}}
+
+                        {{#unless type '==' 'GiftCertificate'}}
+                        <div class="form-increment ob-desktop">
+                            {{#if can_modify}}
+                                <button class="button button--icon"
+                                        data-cart-update
+                                        data-cart-itemid="{{id}}"
+                                        data-action="dec"
+                                >
+                                    <span class="is-srOnly">{{lang 'products.quantity_decrease' name=name}}</span>
+                                    <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-minus" /></svg></i>
+                                </button>
+                            {{/if}}
+                            <input class="form-input form-input--incrementTotal cart-item-qty-input"
+                                   id="qty-{{id}}"
+                                   name="qty-{{id}}"
+                                   type="tel"
+                                   value="{{quantity}}"
+                                   data-quantity-min="{{min_purchase_quantity}}"
+                                   data-quantity-max="{{max_purchase_quantity}}"
+                                   data-quantity-min-error="{{lang 'products.quantity_min' quantity=min_purchase_quantity}}"
+                                   data-quantity-max-error="{{lang 'products.quantity_max' quantity=max_purchase_quantity}}"
+                                   min="1"
+                                   pattern="[0-9]*"
+                                   data-cart-itemid="{{id}}"
+                                   data-action="manualQtyChange"
+                                   aria-label="{{name}}"
+                                   aria-live="polite"{{#unless can_modify}} disabled{{/unless}}>
+                            {{#if can_modify}}
+                                <button class="button button--icon"
+                                        data-cart-update
+                                        data-cart-itemid="{{id}}"
+                                        data-action="inc"
+                                >
+                                    <span class="is-srOnly">{{lang 'products.quantity_increase' name=name}}</span>
+                                    <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-plus" /></svg></i>
+                                </button>
+                            {{/if}}
+                        </div>
+                        {{/unless}}
+                    </div>
+
+                    <div class="cart-item-modify">
+                        <div class="ob-edit-remove">
+                            {{#if options}}
+                                <button class="cart-edit icon"
+                                   data-item-edit="{{id}}"
+                                   data-product-id="{{product_id}}"
+                                   aria-label="{{lang 'products.change_product_options' name=name}}"
+                                >
+                                    <svg><use xlink:href="#icon-ob-edit"></use></svg> {{lang 'common.edit'}}
+                                </button>
+                            {{/if}}
+
+                            {{#or can_modify (if type '==' 'GiftCertificate')}}
+                                <button class="cart-remove icon"
+                                        data-cart-itemid="{{id}}"
+                                        data-confirm-delete="{{lang 'cart.confirm_delete'}}"
+                                        aria-label="{{lang 'cart.remove_item' name=name}}"
+                                >
+                                    <svg><use xlink:href="#icon-close"></use></svg>
+                                    {{lang 'cart.remove_action'}}
+                                </button>
+                            {{/or}}
+                        </div>
+                        {{#unless type '==' 'GiftCertificate'}}
+                        <div class="form-increment ob-mobile">
+                            {{#if can_modify}}
+                                <button class="button button--icon"
+                                        data-cart-update
+                                        data-cart-itemid="{{id}}"
+                                        data-action="dec"
+                                >
+                                    <span class="is-srOnly">{{lang 'products.quantity_decrease' name=name}}</span>
+                                    <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-minus" /></svg></i>
+                                </button>
+                            {{/if}}
+                            <input class="form-input form-input--incrementTotal cart-item-qty-input"
+                                   id="qty-{{id}}"
+                                   name="qty-{{id}}"
+                                   type="tel"
+                                   value="{{quantity}}"
+                                   data-quantity-min="{{min_purchase_quantity}}"
+                                   data-quantity-max="{{max_purchase_quantity}}"
+                                   data-quantity-min-error="{{lang 'products.quantity_min' quantity=min_purchase_quantity}}"
+                                   data-quantity-max-error="{{lang 'products.quantity_max' quantity=max_purchase_quantity}}"
+                                   min="1"
+                                   pattern="[0-9]*"
+                                   data-cart-itemid="{{id}}"
+                                   data-action="manualQtyChange"
+                                   aria-label="{{name}}"
+                                   aria-live="polite"{{#unless can_modify}} disabled{{/unless}}>
+                            {{#if can_modify}}
+                                <button class="button button--icon"
+                                        data-cart-update
+                                        data-cart-itemid="{{id}}"
+                                        data-action="inc"
+                                >
+                                    <span class="is-srOnly">{{lang 'products.quantity_increase' name=name}}</span>
+                                    <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-plus" /></svg></i>
+                                </button>
+                            {{/if}}
+                        </div>
+                        {{/unless}}
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>

@@ -1,0 +1,43 @@
+[data-page-type="brands"] {
+	.pagination {
+		margin: 0 auto;
+	}
+}
+.ob-brands-carousel {
+	width: 100%;
+	padding-left: 0;
+
+	.carousel-wrap {
+		width: calc(100% + 20px);
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		justify-content: flex-start;
+		margin: 0 -10px;
+
+		.subcat-box {
+			width: calc(50% - 20px);
+			margin: 0 10px 20px;
+			@include breakpoint("small") {
+				width: calc(33.3% - 20px);
+			}
+			@include breakpoint("medium") {
+				width: calc(25% - 20px);
+			}
+			@include breakpoint("large") {
+				width: calc(20% - 20px);
+			}
+
+			a {
+				.image-wrap {
+					width: 96px;
+					height: 35px;
+					@include breakpoint("medium") {
+						width: 165px;
+						height: 60px;
+					}
+				}
+			}
+		}
+	}
+}

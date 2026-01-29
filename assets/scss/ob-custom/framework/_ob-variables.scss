@@ -1,0 +1,77 @@
+//***************************
+// FONTS
+//***************************
+$ob-body-font: stencilFontFamily('body-font');
+$ob-body-font-weight: stencilFontWeight('body-font');
+
+$ob-headings-font: stencilFontFamily('headings-font');
+$ob-headings-font-weight: stencilFontWeight('headings-font');
+
+$ob-pretitle-font: stencilFontFamily('pretitle-font');
+$ob-pretitle-font-weight: stencilFontWeight('pretitle-font');
+
+$ob-button-font: stencilFontFamily('button-font');
+$ob-button-font-weight: stencilFontWeight('button-font');
+
+//***************************
+// FONT SIZES
+//***************************
+$ob-size-root: stencilNumber("fontSize-root");
+$ob-size-button: stencilNumber("fontSize-button");
+$ob-size-pretitle: stencilNumber("fontSize-pretitle");
+$ob-size-product: stencilNumber("product_title_size");
+$ob-size-h1: stencilNumber("fontSize-h1");
+$ob-size-h2: stencilNumber("fontSize-h2");
+$ob-size-h3: stencilNumber("fontSize-h3");
+$ob-size-h4: stencilNumber("fontSize-h4");
+$ob-size-h5: stencilNumber("fontSize-h5");
+$ob-size-h6: stencilNumber("fontSize-h6");
+
+//***************************
+// COLORS
+//***************************
+$ob-text-primary: stencilColor("color-textBase");
+$ob-text-secondary: stencilColor("color-textSecondary");
+
+$ob-gradient: linear-gradient(90deg, stencilColor('color-primary') 0%, stencilColor('color-secondary') 100%);
+$ob-gradient-inverted: linear-gradient(90deg, stencilColor('color-secondary') 0%, stencilColor('color-primary') 100%);
+$ob-gradient-animated: linear-gradient(90deg, stencilColor('color-secondary'), stencilColor('color-primary'), stencilColor('color-secondary'));
+
+
+//***************************
+// WIDTHS / SIZES
+//***************************
+$cont-width: 1560px;
+$row-width: 1560px;
+$narrow-width: 1350px;
+$base-page-width: 1150px;
+
+$screen-xlarge:                 1441px;
+$screen-large:                  1261px;
+$screen-medium:                 801px;
+$screen-tablet:                 768px;
+$screen-small:                  551px;
+$screen-tiny:                   1px;
+
+//***************************
+// OTHER
+//***************************
+$ob-border-radius: stencilNumber("border_radius");
+
+$ob-card-fill-option: stencilString("product_card_image_fit");
+
+$ob-card-aspect-option: stencilString("card_aspect_ratio");
+$ob-card-aspect-ratio: 1/1.25;
+@if $ob-card-aspect-option == 'landscape' {
+    $ob-card-aspect-ratio: 1.25/1;
+} @else if $ob-card-aspect-option == 'square' {
+    $ob-card-aspect-ratio: 1/1;
+}
+
+$ob-subcat-aspect-option: stencilString("subcat_aspect_ratio");
+$ob-subcat-aspect-ratio: 1/1.25;
+@if $ob-subcat-aspect-option == 'landscape' {
+    $ob-subcat-aspect-ratio: 1.25/1;
+} @else if $ob-subcat-aspect-option == 'square' {
+    $ob-subcat-aspect-ratio: 1/1;
+}

@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="heading-2">
+        {{{region name="newsletter_banner_title"}}}
+    </div>
+    <div class="ob-body-lg">
+        {{{region name="newsletter_banner_content"}}}
+    </div>
+
+    <form class="form" action="{{urls.subscribe.action}}" method="post">
+        <fieldset class="form-fieldset">
+            <input type="hidden" name="action" value="subscribe">
+            <input type="hidden" name="nl_first_name" value="bc">
+            <input type="hidden" name="check" value="1">
+            <div class="form-field">
+                <label class="form-label is-srOnly" for="nl_email">{{lang 'common.email_address'}}</label>
+                <div class="form-prefixPostfix wrap">
+                    <input class="form-input"
+                           id="nl_email"
+                           name="nl_email"
+                           type="email"
+                           value="{{customer.email}}"
+                           placeholder="{{lang 'newsletter.email_placeholder'}}"
+                           aria-describedby="alertBox-message-text"
+                           aria-required="true"
+                           required
+                    >
+                    <input class="button form-prefixPostfix-button--postfix ob-btn 
+                        {{#unless theme_settings.theme_type '==' 'vogue'}}ob-cta-link {{/unless}}
+                        {{#if theme_settings.theme_type '==' 'vogue'}}ob-btn-border{{/if}}"
+                           type="submit"
+                           value="{{lang 'newsletter.subscribe_submit'}}"
+                    >
+                </div>
+                {{#if settings.show_newsletter_summary }}
+                    <div class="footer-newsletter-summary">{{settings.newsletter_summary}}</div>
+                {{/if}}
+            </div>
+        </fieldset>
+    </form>
+</div>

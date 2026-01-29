@@ -1,0 +1,288 @@
+
+
+//***************************
+//Rows
+//***************************
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: $row-width;
+  max-width: 100%;
+}
+
+//***************************
+//Containers
+//***************************
+.container {
+  padding: 0px 20px;
+  width: $cont-width;
+  max-width: 100%;
+
+  &.narrow-container {
+    width: $narrow-width;
+  }
+
+  &.base-content-page {
+    width: $base-page-width;
+  }
+}
+div.page {
+  max-width: 100%;
+  margin: 0;
+}
+
+//***************************
+//Overlays
+//***************************
+.ob-overlay {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &-dark {
+    background-image: linear-gradient(to bottom, rgba(26, 26, 26, 0.5), rgba(26, 26, 26, 0.5)),
+  }
+  &-light {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
+  }
+}
+
+
+//***************************
+//spacing-utils
+//***************************
+.ob-mt {
+  &-200 {
+    margin-top: 200px;
+  }
+  &-150 {
+    margin-top: 150px;
+  }
+  &-125 {
+    margin-top: 125px;
+  }
+  &-100 {
+    margin-top: 100px;
+  }
+  &-75 {
+    margin-top: 75px;
+  }
+  &-50 {
+    margin-top: 50px;
+  }
+  &-25 {
+    margin-top: 25px;
+  }
+  &-12 {
+    margin-top: 12px;
+  }
+
+  //mobile
+  @media only screen and (max-width: 801px) {
+    &-200-mobile {
+      margin-top: 200px;
+    }
+    &-150-mobile {
+      margin-top: 150px;
+    }
+    &-100-mobile {
+      margin-top: 100px;
+    }
+    &-75-mobile {
+      margin-top: 75px;
+    }
+    &-50-mobile {
+      margin-top: 50px;
+    }
+    &-25-mobile {
+      margin-top: 25px !important;
+    }
+    &-12-mobile {
+      margin-top: 12px;
+    }
+    &-0-mobile {
+      margin-top: 0px;
+    }
+  }
+}
+
+.ob-mb {
+  &-200 {
+    margin-bottom: 200px;
+  }
+  &-175 {
+    margin-bottom: 175px;
+  }
+  &-150 {
+    margin-bottom: 150px;
+  }
+  &-125 {
+    margin-bottom: 125px;
+  }
+  &-100 {
+    margin-bottom: 100px;
+  }
+  &-75 {
+    margin-bottom: 75px;
+  }
+  &-50 {
+    margin-bottom: 50px;
+  }
+  &-25 {
+    margin-bottom: 25px;
+  }
+  &-12 {
+    margin-bottom: 12px;
+  }
+  &-0-auto {
+    margin: 0 auto;
+  }
+  &-0 {
+    margin-bottom: 0;
+  }
+
+  //mobile
+  @media only screen and (max-width: 801px) {
+    &-200-mobile {
+      margin-bottom: 200px;
+    }
+    &-175-mobile {
+      margin-bottom: 175px;
+    }
+    &-150-mobile {
+      margin-bottom: 150px;
+    }
+    &-125-mobile {
+      margin-bottom: 125px;
+    }
+    &-100-mobile {
+      margin-bottom: 100px;
+    }
+    &-75-mobile {
+      margin-bottom: 75px;
+    }
+    &-50-mobile {
+      margin-bottom: 50px;
+    }
+    &-25-mobile {
+      margin-bottom: 25px !important;
+    }
+    &-12-mobile {
+      margin-bottom: 12px;
+    }
+    &-0-mobile {
+      margin-bottom: 0px;
+    }
+  }
+}
+
+.ob-ml {
+  &-30 {
+    margin-left: 30px;
+  }
+  &-12 {
+    margin-left: 12px;
+  }
+}
+
+.ob-pl {
+  &-30 {
+    padding-left: 30px;
+  }
+}
+
+.ob-pt {
+  &-175 {
+    padding-top: 175px;
+  }
+  &-150 {
+    padding-top: 150px;
+  }
+  &-100 {
+    padding-top: 100px;
+  }
+  &-50 {
+    padding-top: 50px;
+  }
+  &-25 {
+    padding-top: 25px;
+  }
+  &-0 {
+    padding-top: 0px;
+  }
+
+  //mobile
+  @media only screen and (max-width: 801px) {
+    &-200-mobile {
+      padding-top: 200px;
+    }
+    &-150-mobile {
+      padding-top: 150px;
+    }
+    &-100-mobile {
+      padding-top: 100px;
+    }
+    &-50-mobile {
+      padding-top: 50px;
+    }
+    &-25-mobile {
+      padding-top: 25px;
+    }
+    &-12-mobile {
+      padding-top: 12px;
+    }
+    &-0-mobile {
+      padding-top: 0px;
+    }
+  }
+}
+
+.ob-pb {
+  &-175 {
+    padding-bottom: 175px;
+  }
+  &-150 {
+    padding-bottom: 150px;
+  }
+  &-100 {
+    padding-bottom: 100px;
+  }
+  &-50 {
+    padding-bottom: 50px;
+  }
+  &-25 {
+    padding-bottom: 25px;
+  }
+  &-0 {
+    padding-bottom: 0px;
+  }
+
+  //mobile
+  @media only screen and (max-width: 801px) {
+    &-200-mobile {
+      padding-bottom: 200px;
+    }
+    &-150-mobile {
+      padding-bottom: 150px;
+    }
+    &-100-mobile {
+      padding-bottom: 100px;
+    }
+    &-50-mobile {
+      padding-bottom: 50px;
+    }
+    &-25-mobile {
+      padding-bottom: 25px;
+    }
+    &-12-mobile {
+      padding-bottom: 12px;
+    }
+    &-0-mobile {
+      padding-bottom: 0px;
+    }
+  }
+}

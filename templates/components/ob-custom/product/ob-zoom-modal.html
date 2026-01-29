@@ -1,0 +1,44 @@
+<div id="zoomModal">
+    <div class="zoom-overlay"></div>
+    <div class="zoom-modal-wrap">
+        <span class="zoom-close">
+            <svg><use xlink:href="#icon-close" /></svg>
+        </span>
+        <div class="modal-content loading">
+            <div class="ob-product-zoom-modal">
+                <div class="modal-preview">
+                    <div class="preview-wrap">
+                        {{#each product.images}}
+                            <div class="slide">
+                                <div class="image-wrap">
+                                    {{> components/common/responsive-img
+                                        image=this
+                                        fallback_size=2560x2560
+                                        lazyload=theme_settings.lazyload_mode
+                                        default_image=theme_settings.default_image_product
+                                    }}
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="modal-thumbnails">
+                    <div class="thumbnails-wrap">
+                        {{#each product.images}}
+                            <div class="thumbnail">
+                                <div class="image-wrap">
+                                    {{> components/common/responsive-img
+                                        image=this
+                                        fallback_size=250x250
+                                        lazyload=theme_settings.lazyload_mode
+                                        default_image=theme_settings.default_image_product
+                                    }}
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

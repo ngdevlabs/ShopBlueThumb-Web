@@ -1,0 +1,65 @@
+.ob-not-found {
+	padding: 0;
+
+	@include breakpoint("medium") {
+		padding: 0 20px;
+	}
+
+	.form {
+		width: 800px;
+		max-width: 100%;
+		margin: 0 auto;
+
+		.form-field {
+			margin: 0;
+
+			input {
+				height: 50px;
+			}
+		}
+	}
+
+	.ob-error-carousel {
+		h2 {
+			margin-bottom: 1.5rem;
+
+			@include breakpoint("medium") {
+				margin-bottom: 2rem;
+			}
+		}
+	}
+
+	.productGrid {
+		li.product {
+			width: 49.5%;
+
+			@include breakpoint("small") {
+				width: 32.5%;
+			}
+			@include breakpoint("medium") {
+				width: 32.5%;
+			}
+			@include breakpoint("large") {
+				width: 24.5%;
+			}
+		}
+	}
+}
+
+// VOGUE VARIANT
+[data-theme-variant="vogue"] {
+	.ob-not-found {
+		.form {
+			.form-input {
+				@media screen and (max-width: $screen-medium - 1){
+					text-align: center;
+				}
+			}
+		}
+		.ob-error-carousel {
+			h2 {
+				text-transform: none!important;
+			}
+		}
+	}
+}

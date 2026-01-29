@@ -1,0 +1,13 @@
+<div class="modal-body quickView">
+    {{#if theme_settings.theme_type '==' 'vogue'}}
+        {{> components/ob-custom/product/ob-product-view-vogue}}
+    {{else}}
+        {{> components/products/product-view}}
+    {{/if}}
+
+    {{#all settings.show_product_reviews theme_settings.show_product_reviews}}
+        <div class="ob-product-reviews">
+            {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
+        </div>
+    {{/all}}
+</div>

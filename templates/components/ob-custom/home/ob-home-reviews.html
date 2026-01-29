@@ -1,0 +1,150 @@
+<div class="slider-inner"
+	{{#if theme_settings.theme_type '==' 'vogue'}}
+		data-slick='{
+			"slidesToShow": 1,
+		    "centerMode": false,
+		    "arrows": false,
+		    "dots": false,
+		    "infinite": false,
+		    "autoplay": true,
+		    "autoplaySpeed": 7000,
+		    "mobileFirst": true,
+		    "swipeToSlide": true,
+		    "variableWidth": false,
+		    "adaptiveHeight": true,
+		    "responsive": [
+				{
+				  	"breakpoint": 1023,
+				  	"settings": {
+				    	"centerMode": true,
+				    	"variableWidth": true
+				  	}
+				}
+			]
+		}'
+	{{else}}
+		data-slick='{
+			"slidesToShow": 1,
+		    "centerMode": false,
+		    "arrows": false,
+		    "dots": true,
+		    "infinite": false,
+		    "autoplay": true,
+		    "autoplaySpeed": 7000,
+		    "mobileFirst": true,
+		    "swipeToSlide": true,
+		    "variableWidth": false,
+		    "adaptiveHeight": true,
+		    "responsive": [
+				{
+				  	"breakpoint": 1023,
+				  	"settings": {
+				    	"centerMode": true,
+				    	"variableWidth": true
+				  	}
+				}
+			]
+		}'
+	{{/if}}>
+	<div class="review-item">
+		<div class="review-content">
+			<span class="stars"><svg><use xlink:href="#icon-review-stars" /></svg></span>
+			<div class="quote">{{{region name="review_1_quote"}}}</div>
+			<div class="source">
+				{{#if theme_settings.home_reviews_show_avatars}}
+					<div class="image-wrap">
+						{{#if theme_settings.review_1_customer_image}}
+							<img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" 
+								srcset="{{getImageManagerImage theme_settings.review_1_customer_image}}" 
+						 		alt="{{theme_settings.review_1_customer_name}}" width="40" height="40" />
+						{{else}}
+							<img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" 
+								srcset="{{cdn (multiConcat 'assets/img/ob-custom/' theme_settings.theme_type '/review-2.png')}}"
+						 		alt="{{theme_settings.review_1_customer_name}}" width="40" height="40" />
+						{{/if}}
+					</div>
+				{{/if}}
+				<div class="name ob-body-sm">
+					{{theme_settings.review_1_customer_name}}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="review-item">
+		<div class="review-content">
+			<span class="stars"><svg><use xlink:href="#icon-review-stars" /></svg></span>
+			<div class="quote">{{{region name="review_2_quote"}}}</div>
+			<div class="source">
+				{{#if theme_settings.home_reviews_show_avatars}}
+					<div class="image-wrap">
+						{{#if theme_settings.review_2_customer_image}}
+							<img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" 
+								srcset="{{getImageManagerImage theme_settings.review_2_customer_image}}" 
+						 		alt="{{theme_settings.review_2_customer_name}}" width="40" height="40" />
+						{{else}}
+							<img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" 
+								srcset="{{cdn (multiConcat 'assets/img/ob-custom/' theme_settings.theme_type '/review-3.png')}}"
+						 		alt="{{theme_settings.review_2_customer_name}}" width="40" height="40" />
+						{{/if}}
+					</div>
+				{{/if}}
+				<div class="name ob-body-sm">
+					{{theme_settings.review_2_customer_name}}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="review-item">
+		<div class="review-content">
+			<span class="stars"><svg><use xlink:href="#icon-review-stars" /></svg></span>
+			<div class="quote">{{{region name="review_3_quote"}}}</div>
+			<div class="source">
+				{{#if theme_settings.home_reviews_show_avatars}}
+					<div class="image-wrap">
+						{{#if theme_settings.review_3_customer_image}}
+							<img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" 
+								srcset="{{getImageManagerImage theme_settings.review_3_customer_image}}" 
+						 		alt="{{theme_settings.review_3_customer_name}}" width="40" height="40" />
+						{{else}}
+							<img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" 
+								srcset="{{cdn (multiConcat 'assets/img/ob-custom/' theme_settings.theme_type '/review-2.png')}}"
+						 		alt="{{theme_settings.review_3_customer_name}}" width="40" height="40" />
+						{{/if}}
+					</div>
+				{{/if}}
+				<div class="name ob-body-sm">
+					{{theme_settings.review_3_customer_name}}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="review-item">
+		<div class="review-content">
+			<span class="stars"><svg><use xlink:href="#icon-review-stars" /></svg></span>
+			<div class="quote">{{{region name="review_4_quote"}}}</div>
+			<div class="source">
+				{{#if theme_settings.home_reviews_show_avatars}}
+					<div class="image-wrap">
+						{{#if theme_settings.review_4_customer_image}}
+							<img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" 
+								srcset="{{getImageManagerImage theme_settings.review_4_customer_image}}" 
+						 		alt="{{theme_settings.review_4_customer_name}}" width="40" height="40" />
+						{{else}}
+							<img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" 
+								srcset="{{cdn (multiConcat 'assets/img/ob-custom/' theme_settings.theme_type '/review-1.png')}}"
+						 		alt="{{theme_settings.review_4_customer_name}}" width="40" height="40" />
+						{{/if}}
+					</div>
+				{{/if}}
+				<div class="name ob-body-sm">
+					{{theme_settings.review_4_customer_name}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{{#if theme_settings.home_reviews_show_button}}
+<div class="see-reviews">
+	<a class="ob-btn ob-cta-link" href="{{theme_settings.reviews_btn_link}}">{{theme_settings.reviews_btn_text}}</a>
+</div>
+{{/if}}

@@ -1,0 +1,121 @@
+<ul class="cart-totals">
+    <li class="cart-total">
+        <div class="cart-total-label">
+            <strong>{{lang 'cart.checkout.subtotal'}}:</strong>
+        </div>
+        <div class="cart-total-value">
+            {{#or customer (if settings.hide_price_from_guests '!==' true)}}
+                <span>{{cart.sub_total.formatted}}</span>
+            {{else}}
+                {{> components/common/login-for-pricing}}
+            {{/or}}
+        </div>
+    </li>
+    {{#if cart.gift_wrapping_cost.value}}
+        <li class="cart-total">
+            <div class="cart-total-label">
+                <strong>{{lang 'cart.checkout.gift_wrapping'}}:</strong>
+            </div>
+            <div class="cart-total-value">
+                <span>{{cart.gift_wrapping_cost.formatted}}</span>
+            </div>
+        </li>
+    {{/if}}
+    {{#if cart.shipping_handling.show_estimator}}
+        <li class="cart-total shipping-estimate">
+            <div class="cart-total-label">
+                <strong>{{lang 'cart.checkout.shipping'}}:</strong>
+            </div>
+            {{> components/cart/shipping-estimator cart.shipping_handling}}
+        </li>
+    {{/if}}
+    {{#each cart.taxes}}
+        {{#unless included}}
+            <li class="cart-total">
+                <div class="cart-total-label">
+                    <strong>{{name}}:</strong>
+                </div>
+                <div class="cart-total-value">
+                    <span>{{cost.formatted}}</span>
+                </div>
+            </li>
+        {{/unless}}
+    {{/each}}
+    {{#if cart.discount }}
+        <li class="cart-total">
+            <div class="cart-total-label">
+                <strong>{{lang 'cart.discount'}}:</strong>
+            </div>
+            <div class="cart-total-value">
+                {{cart.discount.formatted}}
+            </div>
+        </li>
+    {{/if}}
+    {{#each cart.taxes}}
+        {{#if included}}
+            <li class="cart-total">
+                <div class="cart-total-label">
+                    <strong>{{concat name (lang 'cart.included_in_total')}}:</strong>
+                </div>
+                <div class="cart-total-value">
+                    <span>{{cost.formatted}}</span>
+                </div>
+            </li>
+        {{/if}}
+    {{/each}}
+    <li class="cart-total cart-grand-total">
+        <div class="cart-total-label">
+            <strong>{{lang 'cart.checkout.grand_total'}}:</strong>
+        </div>
+        <div class="cart-total-value cart-total-grandTotal">
+            {{#or customer (if settings.hide_price_from_guests '!==' true)}}
+                <span>{{cart.grand_total.formatted}}</span>
+            {{else}}
+                {{> components/common/login-for-pricing}}
+            {{/or}}
+        </div>
+    </li>
+    {{#if cart.coupons}}
+        {{#each cart.coupons}}
+            <li class="cart-total add-coupon added-coupon">
+                <span><strong>Coupon:</strong> {{discount.formatted}}</span> <a href="{{remove_url}}">{{lang 'cart.coupons.remove'}}</a>
+            </li>
+        {{/each}}
+    {{else}}
+        <li class="cart-total add-coupon">
+            <div class="cart-total-value">
+                <button class="coupon-code-add">{{lang 'cart.coupons.add_coupon'}}</button>
+                <button class="coupon-code-cancel" style="display: none;">{{lang 'cart.coupons.cancel'}}</button>
+            </div>
+        </li>
+        <div class="cart-form coupon-code" style="display: none;">
+            <form class="form form--hiddenLabels coupon-form" method="post" action="{{urls.cart}}">
+                <label class="form-label" for="couponcode">{{lang 'cart.coupons.coupon_code'}}</label>
+                <input class="form-input" data-error="{{lang 'cart.coupons.empty_error'}}"  id="couponcode" type="text" name="couponcode" value="" placeholder="{{lang 'cart.coupons.coupon_code'}}">
+                <input class="button button--primary button--small" type="submit" value="{{lang 'cart.coupons.button'}}">
+                <input type="hidden" name="action" value="applycoupon">
+            </form>
+        </div>
+    {{/if}}
+    {{#if settings.gift_certificates_enabled}}
+        {{#each cart.gift_certificates}}
+            <li class="cart-total add-gift added-gift">
+                <span><strong>Gift Certificate:</strong> {{used.formatted}}</span> <a href="{{remove_url}}">{{lang 'cart.gift_certificates.remove'}}</a>
+            </li>
+        {{/each}}
+        <li class="cart-total add-gift">
+            <div class="cart-total-value">
+                <button class="gift-certificate-add">{{lang 'cart.gift_certificates.gift_certificate'}}</button>
+                <button class="gift-certificate-cancel" style="display: none;">{{lang 'cart.coupons.cancel'}}</button>
+            </div>
+        </li>
+        <div class="cart-form gift-certificate-code" style="display: none;">
+            <form class="form form--hiddenLabels cart-gift-certificate-form" method="post" action="{{urls.cart}}">
+                <label class="form-label" for="certcode">{{lang 'cart.gift_certificates.cert_code'}}</label>
+                <input class="form-input" id="certcode" type="text" name="certcode" value="" placeholder="{{lang 'cart.gift_certificates.add_cert_code'}}">
+                <input class="button button--primary button--small" type="submit" value="{{lang 'cart.coupons.button'}}">
+                <input type="hidden" name="action" value="applycoupon">
+            </form>
+        </div>
+    {{/if}}
+</ul>

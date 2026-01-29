@@ -1,0 +1,97 @@
+    <div class="ob-hero-container mobile-carousel ob-mobile">
+      {{#each carousel.slides}}
+        <div class="ob-hero-image-container">
+          {{#unless button_text}}<a href="{{url}}">{{/unless}}
+            <img
+              {{#if @first}}
+                src="{{image}}"
+                fetchpriority="high"
+              {{else}}
+                src="{{cdn 'assets/img/loading.svg'}}"
+                data-src="{{image}}"
+              {{/if}}
+              
+              class="ob-hero-image {{#unless @first}}lazyload{{/unless}}"
+              alt="{{alt_text}}"
+            />
+            <div class="ob-hero-content">
+              {{#if text}}
+                <p class="hero-sub-heading pre-title">
+                  {{{text}}}
+                </p>
+              {{/if}}
+              {{#if heading}}
+                <h2 class="hero-heading">
+                  {{{heading}}}
+                </h2>
+              {{/if}}
+              {{#if button_text}}
+                <a class="ob-btn ob-btn--primary" href="{{url}}">
+                  {{{button_text}}}
+                </a>
+              {{/if}}
+            </div>
+          {{#unless button_text}}</a>{{/unless}}
+        </div>
+      {{/each}}
+    </div>
+
+    <div class="ob-hero-container desktop-carousel ob-desktop">
+      <div class="ob-hero-image-container">
+        <div class="slider-container ob-image-carousel">
+          {{#each carousel.slides}}
+            <div class="image-wrap">
+              {{#unless button_text}}<a href="{{url}}">{{/unless}}
+                <img
+                  {{#if @first}}
+                    src="{{image}}"
+                    fetchpriority="high"
+                  {{else}}
+                    src="{{cdn 'assets/img/loading.svg'}}"
+                    data-src="{{image}}"
+                  {{/if}}
+                  
+                  class="ob-hero-image {{#unless @first}}lazyload{{/unless}}"
+                  alt="{{alt_text}}"
+                />
+              {{#unless button_text}}</a>{{/unless}}
+            </div>
+          {{/each}}
+        </div>
+
+        <div class="container ob-content-carousel-container">
+          <div class="ob-content-carousel rellax" data-rellax-speed="-2">
+            {{#each carousel.slides}}
+              <div class="ob-slide">
+                {{#unless button_text}}<a href="{{url}}">{{/unless}}
+                  {{#if text}}
+                    <h2 class="hero-sub-heading pre-title">
+                      {{{text}}}
+                    </h2>
+                  {{/if}}
+                  {{#if heading}}
+                    <h2 class="hero-heading">
+                      {{{heading}}}
+                    </h2>
+                  {{/if}}
+                  {{#if button_text}}
+                    <a class="ob-btn ob-btn--primary" href="{{url}}">
+                      {{{button_text}}}
+                    </a>
+                  {{/if}}
+                {{#unless button_text}}</a>{{/unless}}
+              </div>
+            {{/each}}
+          </div>
+        </div>
+
+          <div class="ob-carousel-arrows-container {{#unless theme_settings.homepage_show_carousel_arrows}}ob-hidden{{/unless}}">
+            <div class="container">
+              <div class="ob-carousel-arrows">
+                <button id="carousel-trigger-prev" class="slick-prev">Previous</button>
+                <button id="carousel-trigger-next" class="slick-next">Next</button>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>

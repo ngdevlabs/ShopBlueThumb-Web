@@ -1,0 +1,87 @@
+{{#if children}}
+<a class="navPages-action has-subMenu{{#if is_active}} activePage{{/if}} top--level"
+   href="{{url}}"
+   data-collapsible="navPages-{{id}}"
+>
+    {{name}}
+    <i class="icon navPages-action-moreIcon" aria-hidden="true">
+        <svg><use xlink:href="#icon-chevron-down" /></svg>
+    </i>
+</a>
+<div class="navPage-subMenu" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
+    <div class="navPages-subMenu-wrap">
+        {{#all theme_settings.is_night (if theme_settings.header_menu_background_image '==' 'default')}}
+            <img class="menu-bg ob-desktop" src="{{cdn 'assets/img/ob-custom/nav-bg.png'}}" alt="Menu background" />
+            <img class="menu-bg ob-mobile" src="{{cdn 'assets/img/ob-custom/nav-bg.png'}}" alt="Menu background" />
+        {{/all}}
+        {{#all theme_settings.is_night (if theme_settings.header_menu_background_image '==' 'custom') theme_settings.header_menu_background_image_file}}
+            <img class="menu-bg ob-desktop" src="{{getImageManagerImage theme_settings.header_menu_background_image_file}}" alt="Menu background" />
+            <img class="menu-bg ob-mobile" src="{{getImageManagerImage theme_settings.header_menu_background_image_file_mobile}}" alt="Menu background" />
+        {{/all}}
+        <ul class="navPage-subMenu-list">
+            {{#if theme_settings.navPages-subMenu-showImage}}
+                <li class="navPage-subMenu-item ob-header-link ob-desktop">
+                    <a class="navPage-subMenu-action navPages-action image-action"
+                       href="{{url}}"
+                       aria-label="{{lang 'category.view_all.name' category=name}}"
+                    >
+                        <div class="image-wrap ob-desktop">
+                            {{#if image}}
+                                <img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" 
+                                data-src="{{getImageSrcset image 1x=(default fallback_size '900w')}}" alt="name" />
+                                <span class="category-name">{{name}}</span>
+                            {{else}}
+                                <span class="category-name">{{name}}</span>
+                            {{/if}}
+                        </div>
+                    </a>
+                </li>
+            {{/if}}
+            <div class="ob-child-group {{#unless theme_settings.navPages-subMenu-showImage}}ob-child-group--full{{/unless}}">
+                <a href="{{url}}" class="view-all-desktop">{{lang 'category.view_all.name' category=name}}</a>
+                <ul class="ob-child-group-list">
+                    {{#each children}}
+                        <li class="navPage-subMenu-item">
+                            {{#if children}}
+                                <a class="navPage-subMenu-action navPages-action mid--level{{#if is_active}} activePage{{/if}}"
+                                   href="{{url}}"
+                                   aria-label="{{name}}"
+                                >
+                                    {{name}}
+                                </a>
+
+                                <ul class="ob-grandchild-list">
+                                    {{#each children}}
+                                        <li class="navPage-subMenu-item grandchild-item">
+                                            <a class="navPage-subMenu-action navPages-action{{#if is_active}} activePage{{/if}}"
+                                               href="{{url}}"
+                                               aria-label="{{name}}"
+                                            >
+                                                {{name}}
+                                            </a>
+                                        </li>
+                                    {{/each}}
+                                </ul>
+                            {{else}}
+                                <a class="navPage-subMenu-action navPages-action mid--level{{#if is_active}} activePage{{/if}}"
+                                   href="{{url}}"
+                                   aria-label="{{name}}"
+                                >
+                                    {{name}}
+                                </a>
+                            {{/if}}
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </ul>
+    </div>
+</div>
+{{else}}
+<a class="navPages-action{{#if is_active}} activePage{{/if}} top--level"
+   href="{{url}}"
+   aria-label="{{name}}"
+>
+    {{name}}
+</a>
+{{/if}}

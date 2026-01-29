@@ -1,0 +1,30 @@
+<h2 class="page-heading pre-title">{{{theme_settings.blog_feed_title}}}</h2>
+<div class="productGrid blogGrid"
+    data-slick='{
+        "slidesToShow": 1.2,
+        "slidesToScroll": 1,
+        "arrows": false,
+        "dots": false,
+        "infinite": false,
+        "mobileFirst": true,
+        "swipeToSlide": true,
+        "responsive": [
+            {
+                "breakpoint": 767,
+                "settings": {
+                    "slidesToShow": 2.2
+                }
+            },
+            {
+                "breakpoint": 1023,
+                "settings": {
+                    "slidesToShow": 3,
+                    "arrows": true
+                }
+            }
+        ]
+    }'>
+    {{#each blog.recent_posts}}
+        {{> components/blog/listing-post post=this theme_settings=../theme_settings}}
+    {{/each}}
+</div>

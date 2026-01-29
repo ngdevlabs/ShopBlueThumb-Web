@@ -1,0 +1,185 @@
+// Headings
+h1,
+.heading-1 ,
+.heading-1 p {
+  font-size: $ob-size-h1 * .66;
+}
+h2,
+.heading-2,
+.heading-2 p {
+  font-size: $ob-size-h2 * .66;
+}
+h3,
+.heading-3,
+.heading-3 p {
+  font-size: $ob-size-h3 * .75;
+}
+h4,
+.heading-4,
+.heading-4 p {
+  font-size: $ob-size-h4 * .75;
+}
+
+@include breakpoint("medium") {
+  h1,
+  .heading-1,
+  .heading-1 p {
+    font-size: $ob-size-h1;
+  }
+  h2,
+  .heading-2,
+  .heading-2 p {
+    font-size: $ob-size-h2;
+  }
+  h3,
+  .heading-3,
+  .heading-3 p {
+    font-size: $ob-size-h3;
+  }
+  h4,
+  .heading-4,
+  .heading-4 p {
+    font-size: $ob-size-h4;
+  }
+}
+
+h1.page-heading {
+  font-size: $ob-size-h1 * .66;
+  @include breakpoint("medium") {
+    font-size: $ob-size-h1;
+  }
+}
+
+.pre-title {
+  font-family: $ob-pretitle-font;
+  font-weight: $ob-pretitle-font-weight;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: $ob-size-pretitle * .85;
+  @include breakpoint("medium") {
+    font-size: $ob-size-pretitle;
+  }
+
+  a {
+    font-weight: inherit;
+    color: inherit;
+    letter-spacing: inherit;
+    font-size: inherit;
+  }
+}
+
+.productView-title {
+  font-size: $ob-size-product * .66;
+  @include breakpoint("medium") {
+    font-size: $ob-size-product;
+  }
+}
+
+h1, h2, h3, h4,
+.heading-1, .heading-2, .heading-3, .heading-4,
+.heading-1 p, .heading-2 p, .heading-3 p, .heading-4 p {
+  font-weight: $ob-headings-font-weight;
+}
+
+h1, h2, h3, h4, .pretitle,
+.heading-1, .heading-2, .heading-3, .heading-4,
+.heading-1 p, .heading-2 p, .heading-3 p, .heading-4 p {
+  line-height: 120%;
+}
+
+// Body Text
+html, body, p, span, a, button, input {
+  font-size: $ob-size-root * .85;
+  color: $ob-text-primary;
+  letter-spacing: 0.025em;
+  @include breakpoint("medium") {
+    font-size: $ob-size-root;
+  }
+}
+
+a {
+  color: stencilColor("color-textLink");
+}
+
+.ob-text-primary {
+  color: $ob-text-primary;
+}
+.ob-text-secondary {
+  color: $ob-text-secondary;
+}
+
+.ob-text-center {
+  text-align: center;
+  justify-content: center;
+}
+
+.ob-body-lg,
+.ob-body-lg p {
+  font-size: $ob-size-root;
+  @include breakpoint("medium") {
+    font-size: $ob-size-root / .85;
+  }
+}
+.ob-body-md,
+.ob-body-md p {
+  font-size: $ob-size-root * .85;
+  @include breakpoint("medium") {
+    font-size: $ob-size-root;
+  }
+}
+.ob-body-sm,
+.ob-body-sm p {
+  font-size: $ob-size-root * .85;
+  @include breakpoint("medium") {
+    font-size: $ob-size-root * .925;
+  }
+}
+
+.ob-simple-page-content {
+  font-size: $ob-size-root * .85;
+  letter-spacing: 0.025em;
+  @include breakpoint("medium") {
+    font-size: $ob-size-root;
+    letter-spacing: 0.025em;
+  }
+
+  p, strong, span, a:not(.button):not(.ob-btn) {
+    font-size: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+  }
+}
+
+// NIGHT VARIANT
+[data-theme-variant="night"] {
+  // Body Text
+  html, body, p, span, a:not(.ob-btn, .button), input:not(.ob-btn, .button) {
+    letter-spacing: 0.05em;
+  }
+
+  .ob-simple-page-content {
+    letter-spacing: 0.05em;
+    @include breakpoint("medium") {
+      letter-spacing: 0.05em;
+    }
+  }
+
+  .pre-title {
+    letter-spacing: 0.4em;
+  }
+}
+
+
+// VOGUE VARIANT
+[data-theme-variant="vogue"] {
+  h1, h2, h3, h4,
+  .heading-1, .heading-2, .heading-3, .heading-4,
+  .heading-1 p, .heading-2 p, .heading-3 p, .heading-4 p {
+    font-family: $ob-headings-font;
+    font-weight: 700;
+  }
+  .pre-title {
+    text-transform: none;
+    letter-spacing: 0.025em;
+  }
+}

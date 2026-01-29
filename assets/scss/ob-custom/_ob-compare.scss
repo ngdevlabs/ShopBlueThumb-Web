@@ -1,0 +1,254 @@
+.ob-compare-bar {
+	display: flex;
+	width: 100%;
+	padding: 25px 0;
+	background: stencilColor("body-bg");
+	margin: 0 0 20px;
+	z-index: 50;
+	&.sticky {
+		position: fixed!important;
+		bottom: 0;
+		margin: 0;
+		box-shadow: 0px -4px 12px rgba(0, 0, 0, 0.08);
+	}
+
+	.container {
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		flex-wrap: wrap;
+		@include breakpoint("medium") {
+			align-items: center;
+			justify-content: space-between;
+			flex-wrap: nowrap;
+		}
+	}
+
+	.compare-products-preview {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background: stencilColor("body-bg");
+		flex-wrap: wrap;
+		text-align: center;
+		@include breakpoint("medium") {
+			flex-wrap: nowrap;
+			text-align: left;
+		}
+
+		.compare-instruction {
+			margin: 0 0 10px;
+			width: 100%;
+			font-weight: fontWeight("bold");
+			@include breakpoint("medium") {
+				margin: 0 100px 0 0;
+				width: auto;
+			}
+		}
+
+		.product-cube {
+			width: 60px;
+			aspect-ratio: $ob-card-aspect-ratio;
+			border: 2px solid stencilColor("compare_border_color");
+			padding: 4px;
+			background: none;
+			position: relative;
+			margin: 0 10px;
+			border-radius: $ob-border-radius;
+			@media (max-width: 380px) {
+				width: 50px;
+			}
+			@include breakpoint("medium") {
+				width: 75px;
+			}
+
+			.clear-cube {
+				background: stencilColor("compare_remove_bg");
+				width: 18px;
+				height: 18px;
+				border-radius: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: absolute;
+				z-index: 2;
+				top: -7px;
+				right: -7px;
+				cursor: pointer;
+
+				svg {
+					max-width: 90%;
+					max-height: 90%;
+					fill: stencilColor("compare_remove_icon");
+					stroke: stencilColor("compare_remove_icon");
+				}
+			}
+
+			.image-wrap {
+				width: 100%;
+				height: 100%;
+				border-radius: $ob-border-radius;
+				overflow: hidden;
+				background: stencilColor("product_card_bg_color");
+
+				img {
+					mix-blend-mode: stencilString("product_image_blend_mode");
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					object-position: center;
+					margin: 0;
+					position: relative;
+				}
+			}
+
+			&.cube-empty {
+				border-style: dashed;
+
+				.clear-cube {
+					display: none;
+				}
+			}
+		}
+	}
+
+	.compare-button {
+		width: 100%;
+		margin: 15px 0 0;
+		@include breakpoint("medium") {
+			width: auto;
+			margin: 0;
+		}
+		.button {
+			margin: 0;
+			@include breakpoint("medium") {
+				margin: 0 0 0 10px;
+			}
+		}
+	}
+}
+
+[data-page-type="compare"] {
+	h1.page-heading {
+		@include breakpoint("medium") {
+			text-align: left;
+		}
+	}
+}
+
+.ob-compare-table-wrap {
+	@media (max-width: $screen-medium - 1) {
+		overflow-x: auto;
+	}
+}
+
+.compareTable {
+	border: none;
+	@media (max-width: $screen-medium - 1) {
+		width: auto;
+	}
+}
+
+.compareTable-heading,
+.compareTable-item {
+	border-color: stencilColor("content_inner_panel_secondary_bg")!important;
+}
+.compareTable-heading {
+	@include breakpoint("medium") {
+		width: 20%;
+	}
+}
+
+.compareTable-removeProduct {
+	top: 4%;
+	right: 4%;
+	width: 22px;
+	height: 22px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: stencilColor("color-textBase");
+	@include breakpoint("medium") {
+		width: 30px;
+		height: 30px;
+	}
+
+	.icon {
+		margin: 0;
+		fill: stencilColor("body-bg");
+		stroke: stencilColor("body-bg");
+	}
+}
+
+.compareTable-product {
+	width: auto;
+
+	.card {
+		width: 100%;
+		[data-test-info-type="brandName"] {
+			display: block!important;
+			color: stencilColor("color-primary");
+
+			a {
+				color: inherit;
+			}
+		}
+
+		.card-figure {
+			width: 200px;
+			@include breakpoint("small") {
+				width: 275px;
+			}
+			@include breakpoint("medium") {
+				width: 100%;
+			}
+		}
+
+		.card-body {
+			display: block;
+
+			.card-title-container {
+				width: 100%;
+				max-width: 100%;
+			}
+			.card-text {
+				.price-section {
+					text-align: left;
+				}
+			}
+		}
+	}
+}
+
+// NIGHT VARIANT
+[data-theme-variant="night"] {
+	.compareTable-removeProduct {
+		background-color: stencilColor("body-bg");
+
+		.icon {
+			fill: stencilColor("color-textBase");
+			stroke: stencilColor("color-textBase");
+		}
+	}
+}
+
+// VOGUE VARIANT
+[data-theme-variant="vogue"] {
+	.compareTable-product {
+		.card {
+			[data-test-info-type="brandName"] {
+				color: stencilColor("color-textLink-secondary");
+			}
+		}
+	}
+
+	.compare-products-preview {
+		.product-cube {
+			border-radius: $ob-border-radius/3;
+
+			.image-wrap {
+				border-radius: $ob-border-radius/3;
+			}
+		}
+	}
+}

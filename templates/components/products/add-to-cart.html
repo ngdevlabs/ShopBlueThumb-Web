@@ -1,0 +1,76 @@
+{{{region name="product_above_quantity"}}}
+
+<div id="add-to-cart-wrapper" class="add-to-cart-wrapper">
+    {{#if theme_settings.show_product_quantity_box}}
+        {{inject 'productQuantityErrorMessage'  (lang 'products.quantity_error_message')}}
+        <div class="form-field form-field--increments" {{#unless product.can_purchase}}style="display: none"{{/unless}}>
+                <div class="form-increment" data-quantity-change>
+                    <button class="button button--icon" data-action="dec" title="{{lang 'products.quantity_decrease' name=product.title}}">
+                        <span class="is-srOnly">{{lang 'products.quantity_decrease' name=product.title}}</span>
+                        <i class="icon" aria-hidden="true">
+                            <svg><use xlink:href="#icon-minus" /></svg>
+                        </i>
+                    </button>
+                    <input class="form-input form-input--incrementTotal"
+                           id="qty[]"
+                           name="qty[]"
+                           type="tel"
+                           value="{{#if product.min_purchase_quantity}}{{product.min_purchase_quantity}}{{else}}1{{/if}}"
+                           data-quantity-min="{{product.min_purchase_quantity}}"
+                           data-quantity-max="{{product.max_purchase_quantity}}"
+                           min="1"
+                           pattern="[0-9]*"
+                           aria-live="polite"
+                           title="Product Quantity">
+                    <label class="form-label form-label--alternate" for="qty[]">{{lang 'products.quantity'}}</label>
+                    <button class="button button--icon" data-action="inc" title="{{lang 'products.quantity_increase' name=product.title}}">
+                        <span class="is-srOnly">{{lang 'products.quantity_increase' name=product.title}}</span>
+                        <i class="icon" aria-hidden="true">
+                            <svg><use xlink:href="#icon-plus" /></svg>
+                        </i>
+                    </button>
+                </div>
+
+                <div class="form-field--stock{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
+                    <label class="form-label form-label--alternate">
+                        {{lang 'products.current_stock'}}
+                        <span data-product-stock>{{product.stock_level}}</span>
+                    </label>
+                </div>
+        </div>
+    {{/if}}
+
+    <div class="alertBox alertBox--error productAttributes-message" style="display:none">
+        <div class="alertBox-icon">
+            &excl;
+        </div>
+        <p class="alertBox-message"></p>
+    </div>
+    {{#or customer (if settings.hide_price_from_guests '!==' true)}}
+        <div class="form-action">
+            <input
+                id="form-action-addToCart"
+                data-wait-message="{{lang 'products.adding_to_cart'}}"
+                class="button button--primary"
+                type="submit"
+                value="{{#if product.pre_order}}{{lang 'products.pre_order'}}{{else}}{{lang 'products.add_to_cart'}}{{/if}}" 
+                {{#unless product.can_purchase}}disabled{{/unless}}
+            >
+            {{#if settings.show_wishlist}}
+                <a class="ob-btn dropdown-menu-button ob-wishlist-action" 
+                   title="Add to Wishlist"
+                   aria-controls="wishlist-dropdown"
+                   aria-expanded="false"
+                   data-dropdown="wishlist-dropdown"
+                   href="#">
+                    {{#if theme_settings.theme_type '==' 'vogue'}}
+                        <svg><use xlink:href="#icon-duo-heart" /></svg>
+                    {{else}}
+                        <svg><use xlink:href="#icon-heart" /></svg>
+                    {{/if}}
+                </a>
+            {{/if}}
+            <span class="product-status-message aria-description--hidden">{{lang 'products.adding_to_cart'}} {{lang 'category.add_cart_announcement'}}</span>
+        </div>
+    {{/or}}
+</div>

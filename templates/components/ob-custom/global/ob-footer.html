@@ -1,0 +1,141 @@
+{{#if banners.bottom}}
+    {{#if settings.data_tag_enabled}}
+        <div class="banners" data-banner-location="bottom">
+            {{#each (limit banners.bottom_metadata 1)}}
+                <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-name="{{this.banner-name}}">
+                    <div data-event-type="promotion-click">
+                        {{{this.content}}}
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    {{else}}
+        <div class="banners" data-banner-location="bottom">
+            <div class="banner">
+                {{{limit banners.bottom 1}}}
+            </div>
+        </div>
+    {{/if}}
+{{/if}}
+
+{{{region name="above_footer"}}}
+
+<footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+        {{#all theme_settings.is_night (if theme_settings.footer-backgroundImage '==' 'default')}}
+            <img class="footer-bg ob-desktop" src="{{cdn 'assets/img/ob-custom/footer-bg-desktop.svg'}}" alt="Footer background" />
+            <img class="footer-bg ob-mobile" src="{{cdn 'assets/img/ob-custom/footer-bg-mobile.svg'}}" alt="Footer background" />
+        {{/all}}
+        {{#all theme_settings.is_night (if theme_settings.footer-backgroundImage '==' 'custom') theme_settings.footer-backgroundImage-file}}
+            <img class="footer-bg ob-desktop" src="{{getImageManagerImage theme_settings.footer-backgroundImage-file}}" alt="Footer background" />
+            <img class="footer-bg ob-mobile" src="{{getImageManagerImage theme_settings.footer-backgroundImage-file-mobile}}" alt="Footer background" />
+        {{/all}}
+        <h2 class="footer-title-sr-only">Footer</h2>
+        <div class="container">
+            <div class="ob-news-section">
+                {{#if theme_settings.footer_show_newsletter}}
+                    <article class="footer-info-col" data-section-type="newsletterSubscription">
+                        {{> components/ob-custom/global/footer/ob-subscription-form}}
+                    </article>
+                {{/if}}
+
+                {{#if social_media}}
+                    <article class="footer-info-col footer-info-col--small footer-social" data-section-type="footer-webPages">
+                        <h3 class="footer-info-heading">{{theme_settings.footer_social_title}}</h3>
+                        {{> components/common/social-links}}
+                    </article>
+                {{/if}}
+            </div>
+            <div class="ob-nav-section">
+                <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
+                    <h3 class="footer-info-heading">{{theme_settings.footer_shop_title}}</h3>
+                    <ul class="footer-info-list">
+                        {{#each categories}}
+                            <li>
+                                <a href="{{url}}">{{name}}</a>
+                            </li>
+                        {{/each}}
+                        {{#if settings.gift_certificates_enabled}}
+                            <li>
+                                <a href="{{urls.gift_certificate.purchase}}">
+                                    {{lang 'common.gift_cert'}}
+                                </a>
+                            </li>
+                        {{/if}}
+                        {{#if theme_settings.footer_brands_link}}
+                            <li>
+                                <a href="/brands">View Brands</a>
+                            </li>
+                        {{/if}}
+                    </ul>
+                </article>
+
+                {{#if theme_settings.footer_learn_column}}
+                    <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
+                        <h3 class="footer-info-heading">{{theme_settings.footer_learn_title}}</h3>
+                        <ul class="footer-info-list">
+                            {{#each pages}}
+                                <li>
+                                    <a href="{{url}}">
+                                        {{name}}
+                                    </a>
+                                </li>
+                            {{/each}}
+                        </ul>
+                    </article>
+                {{/if}}
+
+                {{#if theme_settings.footer_support_column}}
+                    <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
+                        <h3 class="footer-info-heading">{{theme_settings.footer_support_title}}</h3>
+                        <ul class="footer-info-list">
+                            {{> components/ob-custom/global/footer/ob-support}}
+                        </ul>
+                    </article>
+                {{/if}}
+
+                {{#any theme_settings.footer_show_address theme_settings.show_footer_hours}}
+                    <article class="footer-info-col footer-info-col--small" data-section-type="storeInfo">
+                        <h3 class="footer-info-heading">{{theme_settings.footer_address_title}}</h3>
+
+                        {{#all settings.address theme_settings.footer_show_address}}
+                            <address>{{nl2br settings.address}}</address>
+                        {{/all}}
+
+                        {{#if theme_settings.show_footer_hours}}
+                            <p>{{theme_settings.store_hours}}</p>
+                        {{/if}}
+                    </article>
+                {{/any}}
+            </div>
+
+            <div class="ob-copyright-section">
+                {{#if theme_settings.show_copyright_footer}}
+                    <div class="footer-copyright footer-store-date">
+                        <p class="powered-by">
+                            &copy; {{moment format="YYYY"}} {{settings.store_name}} | 
+                            <a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a> 
+                        </p>
+                    </div>
+                {{/if}}
+
+                {{> components/ob-custom/global/footer/ob-payment-icons}}
+
+                {{#if theme_settings.show_copyright_footer}}
+                    {{#if theme_settings.footer_obundle}}
+                        <div class="footer-copyright footer-obundle">
+                            <p class="designed-by">
+                                Designed &amp; developed by 
+                                <a href="http://www.obundle.com">
+                                    oBundle
+                                    <svg><use xlink:href="#icon-obundle" /></svg>
+                                </a>
+                            </p>
+                        </div>
+                    {{/if}}
+                {{/if}}
+            </div>
+        </div>
+        {{{region name="ssl_site_seal--global"}}}
+    </div>
+</footer>

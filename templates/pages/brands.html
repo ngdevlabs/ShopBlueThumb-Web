@@ -1,0 +1,68 @@
+---
+brands:
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+---
+
+{{#partial "head"}}
+    {{#unless theme_settings.category_banner_text_only}}
+        {{!-- Preload banner image --}}
+        {{#if theme_settings.brands_banner}}
+            <link rel="preload" as="image" href="{{getImageManagerImage theme_settings.brands_banner}}" />
+        {{else}}
+            <link rel="preload" as="image" href="{{cdn (multiConcat 'assets/img/ob-custom/' theme_settings.theme_type '/brands-banner.jpg')}}" />
+        {{/if}}
+    {{/unless}}
+{{/partial}}
+
+{{#partial "page"}}
+    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+    <div class="ob-category-header ob-title-banner ob-full-width-mobile{{#unless theme_settings.show_title_banner_gradient}} no-overlay{{/unless}}{{#if theme_settings.category_banner_text_only}} no-image{{/if}}">
+        {{#unless theme_settings.category_banner_text_only}}
+            {{#if theme_settings.brands_banner}}
+                <img class="category-header-image" src="{{getImageManagerImage theme_settings.brands_banner}}" fetchpriority="high" aria-hidden="true" />
+            {{else}}
+                <img class="category-header-image" src="{{cdn (multiConcat 'assets/img/ob-custom/' theme_settings.theme_type '/brands-banner.jpg')}}" fetchpriority="high" aria-hidden="true" />
+            {{/if}}
+        {{/unless}}
+
+        <div class="category-header-text">
+            <h1 class="page-heading">{{lang 'brand.label'}}</h1>
+            <div class="category-description">
+                <p>{{theme_settings.brands_intro_text}}</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="page">
+        {{{region name="brands_below_header"}}}
+        <div class="ob-subcategory-carousel ob-brands-carousel">
+            <div class="carousel-wrap">
+                {{#each brands}}
+                    <div class="subcat-box">
+                        <a href="{{url}}" title="{{name}}">
+                            <div class="image-wrap">
+                                {{#if image}}
+                                    {{> components/common/responsive-img
+                                        image=image
+                                        fallback_size="165x165"
+                                        lazyload=theme_settings.lazyload_mode
+                                    }}
+                                {{else}}
+                                    <img class="placeholder-logo" src="{{getImage ../settings.store_logo.image 'logo_size'}}" alt="{{name}}" />
+                                {{/if}}
+                            </div>
+                            <h3>{{name}}</h3>
+                        </a>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+        {{> components/common/paginator pagination.brands}}
+        {{{region name="brands_below_content"}}}
+    </section>
+{{/partial}}
+
+{{> layout/base}}

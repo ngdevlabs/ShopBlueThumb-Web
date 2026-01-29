@@ -1,0 +1,473 @@
+//***************************
+// VARIABLES
+//***************************
+
+$form-spacing:                      spacing("single");
+$input-horizontalPadding:           ($form-spacing / 1.5);
+$input-verticalPadding:             ($form-spacing / 2);
+$select-arrow-color:                rgba(stencilColor("select-arrow-color"), 0.999);
+$select-padding:                    $input-verticalPadding (spacing("double")) $input-verticalPadding $input-horizontalPadding;
+$select-backgroundImage:            url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z' fill='#{$select-arrow-color}' /%3E%3C/svg%3E");
+$select-backgroundPosition:         right (spacing("quarter") + spacing("eighth")) top spacing("third") + spacing("eighth");
+
+$screen-xlarge:                 1441px;
+$screen-large:                  1261px;
+$screen-medium:                 801px;
+$screen-small:                  551px;
+
+@import "framework/ob-variables";
+@import "global/ob-buttons";
+@import "global/ob-forms";
+
+//***************************
+//Headings
+//***************************
+.ob-vogue-checkout {
+    h1, h2, h3, h4 {
+        font-weight: bold;
+        line-height: 110%;
+        letter-spacing: 1.2px;
+    }
+}
+
+//***************************
+//Button Styling
+//***************************
+.stepHeader-actions.stepHeader-column button,
+#checkout-customer-continue {
+    height: 45px;
+    padding: 0 15px;
+}
+
+// LIGHT VARIANT
+.ob-light-checkout {
+    .stepHeader-actions.stepHeader-column button {
+        background: stencilColor("button_bordered_background")!important;
+        border: 4px solid stencilColor("button_bordered_border");
+        color: stencilColor("button_bordered_text")!important;
+
+        &:hover {
+          background: stencilColor("button_bordered_background_hover")!important;
+          border-color: stencilColor("button_bordered_border_hover");
+          color: stencilColor("button_bordered_text_hover")!important;
+          box-shadow: 0px 7px 28px -12px stencilColor("button_bordered_border");
+
+          svg {
+            stroke: stencilColor("button_bordered_text_hover");
+            fill: stencilColor("button_bordered_text_hover");
+          }
+        }
+    }
+}
+
+// NIGHT VARIANT
+.ob-night-checkout {
+    .stepHeader-actions.stepHeader-column button {
+        background: stencilColor("button_bordered_background")!important;
+        border: 4px solid stencilColor("button_bordered_border");
+        color: stencilColor("button_bordered_text")!important;
+
+        &:hover {
+          background: stencilColor("button_bordered_background_hover")!important;
+          border-color: stencilColor("button_bordered_border_hover");
+          color: stencilColor("button_bordered_text_hover")!important;
+          box-shadow: 0px 7px 28px -12px stencilColor("button_bordered_border");
+
+          svg {
+            stroke: stencilColor("button_bordered_text_hover");
+            fill: stencilColor("button_bordered_text_hover");
+          }
+        }
+    }
+}
+
+// VOGUE VARIANT
+.ob-vogue-checkout {
+    .stepHeader-actions.stepHeader-column button {
+        background: stencilColor("button_bordered_background")!important;
+        border: 2px solid stencilColor("button_bordered_border");
+        color: stencilColor("button_bordered_text")!important;
+
+        &:hover {
+          background: stencilColor("button_bordered_background_hover")!important;
+          border-color: stencilColor("button_bordered_border_hover");
+          color: stencilColor("button_bordered_text_hover")!important;
+          box-shadow: 0px 7px 28px -12px stencilColor("button_bordered_border");
+
+          svg {
+            stroke: stencilColor("button_bordered_text_hover");
+            fill: stencilColor("button_bordered_text_hover");
+          }
+        }
+    }
+}
+
+
+//***************************
+// Consent Manager
+//***************************
+[data-consent-manager-dialog] {
+  div {
+    color: $ob-text-primary;
+  }
+
+  h1, h2, h3, h4, h5 {
+    color: $ob-text-primary;
+  }
+  button[title="Cancel"] {
+    height: 40px;
+    padding: 0;
+  }
+
+  [role="dialog"] {
+    background: stencilColor("body-bg");
+  }
+
+  th {
+    background: stencilColor("content_inner_panel_bg");
+    color: $ob-text-primary!important;
+  }
+
+  label,
+  td {
+    color: $ob-text-primary!important;
+  }
+
+  input[type="radio"] {
+    accent-color: stencilColor("color-activeForms");
+  }
+
+  button {
+    color: $ob-text-primary;
+    letter-spacing: 0.025em;
+    &+ button {
+      background: stencilColor("content_inner_panel_secondary_bg");
+    }
+  }
+}
+#consent-manager-update-banner,
+#consent-manager > div > div {
+  background: stencilColor("content_inner_panel_secondary_bg")!important;
+  color: stencilColor("color-textBase")!important;
+  a {
+    color: inherit!important;
+  }
+}
+
+//***************************
+// STYLES
+//***************************
+// Make focus outline disappear on mouse actions
+input:focus, button:focus, textarea:focus, select:focus, details:focus, [href]:focus, [tabindex]:not([tabindex="-1"]):focus, [contenteditable="true"]:focus {
+  outline: none!important;
+}
+input:focus + label {
+  outline: none!important;
+}
+
+// Focus style tab indexing for ADA only
+input:focus-visible, button:focus-visible, textarea:focus-visible, select:focus-visible, details:focus-visible, [href]:focus-visible, [tabindex]:not([tabindex="-1"]):focus-visible, [contenteditable="true"]:focus-visible {
+  outline: 1px dashed stencilColor("color-textLink--hover")!important;
+  outline-offset: 1px!important;
+}
+input:focus-visible + label {
+  outline: 1px dotted stencilColor("color-textLink--hover");
+}
+
+.optimizedCheckout-form-checklist-checkbox:checked ~ .form-label::before {
+    border-color: inherit!important;
+}
+
+.layout-main {
+    padding: 0;
+    @media (min-width: $screen-large) {
+        padding-right: 6rem;
+    }
+}
+.layout-cart {
+    padding: 0;
+}
+
+.checkoutHeader {
+    border-width: 3px;
+}
+.checkoutHeader-content {
+    padding: 1.5rem;
+}
+.checkoutHeader-content h1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    margin: 0;
+
+    .checkoutHeader-link {
+        display: block;
+        max-width: 200px;
+        max-height: 100px;
+    }
+
+    strong {
+        display: none;
+        font-family: $ob-headings-font;
+
+        @media (min-width: $screen-medium) {
+            display: block;
+        }
+    }
+}
+
+.checkout-steps {
+    padding: 0;
+    @media (min-width: $screen-large) {
+        padding-right: 6rem;
+    }
+
+    .stepHeader-counter.optimizedCheckout-step {
+        display: flex!important;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        margin-right: 10px;
+        background: stencilColor("section_indicator");
+        transform: none!important;
+        padding: 10px;
+        font-weight: bold;
+
+        svg {
+            fill: stencilColor("section_indicator_icon");
+            padding: 0;
+        }
+
+        &.stepHeader-counter--complete {
+            background: stencilColor("section_indicator_complete");
+
+            svg {
+                fill: stencilColor("section_indicator_icon_complete");
+            }
+        }
+    }
+}
+
+//***************************
+// Custom Login Step
+//***************************
+.checkout-step--customer {
+    .customerEmail-body {
+        width: calc(100% - 122px);
+
+        @media (min-width: $screen-small) {
+            width: 58.3333333333%;
+        }
+    }
+
+    .customerEmail-action {
+        width: 122px;
+        margin-top: 1.75rem;
+        padding-left: 0.75rem;
+
+        @media (min-width: $screen-small) {
+            width: 41.6666666667%;
+            margin-top: 1.8rem;
+            padding-left: 10px;
+        }
+    }
+}
+
+.form-checklist.optimizedCheckout-form-checklist {
+    background: none;
+    border: none;
+
+    .form-checklist-item.optimizedCheckout-form-checklist-item {
+        margin: 0 0 5px;
+        border: none;
+        border-radius: $ob-border-radius;
+        &:last-of-type {
+            margin: 0;
+        }
+
+        .form-label.optimizedCheckout-form-label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .shippingOptionLabel,
+        .shippingOption {
+            width: 100%;
+        }
+
+        .form-input,
+        .form-select {
+            background-color: stencilColor("checkout_alt_input_bg");
+            color: stencilColor("checkout_alt_input_color");
+            border-color: stencilColor("checkout_alt_input_border");
+        }
+    }
+}
+
+.cart.optimizedCheckout-orderSummary {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background: none;
+
+    a {
+        color: stencilColor("color-textSecondary");
+        text-decoration: underline;
+    }
+
+    .cart-header {
+        background: stencilColor("content_inner_panel_bg");
+        border-radius: $ob-border-radius $ob-border-radius 0 0;
+    }
+    .cart-section.optimizedCheckout-orderSummary-cartSection {
+        &:not(:last-of-type) {
+            background: stencilColor("content_inner_panel_bg");
+        }
+        &:last-of-type {
+            background: stencilColor("content_inner_panel_secondary_bg");
+            margin-top: 10px;
+            border-radius: $ob-border-radius;
+            border: none;
+
+            [data-test="cart-total"] span {
+                font-size: 14px;
+                font-weight: bold;
+            }
+        }
+
+        .product-column.product-figure {
+            aspect-ratio: $ob-card-aspect-ratio;
+            background: stencilColor("checkout_cart_image_background");
+            padding: stencilNumber("product_card_image_padding");
+            margin-right: 15px;
+            border-radius: $ob-border-radius;
+            overflow: hidden;
+
+            img {
+                mix-blend-mode: stencilString("product_image_blend_mode");
+                width: 100%;
+                height: 100%;
+                object-fit: stencilString("product_card_image_fit");
+            }
+        }
+        .product-title {
+            font-size: 110%;
+            font-weight: bold;
+        }
+    }
+}
+
+// VOGUE VARIANT
+.ob-vogue-checkout {
+    .cart.optimizedCheckout-orderSummary {
+        .cart-header {
+            border-radius: $ob-border-radius/2 $ob-border-radius/2 0 0;
+        }
+        .cart-section.optimizedCheckout-orderSummary-cartSection {
+            &:nth-last-child(-n+2) {
+                border-radius: 0 0 $ob-border-radius/2 $ob-border-radius/2;
+            }
+            &:last-child {
+                border-radius: $ob-border-radius/3;
+            }
+
+            .product-column.product-figure {
+                border-radius: $ob-border-radius/3;
+            }
+        }
+    }
+}
+
+.cartDrawer.optimizedCheckout-orderSummary {
+    margin: 0;
+    background: stencilColor("content_inner_panel_bg");
+    border: none;
+
+    .cartDrawer-figure {
+        aspect-ratio: $ob-card-aspect-ratio;
+        background: stencilColor("checkout_cart_image_background");
+        padding: 0;
+        margin-right: 15px;
+        border-radius: $ob-border-radius;
+        overflow: hidden;
+    }
+}
+.modalOverlay {
+    background: rgba(0, 0, 0, 0.3);
+}
+.optimizedCheckout-cart-modal {
+    background: stencilColor("optimizedCheckout-body-backgroundColor");
+    box-shadow: 0 1px 4px rgba(stencilColor("optimizedCheckout-body-backgroundColor"), 0.4);
+    .modal-header,
+    .modal-body {
+        background: none;
+    }
+    .product-column.product-figure {
+        aspect-ratio: $ob-card-aspect-ratio;
+        background: stencilColor("product_card_bg_color");
+        padding: 0;
+        margin: 0 15px 10px 0;
+        border-radius: $ob-border-radius;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+
+        img {
+            mix-blend-mode: stencilString("product_image_blend_mode");
+            width: 100%;
+            height: 100%;
+            object-fit: stencilString("product_card_image_fit");
+        }
+    }
+}
+
+//***************************
+// Alert Boxes
+//***************************
+.alertBox {
+  display: flex;
+  height: auto;
+  border-radius: $ob-border-radius;
+  padding: 12px 15px;
+  align-items: center;
+  justify-content: flex-start;
+  background: black;
+  color: white;
+  border: 2px solid black;
+
+  .alertBox-icon {
+    display: inline-flex;
+    width: 20px;
+    height: 20px;
+    line-height: 14px;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: 0 15px 0 0;
+    padding: 2px 2px 0;
+    color: inherit;
+
+    svg {
+        stroke: white;
+        fill: white;
+    }
+  }
+  .alertBox-message {
+    width: calc(100% - 35px);
+    color: inherit;
+
+    p, span, strong {
+      color: inherit;
+    }
+  }
+
+  &--storeCredit {
+    display: block;
+  }
+}

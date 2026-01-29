@@ -1,0 +1,176 @@
+.login-form {
+	.form-actions {
+		display: flex;
+		width: 100%;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+
+		input, a {
+			width: 100%;
+			@include breakpoint("medium") {
+				width: auto;
+			}
+		}
+	}
+}
+
+.new-customer {
+	.panel {
+		.panel-header,
+		.panel-body {
+			background: stencilColor("content_inner_panel_bg");
+
+			a {
+				text-decoration: none;
+
+				.button {
+					width: 100%;
+
+					@include breakpoint("medium") {
+						width: auto;
+					}
+				}
+			}
+		}
+	}
+}
+
+.account {
+	// Wishlist product list
+	.productGrid {
+		justify-content: flex-start;
+		flex-wrap: wrap;
+	}
+}
+
+.account-body {
+	.addressList {
+		display: grid;
+		width: 100%;
+	    grid-template-columns: repeat(1, 1fr);
+	    grid-auto-rows: 1fr;
+	    grid-column-gap: 0;
+	    grid-row-gap: 25px;
+	    margin: 0;
+	    @include breakpoint("medium") {
+	    	grid-template-columns: repeat(3, 1fr);
+		    grid-column-gap: 25px;
+	    }
+
+		.address {
+			padding: 0;
+			width: unset;
+			background: stencilColor("content_inner_panel_bg");
+			border-radius: $ob-border-radius;
+			overflow: hidden;
+			text-align: center;
+			@include breakpoint("medium") {
+				text-align: left;
+			}
+
+			.panel--address {
+				background: stencilColor("content_inner_panel_bg");
+				height: 100%;
+
+				.panel-body {
+					background: stencilColor("content_inner_panel_bg");
+					border: none;
+					padding: 20px;
+					margin: 0;
+					display: flex;
+					flex-direction: column;
+					flex-wrap: wrap;
+					align-items: flex-start;
+					justify-content: center;
+					height: 100%;
+					min-height: unset;
+
+					.address-label {
+						color: $ob-text-primary;
+					}
+				}
+				.address-title,
+				.address-details {
+					width: 100%;
+				}
+				form {
+					width: 100%;
+				}
+				.form-actions {
+					margin: 0;
+					bottom: unset;
+					position: relative;
+
+					.button {
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+.account-product-detail {
+	.account-product-detail-heading {
+		color: $ob-text-primary;
+	}
+	span {
+		color: $ob-text-secondary;
+	}
+}
+
+.account-orderStatus-label {
+	border-radius: $ob-border-radius;
+	background: black;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 7px;
+	text-transform: uppercase;
+}
+
+.ob-submit-form-row {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	width: 100%;
+	@include breakpoint("medium") {
+		justify-content: space-between;
+		flex-wrap: nowrap;
+		float: none;
+		margin: 0 auto;
+	}
+
+	.form-actions {
+		margin: 20px 0 0;
+		@include breakpoint("medium") {
+			margin: 0;
+
+			.button {
+				min-width: 200px;
+			}
+		}
+	}
+
+	.g-recaptcha ~ .form-actions {
+		@include breakpoint("medium") {
+			text-align: right;
+		}
+	}
+}
+
+[data-page-type="createaccount_thanks"] {
+	h1.page-heading {
+		text-align: center;
+	}
+}
+
+// NIGHT VARIANT
+[data-theme-variant="night"] {
+	.navBar--account.navBar--sub .navBar-action {
+		color: $ob-text-secondary;
+	}
+}

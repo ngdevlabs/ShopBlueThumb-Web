@@ -1,0 +1,16 @@
+<form class="actionBar product-count-form">
+	<fieldset class="form-fieldset actionBar-section">
+	    <div class="form-field">
+	        <label class="form-label" for="count">{{lang 'common.number_of_products'}}:</label>
+	        <select class="form-select form-select--small " name="count" id="count" role="listbox">
+	        	<option value="{{theme_settings.categorypage_products_per_page}}" 
+	        		    selected>{{theme_settings.categorypage_products_per_page}} {{lang 'common.per_page'}}</option>
+	            <option value="24">24 {{lang 'common.per_page'}}</option>
+	            <option value="36">36 {{lang 'common.per_page'}}</option>
+	            <option value="48">48 {{lang 'common.per_page'}}</option>
+	            <option value="64">64 {{lang 'common.per_page'}}</option>
+	            <option value="99">99 {{lang 'common.per_page'}}</option>
+	        </select>
+	    </div>
+	</fieldset>
+</form>

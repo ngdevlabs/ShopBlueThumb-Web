@@ -1,0 +1,239 @@
+//***************************
+//Button Styling
+//***************************
+.ob-btn, button,
+.button, .button--primary,
+.ob-cta-link,
+.cart-actions .button,
+.table-actions .button,
+#consent-manager button,
+.buttonLink a,
+.form-minMaxRow button {
+  padding: 0px 25px;
+  height: 50px;
+  letter-spacing: 0.2em;
+  border-radius: $ob-border-radius;
+  border: none;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all ease-in-out .2s;
+  display: inline-flex;
+  width: auto;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  text-transform: uppercase;
+  font-size:stencilNumber("fontSize-button") * .85;
+  line-height: 110%;
+  font-family: $ob-button-font;
+  font-weight: $ob-button-font-weight;
+  @media (min-width: $screen-medium) {
+    height: 60px;
+    font-size:stencilNumber("fontSize-button");
+  }
+  @media (min-width: $screen-large) {
+    padding: 0 38px;
+  }
+
+  svg {
+    transition: all ease-in-out .2s;
+  }
+}
+
+.ob-btn {
+  &-block {
+    width: 100%!important;
+  }
+  &-border {
+    background: stencilColor("button_bordered_background")!important;
+    border: 4px solid stencilColor("button_bordered_border");
+    color: stencilColor("button_bordered_text")!important;
+
+    &:hover {
+      background: stencilColor("button_bordered_background_hover")!important;
+      border-color: stencilColor("button_bordered_border_hover");
+      color: stencilColor("button_bordered_text_hover")!important;
+      box-shadow: 0px 7px 28px -12px stencilColor("button_bordered_border");
+
+      svg {
+        stroke: stencilColor("button_bordered_text_hover");
+        fill: stencilColor("button_bordered_text_hover");
+      }
+    }
+  }
+}
+
+.form-minMaxRow button {
+  background: stencilColor("button_bordered_background")!important;
+  border: 4px solid stencilColor("button_bordered_border");
+  color: stencilColor("button_bordered_text")!important;
+
+  &:hover {
+    background: stencilColor("button_bordered_background_hover")!important;
+    border-color: stencilColor("button_bordered_border_hover");
+    color: stencilColor("button_bordered_text_hover")!important;
+    box-shadow: 0px 7px 28px -12px stencilColor("button_bordered_border");
+
+    svg {
+      stroke: stencilColor("button_bordered_text_hover");
+      fill: stencilColor("button_bordered_text_hover");
+    }
+  }
+}
+
+.ob-btn--primary, .button--primary,
+.modal .confirm.button,
+#consent-manager button:not(:first-of-type),
+.buttonLink a, .cart-modal-continue {
+  background: stencilColor("button--primary-backgroundColor");
+  color: stencilColor("button--primary-color")!important;
+
+  &:hover {
+    background: stencilColor("button--primary-backgroundColorHover");
+    color: stencilColor("button--primary-colorHover")!important;
+  }
+}
+
+#consent-manager button:first-of-type {
+  background: stencilColor("button_bordered_background")!important;
+  border: 4px solid stencilColor("button_bordered_border");
+  color: stencilColor("button_bordered_text")!important;
+  &:hover {
+    background: stencilColor("button_bordered_background_hover")!important;
+    border-color: stencilColor("button_bordered_border_hover");
+    color: stencilColor("button_bordered_text_hover")!important;
+    box-shadow: 0px 7px 28px -12px stencilColor("button_bordered_border");
+    svg {
+      stroke: stencilColor("button_bordered_text_hover");
+      fill: stencilColor("button_bordered_text_hover");
+    }
+  }
+}
+
+button[disabled],
+.button--primary[disabled],
+.ob-btn[disabled] {
+  background: stencilColor("button--disabled-backgroundColor")!important;
+  border-color: stencilColor("button--disabled-backgroundColor")!important;
+  color: stencilColor("button--disabled-color")!important;
+  opacity: 0.9!important;
+
+  &:hover {
+    cursor: not-allowed;
+  }
+}
+
+.ob-cta-link,
+.modal .cancel.button {
+  background: none!important;
+  border-bottom: 2px solid stencilColor("button_cta_border");
+  border-radius: 0;
+  color: stencilColor("button_cta_text")!important;
+  padding: 0;
+  margin: 0 20px;
+  height: 40px;
+
+  svg {
+    fill: none;
+    display: flex;
+    max-width: 28px;
+    max-height: 28px;
+    margin: 0 5px;
+  }
+
+  &.no-padding {
+    padding: 0!important;
+  }
+
+  &:hover {
+    border-color: stencilColor("button_cta_border_hover");
+  }
+}
+
+.button--full-mobile {
+  display: flex;
+  width: 100%;
+  @media (min-width: $screen-medium) {
+    display: inline-flex;
+    width: auto;
+  }
+}
+
+// NIGHT VARIANT
+[data-theme-variant="night"],
+.ob-night-checkout {
+  .ob-btn-border,
+  .ob-btn--primary,
+  .button--primary,
+  .card-figcaption-button,
+  .modal .confirm.button,
+  #consent-manager button,
+  .cart-modal-continue {
+    &:not([disabled]) {
+      &:hover {
+        box-shadow: 0px 7px 28px -12px stencilColor("button--primary-backgroundColor");
+      }
+    }
+  }
+}
+
+// VOGUE VARIANT
+[data-theme-variant="vogue"],
+.ob-vogue-checkout {
+  .ob-btn, button,
+  .button, .button--primary,
+  .ob-cta-link,
+  .cart-actions .button,
+  .table-actions .button,
+  #consent-manager button,
+  .buttonLink a,
+  .form-minMaxRow button {
+    text-transform: capitalize!important;
+    letter-spacing: 0.025em;
+    padding: 0 20px;
+    font-weight: 700;
+    @media (min-width: $screen-medium) {
+      height: 65px;
+      padding: 0 30px;
+    }
+    @media (max-width: ($screen-medium - 1)) {
+      font-size: 14px;
+    }
+
+    &-border {
+      border: 3px solid stencilColor("button_bordered_border");
+    }
+  }
+
+  #consent-manager button {
+    height: 50px;
+    padding: 0 25px;
+  }
+
+  .ob-btn--primary,
+  .button--primary,
+  .modal .confirm.button,
+  #consent-manager button:not(:first-of-type),
+  .cart-modal-continue {
+    background: $ob-gradient;
+
+    &:hover {
+      background: $ob-gradient-inverted;
+      box-shadow: none;
+    }
+
+    &[disabled] {
+      background: $ob-gradient!important;
+      opacity: 0.4!important;
+      color: stencilColor("button--disabled-color")!important;
+    }
+  }
+  .ob-btn-border,
+  .form-minMaxRow button {
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}

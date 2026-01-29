@@ -1,0 +1,80 @@
+<div class="inner-wrap">
+	<div class="top-image">
+		{{#if theme_settings.cta_3_a}}
+			<img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" 
+				srcset="{{getImageManagerImageSrcset theme_settings.cta_3_a}}"
+				alt="{{theme_settings.cta_3_a_alt}}"
+				width="540" height="810" />
+		{{else}}
+			<img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" 
+				srcset="{{cdn (multiConcat 'assets/img/ob-custom/' theme_settings.theme_type '/cta-3.jpg')}}"
+				alt="{{theme_settings.cta_3_a_alt}}"
+				width="540" height="810" />
+		{{/if}}
+	</div>
+	
+	<div class="left-content">
+		<div class="heading-2">
+			{{{region name="cta_3_title"}}}
+		</div>
+		<div class="detail-grid">
+			<div class="cube">
+				{{#if theme_settings.cta_3_icon_1}}
+					<img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" 
+						srcset="{{getImageManagerImageSrcset theme_settings.cta_3_icon_1}}" alt="{{theme_settings.cta_3_icon_1_title}}"
+						width="55" height="55" />
+				{{else}}
+					<img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" 
+						srcset="{{cdn (multiConcat 'assets/img/ob-custom/' theme_settings.theme_type '/cta-3-icon-1.png')}}" alt="{{theme_settings.cta_3_icon_1_title}}"
+						width="55" height="55" />
+				{{/if}}
+				<h3>{{theme_settings.cta_3_icon_1_title}}</h3>
+				<div class="ob-body-sm">{{{region name="cta_3_icon_1_text"}}}</div>
+			</div>
+			<div class="cube">
+				{{#if theme_settings.cta_3_icon_2}}
+					<img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" 
+						srcset="{{getImageManagerImageSrcset theme_settings.cta_3_icon_2}}" alt="{{theme_settings.cta_3_icon_2_title}}"
+						width="55" height="55" />
+				{{else}}
+					<img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" 
+						srcset="{{cdn (multiConcat 'assets/img/ob-custom/' theme_settings.theme_type '/cta-3-icon-2.png')}}" alt="{{theme_settings.cta_3_icon_2_title}}"
+						width="55" height="55" />
+				{{/if}}
+				<h3>{{theme_settings.cta_3_icon_2_title}}</h3>
+				<div class="ob-body-sm">{{{region name="cta_3_icon_2_text"}}}</div>
+			</div>
+			<div class="cube">
+				{{#if theme_settings.cta_3_icon_3}}
+					<img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" 
+						srcset="{{getImageManagerImageSrcset theme_settings.cta_3_icon_3}}" alt="{{theme_settings.cta_3_icon_3_title}}"
+						width="55" height="55" />
+				{{else}}
+					<img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" 
+						srcset="{{cdn (multiConcat 'assets/img/ob-custom/' theme_settings.theme_type '/cta-3-icon-3.png')}}" alt="{{theme_settings.cta_3_icon_3_title}}"
+						width="55" height="55" />
+				{{/if}}
+				<h3>{{theme_settings.cta_3_icon_3_title}}</h3>
+				<div class="ob-body-sm">{{{region name="cta_3_icon_3_text"}}}</div>
+			</div>
+			<div class="cube">
+				{{#if theme_settings.cta_3_icon_4}}
+					<img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" 
+						srcset="{{getImageManagerImageSrcset theme_settings.cta_3_icon_4}}" alt="{{theme_settings.cta_3_icon_4_title}}"
+						width="55" height="55" />
+				{{else}}
+					<img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" 
+						srcset="{{cdn (multiConcat 'assets/img/ob-custom/' theme_settings.theme_type '/cta-3-icon-4.png')}}" alt="{{theme_settings.cta_3_icon_4_title}}"
+						width="55" height="55" />
+				{{/if}}
+				<h3>{{theme_settings.cta_3_icon_4_title}}</h3>
+				<div class="ob-body-sm">{{{region name="cta_3_icon_4_text"}}}</div>
+			</div>
+		</div>
+		<p class="ob-body-lg">
+			<a class="ob-btn ob-btn--primary" href="{{theme_settings.cta_3_btn_link}}">
+				{{theme_settings.cta_3_btn_text}}
+			</a>
+		</p>
+	</div>
+</div>

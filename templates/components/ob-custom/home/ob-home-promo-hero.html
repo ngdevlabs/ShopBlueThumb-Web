@@ -1,0 +1,29 @@
+<div class="promo-inner">
+	<div class="promo-image">
+		{{#if theme_settings.promo_hero}}
+			<img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" 
+				srcset="{{getImageManagerImageSrcset theme_settings.promo_hero}}"
+				alt="{{theme_settings.promo_hero_alt}}"
+				width="970" height="540" />
+		{{else}}
+			<img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" 
+				srcset="{{cdn (multiConcat 'assets/img/ob-custom/' theme_settings.theme_type '/promo-banner.jpg')}}"
+				alt="{{theme_settings.promo_hero_alt}}"
+				width="970" height="540" />
+		{{/if}}
+	</div>
+	<div class="promo-content">
+		<div class="heading-2">
+	        {{{region name="promo_hero_title"}}}
+		</div>
+		{{#if theme_settings.home_promo_show_button}}
+			<div class="button-row">
+				<a class="ob-btn 
+				{{#unless theme_settings.theme_type '==' 'vogue'}}ob-cta-link{{/unless}}
+				{{#if theme_settings.theme_type '==' 'vogue'}}ob-btn-border{{/if}}" href="{{theme_settings.promo_hero_btn_link}}">
+					{{theme_settings.promo_hero_btn_text}}
+				</a>
+			</div>
+		{{/if}}
+	</div>
+</div>

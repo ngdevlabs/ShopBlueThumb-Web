@@ -1,0 +1,86 @@
+<div class="modal-header">
+    <h1 class="modal-header-title">
+        {{lang 'cart.added_to_cart.what_next' num_products=cart.quantity}}
+    </h1>
+</div>
+
+<div class="modal-body">
+    <div class="previewCart">
+        <section class="previewCartCheckout">
+            <div class="previewCartCheckout-subtotal">
+                {{lang 'cart.added_to_cart.order_subtotal'}}:
+
+                <strong class="previewCartCheckout-price heading-3">
+                    {{#or customer (if settings.hide_price_from_guests '!==' true)}}
+                        {{cart.sub_total.formatted}}
+                    {{else}}
+                        {{> components/common/login-for-pricing}}
+                    {{/or}}
+                </strong>
+            </div>
+
+            <p data-cart-quantity="{{cart.quantity}}">
+                {{lang 'cart.added_to_cart.your_cart_contains' num_products=cart.quantity}}
+            </p>
+
+            {{#if cart.show_primary_checkout_button}}
+                <a href="{{urls.checkout.single_address}}" class="button button--primary ob-btn-block">
+                    {{lang 'cart.added_to_cart.proceed_to_checkout'}}
+                </a>
+            {{/if}}
+
+            <a href="#" class="button button--primary ob-btn-block" role="button" data-reveal-close>
+                {{lang 'cart.added_to_cart.continue_shopping'}}
+            </a>
+
+            <a href="{{urls.cart}}" class="button ob-cta-link no-padding
+            {{#if theme_settings.theme_type '==' 'vogue'}} ob-btn-border{{/if}}">
+                {{lang 'cart.added_to_cart.view_or_edit_cart'}}
+            </a>
+        </section>
+        <section class="productView">
+            {{#with cart.added_item}}
+                <figure class="productView-image">
+                    <div class="productView-img-container">
+                        {{> components/common/responsive-img
+                            image=image
+                            class="productView-image--cart"
+                            fallback_size=../theme_settings.product_size
+                            lazyload=../theme_settings.lazyload_mode
+                            default_image=../theme_settings.default_image_product
+                        }}
+                    </div>
+                </figure>
+
+                <div class="productView-details">
+                    <div class="productView-brand">
+                        {{brand.name}}
+                    </div>
+
+                    <h2 class="productView-title">
+                        {{name}}
+                    </h2>
+
+                    <div class="productView-price">
+                        {{#or ../customer (if ../settings.hide_price_from_guests '!==' true)}}
+                            {{quantity}} &times; {{price.formatted}}
+                        {{else}}
+                            {{> components/common/login-for-pricing}}
+                        {{/or}}
+                    </div>
+
+                    {{#each options}}
+                        <dl class="productView-info">
+                            <dt class="productView-info-name">
+                                {{name}}:
+                            </dt>
+                            <dd class="productView-info-value">
+                                {{{ sanitize value}}}
+                            </dd>
+                        </dl>
+                    {{/each}}
+                </div>
+            {{/with}}
+        </section>
+    </div>
+</div>
