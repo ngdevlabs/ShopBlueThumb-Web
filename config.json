@@ -38,13 +38,9 @@
   },
   "css_compiler": "scss",
   "autoprefixer_cascade": true,
-  "autoprefixer_browsers": [
-    "> 1%",
-    "last 2 versions",
-    "Firefox ESR"
-  ],
+  "autoprefixer_browsers": ["> 1%", "last 2 versions", "Firefox ESR"],
   "settings": {
-    "hide_breadcrumbs": false,
+    "hide_breadcrumbs": true,
     "hide_page_heading": false,
     "hide_category_page_heading": false,
     "hide_blog_page_heading": false,
@@ -338,10 +334,7 @@
       "mastercard",
       "visa"
     ],
-    "supported_payment_methods": [
-      "card",
-      "paypal"
-    ],
+    "supported_payment_methods": ["card", "paypal"],
     "lazyload_mode": "lazyload+lqip",
     "show-admin-bar": true,
     "checkout-paymentbuttons-paypal-color": "black",
@@ -387,7 +380,7 @@
     "dropdown--quickSearch-backgroundColor": "#FFFFFF",
     "color-activeForms": "#5D5FEF",
     "navPages-subMenu-showImage": true,
-    "navPages_included_pages": "About,Our Story",
+    "navPages_included_pages": "",
     "button_bordered_background": "#FFFFFF",
     "button_bordered_border": "#000000",
     "button_bordered_text": "#000000",
@@ -398,7 +391,7 @@
     "button_cta_text_hover": "#5D5FEF",
     "button_cta_border": "#000000",
     "button_cta_border_hover": "#000000",
-    "show_header_promo": true,
+    "show_header_promo": false,
     "show_gift_blog_links": true,
     "list_borders": "#E3ECFC",
     "header_menu_background_image": "none",
@@ -480,7 +473,7 @@
     "tab_border": "#E3ECFC",
     "color-textLink-secondary": "#5D5FEF",
     "product_card_image_padding": 0,
-    "product_card_image_fit":"cover",
+    "product_card_image_fit": "cover",
     "product_image_blend_mode": "normal",
     "product_price_newline": false,
     "header_promo_tab_bg": "#EDF3FE",
@@ -635,9 +628,7 @@
           "sales_discounts",
           "large_catalog"
         ],
-        "industries": [
-          "fashion_jewelry"
-        ]
+        "industries": ["fashion_jewelry"]
       },
       "images": {},
       "settings": {}
@@ -656,13 +647,11 @@
           "sales_discounts",
           "large_catalog"
         ],
-        "industries": [
-          "fashion_jewelry"
-        ]
+        "industries": ["fashion_jewelry"]
       },
       "images": {},
       "settings": {
-        "hide_breadcrumbs": false,
+        "hide_breadcrumbs": true,
         "hide_page_heading": false,
         "hide_category_page_heading": false,
         "hide_blog_page_heading": false,
@@ -956,10 +945,7 @@
           "mastercard",
           "visa"
         ],
-        "supported_payment_methods": [
-          "card",
-          "paypal"
-        ],
+        "supported_payment_methods": ["card", "paypal"],
         "lazyload_mode": "lazyload+lqip",
         "show-admin-bar": true,
         "checkout-paymentbuttons-paypal-color": "black",
@@ -1005,7 +991,7 @@
         "dropdown--quickSearch-backgroundColor": "#FFFFFF",
         "color-activeForms": "#F2925D",
         "navPages-subMenu-showImage": true,
-        "navPages_included_pages": "About",
+        "navPages_included_pages": "",
         "button_bordered_background": "#FFFFFF",
         "button_bordered_border": "#F1F1F1",
         "button_bordered_text": "#000000",
@@ -1016,7 +1002,7 @@
         "button_cta_text_hover": "#000000",
         "button_cta_border": "#000000",
         "button_cta_border_hover": "#F2925D",
-        "show_header_promo": true,
+        "show_header_promo": false,
         "show_gift_blog_links": true,
         "list_borders": "#CCCCCC",
         "header_menu_background_image": "none",
@@ -1098,7 +1084,7 @@
         "tab_border": "#F8F8F8",
         "color-textLink-secondary": "#F2925D",
         "product_card_image_padding": 15,
-        "product_card_image_fit":"contain",
+        "product_card_image_fit": "contain",
         "product_image_blend_mode": "multiply",
         "product_price_newline": false,
         "header_promo_tab_bg": "#EDF3FE",
@@ -1212,13 +1198,11 @@
           "sales_discounts",
           "large_catalog"
         ],
-        "industries": [
-          "sports_recreation"
-        ]
+        "industries": ["sports_recreation"]
       },
       "images": {},
       "settings": {
-        "hide_breadcrumbs": false,
+        "hide_breadcrumbs": true,
         "hide_page_heading": false,
         "hide_category_page_heading": false,
         "hide_blog_page_heading": false,
@@ -1512,10 +1496,7 @@
           "mastercard",
           "visa"
         ],
-        "supported_payment_methods": [
-          "card",
-          "paypal"
-        ],
+        "supported_payment_methods": ["card", "paypal"],
         "lazyload_mode": "lazyload+lqip",
         "show-admin-bar": true,
         "checkout-paymentbuttons-paypal-color": "black",
@@ -1560,7 +1541,7 @@
         "dropdown--quickSearch-backgroundColor": "#121F1F",
         "color-activeForms": "#D7962E",
         "navPages-subMenu-showImage": true,
-        "navPages_included_pages": "About,Our Story",
+        "navPages_included_pages": "",
         "button_bordered_background": "#0B1414",
         "button_bordered_border": "#162526",
         "button_bordered_text": "#F2F2F2",
@@ -1571,7 +1552,7 @@
         "button_cta_text_hover": "#F2F2F2",
         "button_cta_border": "#F2F2F2",
         "button_cta_border_hover": "#D7962E",
-        "show_header_promo": true,
+        "show_header_promo": false,
         "show_gift_blog_links": true,
         "list_borders": "#48595A",
         "header_menu_background_image": "default",
@@ -1653,7 +1634,7 @@
         "tab_border": "#162526",
         "color-textLink-secondary": "#D7962E",
         "product_card_image_padding": 0,
-        "product_card_image_fit":"cover",
+        "product_card_image_fit": "cover",
         "product_image_blend_mode": "lighten",
         "product_price_newline": false,
         "header_promo_tab_bg": "#EDF3FE",

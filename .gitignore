@@ -11,3 +11,6 @@ vendor/bundle
 *.zip
 .idea/
 .nvmrc
+config.stencil.json
+package-lock.json
+stencil.conf.cjs
