@@ -15,7 +15,7 @@ export default function () {
         },
         show: (event) => {
             $quickSearchExpand.attr('aria-expanded', true);
-            // $searchQuery.trigger('focus');
+            $searchQuery.trigger('focus');
             event.stopPropagation();
         },
     };
