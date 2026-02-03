@@ -1,5 +1,20 @@
 $mainNav: ".navPages-list:not(.navPages-list--user)";
 
+@include breakpoint("small") {
+[data-theme-variant="vogue"] 
+.navPages-quickSearch.ob-mobile {
+
+  .form-fieldset .form-field {
+    border-radius: 0;
+    border-bottom: 2px solid black !important;
+
+    input.form-input:focus-visible {
+      outline: none !important;
+    }
+  }
+}
+}
+
 @include breakpoint("medium") {
   #{$mainNav} {
     display: flex;
@@ -40,6 +55,23 @@ $mainNav: ".navPages-list:not(.navPages-list--user)";
         padding-right: 2px !important;
       }
     }
+  }
+
+
+   [data-theme-variant="vogue"] 
+   .header--top 
+   .navPages-quickSearch
+   .form-fieldset
+   .form-field {
+
+    border-radius: 0;
+    border-bottom: 2px solid black!important;
+    padding-right: 1rem;
+ 
+
+    & input.form-input:focus-visible {
+      outline: none !important;
+    } 
   }
 }
 
