@@ -24,6 +24,22 @@ $mainNav: ".navPages-list:not(.navPages-list--user)";
     .body#main-content {
       padding-top: 2rem;
     }
+
+    .ob-child-group-list > .navPage-subMenu-item {
+      flex: 0 0 33.333%;
+      height: 56px; 
+
+      &> a.navPage-subMenu-action {
+        display: block;
+        text-transform: uppercase !important;
+        letter-spacing: 0;
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-break: normal;
+        padding-left: 2px !important;
+        padding-right: 2px !important;
+      }
+    }
   }
 }
 
