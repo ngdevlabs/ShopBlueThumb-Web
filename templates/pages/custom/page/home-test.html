@@ -29,12 +29,36 @@ blog:
     {{/each}}
 
 {{{region name="home_above_featured_products"}}}
+
+{{> components/ob-custom-overrides/home/featured-categories}}
+
+{{> components/ob-custom-overrides/home/featured-banner
+    eyebrow="HOMEOWNERS"
+    title="Find a Professional<br>Near You"
+    description=" We can assist with locating a<br>
+        Blue Thumb Authorized<br>
+        Contractor near you for<br>
+        guidance on creating an outdoor<br>
+        space you'll absolutely LOVE!"
+    cta_text="Call Today"
+    img_src="https://cdn11.bigcommerce.com/s-g33rmoufv1/images/stencil/original/image-manager/homeownersbanner.jpg?t=1770239346"
+}}
+
 {{#all products.featured theme_settings.home_show_featured_prod}}
     <div class="container narrow-container ob-home-carousel ob-home-featured-container">
         {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
     </div>
 {{/all}}
 {{{region name="home_below_featured_products"}}}
+
+{{> components/ob-custom-overrides/home/featured-banner
+    eyebrow="PROFESSIONALS"
+    title="Become a Wholesale<br>Partner"
+    description="We can assist with locating a <br> Blue Thumb Authorized<br> Contractor near you for guidance on creatng an outdoor<br> space you'll absolutely LOVE!"
+    cta_text="Apply Now"
+    img_src="https://cdn11.bigcommerce.com/s-g33rmoufv1/images/stencil/original/image-manager/wholesalepartnerbanner.jpg?t=1770242359"
+}}
+
 
 {{#if theme_settings.home_show_cta_1}}
     <div class="container ob-home-cta-1">
