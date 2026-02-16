@@ -1,7 +1,7 @@
 $mainNav: ".navPages-list:not(.navPages-list--user)";
 
 @include breakpoint("small") {
-[data-theme-variant="vogue"] 
+[data-theme-variant="light"] 
 .navPages-quickSearch.ob-mobile {
 
   .form-fieldset .form-field {
@@ -13,6 +13,13 @@ $mainNav: ".navPages-list:not(.navPages-list--user)";
     }
   }
 }
+
+.category-name {
+  font-size: 2.3vw;
+  text-wrap: wrap;
+  width: 60%;
+}
+
 }
 
 @include breakpoint("medium") {
@@ -29,7 +36,7 @@ $mainNav: ".navPages-list:not(.navPages-list--user)";
     height: auto;
   }
 
-  [data-theme-variant="vogue"] {
+  [data-theme-variant="light"] {
     a.navPages-action.top--level:not(.image-action),
     a.beta-link.blog-link {
       text-transform: uppercase !important;
@@ -58,7 +65,7 @@ $mainNav: ".navPages-list:not(.navPages-list--user)";
   }
 
 
-   [data-theme-variant="vogue"] 
+   [data-theme-variant="light"] 
    .header--top 
    .navPages-quickSearch
    .form-fieldset
@@ -87,7 +94,7 @@ $mainNav: ".navPages-list:not(.navPages-list--user)";
     margin-left: 4px;
   }
 
-  [data-theme-variant="vogue"] {
+  [data-theme-variant="light"] {
     .body#main-content {
       padding-top: 0;
     }

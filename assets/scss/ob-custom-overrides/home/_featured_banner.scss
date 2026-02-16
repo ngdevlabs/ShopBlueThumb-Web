@@ -1,0 +1,127 @@
+.hero-banner {
+  position: relative;
+  width: 100vw; 
+  overflow:hidden;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+
+  // control the visual height
+  min-height: 360px;
+
+  @media (min-width: 768px) {
+    min-height: 460px;
+  }
+
+  @media (min-width: 1200px) {
+    min-height: 560px;
+  }
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.02);
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 1;
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 2;
+
+    max-width: 1200px;
+    margin: 0 auto;
+
+    padding: 2.25rem 5rem;
+    min-height: inherit;
+
+    display: flex;
+    align-items: center;
+
+    @media (min-width: 768px) {
+      padding: 3.5rem 5rem;
+    }
+
+    @media (min-width: 1200px) {
+      padding: 4.5rem 2rem;
+    }
+  }
+
+  &__content {
+    max-width: 520px;
+    color: #fff;
+  }
+
+  &__eyebrow {
+    font-size: 1.4rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    opacity: 0.9;
+    margin-bottom: 1.25rem;
+  }
+
+  &__title {
+    margin: 0 0 1rem 0;
+    font-weight: 800;
+    font-family: poppins, sans-serif;
+    line-height: 1.05;
+    font-size: 2.1rem;
+    color: #FFF;
+
+    @media (min-width: 768px) {
+      font-size: 3rem;
+    }
+
+    @media (min-width: 1200px) {
+      font-size: 3.6rem;
+    }
+  }
+
+  &__text {
+    margin: 0 0 1.75rem 0;
+    max-width: 420px;
+    line-height: 1.6;
+    font-size: 1rem;
+    opacity: 0.95;
+    color: #FFF;
+    font-family: poppins, sans-serif;
+
+    @media (min-width: 768px) {
+      font-size: 1.05rem;
+    }
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.9rem 1.6rem;
+    border-radius: 12px;
+
+    background: #68869A;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+
+
+    transition: transform 0.15s ease, background 0.15s ease;
+
+    &:hover {
+      color: #000;
+    }
+
+    &:visited {
+      color: #fff;
+    }
+
+  }
+}

@@ -1,0 +1,28 @@
+
+<section class="hero-banner">
+  <div class="hero-banner__bg"
+    {{#if img_src}}
+       style="background-image:url('{{img_src}}');">
+    {{/if}}
+  </div>
+
+  <div class="hero-banner__inner">
+    <div class="hero-banner__content">
+      <div class="hero-banner__eyebrow">{{#if eyebrow}}{{eyebrow}}{{/if}}</div>
+
+      <h1 class="hero-banner__title">
+        {{#if title}}
+            {{{title}}}
+        {{/if}}
+      </h1>
+
+      <p class="hero-banner__text">
+        {{#if description}}
+            {{{description}}}
+        {{/if}}
+      </p>
+
+      <a class="hero-banner__cta" href="/contact-us">{{#if cta_text}}{{cta_text}}{{/if}}</a>
+    </div>
+  </div>
+</section>
