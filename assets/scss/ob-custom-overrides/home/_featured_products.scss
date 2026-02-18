@@ -1,0 +1,27 @@
+.ob-home-featured-container {
+    position: relative;
+    z-index: 0;
+    padding: 2rem 0;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100vw;
+        background-color: rgba(145, 185, 212, 0.22);       /* your background */
+        z-index: -1;         
+    }
+
+    &>h2.page-heading.pre-title {
+        font-family: 'poppins', sans-serif;
+        font-weight: 600;
+        color: rgba(59, 82, 97, 1);
+        line-height: 65px;
+        font-size: 1.3rem;
+        letter-spacing: 35%;
+    }
+
+}

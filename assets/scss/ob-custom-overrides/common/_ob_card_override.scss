@@ -1,0 +1,46 @@
+.product,
+.compareTable-product {
+	.card {
+		.card-figure {
+
+			border-radius: 3px;
+        }
+		.card-body {
+			display: flex;
+			flex-direction: row;
+			padding-left: 0;
+			padding-right: 0;
+
+			&>.card-title-container {
+			
+			width: 60%;
+			
+
+				&>h3.card-title>a {
+					color: rgba(59, 82, 97, 1);
+					font-family: 'poppins', sans-serif;
+					font-weight: 600;
+					font-size: 1.4rem;
+					line-height: 22px;
+					letter-spacing: 0;
+					width: 100%;
+					margin-bottom: 1rem;
+				}
+
+			}
+
+			&>.card-text{
+
+				.price-section.price-section--withoutTax>span.price.price--withoutTax {
+					font-family: 'poppins', sans-serif;
+					font-weight: 400;
+					font-size: 1.1rem!important;
+				}
+			}
+		}
+    }
+}
+
+@media screen {
+	
+}
