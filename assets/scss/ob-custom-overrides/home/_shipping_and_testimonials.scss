@@ -1,0 +1,137 @@
+$font-family: 'poppins', sans-serif;
+
+.shipping {
+
+  &__gradient {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 1) 80%,
+      rgba(104, 134, 154, .20) 100%
+    );
+
+    text-align: center;
+
+    position: relative;          
+    padding: 80px 20px 80px;
+  }
+
+  &__content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  &__logo {
+    width: 160px;
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    font-family: $font-family;
+    font-size: 40px;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    line-height: 24px;;
+  }
+
+  &__description {
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;;
+    margin-bottom: 0;
+  }
+
+  &__button {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 50%);
+
+    text-transform: capitalize;
+    letter-spacing: 0;
+    width: fit-content;
+    height: 3rem;
+    border-radius: 3px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1.5rem;
+    z-index: 2;
+  }
+}
+
+
+.testimonials {
+  background: white;
+  text-align: center;
+
+  padding: calc(80px + 1.5rem) 20px 80px;
+
+  &__container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  &__label {
+    font-family: $font-family;
+    letter-spacing: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(59, 82, 97, 1);
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    font-family: $font-family;
+    font-size: 42px;
+    font-weight: 600;
+    color: rgba(104, 134, 154, 1);
+    margin-bottom: 24px;
+  }
+
+  &__text {
+    font-family: $font-family;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: rgba(59, 82, 97, 1);
+  }
+
+  &__author {
+    font-family: $font-family;
+    font-size: 18px;
+    font-weight: 700;
+    color: rgba(59, 82, 97, 1);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .shipping {
+    &__gradient {
+      padding: 60px 20px 70px;
+    }
+    &__title {
+      font-size: 28px;
+    }
+    &__description {
+      font-size: 16px;
+    }
+  }
+
+  .testimonials {
+    padding: calc(60px + 1.5rem) 20px 60px;
+
+    &__title {
+      font-size: 26px;
+    }
+    &__text {
+      font-size: 16px;
+    }
+  }
+}
