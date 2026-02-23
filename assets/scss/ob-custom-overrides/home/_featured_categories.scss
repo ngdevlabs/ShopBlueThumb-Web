@@ -15,6 +15,11 @@
   }
 
   &__title {
+
+    @media (max-width: 800px) {
+      font-size: 22px;
+    }
+
     font-size: 32px;
     line-height: 1.2;
     font-family: 'poppins', sans-serif;
@@ -22,6 +27,7 @@
     margin: 0 auto;
     padding: 3rem 1rem;
     background-color: rgba(145, 185, 212, 0.22);
+
   }
 
   &__grid {
@@ -56,6 +62,11 @@
     font-family: 'poppins', sans-serif;
     font-weight: 700;
     margin: 0 0 0.75rem 0;
+
+    @media (max-width: 800px) {
+      font-size: 24px;
+    }
+
   }
 
   &__description {
@@ -64,6 +75,7 @@
     line-height: 1.5;
     font-family: 'poppins', sans-serif;
     font-weight: 700;
+
   }
 
   &__item .ob-btn.ob-btn--primary {

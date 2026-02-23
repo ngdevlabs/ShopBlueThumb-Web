@@ -19,7 +19,10 @@ blog:
     {{#and carousel carousel.slides.length}}
         {{> components/ob-custom/home/ob-home-hero-carousel}}
     {{/and}}
+    
+    {{> components/ob-custom-overrides/home/homepage-hero}}
     {{{region name="home_below_carousel"}}}
+    
 {{/partial}}
 
 {{#partial "page"}}

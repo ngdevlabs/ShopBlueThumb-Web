@@ -4,6 +4,29 @@
 		.card-figure {
 
 			border-radius: 3px;
+			
+			.card-figcaption {
+
+
+				&-body{
+					top: 85%;
+					display: flex;
+					max-width: 100%;
+					align-items: center;
+					padding: 5px 10px;
+					gap: 10px;
+
+					.button.button--small.card-figcaption-button {
+						height: 40px;
+						margin: 0;
+						border-radius: 6px;
+						font-size: 12px;
+						padding: 5px 8px;
+						letter-spacing: 0;
+	
+					}
+				}
+			}
         }
 		.card-body {
 			display: flex;

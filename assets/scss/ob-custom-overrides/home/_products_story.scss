@@ -24,6 +24,12 @@ $usp-font: 'poppins', sans-serif;
     font-size: 48px;
     line-height: 52px;
     letter-spacing: 0;
+    
+    @media (max-width: 800px) {
+      font-size: 28px;
+      line-height: 30px;
+      margin-bottom: 3rem;
+    }
   }
 
   .usp__features {
@@ -38,6 +44,10 @@ $usp-font: 'poppins', sans-serif;
     font-size: 16px;
     line-height: 26px;
     font-family: $usp-font;
+
+    @media (max-width: 800px) {
+      font-size: 14px;
+    }
   }
 
   .usp__itemTitle {
@@ -59,6 +69,10 @@ $usp-font: 'poppins', sans-serif;
   }
 
   .usp__right {
+    align-self: center;
+  }
+
+  .usp__left {
     align-self: center;
   }
 

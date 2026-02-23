@@ -20,4 +20,9 @@
         z-index: -1;
     }
 
+    &>svg {
+        width: clamp(140px, 50vw, 200px);
+        height: auto;
+    }
+
 }
