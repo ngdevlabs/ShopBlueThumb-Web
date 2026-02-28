@@ -1,0 +1,115 @@
+---
+category:
+    products:
+        limit: {{theme_settings.categorypage_products_per_page}}
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+---
+{{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{inject "categoryId" category.id}}
+{{inject "breadcrumbs" breadcrumbs}}
+
+{{#partial "head"}}
+    {{#if pagination.category.previous}}
+        <link rel="prev" href="{{pagination.category.previous}}">
+    {{/if}}
+    {{#if pagination.category.next}}
+        <link rel="next" href="{{pagination.category.next}}">
+    {{/if}}
+{{/partial}}
+
+
+{{#partial "page"}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+<div class="ob-category-header ob-title-banner
+{{#unless theme_settings.show_title_banner_gradient}} no-overlay{{/unless}}
+{{#if theme_settings.category_banner_text_only}} no-image{{/if}}">
+    {{#unless theme_settings.category_banner_text_only}}
+        <img rel="preload" class="category-header-image"
+            src="{{getImage category.image }}"
+            alt="{{category.name}}"
+            onerror="this.style.display='none'" />
+    {{/unless}}
+
+    <div class="category-header-text">
+        <h1 class="page-heading">{{category.name}}</h1>
+        {{#all category.description theme_settings.cat_description_in_banner}}
+            <div class="category-description">
+                {{{category.description}}}
+            </div>
+        {{/all}}
+    </div>
+</div>
+
+{{#unless theme_settings.cat_description_in_banner}}
+    {{#if category.description}}
+        <div class="container narrow-container">
+            <div class="category-description category-description-below ob-mb-50 ob-mb-25-mobile">
+                {{{category.description}}}
+            </div>
+        </div>
+    {{/if}}
+{{/unless}}
+
+{{#if theme_settings.show_subcategory_carousel}}
+    {{#if category.subcategories}}
+        {{#if category.subcategories.length '>=' theme_settings.minimum_subcategories}}
+            <div class="ob-subcategory-carousel ob-full-width-mobile">
+                <div class="carousel-wrap">
+                    {{#each category.subcategories}}
+                        <div class="subcat-box {{#if ../theme_settings.subcat_aspect_ratio '==' 'cover'}}full-image-span{{/if}}">
+                            <a href="{{url}}" title="{{name}}">
+                                {{#all image ../theme_settings.subcat_show_image}}
+                                    <div class="image-wrap">
+                                        {{> components/common/responsive-img
+                                            image=image
+                                            fallback_size=../theme_settings.subcategory_image_size
+                                            lazyload=../theme_settings.lazyload_mode
+                                        }}
+                                    </div>
+                                {{/all}}
+                                <h3>{{name}}</h3>
+                            </a>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        {{/if}}
+    {{/if}}
+{{/if}}
+
+
+
+<div class="page">
+    {{> components/ob-custom-overrides/category/ob-compare-bar show_compare=category.show_compare}}
+    {{> components/ob-custom/category/ob-product-actions-box }}
+    {{#any category.faceted_search_enabled theme_settings.show_subcategory_list_in_filters theme_settings.shop_by_price_visibility}}
+        <aside class="page-sidebar" id="faceted-search-container">
+            {{> components/category/sidebar}}
+        </aside>
+    {{/any}}
+
+    <div class="page-content">
+        <div class="ob-product-listing-top">
+            <div class="ob-product-actions-box">
+                <div class="product-sort-wrap">
+                    {{#if category.products}}
+                        {{> components/ob-custom/category/ob-per-page}}
+                        {{> components/products/filter sort=pagination.category.sort}}
+                    {{/if}}
+                </div>
+            </div>
+            <h3>{{lang 'common.all'}} {{category.name}}</h3>
+        </div>
+        <div id="product-listing-container">
+            {{> components/category/product-listing}}
+        </div>
+        {{{region name="category_below_content"}}}
+    </div>
+</div>
+
+{{/partial}}
+{{> layout/base}}

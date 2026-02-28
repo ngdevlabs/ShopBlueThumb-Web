@@ -5,7 +5,9 @@ import { initHomepageCarousel } from './ob-custom/ob-home-carousel';
 
 export default class HomePage extends PageManager {
     onReady() {
-        initHomepageCarousel(this.context);
+
+        // We Decided to use image instad a carousel for home page
+        //initHomepageCarousel(this.context);
 
         let slideUp = {
             distance: '15%',

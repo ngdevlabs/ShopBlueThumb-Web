@@ -40,7 +40,7 @@
   "autoprefixer_cascade": true,
   "autoprefixer_browsers": ["> 1%", "last 2 versions", "Firefox ESR"],
   "settings": {
-    "hide_breadcrumbs": true,
+    "hide_breadcrumbs": false,
     "hide_page_heading": false,
     "hide_category_page_heading": false,
     "hide_blog_page_heading": false,
@@ -651,7 +651,7 @@
       },
       "images": {},
       "settings": {
-        "hide_breadcrumbs": true,
+        "hide_breadcrumbs": false,
         "hide_page_heading": false,
         "hide_category_page_heading": false,
         "hide_blog_page_heading": false,
