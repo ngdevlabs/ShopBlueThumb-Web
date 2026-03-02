@@ -1,0 +1,70 @@
+
+.product,
+.compareTable-product {
+	.card {
+
+		.card-figure {
+			border-radius: 3px;
+		}
+		.card-body {
+            padding-left: 0;
+
+			.card-title-container {
+				width: 52%!important;
+			}
+			.card-title {
+                font-weight: 700;
+                font-family: 'Poppins', sans-serif;
+			}
+			.card-text {
+
+                &[data-test-info-type="price"] {
+                    word-break: break-word;
+
+                }
+
+				.price-section {
+					text-align: left;
+					line-height: 110%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+					@include breakpoint("large") {
+						text-align: right;
+					}
+				}
+
+
+				span.price {
+                    display: inline-block;
+                    color: #7F98A9;
+
+                    &.minPrice{
+                        display: block;
+                    }
+                    &.maxPrice{
+                        display: block;
+                    }
+				}
+			}
+			
+
+			.card-compare {
+				.form-label {
+					line-height: 130%;
+
+                    &::before {
+                        border-color: #A2B4C1!important;
+                        background-color: white;
+                    }
+
+                    &::after {
+                        background-color: #7F98A9;
+                    }
+				}
+                
+			}
+		}
+	}
+}
+

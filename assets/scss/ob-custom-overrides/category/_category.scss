@@ -2,6 +2,12 @@
 [data-page-type="brand"],
 [data-page-type="search"],
 [data-page-type="account_recentitems"] { 
+
+h3 {
+	font-family: 'Poppins';
+	font-weight: 700;
+}
+
 .ob-category-header {
 	height: 250px;
 	position: relative;
@@ -31,7 +37,6 @@
 		}
 	}
 }
-
 
 .ob-subcategory-carousel {
 	.carousel-wrap {
@@ -70,4 +75,38 @@
 	}
 }
 
+.sidebarBlock {
+	border-bottom: 2px solid #B7C6CF;
 }
+
+.ob-product-actions-box {
+	.product-sort-wrap {
+	
+
+		form.actionBar {
+			.form-fieldset {
+				.form-field {
+
+					.form-label {
+						font-family: 'Poppins', sans-serif;
+						font-size: 1.4rem;
+					}
+					select {
+						font-family: 'Poppins', sans-serif;
+						border-radius: 3px;
+
+					}
+				}
+			}
+		}
+	}
+}
+
+.sidebarBlock-heading {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 700;
+	font-size: 1.2rem;
+}
+
+}
+
