@@ -13,11 +13,16 @@
         left: 50%;
         transform: translate(-50%, -50%);
 
-        background: url("/assets/img/Thumbnail Watermark.png") no-repeat center;
+        background: url("/assets/img/BlueThumbLogo.png") no-repeat center;
         background-size: contain; 
 
         pointer-events: none;
         z-index: -1;
+    }
+
+    &>svg {
+        width: clamp(140px, 50vw, 200px);
+        height: auto;
     }
 
 }

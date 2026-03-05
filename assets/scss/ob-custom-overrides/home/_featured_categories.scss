@@ -1,4 +1,6 @@
 .featured-collections {
+  margin-bottom: 6rem;
+
   &__inner {
     max-width: 1120px;
     margin: 0 auto;
@@ -7,12 +9,17 @@
 
   &__header {
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
   }
 
   &__title {
+
+    @media (max-width: 800px) {
+      font-size: 22px;
+    }
+
     font-size: 32px;
     line-height: 1.2;
     font-family: 'poppins', sans-serif;
@@ -20,6 +27,7 @@
     margin: 0 auto;
     padding: 3rem 1rem;
     background-color: rgba(145, 185, 212, 0.22);
+
   }
 
   &__grid {
@@ -51,14 +59,23 @@
 
   &__label {
     font-size: 40px;
+    font-family: 'poppins', sans-serif;
     font-weight: 700;
     margin: 0 0 0.75rem 0;
+
+    @media (max-width: 800px) {
+      font-size: 24px;
+    }
+
   }
 
   &__description {
     margin: 0 0 1.75rem 0;
     max-width: 34ch;
     line-height: 1.5;
+    font-family: 'poppins', sans-serif;
+    font-weight: 700;
+
   }
 
   &__item .ob-btn.ob-btn--primary {

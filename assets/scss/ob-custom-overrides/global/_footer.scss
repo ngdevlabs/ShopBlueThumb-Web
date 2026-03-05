@@ -1,0 +1,353 @@
+$bt-footer-bg: #3f5561;
+$bt-footer-topbar: rgba(104, 134, 154, 1);
+$bt-footer-heading: rgba(145, 185, 212, 1);
+$bt-footer-sub-heading: rgba(63,157,199,1);
+
+$bt-footer-text: rgba(255, 255, 255, 0.92);
+$bt-footer-muted: rgba(255, 255, 255, 0.75);
+$bt-footer-dot: rgba(255, 255, 255, 0.45);
+
+$poppins:"Poppins", sans-serif;
+
+
+
+
+
+.bt-footer {
+  background: $bt-footer-bg;
+  color: $bt-footer-text;
+
+  font-family: "Poppins", sans-serif;
+
+  text-transform: none;
+}
+
+.bt-footer__topbar {
+  height: 20px;
+  background: $bt-footer-topbar;
+}
+
+
+.bt-footer__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 52px 24px 44px;
+}
+
+
+
+.bt-footer__brand {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+
+.bt-footer__brandTop {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 320px;
+}
+
+.bt-footer__thumb {
+  position: absolute;
+
+  width: 400px;
+  height: 300px;
+
+  object-fit: contain;
+
+  pointer-events: none;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -55%);
+
+  z-index: 0;
+}
+
+.bt-footer__brandText {
+  position: relative;
+  z-index: 2;
+
+  text-align: center;
+}
+
+
+
+.bt-footer__brandName {
+  display: inline-block;
+
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1.05;
+
+  letter-spacing: 0.01em;
+
+  color: #ffffff;
+  text-decoration: none;
+
+  &:hover {
+    color: $bt-footer-heading;
+  }
+}
+
+
+
+.bt-footer__brandLinks {
+  margin-top: 8px;
+
+  font-size: 16px;
+  letter-spacing: 0.02em;
+
+}
+
+.bt-footer__brandLink {
+  color: $bt-footer-sub-heading;
+  text-decoration: none;
+  font-family: $poppins;
+
+  &:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+}
+
+.bt-footer__brandDivider {
+  margin: 0 6px;
+  color: rgba(145, 185, 212, 0.8);
+}
+
+
+// ======================================================
+// ADDRESS / META LINE
+// ======================================================
+
+.bt-footer__meta {
+  margin-top: -80px;
+
+  font-size: 14px;
+
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 10px;
+  z-index: 3;
+}
+
+.bt-footer__metaItem {
+  color: #fff;
+  font-family: $poppins;
+  text-decoration: none;
+  z-index: 4;
+
+  &:hover {
+    color: #ffffff;
+  }
+
+  &-link {
+    color: rgba(145, 185, 212, 1);
+    text-decoration: none;
+    z-index: 4;
+
+    &:hover {
+        color: #fff;
+    }
+
+    &:link,
+    &:visited,
+    &:active,
+    &:focus {
+      text-decoration: none;
+      text-transform: none;
+    }
+  }
+}
+
+.bt-footer__dot {
+  color: $bt-footer-dot;
+}
+
+
+
+.bt-footer__cols {
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 44px;
+
+  padding-top: 10px;
+  padding-bottom: 36px;
+}
+
+.bt-footer__col {
+  min-width: 0;
+}
+
+
+
+
+.bt-footer__title {
+  margin: 0 0 14px;
+
+  font-size: 28px;
+  font-weight: 600;
+
+  color: $bt-footer-heading;
+  font-family: $poppins;
+}
+
+
+
+.bt-footer__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bt-footer__list li {
+  margin: 0;
+}
+
+.bt-footer__list li + li {
+  margin-top: 9px;
+}
+
+.bt-footer__list a {
+  font-size: 16px;
+
+  color: $bt-footer-text;
+
+  text-decoration: none;
+
+  &:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+}
+
+
+.bt-footer__social-list {
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
+}
+
+.bt-footer__social-item {
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.bt-footer__social-item + .bt-footer__social-item {
+  margin-top: 10px;
+}
+
+.bt-footer__social-item a {
+  font-size: 16px;
+
+  color: $bt-footer-text;
+
+  text-decoration: none;
+
+  display: inline-block;
+
+  &:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+}
+
+
+.bt-footer__hours {
+  text-align: center;
+}
+
+.bt-footer__hoursBlock + .bt-footer__hoursBlock {
+  margin-top: 34px;
+}
+
+.bt-footer__hoursTitle {
+  margin-bottom: 10px;
+
+  font-size: 36px;
+  font-weight: 600;
+
+  color: $bt-footer-heading;
+  font-family: $poppins;
+  letter-spacing: 0;
+}
+
+.bt-footer__hoursLine {
+  font-size: 14px;
+
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+
+  color: rgba(255, 255, 255, 0.85);
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+.bt-footer__hoursText {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.bt-footer__hoursPhone {
+  color: $bt-footer-heading;
+
+  text-decoration: none;
+
+  &:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+}
+
+
+@media (max-width: 980px) {
+
+  .bt-footer__cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 560px) {
+
+  .bt-footer__inner {
+    padding: 40px 40px 34px;
+  }
+
+  .bt-footer__cols {
+    grid-template-columns: 1fr;
+  }
+
+  .bt-footer__brandName {
+    font-size: 36px;
+  }
+
+  .bt-footer__thumb {
+    width: 280px;
+    height: 200px;
+  }
+
+}
