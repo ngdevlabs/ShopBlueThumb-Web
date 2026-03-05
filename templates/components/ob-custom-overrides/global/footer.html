@@ -1,0 +1,136 @@
+<footer class="bt-footer" role="contentinfo">
+
+  <div class="bt-footer__topbar"></div>
+
+  <div class="bt-footer__inner">
+
+    <div class="bt-footer__brand">
+      <div class="bt-footer__brandTop">
+          <img
+            class="bt-footer__thumb"
+            src="/assets/img/BlueThumbLogo.png"
+            alt="Blue Thumb"
+          >
+        <div class="bt-footer__brandText">
+          <a class="bt-footer__brandName" href="{{urls.home}}">
+            Blue Thumb
+          </a>
+
+          <div class="bt-footer__brandLinks" aria-label="Top categories">
+            <a class="bt-footer__brandLink" href="/ponds/">Ponds</a>
+            <span class="bt-footer__brandDivider">/</span>
+            <a class="bt-footer__brandLink" href="/waterfalls/">Waterfalls</a>
+            <span class="bt-footer__brandDivider">/</span>
+            <a class="bt-footer__brandLink" href="/fountains/">Fountains</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bt-footer__meta">
+        <span class="bt-footer__metaItem">2650 Schust Road, Saginaw, MI 48603</span>
+        <span class="bt-footer__dot">•</span>
+        <a class="bt-footer__metaItem-link" href="tel:888-619-3474">
+          888-619-3474
+        </a>
+        <span class="bt-footer__dot">•</span>
+        <a class="bt-footer__metaItem-link" href="mailto:{{theme_settings.footer_email}}">
+          Email
+        </a>
+      </div>
+    </div>
+
+
+    <div class="bt-footer__cols">
+
+      <section class="bt-footer__col" aria-labelledby="btFooterCategories">
+        <h3 class="bt-footer__title" id="btFooterCategories">Categories</h3>
+        <ul class="bt-footer__list">
+          {{#each categories}}
+            <li>
+              <a href="{{url}}">{{name}}</a>
+            </li>
+          {{/each}}
+        </ul>
+      </section>
+
+
+      <section class="bt-footer__col" aria-labelledby="btFooterInformation">
+        <h3 class="bt-footer__title" id="btFooterInformation">Information</h3>
+        <ul class="bt-footer__list">
+          <li><a href="{{urls.home}}">Home</a></li>
+          <li><a href="/about-blue-thumb/">About Blue Thumb</a></li>
+          <li><a href="/water-feature-planning/">Water Feature Planning</a></li>
+          <li><a href="/professionals/">Professionals</a></li>
+          <li><a href="/installation-manuals/">Installation Manuals</a></li>
+          <li><a href="/shipping-returns/">Shipping And Returns</a></li>
+        </ul>
+      </section>
+
+
+      <section class="bt-footer__col" aria-labelledby="btFooterConnections">
+        <h3 class="bt-footer__title" id="btFooterConnections">Connections</h3>
+        <ul class="bt-footer__list">
+          <li><a href="/contact">Contact Us</a></li>
+          <li><a href="/contact">Connect To A Pro</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="{{urls.privacy_policy}}">Privacy Policy</a></li>
+          <li><a href="{{urls.sitemap}}">Sitemap</a></li>
+          <li><a href="/roto">Custom Rotomolding</a></li>
+        </ul>
+      </section>
+
+      <section class="bt-footer__col" aria-labelledby="btFooterFollow">
+        <h3 class="bt-footer__title" id="btFooterFollow">Follow Us</h3>
+        <div class="bt-footer__social">
+            {{#if social_media}}
+            <ul class="bt-footer__social-list">
+                {{#each social_media}}
+                <li class="bt-footer__social-item">
+                    <a href="{{url}}" target="_blank" rel="noopener">
+                    {{display_name}}
+                    </a>
+                </li>
+                {{/each}}
+            </ul>
+            {{/if}}
+        </div>
+      </section>
+
+    </div>
+
+    <div class="bt-footer__hours">
+
+      <div class="bt-footer__hoursBlock">
+        <h3 class="bt-footer__hoursTitle">Wholesale Hours</h3>
+        <p class="bt-footer__hoursLine">
+          <span class="bt-footer__hoursText">Mon.-Fri. 8am to 5pm</span>
+          <span class="bt-footer__dot">•</span>
+          <span class="bt-footer__hoursText">Sat. &amp; Sun. Closed</span>
+          <span class="bt-footer__dot">•</span>
+          <span class="bt-footer__hoursText">Phone:</span>
+          <a class="bt-footer__hoursPhone" href="tel:888-619-3474">
+             888-619-3474
+          </a>
+        </p>
+      </div>
+
+      <div class="bt-footer__hoursBlock">
+        <h3 class="bt-footer__hoursTitle">Local Retail Store Hours</h3>
+        <p class="bt-footer__hoursLine">
+          <span class="bt-footer__hoursText">Mon. 10am to 5pm</span>
+          <span class="bt-footer__dot">•</span>
+          <span class="bt-footer__hoursText">Tue.-Sat. 10am to 7pm</span>
+          <span class="bt-footer__dot">•</span>
+          <span class="bt-footer__hoursText">Sun. Closed</span>
+          <span class="bt-footer__dot">•</span>
+          <span class="bt-footer__hoursText">Phone:</span>
+          <a class="bt-footer__hoursPhone" href="tel:888-619-3474">
+             888-619-3474
+          </a>
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</footer>
