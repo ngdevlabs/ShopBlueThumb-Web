@@ -19,6 +19,7 @@ blog:
     {{/if}}
 {{/partial}}
 
+
 {{#partial "page"}}
 
 {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
@@ -28,7 +29,7 @@ blog:
 {{#if theme_settings.category_banner_text_only}} no-image{{/if}}">
     {{#unless theme_settings.category_banner_text_only}}
         <img rel="preload" class="category-header-image"
-            src="{{ multiConcat '/product_images/uploaded_images/category-banner-' category.id '.jpg' }}"
+            src="{{getImage category.image }}"
             alt="{{category.name}}"
             onerror="this.style.display='none'" />
     {{/unless}}
@@ -80,10 +81,10 @@ blog:
     {{/if}}
 {{/if}}
 
-{{{region name="category_below_header"}}}
+
 
 <div class="page">
-    {{> components/ob-custom/category/ob-compare-bar show_compare=category.show_compare}}
+    {{> components/ob-custom-overrides/category/ob-compare-bar show_compare=category.show_compare}}
     {{> components/ob-custom/category/ob-product-actions-box }}
     {{#any category.faceted_search_enabled theme_settings.show_subcategory_list_in_filters theme_settings.shop_by_price_visibility}}
         <aside class="page-sidebar" id="faceted-search-container">
