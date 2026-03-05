@@ -1,0 +1,25 @@
+.ob-compare-bar {
+	.compare-products-preview {
+		.compare-instruction {
+			font-weight: 700;
+            font-family: "Poppins", sans-serif;
+
+		}
+		.product-cube {
+			border-radius: 3px;
+
+			.image-wrap {
+				border-radius: 3px;
+				background: #E9F6FC;
+			}
+
+		}
+	}
+	.compare-button {
+		.button.button--primary{
+            border-radius: 3px;
+            background-color: #7F98A9!important;
+            color: white!important;
+		}
+	}
+}

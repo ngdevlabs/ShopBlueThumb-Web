@@ -78,7 +78,7 @@ window.stencilBootstrap = function stencilBootstrap(pageType, contextJSON = null
                 // const pageClassImporter = pageClasses[pageType];
 
                 // FOR DEV ONLY
-                const pageClassImporter = pageClasses["default"];
+                const pageClassImporter = pageClasses[pageType];
                 if (typeof pageClassImporter === 'function') {
                     importPromises.push(pageClassImporter());
                 }

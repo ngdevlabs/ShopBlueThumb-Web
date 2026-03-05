@@ -1,0 +1,46 @@
+ol.breadcrumbs {
+  margin: 20px 0;
+  text-align: left!important;
+  display: flex;
+  align-items: center;
+  font-size: $ob-size-root * .75;
+  @include breakpoint("medium") {
+    font-size: $ob-size-root * .825;
+  }
+
+  .breadcrumb {
+    font-size: 0.9rem;
+
+    a.breadcrumb-label {
+        text-decoration: none;
+    }
+
+
+    .breadcrumb-label span {
+      color: stencilColor("breadcrumb_link_color");
+      font-family: "Poppins", sans-serif;
+      text-decoration: none;
+      color: #7F98A9;
+      font-size: inherit;
+      letter-spacing: -0.01rem;
+
+      &:hover {
+        color: #7F98A9;
+        opacity: .7;
+      }
+    }
+
+    &.is-active {
+      .breadcrumb-label {
+        text-decoration: none;
+
+        span {
+          color: #7F98A9;
+          text-decoration: none;
+          position: relative;
+          top: 0;
+        }
+      }
+    }
+  }
+}
