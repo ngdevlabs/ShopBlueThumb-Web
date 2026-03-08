@@ -28,7 +28,14 @@
             {{lang 'common.login_for_pricing'}}
         {{/or}}"
     {{/if}}>
-    <figure class="card-figure">
+    <figure class="card-figure js-hover-swap"
+             {{#if images.[1]}}
+                data-main-image="{{getImageSrcset image 1x=(default theme_settings.productgallery_size '160w')}}"
+                data-main-srcset="{{getImageSrcset image use_default_sizes=true}}"
+                data-hover-image="{{getImageSrcset images.[1] 1x=(default theme_settings.productgallery_size '160w')}}"
+                data-hover-srcset="{{getImageSrcset images.[1] use_default_sizes=true}}"
+            {{/if}}
+    >
         {{#any price.sale_price_with_tax.value price.sale_price_without_tax.value price.non_sale_price_with_tax.value price.non_sale_price_without_tax.value}}
             {{#if theme_settings.pdp_sale_badge_label '===' ''}}
                 {{> components/products/product-badge

@@ -8,6 +8,7 @@ import obSubcategorySlider from './ob-custom/ob-subcategory-slider';
 import obMobileCategoryFilters from './ob-custom/ob-mobile-category-filters';
 import obCardOptions from './ob-custom/ob-card-options';
 import obCompareBar from './ob-custom/ob-compare-bar';
+import initHoverSwap from './custom/hover-swap';
 
 export default class Category extends CatalogPage {
     constructor(context) {
@@ -41,6 +42,7 @@ export default class Category extends CatalogPage {
 
         compareProducts(this.context);
 
+        initHoverSwap();
         this.initFacetedSearch();
 
         if (!$('#facetedSearch').length) {
@@ -65,6 +67,7 @@ export default class Category extends CatalogPage {
         obSubcategorySlider();
         obMobileCategoryFilters();
         obCompareBar(this.context);
+
     }
 
     ariaNotifyNoProducts() {
@@ -111,6 +114,7 @@ export default class Category extends CatalogPage {
             }, 100);
 
             obCardOptions(this.context);
+            initHoverSwap();
         }, {
             validationErrorMessages: {
                 onMinPriceError,
@@ -121,4 +125,6 @@ export default class Category extends CatalogPage {
             },
         });
     }
+
+   
 }
