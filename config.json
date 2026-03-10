@@ -594,7 +594,8 @@
     "checkout_alt_input_color": "#f2f2f2",
     "checkout_alt_input_border": "#0B1414",
     "checkout_cart_image_background": "#0B1414",
-    "blog_feed_title": "From the <a href='/blog'>Blog</a>"
+    "blog_feed_title": "From the <a href='/blog'>Blog</a>",
+    "ai_watermark_text": "AI ENHANCED"
   },
   "read_only_files": [
     "/assets/scss/components/citadel",

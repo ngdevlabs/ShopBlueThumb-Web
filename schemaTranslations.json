@@ -4690,5 +4690,9 @@
     "es-MX": "Mostrar botones en vertical",
     "pt-BR": "Mostrar botões verticalmente",
     "es-419": "Mostrar botones verticalmente"
+  },
+
+  "i18n.Images": {
+      "default": "Images"
   }
 }

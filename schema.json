@@ -4467,5 +4467,16 @@
         ]
       }
     ]
+  },
+  {
+    "name": "i18n.Images",
+    "settings": [
+      {
+        "type": "text",
+        "id": "ai_watermark_text",
+        "label": "AI watermark text",
+         "default": "AI ENHANCED"
+      }
+    ]
   }
 ]

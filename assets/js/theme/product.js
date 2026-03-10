@@ -80,6 +80,7 @@ export default class Product extends PageManager {
         });
 
         this.productReviewHandler();
+        this.generateWaterMark();
     }
 
     ariaDescribeReviewInputs($form) {
@@ -102,5 +103,58 @@ export default class Product extends PageManager {
         if (this.url.indexOf('#bulk_pricing') !== -1) {
             this.$bulkPricingLink.trigger('click');
         }
+    }
+
+    generateWaterMark() {
+        const watermarkText = this.context.ai_watermark_text;
+
+        const slides = document.querySelectorAll('.ob-image-main-carousel .productView-image.slick-slide');
+
+        slides.forEach((slide) => {
+            const img = slide.querySelector('img[data-main-image]');
+            const container = slide.querySelector('.productView-img-container');
+
+            if (!img || !container) return;
+
+            const alt = img.getAttribute('alt') || '';
+            const hasAiMarker = alt.includes('--AI');
+
+            const existing = container.querySelector('.ai-enhanced-watermark');
+
+            if (!hasAiMarker) {
+                if (existing) existing.remove();
+                return;
+            }
+
+            if (existing) return;
+
+            if (hasAiMarker) {
+                img.setAttribute("alt", alt.replace(/\s*--AI\s*/g, " ").trim());
+            }
+
+            container.style.position = 'relative';
+
+            const watermark = document.createElement('div');
+            watermark.className = 'ai-enhanced-watermark';
+            watermark.textContent = watermarkText;
+            watermark.style.cssText = `
+                position: absolute;
+                right: 18px;
+                bottom: 15px;
+                background: rgba(0, 0, 0, 0.65);
+                color: white;
+                padding: 4px 8px;
+                font-size: 12px;
+                font-weight: 600;
+                border-radius: 4px;
+                z-index: 20;
+                pointer-events: none;
+                line-height: 1;
+                white-space: nowrap;
+            `;
+
+            container.appendChild(watermark);
+            img.setAttribute("alt", alt.replace("--AI", ""));
+        });
     }
 }
