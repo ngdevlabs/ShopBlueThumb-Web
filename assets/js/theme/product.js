@@ -35,7 +35,7 @@ export default class Product extends PageManager {
         obColorsRename();
 
         if($theme_settings.theme_type !== 'vogue') {
-            obImageZoomGallery(this.context);
+            //obImageZoomGallery(this.context);
             obProductNextImage('.productView:not(.productView--quickView)');
             obProductGallerySlider('.productView:not(.productView--quickView)');
         }

@@ -30,6 +30,10 @@
         {{/if}}
     {{/each}}
 
+    <div class="ob-product-name-row ob-full-name-row">
+            <h1 class="productView-title">{{product.title}}</h1>
+    </div>
+
     <section class="productView-images" data-image-gallery>
         {{!--
             Note that these image sizes are coupled to image sizes used in /assets/js/theme/common/product-details.js
@@ -113,9 +117,7 @@
                 </div>
             {{/if}}
 
-            <div class="ob-product-name-row ob-full-name-row">
-                <h1 class="productView-title">{{product.title}}</h1>
-            </div>
+    
 
             <div class="productView-rating">
                 {{#if settings.show_product_rating}}
@@ -336,7 +338,7 @@
             {{/if}}
         </div>
 
-        {{> components/common/share url=product.url}}
+        <!-- {{> components/common/share url=product.url}} -->
     </section>
 </div>
 
