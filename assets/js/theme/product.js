@@ -33,6 +33,7 @@ export default class Product extends PageManager {
         obProductWishlist();
         obProductVideo(this.context);
         obColorsRename();
+        this.initProductFaq();
 
         if($theme_settings.theme_type !== 'vogue') {
             //obImageZoomGallery(this.context);
@@ -156,5 +157,48 @@ export default class Product extends PageManager {
             container.appendChild(watermark);
             img.setAttribute("alt", alt.replace("--AI", ""));
         });
+    }
+
+    initProductFaq() {
+    const faqItems = document.querySelectorAll('#product-faq li.faq-item');
+
+    if (!faqItems.length) return;
+
+    faqItems.forEach((item, index) => {
+        const question = item.querySelector('h3.faq-question');
+        const answer = item.querySelector('p.faq-answer');
+
+        if (!question || !answer) return;
+        if (item.querySelector('.faq-trigger')) return;
+
+        const button = document.createElement('button');
+        button.className = 'faq-trigger';
+        button.type = 'button';
+        button.setAttribute('aria-expanded', index === 0 ? 'true' : 'false');
+
+        const answerId = `faq-answer-${index}`;
+        answer.setAttribute('id', answerId);
+        button.setAttribute('aria-controls', answerId);
+
+        button.innerHTML = `
+            <svg class="faq-icon" width="10" height="19" viewBox="0 0 10 19" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M0 0L0 18.5L10 9.5L0 0Z" fill="#68869A"/>
+            </svg>
+            <span>${question.innerHTML}</span>
+        `;
+
+        question.replaceWith(button);
+
+        if (index === 0) {
+            item.classList.add('open');
+        }
+
+        button.addEventListener('click', () => {
+            const isOpen = item.classList.contains('open');
+
+            item.classList.toggle('open');
+            button.setAttribute('aria-expanded', String(!isOpen));
+        });
+    });
     }
 }
