@@ -89,6 +89,18 @@ blog:
                 {{/unless}}
             {{/if}}
 
+            <div class="main-product-video">
+                {{#if product.videos.list.length}}
+                    <div class="video-wrapper">
+                        <iframe
+                            src="https://www.youtube.com/embed/{{product.videos.list.[0].id}}?rel=0"
+                            frameborder="0"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                {{/if}}
+            </div>
+
             {{{region name="product_above_similar"}}}
 
             {{#if product.related_products}}
