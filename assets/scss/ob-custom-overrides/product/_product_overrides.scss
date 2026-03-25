@@ -6,6 +6,16 @@
         min-height: calc(70vh - 160px);
     }
 
+    .ob-warranty {
+        font-family: "Poppins", sans-serif;
+        font-weight: 400!important;
+
+        div strong {
+        font-weight: 400!important;
+        }
+
+    }
+
 }
 
 .container.narrow-container {
@@ -260,9 +270,13 @@
 
     display: grid;
     grid-template-columns: auto 1fr auto;
-    align-items: center;
-
     font-family: "Poppins", sans-serif;
+    gap: 60px;
+
+    span {
+        text-align: start;
+        width: 100%;
+    }
 }
 
 
@@ -335,4 +349,28 @@
     height: 100%;
     border: 0;
     display: block;
+}
+
+.custom-sections {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+
+.custom-sections .full {
+    grid-column: 1 / -1;
+}
+
+
+.custom-sections .half-left {
+    grid-column: 1;
+}
+
+
+.custom-sections .half-right {
+    grid-column: 2;
 }

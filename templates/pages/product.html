@@ -47,18 +47,11 @@ blog:
                     <div class="ob-description">
                         {{#if product.description}}
                             <h3>{{lang 'products.description'}}</h3>
-                            <div>{{{product.description}}}</div>
+                            <div>{{{product.description}}}</div>             
                         {{/if}}
                     </div>
 
                     <div class="ob-warranty">
-                        {{#if product.warranty}}
-                            <div class="ob-warranty">
-                                <h3>{{lang 'products.warranty'}}</h3>
-                                <div>{{{product.warranty}}}</div>
-                            </div>
-                        {{/if}}
-
                         {{#if product.downloads}}
                         <div class="ob-downloads">
                             <h3>{{theme_settings.product_download_title}}</h3>

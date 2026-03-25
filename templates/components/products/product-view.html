@@ -180,6 +180,15 @@
                     </div>
                     {{/if}}
 
+                    <div class="module">
+                        {{#if product.warranty}}
+                            <div class="ob-warranty">
+                                <div>{{{product.warranty}}}</div>
+                            </div>
+                        {{/if}}
+                    </div>
+
+
                     {{#all product.weight theme_settings.show_product_weight}}
                     <div class="module">
                         <dt class="productView-info-name">{{lang 'products.weight'}}</dt>
