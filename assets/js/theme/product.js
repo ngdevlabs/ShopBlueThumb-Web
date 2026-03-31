@@ -82,6 +82,27 @@ export default class Product extends PageManager {
 
         this.productReviewHandler();
         this.generateWaterMark();
+        this.replaceNeedHelpSectionWithCustomDesign();
+    }
+
+    replaceNeedHelpSectionWithCustomDesign() {
+    const trigger = document.getElementById('need-help');
+
+    if (!trigger) return;
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'need-help-wrapper';
+
+    wrapper.innerHTML = `
+        <h3>Need Help Choosing the Right Kit</h3>
+        <p class="need-help-sub">
+            Our fountain experts are here to help with sizing, placement, and accessories.<br>
+            Call: <a href="tel:8886193474">888-619-3474</a> ·
+            Email: <a href="mailto:sales@bluethumbponds.com">sales@bluethumbponds.com</a>
+        </p>
+    `;
+
+    trigger.replaceWith(wrapper);
     }
 
     ariaDescribeReviewInputs($form) {
