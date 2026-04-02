@@ -4694,5 +4694,8 @@
 
   "i18n.Images": {
       "default": "Images"
-  }
+  },
+  "i18n.FeatureSections": {
+      "default": "Feature sections"
+    }
 }

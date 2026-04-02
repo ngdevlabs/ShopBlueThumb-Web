@@ -4478,5 +4478,33 @@
          "default": "AI ENHANCED"
       }
     ]
+  },
+  {
+    "name" : "i18n.FeatureSections",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "i18n.FeatureSections"
+      },
+      {
+        "type": "checkbox",
+        "id": "home_show_featured_prod_1",
+        "label": "Enable Featured Products section 1",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "home_show_featured_prod_2",
+        "label": "Enable Featured Products section 2",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "home_show_featured_prod_3",
+        "label": "Enable Featured Products section 3",
+        "default": false
+      }
+    ]
+
   }
 ]
