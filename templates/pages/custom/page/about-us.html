@@ -15,35 +15,153 @@ blog:
     {{/unless}}
 {{/partial}}
 
+<style>
+.heading {
+    width: 100vw;
+    height: 20vh;
+    background-image: url('https://cdn11.bigcommerce.com/s-g33rmoufv1/images/stencil/original/image-manager/aboutflag.png?t=1771434240');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    margin-left: calc(-50vw + 50%); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heading h1.heading-title {
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    font-size: 6rem;
+    font-weight: 400;
+
+}
+
+.article-title {
+    font-size: 36px;
+    line-height: 1.2;
+    color: #333;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.three-columns {
+    column-count: 3;
+    column-gap: 2rem;
+    font-size: 22px;
+    line-height: 2rem;
+    color: #555;
+    font-family: "Poppins", sans-serif;
+    margin-top: 2rem;
+}
+
+
+.main-section {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;;
+    background-color: #ddf0ff;
+}
+
+.sec
+
+.main-section-img-wrapper {
+    height: 400px;
+    overflow: hidden;
+    padding: 0;
+}
+
+.main-section-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.section-content {
+    padding: 3rem;
+}
+
+.section-title {
+    font-size: 28px;
+    line-height: 1.2;
+    color: #333;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 1rem;
+}
+
+.section-description {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+    font-family: "Poppins", sans-serif;
+}
+
+.full-page-logo {
+    position: relative;
+    background-image: url('https://cdn11.bigcommerce.com/s-g33rmoufv1/images/stencil/original/image-manager/logobar.png?t=1771429908'); 
+    width: 100vw;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-left: calc(-50vw + 50%); 
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    opacity: 0.65;
+}
+
+
+</style>
+
 {{#partial "page"}}
     <div class="container base-content-page">
         {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 
-        <div class="ob-about-banner ob-title-banner{{#unless theme_settings.show_title_banner_gradient}} no-overlay{{/unless}}{{#if theme_settings.category_banner_text_only}} no-image{{/if}}">
-            {{#unless theme_settings.category_banner_text_only}}
-                {{#if theme_settings.about_banner}}
-                    <img src="{{getImageManagerImage theme_settings.about_banner}}" fetchpriority="high" aria-hidden="true" />
-                {{else}}
-                    <img src="{{cdn (multiConcat 'assets/img/ob-custom/' theme_settings.theme_type '/about-banner.jpg')}}" fetchpriority="high" aria-hidden="true" />
-                {{/if}}
-            {{/unless}}
-        </div>
+   
 
-        <section class="page">
-            {{#unless theme_settings.hide_page_heading }}
-                <h1 class="heading-2">{{page.title}}</h1>
-            {{/unless}}
-
-            {{{region name="page_builder_content"}}}
+            <div class="heading">
+                    <h1 class="heading-title">About Blue Thumb</h1>
+           </div>
+    
 
             <div class="page-content">
                 <div class="ob-simple-page-content">
-                    {{{region name="page_builder_content_2"}}}
-                    {{{page.content}}}
-                    {{{region name="page_builder_content_3"}}}
+                    <article class="article">
+                        <h2 class="article-title">Blue Thumb was once a small aquarium cleaning company and has now grown into a nationwide provider of water features of all kinds. </h2>
+                        <p class="three-columns">
+                            Blue Thumb manufactures products to help you design, install, and maintain better water features like ponds, waterfalls, fountains, and aquariums for both residential and commercial settings.
+Our products, primarily manufactured at our facility in Saginaw, Michigan, exceed the needs of both the weekend DIY'ers as well as the professional contractor. Blue Thumb products can be purchased on this website or through our network of dealers throughout the US.
+We also have a retail aquatics store servicing the local Saginaw market selling ponds, waterfalls, fountains, and everything relating to freshwater and saltwater aquariums. 
+                        </p>
+
+                        <section class="main-section">
+                                <div class="section-content">
+                                    <h3 class="section-title">Who is blue Thumb?</h3>
+                                    <p class="section-decription">
+                                    Blue Thumb is a team of people who are excited about water features! We know you have choices when it comes to water feature suppliers, but we have worked hard over the past 25 years to not only manufacture the products that we sell but to simplify the process. Knowing that when you order from us you are getting everything you need to successfully complete your project makes our team happy and we love to see the beauty that is created across the country with our projects. Providing you with the best quality products and diversification you need to be successful is always a priority for Blue Thumb!
+                                    </p>
+                                </div>
+                                <div class="main-section-img-wrapper">
+                                    <img src="https://cdn11.bigcommerce.com/s-g33rmoufv1/images/stencil/original/image-manager/kipnicole.jpg?t=1771532832" alt="">
+                                </div>
+                                <div class="main-section-img-wrapper">
+                                    <img src="https://cdn11.bigcommerce.com/s-g33rmoufv1/images/stencil/original/image-manager/about32.png?t=1771433643" alt="">
+                                </div>
+                                   <div class="section-content">
+                                    <h3 class="section-title">Who are Kip and Nicole?</h3>
+                                    <p class="section-description">
+                                  My name is Kip and I’m the owner of Blue Thumb. By this point you’ve most likely become familiar with Blue Thumb and what it is we do so instead of telling you more of the same let me tell you a little about myself, my family, and how we got started.
+
+My wife Nicole handles the finances here at Blue Thumb. We met when she interviewed for a job here at Blue Thumb. A few months later she was practically running the place. Two years after that we were married. We have three beautiful daughters together — Emma, Mollie, and Charlotte — and a Yellow Labrador the girls named Belle (after Tinkerbell and Princess Belle of course). Stop by anytime and throw the ball for Belle — she loves visitors.
+                        </section>
+                    </article>
+
+                    <div class="full-page-logo"></div>
+                
                 </div>
             </div>
-        </section>
     </div>
 {{/partial}}
 
