@@ -1,53 +1,56 @@
 ---
 blog:
-    recent_posts:
-        limit: {{theme_settings.homepage_blog_posts_count}}
+  recent_posts:
+    limit: { { theme_settings.homepage_blog_posts_count } }
 ---
 
-{{#partial "head"}}
-    {{#unless theme_settings.category_banner_text_only}}
-        {{!-- Preload banner image --}}
-        {{#if theme_settings.about_banner}}
-            <link rel="preload" as="image" href="{{getImageManagerImage theme_settings.about_banner}}" />
-        {{else}}
-            <link rel="preload" as="image" href="{{cdn (multiConcat 'assets/img/ob-custom/' theme_settings.theme_type '/about-banner.jpg')}}" />
-        {{/if}}
-    {{/unless}}
-{{/partial}}
+{{#partial "head"}} {{#unless theme_settings.category_banner_text_only}} {{!--
+Preload banner image --}} {{#if theme_settings.about_banner}}
+<link
+  rel="preload"
+  as="image"
+  href="{{getImageManagerImage theme_settings.about_banner}}"
+/>
+{{else}}
+<link
+  rel="preload"
+  as="image"
+  href="{{cdn (multiConcat 'assets/img/ob-custom/' theme_settings.theme_type '/about-banner.jpg')}}"
+/>
+{{/if}} {{/unless}} {{/partial}}
 
 <style>
-.heading {
+  .heading {
     width: 100vw;
     height: 20vh;
-    background-image: url('https://cdn11.bigcommerce.com/s-g33rmoufv1/images/stencil/original/image-manager/aboutflag.png?t=1771434240');
+    background-image: url("https://cdn11.bigcommerce.com/s-g33rmoufv1/images/stencil/original/image-manager/aboutflag.png?t=1771434240");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
-    margin-left: calc(-50vw + 50%); 
+    margin-left: calc(-50vw + 50%);
     display: flex;
     align-items: center;
     justify-content: center;
-}
+  }
 
-.heading h1.heading-title {
+  .heading h1.heading-title {
     color: #fff;
     font-family: "Poppins", sans-serif;
     text-align: center;
     font-size: 6rem;
     font-weight: 400;
+  }
 
-}
-
-.article-title {
+  .article-title {
     font-size: 36px;
     line-height: 1.2;
     color: #333;
     font-family: "Poppins", sans-serif;
     text-align: center;
     margin-top: 2rem;
-}
+  }
 
-.three-columns {
+  .three-columns {
     column-count: 3;
     column-gap: 2rem;
     font-size: 22px;
@@ -55,128 +58,1143 @@ blog:
     color: #555;
     font-family: "Poppins", sans-serif;
     margin-top: 2rem;
-}
+  }
 
-
-.main-section {
+  .main-section {
     margin-top: 3rem;
     display: grid;
-    grid-template-columns: 1fr 1fr;;
+    grid-template-columns: 1fr 1fr;
     background-color: #ddf0ff;
-}
+  }
 
-
-.main-section-img-wrapper {
+  .main-section-img-wrapper {
     height: 100%;
     overflow: hidden;
     padding: 0;
+  }
 
-}
-
-.main-section-img-wrapper img {
+  .main-section-img-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    
-}
+  }
 
-.section-content {
+  .section-content {
     padding: 3rem;
-}
+  }
 
-.section-title {
+  .section-title {
     font-size: 28px;
     line-height: 1.2;
     color: #333;
     font-family: "Poppins", sans-serif;
     margin-bottom: 1rem;
-}
+  }
 
-.section-description {
+  .section-description {
     font-size: 18px;
     line-height: 1.6;
     color: #555;
     font-family: "Poppins", sans-serif;
-}
+  }
 
-.full-page-logo {
+  .full-page-logo {
     position: relative;
-    background-image: url('https://cdn11.bigcommerce.com/s-g33rmoufv1/images/stencil/original/image-manager/logobar.png?t=1771429908'); 
+    background-image: url("https://cdn11.bigcommerce.com/s-g33rmoufv1/images/stencil/original/image-manager/logobar.png?t=1771429908");
     width: 100vw;
     height: 200px;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    margin-left: calc(-50vw + 50%); 
+    margin-left: calc(-50vw + 50%);
     margin-top: 4rem;
     margin-bottom: 2rem;
     opacity: 0.65;
-}
+  }
 
-.article-subtitle {
+  .article-subtitle {
     text-align: center;
     margin-top: 0;
     font-family: "Poppins", sans-serif;
-    text-align: center; 
+    font-size: 14px;
+    font-weight: 800;
+  }
+
+  .slider-container {
+    position: relative;
+    width: 100%;
+    margin-top: 3rem;
+  }
+
+  .slider-wrapper {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    margin-top: 3rem;
+  }
+
+  .slider-track {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .slide {
+    min-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .section-content {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .section-title {
+    font-size: 28px;
+    color: #333;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 1rem;
+  }
+
+  .section-description {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .section-image {
+    width: 70%;
+  }
+
+  .main-section-img-wrapper {
+    height: 100%;
+  }
+
+  .main-section-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 14px;
+    border-radius: 4px;
+  }
+
+  .nav.prev {
+    left: -40px;
+    font-size: 30px;
+  }
+
+  .nav.next {
+    right: -40px;
+    font-size: 30px;
+  }
+
+  .philosophy-section {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding: 100px 20px;
+    background-image: url("https://i.shgcdn.com/e5a470c2-9828-4835-af02-3b8fc3dd1892/-/format/auto/-/preview/3000x3000/-/quality/lighter/");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin-top: 4rem;
+  }
+
+  .philosophy-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .philosophy-title {
+    font-size: 48px;
+    margin-bottom: 60px;
+    font-family: "Poppins", sans-serif;
+    color: #243746;
     font-weight: 400;
-}
+  }
 
+  .philosophy-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
 
+  .philosophy-block h3 {
+    font-size: 24px;
+    margin: 15px 0;
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+    color: #0f2a3d;
+  }
+
+  .philosophy-block p {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #4a5a6a;
+    font-family: "Poppins", sans-serif;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .philosophy-block > .divider:first-child {
+    margin-bottom: 10px;
+  }
+
+  .philosophy-block .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .philosophy-block .divider .line {
+    flex: 1;
+    height: 2px;
+    background-color: #2c6fb7;
+    display: inline-block;
+  }
+
+  .philosophy-block > .divider:last-of-type {
+    margin: 10px 0 25px;
+  }
+
+  .philosophy-block > .divider:last-of-type img {
+    width: clamp(40px, 8vw, 120px);
+    height: auto;
+    max-width: 100%;
+    opacity: 0.95;
+  }
+
+  /* Added sections */
+  .bt-about-values,
+  .bt-meet-team,
+  .bt-visit-shop {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    background: #eef0f4;
+  }
+
+  .bt-about-values {
+    padding: 80px 20px 70px;
+  }
+
+  .bt-meet-team {
+    padding: 40px 20px 50px;
+  }
+
+  .bt-visit-shop {
+    padding: 10px 20px 40px;
+  }
+
+  .bt-about-wrap {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .bt-about-heading {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 72px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: #213548;
+    margin: 0 0 70px;
+    letter-spacing: 0;
+  }
+
+  .bt-team-heading {
+    font-size: 52px;
+    margin-bottom: 45px;
+  }
+
+  .bt-values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 42px;
+    row-gap: 70px;
+    align-items: start;
+  }
+
+  .bt-value-item {
+    text-align: center;
+  }
+
+  .bt-value-logo-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 360px;
+  }
+
+  .bt-center-logo {
+    width: 300px;
+    max-width: 90%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .bt-top-line {
+    width: 100%;
+    height: 2px;
+    background: #2d6fba;
+    margin: 0 0 28px;
+  }
+
+  .bt-value-label {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #abd4ee;
+    letter-spacing: 0.5px;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+  }
+
+  .bt-value-item h3 {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 31px;
+    line-height: 1.18;
+    font-weight: 800;
+    color: #08243b;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+
+  .bt-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    width: 100%;
+    margin: 24px 0 28px;
+  }
+
+  .bt-divider-line {
+    flex: 1 1 auto;
+    height: 2px;
+    background: #2d6fba;
+    min-width: 20px;
+  }
+
+  .bt-divider img {
+    width: clamp(34px, 9vw, 70px);
+    height: auto;
+    display: block;
+    opacity: 0.95;
+    flex: 0 0 auto;
+  }
+
+  .bt-value-item p {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-size: 28px;
+    line-height: 1.35;
+    color: #14293c;
+  }
+
+  .bt-section-rule {
+    width: 100%;
+    height: 1px;
+    background: #bfc5cc;
+    margin-bottom: 34px;
+  }
+
+  .bt-team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 55px 65px;
+    max-width: 1080px;
+    margin: 0 auto 60px;
+  }
+
+  .bt-team-member {
+    text-align: center;
+  }
+
+  .bt-team-member img {
+    width: 100%;
+    max-width: 250px;
+    aspect-ratio: 1 / 1.45;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 16px;
+    border: 6px solid rgba(255, 255, 255, 0.45);
+    box-sizing: border-box;
+  }
+
+  .bt-team-member h4 {
+    margin: 0 0 6px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 20px;
+    color: #213548;
+  }
+
+  .bt-role {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    color: #213548;
+    margin-bottom: 10px;
+  }
+
+  .bt-team-member a {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+    color: #2d6fba;
+    text-decoration: none;
+  }
+
+  .bt-team-member a:hover {
+    text-decoration: underline;
+  }
+
+  .bt-visit-title {
+    text-align: center;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 34px;
+    font-weight: 400;
+    color: #2f2f2f;
+    margin: 0 0 38px;
+  }
+
+  /* Responsive */
+  @media (max-width: 1200px) {
+    .bt-about-heading {
+      font-size: 58px;
+    }
+
+    .bt-value-item p {
+      font-size: 24px;
+    }
+
+    .bt-value-item h3 {
+      font-size: 27px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .three-columns {
+      column-count: 1;
+    }
+
+    .main-section,
+    .slide,
+    .philosophy-columns,
+    .bt-values-grid,
+    .bt-team-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .bt-value-logo-center {
+      order: -1;
+      min-height: auto;
+    }
+
+    .bt-about-heading {
+      font-size: 46px;
+      margin-bottom: 50px;
+    }
+
+    .bt-team-heading {
+      font-size: 40px;
+    }
+
+    .bt-value-item p {
+      font-size: 21px;
+    }
+
+    .bt-visit-title {
+      font-size: 28px;
+    }
+
+    .nav.prev {
+      left: 10px;
+    }
+
+    .nav.next {
+      right: 10px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .philosophy-title {
+      font-size: 34px;
+    }
+
+    .philosophy-block p {
+      font-size: 18px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .bt-about-values,
+    .bt-meet-team,
+    .bt-visit-shop {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .bt-about-heading {
+      font-size: 38px;
+    }
+
+    .bt-team-heading {
+      font-size: 34px;
+    }
+
+    .bt-value-item h3 {
+      font-size: 24px;
+    }
+
+    .bt-value-item p {
+      font-size: 18px;
+    }
+
+    .bt-visit-title {
+      font-size: 23px;
+    }
+
+    .bt-top-line {
+      margin-bottom: 20px;
+    }
+
+    .bt-divider {
+      gap: 10px;
+      margin: 18px 0 22px;
+    }
+
+    .bt-divider img {
+      width: clamp(28px, 10vw, 42px);
+    }
+  }
 </style>
 
 {{#partial "page"}}
-    <div class="container base-content-page">
-        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+<div class="container base-content-page">
+  {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 
-   
+  <div class="heading">
+    <h1 class="heading-title">About Blue Thumb</h1>
+  </div>
 
-            <div class="heading">
-                    <h1 class="heading-title">About Blue Thumb</h1>
-           </div>
-    
+  <div class="page-content">
+    <div class="ob-simple-page-content">
+      <article class="article">
+        <h2 class="article-title">
+          Blue Thumb was once a small aquarium cleaning company and has now
+          grown into a nationwide provider of water features of all kinds.
+        </h2>
+        <p class="three-columns">
+          Blue Thumb manufactures products to help you design, install, and
+          maintain better water features like ponds, waterfalls, fountains, and
+          aquariums for both residential and commercial settings. Our products,
+          primarily manufactured at our facility in Saginaw, Michigan, exceed
+          the needs of both the weekend DIY'ers as well as the professional
+          contractor. Blue Thumb products can be purchased on this website or
+          through our network of dealers throughout the US. We also have a
+          retail aquatics store servicing the local Saginaw market selling
+          ponds, waterfalls, fountains, and everything relating to freshwater
+          and saltwater aquariums.
+        </p>
 
-            <div class="page-content">
-                <div class="ob-simple-page-content">
-                    <article class="article">
-                        <h2 class="article-title">Blue Thumb was once a small aquarium cleaning company and has now grown into a nationwide provider of water features of all kinds. </h2>
-                        <p class="three-columns">
-                            Blue Thumb manufactures products to help you design, install, and maintain better water features like ponds, waterfalls, fountains, and aquariums for both residential and commercial settings.
-Our products, primarily manufactured at our facility in Saginaw, Michigan, exceed the needs of both the weekend DIY'ers as well as the professional contractor. Blue Thumb products can be purchased on this website or through our network of dealers throughout the US.
-We also have a retail aquatics store servicing the local Saginaw market selling ponds, waterfalls, fountains, and everything relating to freshwater and saltwater aquariums. 
-                        </p>
+        <section class="main-section">
+          <div class="section-content">
+            <h3 class="section-title">Who is blue Thumb?</h3>
+            <p class="section-description">
+              Blue Thumb is a team of people who are excited about water
+              features! We know you have choices when it comes to water feature
+              suppliers, but we have worked hard over the past 25 years to not
+              only manufacture the products that we sell but to simplify the
+              process. Knowing that when you order from us you are getting
+              everything you need to successfully complete your project makes
+              our team happy and we love to see the beauty that is created
+              across the country with our projects. Providing you with the best
+              quality products and diversification you need to be successful is
+              always a priority for Blue Thumb!
+            </p>
+          </div>
+          <div class="main-section-img-wrapper">
+            <img
+              src="https://cdn11.bigcommerce.com/s-g33rmoufv1/images/stencil/original/image-manager/kipnicole.jpg?t=1771532832"
+              alt=""
+            />
+          </div>
+          <div class="main-section-img-wrapper">
+            <img
+              src="https://cdn11.bigcommerce.com/s-g33rmoufv1/images/stencil/original/image-manager/about32.png?t=1771433643"
+              alt=""
+            />
+          </div>
+          <div class="section-content">
+            <h3 class="section-title">Who are Kip and Nicole?</h3>
+            <p class="section-description">
+              My name is Kip and I’m the owner of Blue Thumb. By this point
+              you’ve most likely become familiar with Blue Thumb and what it is
+              we do so instead of telling you more of the same let me tell you a
+              little about myself, my family, and how we got started. My wife
+              Nicole handles the finances here at Blue Thumb. We met when she
+              interviewed for a job here at Blue Thumb. A few months later she
+              was practically running the place. Two years after that we were
+              married. We have three beautiful daughters together — Emma,
+              Mollie, and Charlotte — and a Yellow Labrador the girls named
+              Belle (after Tinkerbell and Princess Belle of course). Stop by
+              anytime and throw the ball for Belle — she loves visitors.
+            </p>
+          </div>
+        </section>
+      </article>
 
-                        <section class="main-section">
-                                <div class="section-content">
-                                    <h3 class="section-title">Who is blue Thumb?</h3>
-                                    <p class="section-decription">
-                                    Blue Thumb is a team of people who are excited about water features! We know you have choices when it comes to water feature suppliers, but we have worked hard over the past 25 years to not only manufacture the products that we sell but to simplify the process. Knowing that when you order from us you are getting everything you need to successfully complete your project makes our team happy and we love to see the beauty that is created across the country with our projects. Providing you with the best quality products and diversification you need to be successful is always a priority for Blue Thumb!
-                                    </p>
-                                </div>
-                                <div class="main-section-img-wrapper">
-                                    <img src="https://cdn11.bigcommerce.com/s-g33rmoufv1/images/stencil/original/image-manager/kipnicole.jpg?t=1771532832" alt="">
-                                </div>
-                                <div class="main-section-img-wrapper">
-                                    <img src="https://cdn11.bigcommerce.com/s-g33rmoufv1/images/stencil/original/image-manager/about32.png?t=1771433643" alt="">
-                                </div>
-                                   <div class="section-content">
-                                    <h3 class="section-title">Who are Kip and Nicole?</h3>
-                                    <p class="section-description">
-                                  My name is Kip and I’m the owner of Blue Thumb. By this point you’ve most likely become familiar with Blue Thumb and what it is we do so instead of telling you more of the same let me tell you a little about myself, my family, and how we got started.
+      <div class="full-page-logo"></div>
 
-My wife Nicole handles the finances here at Blue Thumb. We met when she interviewed for a job here at Blue Thumb. A few months later she was practically running the place. Two years after that we were married. We have three beautiful daughters together — Emma, Mollie, and Charlotte — and a Yellow Labrador the girls named Belle (after Tinkerbell and Princess Belle of course). Stop by anytime and throw the ball for Belle — she loves visitors.
-                        </section>
-                    </article>
+      <article class="article">
+        <h2 class="article-title">
+          25 Years of Growth in the Business of Aquatics
+        </h2>
+        <h4 class="article-subtitle">
+          The Story of Blue Thumb by owner Kip Northrup
+        </h4>
+      </article>
 
-                    <div class="full-page-logo"></div>
-
-                     <article class="article">
-                        <h2 class="article-title">25 Years of Growth in the Business of Aquatics</h2>
-                        <h4 class="article-subtitle">The Story of Blue Thumb by owner Kip Northrup </h4>
-                     </article>
-                
-                </div>
+      <div class="slider-container">
+        <span class="nav prev" onclick="prevSlide()"><</span>
+        <div class="slider-wrapper">
+          <div class="slider-track" id="slider">
+            <div class="slide">
+              <div class="section-content">
+                <h3 class="section-title">The Beginning...</h3>
+                <p class="section-description">
+                  I was born and raised in Saginaw, Michigan and, aside from my
+                  four years studying International Business at Eastern Michigan
+                  University, I’ve lived there all my life. Aquariums were a
+                  passion of mine growing up as a child. So much so that I
+                  started Blue Lagoon Aquatics as a senior in high school (1992)
+                  cleaning aquariums at doctor offices after school. After
+                  college I came back to Saginaw and purchased a local pet store
+                  so I had somewhere to operate my maintenance business from. It
+                  was 1996 and the pond industry was about to go into major
+                  growth mode.
+                </p>
+                <img
+                  class="section-image"
+                  src="https://i.shgcdn.com/aa05aa74-1672-45e5-8d73-223a3698b0fe/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                />
+              </div>
+              <div class="main-section-img-wrapper">
+                <img
+                  src="https://cdn11.bigcommerce.com/s-g33rmoufv1/images/stencil/original/image-manager/kipnicole.jpg?t=1771532832"
+                />
+              </div>
             </div>
-    </div>
-{{/partial}}
 
-{{> layout/base}}
+            <div class="slide">
+              <div class="section-content">
+                <h3 class="section-title">In 1998...</h3>
+                <p class="section-description">
+                  Many customers were coming into the retail store requesting
+                  pond supplies which eventually lead to us installing ponds. We
+                  decided that managing the pet store was keeping us from
+                  focusing on what we did best ~ water features. I sold the
+                  store and opened Aquatic Design Group, focusing on the
+                  installation and maintenance of all water features.
+                </p>
+              </div>
+              <div class="main-section-img-wrapper">
+                <img
+                  src="https://i.shgcdn.com/bfe7b169-3dc2-4218-8b35-2f8b74c58de8/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                />
+              </div>
+            </div>
+
+            <div class="slide">
+              <div class="section-content">
+                <h3 class="section-title">In 2000...</h3>
+                <p class="section-description">
+                  Not only were we installing our own water features, but we
+                  were getting requests from other landscapers to educate them
+                  on how to install them properly. I saw the need for education
+                  & training with quality equipment and so by the end of 2000 I
+                  stopped installing water features and opened Blue Thumb, which
+                  would focus exclusively on selling at both wholesale & retail
+                  everything relating to ponds & water features.
+                </p>
+                <img
+                  class="section-image"
+                  src="https://i.shgcdn.com/ec367db4-bb16-4ad7-ba7c-8cdc05cc5bd5/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                />
+              </div>
+              <div class="main-section-img-wrapper">
+                <img
+                  src="https://i.shgcdn.com/9c71b1a9-693c-4ada-b9bf-e8ec7ae770fd/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                />
+              </div>
+            </div>
+
+            <div class="slide">
+              <div class="section-content">
+                <h3 class="section-title">In 2006...</h3>
+                <p class="section-description">
+                  We created & launched the PondBuilder brand of water feature
+                  equipment. This allowed us to control the quality,
+                  availability, features, & benefits of the products we were
+                  selling. PondBuilder products are now available at the finest
+                  retail establishments and are installed by like-minded
+                  professional installers across the US.
+                </p>
+                <img
+                  class="section-image"
+                  src="https://i.shgcdn.com/6f3d1370-ec2f-48ee-87a6-7c67a132d869/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                />
+              </div>
+              <div class="main-section-img-wrapper">
+                <img
+                  src="https://i.shgcdn.com/ec9588ec-3489-4ea1-ac14-21d95487b1cc/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                />
+              </div>
+            </div>
+
+            <div class="slide">
+              <div class="section-content">
+                <h3 class="section-title">In 2012...</h3>
+                <p class="section-description">
+                  We completed a 25,000 sq ft expansion of our warehouse
+                  allowing us to become more efficient packing orders and live
+                  up to our goal of shipping all orders within 24 hours of
+                  receipt. The expansion allowed us to expand our R&D space
+                  which helped us in perfecting existing products and develop
+                  tomorrow’s products and ideas.
+                </p>
+                <img
+                  class="section-image"
+                  src="https://i.shgcdn.com/7daf8d4c-b136-4067-b003-e3d631dc9c38/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                />
+              </div>
+              <div class="main-section-img-wrapper">
+                <img
+                  src="https://i.shgcdn.com/fb788ae5-6ae1-4595-923a-808c68db6dba/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                />
+              </div>
+            </div>
+
+            <div class="slide">
+              <div class="section-content">
+                <h3 class="section-title">In 2014...</h3>
+                <p class="section-description">
+                  In March of 2014 we acquired Aqua Bella Designs, a
+                  manufacturer of professional-grade fountain systems including
+                  ceramic, copper, & stone fountains. Aqua Bella basins are
+                  manufactured under the name AquaBox® and hold a patent with
+                  the United States Patent & Trademark Office. The acquisition
+                  provided us with a quality and time-tested product line and
+                  immediate access to a nationwide network of Landscape
+                  Architects and Designers.
+                </p>
+                <img
+                  class="section-image"
+                  src="https://i.shgcdn.com/9ac93c22-561d-4baa-b17a-a72648851a51/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                />
+              </div>
+              <div class="main-section-img-wrapper">
+                <img
+                  src="https://i.shgcdn.com/310d9853-ba80-49e6-90e4-8d1d6ac57038/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                />
+              </div>
+            </div>
+
+            <div class="slide">
+              <div class="section-content">
+                <h3 class="section-title">In 2017...</h3>
+                <p class="section-description">
+                  In September of 2017 we acquired LiquidArt Fountains, a
+                  manufacturer of GFRC (glass-fiber reinforced concrete) boulder
+                  fountains. This acquisition perfected our formula to replicate
+                  nature’s boulders as fountains.
+                </p>
+                <img
+                  class="section-image"
+                  src="https://i.shgcdn.com/4996cc75-09a3-45af-9963-87e950cb1f6c/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                />
+              </div>
+              <div class="main-section-img-wrapper">
+                <img
+                  src="https://i.shgcdn.com/cd409337-4b0b-4e0e-855c-7f98367c832d/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                />
+              </div>
+            </div>
+
+            <div class="slide">
+              <div class="section-content">
+                <h3 class="section-title">In 2018...</h3>
+                <p class="section-description">
+                  Blue Thumb proudly announced they were the first manufacturer
+                  in the water feature industry to invest in their own
+                  rotational molding machine. The $500,000 investment allows us
+                  to control the quality and availability of our pond filtration
+                  and fountain reservoir/basin products as well as helps us keep
+                  a better control on rising costs. Then, in October of the same
+                  year, Blue Thumb acquired Bacti-Twist a biological filter
+                  media used in ponds and aquariums.
+                </p>
+              </div>
+              <div class="main-section-img-wrapper">
+                <img
+                  src="https://i.shgcdn.com/fd34a69c-8f19-4472-8fbc-11ebb8bdb99e/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                />
+              </div>
+            </div>
+
+            <div class="slide">
+              <div class="section-content">
+                <h3 class="section-title">In 2019...</h3>
+                <p class="section-description">
+                  Seeing the need to consolidate and be under one roof, we
+                  purchased a 126,000 sq ft facility in Saginaw, MI. This
+                  allowed us to bring all our employees, inventory, and
+                  production under one roof and provides us the room to expand
+                  into the future. We also began to align our different products
+                  under one brand ~ Blue Thumb. This was a significant change
+                  but as we’ve acquired companies and product lines over the
+                  years it became necessary to align under a singular brand
+                  name.
+                </p>
+              </div>
+              <div class="main-section-img-wrapper">
+                <img
+                  src="https://i.shgcdn.com/8f853d3f-db15-4c2f-9ad4-3fa627d45fdd/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                />
+              </div>
+            </div>
+
+            <div class="slide">
+              <div class="section-content">
+                <h3 class="section-title">In 2020...</h3>
+                <p class="section-description">
+                  We took our years of aquarium experience and developed a line
+                  of acrylic aquariums and related products called LiquidArt
+                  Aquariums available throughout the US from aquarium stores and
+                  maintenance companies. 2020 also brought the opening of our
+                  retail store featuring freshwater, saltwater, and planted
+                  aquariums as well as our entire line of Blue Thumb fountains,
+                  ponds, and waterfalls products.
+                </p>
+              </div>
+              <div class="main-section-img-wrapper">
+                <img
+                  src="https://i.shgcdn.com/610ff5fd-3658-4005-9de7-0452289ce580/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                />
+              </div>
+            </div>
+
+            <div class="slide">
+              <div class="section-content">
+                <h3 class="section-title">2022 and beyond...</h3>
+                <p class="section-description">
+                  Today, Blue Thumb focuses on carrying out our mission
+                  statement: Assisting our customers in becoming more successful
+                  designing, installing, & maintaining Ponds, Waterfalls,
+                  Fountains, & Aquariums. Our business is blessed to have each
+                  of you as customers. We appreciate your loyalty to us and take
+                  your success and business seriously. Please feel free to
+                  contact me personally should you ever feel the need ~ I’d love
+                  to hear from you! – Kip Northrup
+                </p>
+              </div>
+              <div class="main-section-img-wrapper">
+                <img
+                  src="https://i.shgcdn.com/79f7a6bf-54eb-4f99-a0ac-b1aaebe397bd/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <span class="nav next" onclick="nextSlide()">&gt;</span>
+      </div>
+
+      <div class="philosophy-section">
+        <div class="philosophy-inner">
+          <h2 class="philosophy-title">Blue Thumb Philosophy</h2>
+
+          <div class="philosophy-columns">
+            <div class="philosophy-block">
+              <div class="divider">
+                <span class="line"></span>
+              </div>
+              <h3>WHAT WE DO</h3>
+              <div class="divider">
+                <span class="line"></span>
+                <img src="/assets/img/BlueThumbLogo.png" alt="" />
+                <span class="line"></span>
+              </div>
+              <p>
+                We manufacture products to help our customers design, install,
+                and maintain better water features.
+              </p>
+            </div>
+
+            <div class="philosophy-block">
+              <div class="divider">
+                <span class="line"></span>
+              </div>
+              <h3>OUR MISSION</h3>
+              <div class="divider">
+                <span class="line"></span>
+                <img src="/assets/img/BlueThumbLogo.png" alt="" />
+                <span class="line"></span>
+              </div>
+              <p>
+                To provide superior products at a reasonable profit that allows
+                the end-user to better enjoy their landscapes. To treat our
+                customers with respect and be a resource to them. To create a
+                family oriented work environment that supports individual and
+                company growth.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="bt-about-values">
+        <div class="bt-about-wrap">
+          <h2 class="bt-about-heading">Our Core Values</h2>
+
+          <div class="bt-values-grid">
+            <div class="bt-value-item">
+              <div class="bt-top-line"></div>
+              <div class="bt-value-label">BLUE THUMB CORE VALUE</div>
+              <h3>RIGHTEOUS<br />LIVING</h3>
+
+              <div class="bt-divider">
+                <span class="bt-divider-line"></span>
+                <img
+                  src="/assets/img/BlueThumbLogo.png"
+                  alt="Blue Thumb divider"
+                />
+                <span class="bt-divider-line"></span>
+              </div>
+
+              <p>
+                We believe character matters.<br />
+                All the time. And we’ll always<br />
+                choose what’s right over all else.
+              </p>
+            </div>
+
+            <div class="bt-value-item bt-value-logo-center">
+              <img
+                class="bt-center-logo"
+                src="https://i.shgcdn.com/fc4e2638-26e2-4ea7-8fca-84a88912c29c/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                alt="Blue Thumb Logo"
+              />
+            </div>
+
+            <div class="bt-value-item">
+              <div class="bt-top-line"></div>
+              <div class="bt-value-label">BLUE THUMB CORE VALUE</div>
+              <h3>EXCELLENCE IN<br />THE ORDINARY</h3>
+
+              <div class="bt-divider">
+                <span class="bt-divider-line"></span>
+                <img
+                  src="/assets/img/BlueThumbLogo.png"
+                  alt="Blue Thumb divider"
+                />
+                <span class="bt-divider-line"></span>
+              </div>
+
+              <p>
+                We are faithful in the little things<br />
+                and attentive to the details.
+              </p>
+            </div>
+
+            <div class="bt-value-item">
+              <div class="bt-top-line"></div>
+              <div class="bt-value-label">BLUE THUMB CORE VALUE</div>
+              <h3>MARKETPLACE<br />SERVICE</h3>
+
+              <div class="bt-divider">
+                <span class="bt-divider-line"></span>
+                <img
+                  src="/assets/img/BlueThumbLogo.png"
+                  alt="Blue Thumb divider"
+                />
+                <span class="bt-divider-line"></span>
+              </div>
+
+              <p>
+                If we help enough people,<br />
+                everything else will take care of<br />
+                itself.
+              </p>
+            </div>
+
+            <div class="bt-value-item">
+              <div class="bt-top-line"></div>
+              <div class="bt-value-label">BLUE THUMB CORE VALUE</div>
+              <h3>SELF-EMPLOYED<br />MENTALITY</h3>
+
+              <div class="bt-divider">
+                <span class="bt-divider-line"></span>
+                <img
+                  src="/assets/img/BlueThumbLogo.png"
+                  alt="Blue Thumb divider"
+                />
+                <span class="bt-divider-line"></span>
+              </div>
+
+              <p>
+                We all act like we own the place and<br />
+                take personal responsibility.
+              </p>
+            </div>
+
+            <div class="bt-value-item">
+              <div class="bt-top-line"></div>
+              <div class="bt-value-label">BLUE THUMB CORE VALUE</div>
+              <h3>SHARE THE<br />PROFITS</h3>
+
+              <div class="bt-divider">
+                <span class="bt-divider-line"></span>
+                <img
+                  src="/assets/img/BlueThumbLogo.png"
+                  alt="Blue Thumb divider"
+                />
+                <span class="bt-divider-line"></span>
+              </div>
+
+              <p>
+                We win together.<br />
+                We lose together.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bt-meet-team">
+        <div class="bt-about-wrap">
+          <div class="bt-section-rule"></div>
+          <h2 class="bt-about-heading bt-team-heading">Meet The Team</h2>
+
+          <div class="bt-team-grid">
+            <div class="bt-team-member">
+              <img
+                src="https://i.shgcdn.com/3f3eab3f-4b11-46e6-8b23-053b9e8b4cc3/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                alt="Brandt Reynolds"
+              />
+              <h4>Brandt Reynolds</h4>
+              <div class="bt-role">Sales | Ext: 7006</div>
+              <a href="mailto:brandt@bluethumbponds.com"
+                >brandt@bluethumbponds.com</a
+              >
+            </div>
+
+            <div class="bt-team-member">
+              <img
+                src="https://i.shgcdn.com/97d1a867-f0b1-4ca1-91b2-81ce32fc44fc/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                alt="Nicole Northrup"
+              />
+              <h4>Nicole Northrup</h4>
+              <div class="bt-role">Vice President | Ext: 7001</div>
+              <a href="mailto:nicole@bluethumbponds.com"
+                >nicole@bluethumbponds.com</a
+              >
+            </div>
+
+            <div class="bt-team-member">
+              <img
+                src="https://i.shgcdn.com/50057f6d-ffd2-4641-80a4-522444e0b432/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                alt="Kip Northrup"
+              />
+              <h4>Kip Northrup</h4>
+              <div class="bt-role">President | Ext: 7000</div>
+              <a href="mailto:kip@bluethumbponds.com">kip@bluethumbponds.com</a>
+            </div>
+
+            <div class="bt-team-member">
+              <img
+                src="https://i.shgcdn.com/5dbe96b8-959a-4aac-ac2b-69bc395ae2aa/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                alt="Karissa Renne"
+              />
+              <h4>Karissa Renne</h4>
+              <div class="bt-role">Accounting | Ext: 7003</div>
+              <a href="mailto:accounting@bluethumbponds.com"
+                >accounting@bluethumbponds.com</a
+              >
+            </div>
+
+            <div class="bt-team-member">
+              <img
+                src="https://i.shgcdn.com/adae41e6-6cd2-4181-8f60-9041d6d79e82/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                alt="Dalton Caleca"
+              />
+              <h4>Dalton Caleca</h4>
+              <div class="bt-role">Sales | Ext: 7005</div>
+              <a href="mailto:dalton@bluethumbponds.com"
+                >dalton@bluethumbponds.com</a
+              >
+            </div>
+
+            <div class="bt-team-member">
+              <img
+                src="https://i.shgcdn.com/47e3033f-8366-48ae-b454-b6f22f339092/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                alt="Jason Erickson"
+              />
+              <h4>Jason Erickson</h4>
+              <div class="bt-role">Sales | Ext: 7009</div>
+              <a href="mailto:jason@bluethumbponds.com"
+                >jason@bluethumbponds.com</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bt-visit-shop">
+        <div class="full-page-logo"></div>
+        <h2 class="bt-visit-title">
+          Visit Us and Check Out the Fish Pond in our Retail Shop!
+        </h2>
+      </section>
+    </div>
+  </div>
+</div>
+
+<script>
+  let index = 0;
+  const slider = document.getElementById("slider");
+  const slides = document.querySelectorAll(".slide");
+
+  function updateSlider() {
+    slider.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  function nextSlide() {
+    index = (index + 1) % slides.length;
+    updateSlider();
+  }
+
+  function prevSlide() {
+    index = (index - 1 + slides.length) % slides.length;
+    updateSlider();
+  }
+</script>
+{{/partial}} {{> layout/base}}
