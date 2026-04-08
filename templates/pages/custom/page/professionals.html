@@ -1,0 +1,802 @@
+{{#partial "head"}}
+<link
+  rel="preload"
+  as="image"
+  href="https://cdn11.bigcommerce.com/s-g33rmoufv1/images/stencil/original/image-manager/pexels-energepiccom-3650130-banner.jpg"
+/>
+{{/partial}} {{#partial "page"}}
+
+<style>
+  .professionals-page {
+    color: #0b2d4f;
+  }
+
+  .professionals-page * {
+    box-sizing: border-box;
+  }
+
+  .professionals-page .professionals-full-width {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+  }
+
+  .professionals-page .professionals-heading {
+    height: 20vh;
+    min-height: 220px;
+    background-image: url("https://cdn11.bigcommerce.com/s-g33rmoufv1/images/stencil/original/image-manager/pexels-energepiccom-3650130-banner.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .professionals-page .professionals-heading-title {
+    margin: 0;
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    font-size: 6rem;
+    line-height: 1.1;
+    font-weight: 400;
+  }
+
+  .professionals-page .professionals-subtitle {
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    font-size: 3.6rem;
+    line-height: 1.3;
+    font-weight: 400;
+    color: #0b2d4f;
+    margin: 4rem 0 3rem;
+    padding: 0 2rem;
+  }
+
+  .professionals-page .professionals-story {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+  }
+
+  .professionals-page .professionals-block {
+    min-height: 430px;
+  }
+
+  .professionals-page .professionals-text {
+    background: #dce8f1;
+    padding: 6rem 6rem 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .professionals-page .professionals-title {
+    margin: 0 0 2.4rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 2.8rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #082847;
+    text-align: center;
+  }
+
+  .professionals-page .professionals-description,
+  .professionals-page .professionals-list li {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.9;
+    color: #163958;
+  }
+
+  .professionals-page .professionals-description {
+    margin: 0;
+  }
+
+  .professionals-page .professionals-list {
+    margin: 2rem 0 0;
+    padding-left: 2.2rem;
+  }
+
+  .professionals-page .professionals-list li {
+    margin-bottom: 1.2rem;
+  }
+
+  .professionals-page .professionals-list-two-columns {
+    columns: 2;
+    column-gap: 4rem;
+  }
+
+  .professionals-page .professionals-list-two-columns li {
+    break-inside: avoid;
+  }
+
+  .professionals-page .professionals-image {
+    overflow: hidden;
+    background: #dce8f1;
+  }
+
+  .professionals-page .professionals-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .professionals-logo-bar-container {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .professionals-page .professionals-logo-bar {
+    position: relative;
+    background-image: url("https://cdn11.bigcommerce.com/s-g33rmoufv1/images/stencil/original/image-manager/logobar.png?t=1771429908");
+    width: 100%;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+  }
+
+  .professionals-faq-section {
+    max-width: 1100px;
+    margin: 2rem auto 6rem;
+    padding: 0 2rem;
+  }
+
+  .professionals-faq-heading {
+    margin: 0 0 3rem;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 5.4rem;
+    line-height: 1.15;
+    font-weight: 400;
+    color: #082847;
+  }
+
+  .professionals-faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .professionals-faq-item {
+    background: transparent;
+  }
+
+  .professionals-faq-question {
+    width: 100%;
+    min-height: 66px;
+    border: 0;
+    border-radius: 0;
+    background: #eef2f7;
+    color: #6f8fb0;
+    cursor: pointer;
+    padding: 1.6rem 5rem 1.6rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    font-family: "Poppins", Arial, sans-serif;
+    line-height: 1.25;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: none;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+  .professionals-faq-question:hover {
+    background: #e8edf4;
+  }
+
+  .professionals-faq-question:focus {
+    outline: none;
+  }
+
+  .professionals-faq-question-text {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .professionals-faq-icon {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    line-height: 1;
+    color: #6f8fb0;
+    transition: transform 0.2s ease;
+    pointer-events: none;
+  }
+
+  .professionals-faq-item.active .professionals-faq-icon {
+    transform: translateY(-50%) rotate(90deg);
+  }
+
+  .professionals-faq-answer {
+    display: none;
+    padding: 2.8rem 6rem 3.2rem;
+    background: transparent;
+  }
+
+  .professionals-faq-item.active .professionals-faq-answer {
+    display: block;
+  }
+
+  .professionals-faq-answer p {
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    font-weight: 400;
+    color: #082847;
+  }
+
+  .professionals-faq-answer strong {
+    font-weight: 700;
+  }
+
+  .professionals-partner-section {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    background: #eef2f7;
+    padding: 4rem 0 7rem;
+  }
+
+  .professionals-partner-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 4rem;
+  }
+
+  .professionals-partner-logo {
+    width: 80%;
+    margin: 0 auto 1.5rem;
+  }
+
+  .professionals-partner-logo-bar {
+    background-image: url("https://cdn11.bigcommerce.com/s-g33rmoufv1/images/stencil/original/image-manager/logobar.png?t=1771429908");
+    width: 100%;
+    height: 120px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+
+  .professionals-partner-heading {
+    margin: 0 0 4rem;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 3.2rem;
+    line-height: 1.25;
+    font-weight: 400;
+    color: #082847;
+  }
+
+  .professionals-partner-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7rem;
+    align-items: start;
+  }
+
+  .professionals-partner-col h3 {
+    margin: 0 0 2.4rem;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 2.3rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #082847;
+  }
+
+  .professionals-partner-col p {
+    margin: 0 0 2.4rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: #203b58;
+  }
+
+  .professionals-partner-button-wrap {
+    margin-top: 3.5rem;
+    text-align: center;
+  }
+
+  .professionals-partner-button {
+    display: inline-block;
+    padding: 1.2rem 2.4rem;
+    background: #6f8fb0;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 3px;
+  }
+
+  .professionals-partner-button:hover,
+  .professionals-partner-button:focus {
+    background: #5f81a3;
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .professionals-catalog-callout {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 2.2rem;
+    line-height: 1.35;
+    font-weight: 700;
+    color: #203b58;
+    margin-bottom: 3rem;
+  }
+
+  .professionals-catalog-image img {
+    width: 100%;
+    max-width: 620px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 1200px) {
+    .professionals-page .professionals-heading-title {
+      font-size: 4.8rem;
+    }
+
+    .professionals-page .professionals-subtitle {
+      font-size: 3rem;
+    }
+
+    .professionals-page .professionals-text {
+      padding: 4rem;
+    }
+
+    .professionals-page .professionals-title {
+      font-size: 2.4rem;
+    }
+
+    .professionals-page .professionals-list-two-columns {
+      columns: 1;
+    }
+
+    .professionals-faq-heading {
+      font-size: 2.8rem;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .professionals-faq-question {
+      font-size: 1.4rem;
+    }
+
+    .professionals-partner-grid {
+      gap: 4rem;
+    }
+  }
+
+  .professionals-faq-question-text {
+    color: #7591aa;
+  }
+
+  @media (max-width: 900px) {
+    .professionals-page .professionals-story {
+      grid-template-columns: 1fr;
+    }
+
+    .professionals-page .professionals-block {
+      min-height: auto;
+    }
+
+    .professionals-page .professionals-image {
+      min-height: 340px;
+    }
+
+    .professionals-page .professionals-heading {
+      min-height: 180px;
+      height: auto;
+      padding: 5rem 2rem;
+    }
+
+    .professionals-page .professionals-heading-title {
+      font-size: 3.4rem;
+    }
+
+    .professionals-page .professionals-subtitle {
+      font-size: 2.4rem;
+      margin: 3rem 0 2rem;
+    }
+
+    .professionals-page .professionals-text {
+      padding: 3rem 2.2rem;
+    }
+
+    .professionals-page .professionals-title {
+      font-size: 2.1rem;
+      text-align: left;
+    }
+
+    .professionals-page .professionals-description,
+    .professionals-page .professionals-list li {
+      font-size: 1.45rem;
+      line-height: 1.8;
+    }
+
+    .professionals-page .professionals-logo-bar {
+      height: 120px;
+      margin-top: 3rem;
+    }
+
+    .professionals-faq-section {
+      padding: 0 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .professionals-faq-heading {
+      font-size: 3.4rem;
+      margin-bottom: 2rem;
+    }
+
+    .professionals-faq-question {
+      min-height: 58px;
+      font-size: 1.55rem;
+      padding: 1.3rem 4rem 1.3rem 1.6rem;
+    }
+
+    .professionals-faq-icon {
+      right: 1.4rem;
+    }
+
+    .professionals-faq-answer {
+      padding: 2rem 1.5rem 2.4rem;
+    }
+
+    .professionals-faq-answer p {
+      font-size: 1.2rem;
+      line-height: 1.7;
+    }
+
+    .professionals-partner-section {
+      padding: 3rem 0 4rem;
+    }
+
+    .professionals-partner-inner {
+      padding: 0 2rem;
+    }
+
+    .professionals-partner-logo {
+      width: 90%;
+    }
+
+    .professionals-partner-logo-bar {
+      height: 90px;
+    }
+
+    .professionals-partner-heading {
+      font-size: 2.4rem;
+      margin-bottom: 3rem;
+    }
+
+    .professionals-partner-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .professionals-partner-col h3 {
+      font-size: 2rem;
+    }
+
+    .professionals-catalog-callout {
+      font-size: 1.8rem;
+    }
+  }
+</style>
+
+<div class="container base-content-page professionals-page">
+  {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+  <div class="page-content">
+    <div class="ob-simple-page-content">
+      <div class="professionals-full-width professionals-heading">
+        <h1 class="professionals-heading-title">Professional Installers</h1>
+      </div>
+
+      <h2 class="professionals-subtitle">
+        Welcome Landscape Installers &amp; Designers/Architects:
+      </h2>
+
+      <article class="professionals-story">
+        <div class="professionals-block professionals-text">
+          <h2 class="professionals-title">Your Opportunity</h2>
+          <p class="professionals-description">
+            Are you a professional designer, architect, or installer in the
+            landscape industry?<br />
+            Have you thought about expanding your business into the water
+            feature market?<br />
+            Working with Blue Thumb allows you to integrate water features into
+            your existing business and separate your company from the rest of
+            the group.
+          </p>
+        </div>
+
+        <div class="professionals-block professionals-image">
+          <img
+            src="https://i.shgcdn.com/14008481-ed3b-4161-b2c2-00a28b72a043/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+            alt="Professional Installers"
+          />
+        </div>
+
+        <div class="professionals-block professionals-image">
+          <img
+            src="https://i.shgcdn.com/fd34a69c-8f19-4472-8fbc-11ebb8bdb99e/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+            alt="Professional Installers"
+          />
+        </div>
+
+        <div class="professionals-block professionals-text">
+          <h2 class="professionals-title">Blue Thumb Difference</h2>
+          <p class="professionals-description">
+            Our focus is strictly on providing you with the products you need to
+            design, install, and maintain better water features. It’s all we do.
+            All day, every day. Year-round. Partnering with Blue Thumb means
+            you’ll have exclusive access to:
+          </p>
+
+          <ul class="professionals-list professionals-list-two-columns">
+            <li>2000+ Fountain Kits</li>
+            <li>Pond &amp; Water Garden Equipment</li>
+            <li>Pond-Less Waterfall Equipment</li>
+            <li>Lake &amp; Large Pond Products</li>
+            <li>All at the best margins to help keep you profitable!</li>
+            <li>
+              We are the manufacturer so you will be buying direct from the
+              source!
+            </li>
+          </ul>
+        </div>
+
+        <div class="professionals-block professionals-text">
+          <h2 class="professionals-title">
+            What you can expect from Blue Thumb?
+          </h2>
+          <ul class="professionals-list">
+            <li>
+              Using our Inspirations Booklets we’ll help you market water
+              features so you can increase the number of projects installed
+              annually.
+            </li>
+            <li>
+              We will connect you with hundreds of like-minded installers so you
+              can share best practices and ideas.
+            </li>
+            <li>
+              We will constantly bring you fresh and new project ideas to
+              promote.
+            </li>
+          </ul>
+        </div>
+
+        <div class="professionals-block professionals-image">
+          <img
+            src="https://i.shgcdn.com/40d9eef7-a20a-44f8-899b-7b7fbc297791/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+            alt="Professional Installers"
+          />
+        </div>
+      </article>
+
+      <div class="professionals-logo-bar-container">
+        <div class="professionals-logo-bar"></div>
+      </div>
+
+      <section class="professionals-faq-section">
+        <h2 class="professionals-faq-heading">Blue Thumb Partner FAQs</h2>
+
+        <div class="professionals-faq-list">
+          <div class="professionals-faq-item active">
+            <button
+              class="professionals-faq-question"
+              type="button"
+              aria-expanded="true"
+            >
+              <span class="professionals-faq-question-text"
+                >Q: What is the minimum order?</span
+              >
+              <span class="professionals-faq-icon">&#9656;</span>
+            </button>
+            <div class="professionals-faq-answer" style="display: block">
+              <p>
+                <strong>A:</strong> We do not have a minimum order requirement.
+                We have quick shipping turnaround times so order frequently but
+                only as much as you need.
+              </p>
+            </div>
+          </div>
+
+          <div class="professionals-faq-item">
+            <button
+              class="professionals-faq-question"
+              type="button"
+              aria-expanded="false"
+            >
+              <span class="professionals-faq-question-text"
+                >Q: Do we have to use your products exclusively?</span
+              >
+              <span class="professionals-faq-icon">&#9656;</span>
+            </button>
+            <div class="professionals-faq-answer">
+              <p>
+                <strong>A:</strong> No. We would love for you to use our
+                products exclusively but feel we should earn your business, not
+                force it.
+              </p>
+            </div>
+          </div>
+
+          <div class="professionals-faq-item">
+            <button
+              class="professionals-faq-question"
+              type="button"
+              aria-expanded="false"
+            >
+              <span class="professionals-faq-question-text"
+                >Q: How do you ship orders?</span
+              >
+              <span class="professionals-faq-icon">&#9656;</span>
+            </button>
+            <div class="professionals-faq-answer">
+              <p>
+                <strong>A:</strong> We ship using the most economical means
+                possible to keep freight costs as low as possible. Smaller
+                orders are shipped FedEx ground. Larger orders will be shipped
+                on a pallet usually through FedEx freight or a similar carrier.
+              </p>
+            </div>
+          </div>
+
+          <div class="professionals-faq-item">
+            <button
+              class="professionals-faq-question"
+              type="button"
+              aria-expanded="false"
+            >
+              <span class="professionals-faq-question-text"
+                >Q: How much does shipping cost?</span
+              >
+              <span class="professionals-faq-icon">&#9656;</span>
+            </button>
+            <div class="professionals-faq-answer">
+              <p>
+                <strong>A:</strong> Shipping varies based on what is being
+                shipped and where it is shipping to. Freight pallets to
+                commercial address vs residential address is always less. We
+                offer a reduced flat-rate shipping program to cap your freight
+                expenses so you can estimate projects with confidence.
+              </p>
+            </div>
+          </div>
+
+          <div class="professionals-faq-item">
+            <button
+              class="professionals-faq-question"
+              type="button"
+              aria-expanded="false"
+            >
+              <span class="professionals-faq-question-text"
+                >Q: What are the qualities you look for in a Professional
+                Dealer?</span
+              >
+              <span class="professionals-faq-icon">&#9656;</span>
+            </button>
+            <div class="professionals-faq-answer">
+              <p>
+                <strong>A:</strong> We’re looking for dealers who appreciate the
+                craftsmanship, creativity, and beauty of a water feature.
+                Companies who want to use water features as a differentiator
+                from their competition. If that’s you fill out the application
+                below!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="professionals-partner-section">
+        <div class="professionals-partner-inner">
+          <div class="professionals-partner-logo">
+            <div class="professionals-partner-logo-bar"></div>
+          </div>
+
+          <h2 class="professionals-partner-heading">
+            Become a Blue Thumb Authorized Partner
+          </h2>
+
+          <div class="professionals-partner-grid">
+            <div class="professionals-partner-col">
+              <h3>Register for A Blue Thumb Wholesale Account</h3>
+
+              <p>
+                Blue Thumb is growing and actively seeking Dealers &amp;
+                Installers. Authorized Partners are leaders in the garden pond
+                industry and have a passion for sharing the joy of water
+                gardening with their community.
+              </p>
+
+              <p>
+                Submit the form below to apply for a wholesale account. We will
+                review your information and reach out when your account has been
+                activated for wholesale pricing.
+              </p>
+
+              <div class="professionals-partner-button-wrap">
+                <a
+                  href="https://shopbluethumb.com/login.php?action=create_account"
+                  class="professionals-partner-button"
+                  >Register</a
+                >
+              </div>
+            </div>
+
+            <div class="professionals-partner-col">
+              <h3>Request Our Wholesale Catalog</h3>
+
+              <div class="professionals-catalog-callout">
+                Call 888-619-3474 to request our<br />
+                2026 Wholesale Catalog!
+              </div>
+
+              <div class="professionals-catalog-image">
+                <img
+                  src="https://i.shgcdn.com/9d3afc04-f9de-47c6-ba5c-f718a03c7e65/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                  alt="Blue Thumb wholesale catalog warehouse"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var faqItems = document.querySelectorAll(".professionals-faq-item");
+
+    faqItems.forEach(function (item) {
+      var button = item.querySelector(".professionals-faq-question");
+      var answer = item.querySelector(".professionals-faq-answer");
+
+      button.addEventListener("click", function () {
+        var isActive = item.classList.contains("active");
+
+        faqItems.forEach(function (otherItem) {
+          otherItem.classList.remove("active");
+          otherItem
+            .querySelector(".professionals-faq-question")
+            .setAttribute("aria-expanded", "false");
+          otherItem.querySelector(".professionals-faq-answer").style.display =
+            "none";
+        });
+
+        if (!isActive) {
+          item.classList.add("active");
+          button.setAttribute("aria-expanded", "true");
+          answer.style.display = "block";
+        }
+      });
+    });
+  })();
+</script>
+
+{{/partial}} {{> layout/base}}
