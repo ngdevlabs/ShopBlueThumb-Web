@@ -1,0 +1,1632 @@
+---
+blog:
+  recent_posts:
+    limit: { { theme_settings.homepage_blog_posts_count } }
+---
+
+{{#partial "head"}}
+<style>
+  .bt-installation-page {
+    --bt-blue: #2b6fb8;
+    --bt-blue-dark: #1e5d9d;
+    --bt-text: #243746;
+    --bt-muted: #6d7c8a;
+    --bt-bg: #eef1f4;
+    --bt-border: #d8dde3;
+    --bt-btn: #6c8797;
+    --bt-btn-hover: #567180;
+    --bt-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+    --bt-radius: 4px;
+    font-family: "Poppins", sans-serif;
+    color: var(--bt-text);
+  }
+
+  .bt-installation-page img {
+    max-width: 100%;
+    display: block;
+  }
+
+  .bt-installation-page a {
+    text-decoration: none;
+  }
+
+  .bt-fw {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+  }
+
+  .bt-container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .bt-section {
+    padding: 44px 0 28px;
+  }
+
+  .bt-section--tight {
+    padding-top: 24px;
+  }
+
+  .bt-rule {
+    height: 1px;
+    background: var(--bt-border);
+    margin: 0 auto 34px;
+    max-width: 1180px;
+  }
+
+  /* HERO */
+  .bt-hero {
+    width: 100vw;
+    height: 20vh;
+    background-image: url("https://i.shgcdn.com/d100405d-734a-4746-ab38-d19fd86688c8/-/format/auto/-/preview/3000x3000/-/quality/lighter/");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    margin-left: calc(-50vw + 50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bt-hero__title {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 28px;
+    color: #fff;
+    font-size: 6rem;
+    line-height: 1;
+    font-weight: 300;
+    letter-spacing: 0.2px;
+    font-family: "Poppins", sans-serif;
+  }
+
+  /* INTRO */
+  .bt-intro-wrap {
+    background: #eff1f4;
+    padding: 52px 0 26px;
+  }
+
+  .bt-divider-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    margin-bottom: 28px;
+  }
+
+  .bt-divider-logo::before,
+  .bt-divider-logo::after {
+    content: "";
+    display: block;
+    width: min(32vw, 420px);
+    height: 4px;
+    background: var(--bt-blue);
+  }
+
+  .bt-divider-logo img {
+    width: 58px;
+    opacity: 0.96;
+  }
+
+  .bt-intro {
+    text-align: center;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .bt-intro h1 {
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-size: 3.35rem;
+    line-height: 1.18;
+    margin: 0 0 12px;
+    color: #0f2a3d;
+    text-align: center;
+  }
+
+  .bt-intro__subtitle {
+    font-size: 1.9rem;
+    line-height: 1.35;
+    color: #6f8ba2;
+    margin-bottom: 34px;
+    font-weight: 400;
+  }
+
+  .bt-intro__copy {
+    font-size: 1.45rem;
+    line-height: 1.7;
+    color: #17232d;
+    margin: 0 auto 26px;
+    max-width: 1120px;
+  }
+
+  .bt-intro__help {
+    color: #64788d;
+    font-size: 1.35rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .bt-intro__help strong {
+    color: #21364a;
+  }
+
+  .bt-intro__note {
+    font-size: 1.15rem;
+    font-style: italic;
+    font-weight: 700;
+    color: #182636;
+    margin-bottom: 30px;
+  }
+
+  /* SECTION HEADINGS */
+  .bt-group-title {
+    text-align: center;
+    font-size: 2.45rem;
+    line-height: 1.25;
+    font-weight: 400;
+    color: #4a5663;
+    margin: 0 0 18px;
+  }
+
+  .bt-sub-nav {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #6e7880;
+    margin-bottom: 18px;
+  }
+
+  .bt-sub-nav a {
+    color: inherit;
+    margin: 0 12px;
+  }
+
+  .bt-sub-nav a:hover {
+    color: var(--bt-blue);
+  }
+
+  /* CARD GRIDS */
+  .bt-manual-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 42px 38px;
+    align-items: start;
+    margin: 0 auto 28px;
+  }
+
+  .bt-manual-grid--4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 42px 28px;
+  }
+
+  .bt-manual-grid--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 1080px;
+  }
+
+  .bt-grid-5 {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 28px;
+  }
+
+  .bt-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px;
+  }
+
+  /* CARDS */
+  .bt-manual-card {
+    text-align: center;
+    display: block;
+    height: auto;
+  }
+
+  .bt-manual-card a.bt-card-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .bt-manual-card__frame {
+    background: #fff;
+    border: 1px solid #cad3dc;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35) inset;
+    overflow: hidden;
+    height: auto;
+    min-height: 0;
+    display: block;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .bt-manual-card__frame img {
+    width: 100%;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+    background: #fff;
+    display: block;
+  }
+
+  .bt-manual-card__caption {
+    font-size: 1rem;
+    color: #55606c;
+    margin: 12px auto 12px;
+    line-height: 1.4;
+    font-style: italic;
+  }
+
+  .bt-download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    min-width: 95px;
+    padding: 8px 16px;
+    background: var(--bt-btn);
+    color: #fff;
+    font-size: 0.92rem;
+    line-height: 1;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    border-radius: 3px;
+    transition:
+      background 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .bt-download-btn:hover {
+    background: var(--bt-btn-hover);
+    color: #fff;
+    transform: translateY(-1px);
+  }
+
+  .bt-card-link:hover .bt-manual-card__frame {
+    transform: translateY(-2px);
+    box-shadow: var(--bt-shadow);
+  }
+
+  .smaller_card {
+    display: block;
+    height: auto;
+  }
+
+  /* VIDEO SECTION */
+  .bt-video-band {
+    position: relative;
+    background-image: url("https://i.shgcdn.com/e5a470c2-9828-4835-af02-3b8fc3dd1892/-/format/auto/-/preview/3000x3000/-/quality/lighter/");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+    padding: 48px 0 56px;
+  }
+
+  .bt-video-band::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("https://cdn11.bigcommerce.com/s-g33rmoufv1/images/stencil/original/image-manager/logobar.png?t=1771429908");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1400px auto;
+    opacity: 0.08;
+    pointer-events: none;
+  }
+
+  .bt-video-band h2 {
+    position: relative;
+    text-align: center;
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-size: 2.9rem;
+    margin: 0 0 26px;
+    color: #233749;
+  }
+
+  .bt-video-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px 18px;
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+
+  .bt-video-card {
+    background: transparent;
+  }
+
+  .bt-video-thumb {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    box-shadow: var(--bt-shadow);
+    background: #000;
+    aspect-ratio: 16 / 9;
+    cursor: pointer;
+  }
+
+  .bt-video-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .bt-video-thumb::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.2)
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .bt-video-thumb .play {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+    width: 58px;
+    height: 40px;
+    background: #ff1d1d;
+    border-radius: 12px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .bt-video-thumb .play::before {
+    content: "";
+    position: absolute;
+    left: 22px;
+    top: 11px;
+    border-left: 16px solid #fff;
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+  }
+
+  .bt-video-thumb iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    position: relative;
+    z-index: 3;
+  }
+
+  .bt-video-thumb.playing::after,
+  .bt-video-thumb.playing img,
+  .bt-video-thumb.playing .play {
+    display: none;
+  }
+
+  /* PRODUCT INSTALLATION */
+  .bt-product-guides-intro {
+    text-align: center;
+    padding: 34px 0 8px;
+  }
+
+  .bt-product-guides-intro h2 {
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-size: 2.9rem;
+    margin: 0 0 10px;
+  }
+
+  .bt-product-guides-intro p {
+    margin: 0;
+    color: #6d7885;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  .bt-product-guides-intro strong {
+    color: #23364a;
+  }
+
+  /* PARALLAX SECTIONS */
+  .bt-parallax {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+  }
+
+  .bt-parallax--maintenance {
+    background-image: url("https://i.shgcdn.com/e5a470c2-9828-4835-af02-3b8fc3dd1892/-/format/auto/-/preview/3000x3000/-/quality/lighter/");
+  }
+
+  .bt-parallax--installation {
+    background-image: url("https://i.shgcdn.com/10b5809c-7f57-4596-a758-1e334126c9ba/-/format/auto/-/preview/3000x3000/-/quality/lighter/");
+  }
+
+  .bt-parallax::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.42);
+  }
+
+  .bt-parallax__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1080px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 32px 20px;
+  }
+
+  .bt-parallax__title {
+    font-family: "Poppins", serif;
+    font-size: 3.6rem;
+    line-height: 1.2;
+    font-weight: 400;
+    color: #10293d;
+    margin: 0 0 12px;
+  }
+
+  .bt-parallax__copy {
+    font-size: 1.45rem;
+    line-height: 1.8;
+    color: #304557;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* LIGHT PANEL SECTION */
+  .bt-light-panel {
+    position: relative;
+    overflow: hidden;
+    padding: 42px 0 56px;
+  }
+
+  .bt-light-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("https://cdn11.bigcommerce.com/s-g33rmoufv1/images/stencil/original/image-manager/logobar.png?t=1771429908");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1500px auto;
+    opacity: 0.08;
+    pointer-events: none;
+  }
+
+  .bt-light-panel__inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .bt-light-panel__title {
+    text-align: center;
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-size: 2.9rem;
+    margin: 0 0 10px;
+    color: #213548;
+  }
+
+  .bt-light-panel__subtitle {
+    text-align: center;
+    font-size: 1.45rem;
+    line-height: 1.7;
+    color: #304455;
+    margin: 0 0 10px;
+    font-weight: 700;
+  }
+
+  .bt-light-panel__copy {
+    text-align: center;
+    color: #4c6174;
+    font-size: 1.15rem;
+    margin-bottom: 32px;
+  }
+
+  /* SPACING HELPERS */
+  .bt-mb-0 {
+    margin-bottom: 0;
+  }
+
+  .bt-mt-0 {
+    margin-top: 0;
+  }
+
+  .bt-center {
+    text-align: center;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1200px) {
+    .bt-hero__title {
+      font-size: 3.6rem;
+    }
+
+    .bt-intro h1,
+    .bt-parallax__title,
+    .bt-light-panel__title {
+      font-size: 2.8rem;
+    }
+
+    .bt-group-title {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .bt-manual-grid,
+    .bt-manual-grid--4 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .bt-video-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .bt-grid-5 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .bt-grid-4 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 768px) {
+    .bt-container {
+      padding: 0 18px;
+    }
+
+    .bt-hero {
+      min-height: 210px;
+    }
+
+    .bt-hero__title {
+      font-size: 2.4rem;
+      padding: 10px 20px;
+    }
+
+    .bt-divider-logo::before,
+    .bt-divider-logo::after {
+      width: min(24vw, 180px);
+    }
+
+    .bt-intro-wrap {
+      padding-top: 34px;
+    }
+
+    .bt-intro h1,
+    .bt-parallax__title,
+    .bt-light-panel__title {
+      font-size: 2.2rem;
+    }
+
+    .bt-intro__subtitle,
+    .bt-intro__copy,
+    .bt-parallax__copy,
+    .bt-light-panel__subtitle {
+      font-size: 1.1rem;
+    }
+
+    .bt-group-title {
+      font-size: 1.6rem;
+    }
+
+    .bt-manual-grid,
+    .bt-manual-grid--4,
+    .bt-manual-grid--2,
+    .bt-video-grid,
+    .bt-grid-5,
+    .bt-grid-4 {
+      grid-template-columns: 1fr;
+    }
+
+    .bt-parallax {
+      background-attachment: scroll;
+      min-height: 340px;
+    }
+
+    .bt-video-band,
+    .bt-light-panel {
+      padding: 34px 0 40px;
+    }
+  }
+
+  .smaller_card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+</style>
+{{/partial}} {{#partial "page"}}
+<div class="container base-content-page bt-installation-page">
+  {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+  <div class="page-content">
+    <div class="ob-simple-page-content">
+      <!-- HERO -->
+      <section class="bt-hero bt-fw">
+        <div class="bt-hero__title">Installation</div>
+      </section>
+
+      <!-- INTRO -->
+      <section class="bt-intro-wrap bt-fw">
+        <div class="bt-container">
+          <div class="bt-divider-logo">
+            <img src="/assets/img/BlueThumbLogo.png" alt="Blue Thumb" />
+          </div>
+
+          <div class="bt-intro">
+            <h1>Installing Your Blue Thumb Water Features</h1>
+            <div class="bt-intro__subtitle">
+              Parts to Presentation – Easy Instruction on Bringing it Together
+            </div>
+
+            <p class="bt-intro__copy">
+              We recommend referring to our water feature installation manuals
+              in the planning stage to head off potential design issues.
+            </p>
+
+            <div class="bt-intro__help">
+              Have a question? Blue Thumb's knowledgeable Sales/Tech Team has
+              the answer!<br />
+              Text or Call us at <strong>888-619-3474</strong>. Mon-Fri from
+              8am-4:30pm.
+            </div>
+
+            <div class="bt-intro__note">
+              Download to your device for easy access during installation.
+            </div>
+          </div>
+
+          <div class="bt-rule"></div>
+
+          <!-- POND / FORMAL FALLS -->
+          <section class="bt-section bt-section--tight">
+            <h2 class="bt-group-title">
+              Pond Water Garden and Formal Falls Installation Manuals
+            </h2>
+
+            <div class="bt-manual-grid">
+              <article class="bt-manual-card">
+                <a
+                  class="bt-card-link"
+                  target="_blank"
+                  href="https://shopbluethumb.com/content/instructions/elite_pond_watergarden_instructions.pdf"
+                >
+                  <div class="bt-manual-card__frame">
+                    <img
+                      src="https://i.shgcdn.com/fe7fa057-53bc-445e-b768-f4e029a0497a/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                      alt="Elite Pond Water Garden Kits Installation Manual"
+                    />
+                  </div>
+                </a>
+                <div class="bt-manual-card__caption">
+                  Elite Pond Water Garden Kits
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/elite_pond_watergarden_instructions.pdf"
+                  >Download</a
+                >
+              </article>
+
+              <article class="bt-manual-card smaller_card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/4499b917-a15b-4bef-a864-d00ef0980057/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="Pond Planner Brochure"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">Pond Planner Brochure</div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/BT_PondPlanner.pdf"
+                  >Download</a
+                >
+              </article>
+
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/22fe9338-2a4e-455e-b355-1487d39403d6/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="Retaining Wall Formal Falls Kits"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  Retaining Wall Formal Falls® Kits
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/formal_falls_kit_installation.pdf"
+                  >Download</a
+                >
+              </article>
+            </div>
+          </section>
+
+          <!-- POND-LESS -->
+          <section class="bt-section">
+            <h2 class="bt-group-title">
+              Pond-Less Cascading Falls Kit Installation Manuals
+            </h2>
+
+            <div class="bt-manual-grid">
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/f0209cbe-be85-4cb4-8a20-8eb1128eb53c/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="Elite Spillway Falls Pond-Less Kit Installation Manual"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  Elite Pond-Less Spillway Falls Kit Installation Manual
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/elite-spillway-cascading-falls-kit.pdf"
+                  >Download</a
+                >
+              </article>
+
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/2a50c25c-c2ed-4c91-b314-352635f88f54/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="Elite Cascading Falls Pond-Less Kit Installation Manual"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  Elite Pond-Less Cascading Falls Kit Installation Manual
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/elite-cascading-falls-kit-installation.pdf"
+                  >Download</a
+                >
+              </article>
+
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/b3ec9ea0-6978-4e69-ba4c-b134fd7bc37b/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="DIY Pond-Less Cascading Falls Installation Manual"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  DIY Pond-Less Cascading Falls Kit Installation Manual
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/diy-cascading-falls-kit_installation.pdf"
+                  >Download</a
+                >
+              </article>
+            </div>
+          </section>
+
+          <!-- FORMAL FALLS + FEATURED FOUNTAIN -->
+          <section class="bt-section">
+            <h2 class="bt-group-title">
+              Formal Falls® Kits &amp; Featured Fountain Installation Manuals
+            </h2>
+
+            <div class="bt-manual-grid bt-manual-grid--4">
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/24d71d16-ba11-432f-83a5-0fcb2a91f7b8/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="Large Formal Falls Kit"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  40" Large Formal Falls® Kit
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/formal_falls_large-40_kit_installation.pdf"
+                  >Download</a
+                >
+              </article>
+
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/523c73c3-3072-41fe-bc03-7e7040a11e5b/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="Formal Falls Kit"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  16" Sm &amp; 28" Med Formal Falls® Kit
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/formal_falls_sm-md_kit_installation.pdf"
+                  >Download</a
+                >
+              </article>
+
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/7f94a7eb-4109-4f2f-902e-dc316d0459ac/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="Ceramic Vase Fountain Kits"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  Ceramic Vase Fountain Kits
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/CeramicVase-Manual.pdf"
+                  >Download</a
+                >
+              </article>
+
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/a7634145-3b5d-4838-bc8f-a5ea8b0b652b/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="Copper Fountain Kit Installation Manual"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  DIY Handcrafted Rock Fountain Kits
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/copper-installation.pdf"
+                  >Download</a
+                >
+              </article>
+            </div>
+          </section>
+
+          <!-- REAL STONE -->
+          <section class="bt-section">
+            <h2 class="bt-group-title">
+              Real Stone Fountain Kit Installation Manuals
+            </h2>
+
+            <div class="bt-manual-grid bt-manual-grid--4">
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/86953285-19fc-4095-b365-5f3d14c87ce4/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="Real Stone Tall Triple Fountain Kit"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  Real Stone Tall Triple Fountain Kit
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/real_stone_triple_kit_installation.pdf"
+                  >Download</a
+                >
+              </article>
+
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/5294a71b-1530-40ea-820a-0f74d765cdc0/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="Zenshu Fountain Kit"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">Zenshu Fountain Kit</div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/zenshu-large-rock-installation.pdf"
+                  >Download</a
+                >
+              </article>
+
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/a3f224cd-81ea-4ced-970a-627a0908b49c/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="Real Stone Single Fountain Kit"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  Real Stone Single Fountain Kit
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/real_stone_single_kit_installation.pdf"
+                  >Download</a
+                >
+              </article>
+
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/a6fffbee-a6a5-4c17-bea0-58c67d974919/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="Real Stone Triple Fountain Kit"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  Real Stone Triple Fountain Kit
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/real_stone_triple_kit_installation-short.pdf"
+                  >Download</a
+                >
+              </article>
+            </div>
+          </section>
+
+          <!-- GFRC -->
+          <section class="bt-section">
+            <h2 class="bt-group-title">
+              Handcrafted GFRC Fountain Kit Installation Manuals
+            </h2>
+
+            <div class="bt-manual-grid">
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/c27c49b0-4682-4b2b-8db8-259a0cdc01d2/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="DIY Handcrafted Rock Fountain Kits"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  DIY Handcrafted Rock Fountain Kits
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/gfrc-diy-kit-2x2_4x4-installation.pdf"
+                  >Download</a
+                >
+              </article>
+
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/78522885-9329-4b36-9dd6-fbc82d08c62e/-/format/auto/-/quality/normal/"
+                    alt="5-Column GFRC Basalt Fountain Kit"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  5-Column GFRC “Basalt” Fountain Kit
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/gfrc_5-column_basalt_instructions.pdf"
+                  >Download</a
+                >
+              </article>
+
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/6570d4df-bbfc-4450-bc0a-3eb16ceff146/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="Triple Handcrafted Basalt Column Fountain Kit"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  Triple GFRC “Basalt” Column Fountain Kit
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/gfrc-triple-column-basalt-achelous-installation.pdf"
+                  >Download</a
+                >
+              </article>
+            </div>
+          </section>
+
+          <!-- BRASS -->
+          <section class="bt-section">
+            <h2 class="bt-group-title">
+              Brass Fountain Kit Installation Manuals
+            </h2>
+
+            <div class="bt-manual-grid bt-manual-grid--4">
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/10296f9a-96d5-49d3-819f-3bcadab963fe/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="Single Brass Spouted Urn Fountain Kits"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  Single Brass Spouted Urn Fountain Kit
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/brass-single-spouted-urn-installation.pdf"
+                  >Download</a
+                >
+              </article>
+
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/7798beb6-ced6-42b6-91bf-ec152b65cddb/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="Double Spillway Bowl Fountain Kit"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  Double Brass Bowl Spillway Kit
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/brass-double-bowl-spillway-installation.pdf"
+                  >Download</a
+                >
+              </article>
+
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/00aaeecc-b2b5-4054-b585-f31e45516684/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="Triple Spillway Bowl Fountain Kit"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  Triple Brass Spouted Bowl Spillway Kit
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/brass-triple-spillway-bowl-installation.pdf"
+                  >Download</a
+                >
+              </article>
+
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/449de971-baf8-49a9-8ab5-a23d2330df55/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="Triple Brass Spouted Urn Fountain Kits"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  Triple Brass &amp; Corten Spouted Urn Fountain Kit
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/brass-corten-triple-spouted-urn-installation.pdf"
+                  >Download</a
+                >
+              </article>
+            </div>
+          </section>
+
+          <!-- ACRYLIC -->
+          <section class="bt-section">
+            <h2 class="bt-group-title">
+              Acrylic &amp; Sugar Kettle Fountain Kit Installation Manuals
+            </h2>
+
+            <div class="bt-manual-grid bt-manual-grid--4">
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/77870fa6-7529-4c9d-9444-9e621368988e/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="24 Crystal Sphere Fountain Kit"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  24" Crystal Sphere Fountain Kit
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/24in-crystal_sphere_installation.pdf"
+                  >Download</a
+                >
+              </article>
+
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/dc60bb57-4280-45b8-9223-8d154c95df8d/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="14 Crystal Sphere Fountain Kit"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  14" Crystal Sphere Fountain Kit
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/14in_crystal_sphere_installation.pdf"
+                  >Download</a
+                >
+              </article>
+
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/56f0ea79-044f-43bb-94d6-89c8c601bf4f/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="Rustic Sugar Kettle Fountain Kits"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  Rustic Sugar Kettle Fountain Kits
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/sugar-kettle-installation-manual.pdf"
+                  >Download</a
+                >
+              </article>
+
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/9f5099ad-a5ef-458e-a512-68641dbbc578/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="Large Sugar Kettle Fountain Kit"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  Large 48" Sugar Kettle Fountain Kit
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/sugar_kettle_large-48in_instructions.pdf"
+                  >Download</a
+                >
+              </article>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <!-- VIDEO INSTALLATION GUIDES -->
+
+      <section class="bt-video-band bt-fw">
+        <div class="bt-container">
+          <h2>Video Installation Guides</h2>
+
+          <div class="bt-video-grid">
+            <div class="bt-video-thumb" data-video="WGBtcLt9Jtc">
+              <img src="https://img.youtube.com/vi/WGBtcLt9Jtc/hqdefault.jpg" />
+              <span class="play"></span>
+            </div>
+
+            <div class="bt-video-thumb" data-video="MvBt9yYxIKs">
+              <img src="https://img.youtube.com/vi/MvBt9yYxIKs/hqdefault.jpg" />
+              <span class="play"></span>
+            </div>
+
+            <div class="bt-video-thumb" data-video="wHl9hO_m8ec">
+              <img src="https://img.youtube.com/vi/wHl9hO_m8ec/hqdefault.jpg" />
+              <span class="play"></span>
+            </div>
+
+            <div class="bt-video-thumb" data-video="5TA_b1U14o8">
+              <img src="https://img.youtube.com/vi/5TA_b1U14o8/hqdefault.jpg" />
+              <span class="play"></span>
+            </div>
+
+            <div class="bt-video-thumb" data-video="6uqFedLmsRE">
+              <img src="https://img.youtube.com/vi/6uqFedLmsRE/hqdefault.jpg" />
+              <span class="play"></span>
+            </div>
+
+            <div class="bt-video-thumb" data-video="0Wn7oDUpDP8">
+              <img src="https://img.youtube.com/vi/0Wn7oDUpDP8/hqdefault.jpg" />
+              <span class="play"></span>
+            </div>
+
+            <div class="bt-video-thumb" data-video="olnoVnk_R1w">
+              <img src="https://img.youtube.com/vi/olnoVnk_R1w/hqdefault.jpg" />
+              <span class="play"></span>
+            </div>
+
+            <div class="bt-video-thumb" data-video="b5i4Oi_kgiE">
+              <img src="https://img.youtube.com/vi/b5i4Oi_kgiE/hqdefault.jpg" />
+              <span class="play"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUCT INSTALLATION MANUALS -->
+      <section class="bt-fw">
+        <div class="bt-container">
+          <div class="bt-product-guides-intro">
+            <h2>Product Installation Manuals</h2>
+            <p>
+              Blue Thumb's knowledgeable Sales &amp; Tech Team is here to answer
+              any of your questions!<br />
+              Text or Call us at <strong>888-619-3474</strong>. Mon-Fri from
+              8am-4:30pm.
+            </p>
+          </div>
+
+          <div class="bt-rule"></div>
+
+          <section class="bt-section bt-section--tight">
+            <h2 class="bt-group-title">Fountain Product Guides</h2>
+
+            <div class="bt-manual-grid bt-manual-grid--2">
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/0e5a47cd-cc23-44fa-b03f-b6b514fcb507/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="AquaBox Basins Installation Guide"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  Achelous and Altum Basin Installation
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/achelous-and-altum-basin-installation.pdf"
+                  >Download</a
+                >
+              </article>
+
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/75c362b5-daa6-4233-a54e-5d2a48e087f3/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="Mini Fountain Cube Basin Installation Guide"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  Mini Fountain Cube Basin
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/mini-fountain-cube-basin-installation-guide.pdf"
+                  >Download</a
+                >
+              </article>
+            </div>
+          </section>
+
+          <section class="bt-section">
+            <h2 class="bt-group-title">
+              Pond-Less Cascading Waterfall Product Guides
+            </h2>
+
+            <div class="bt-manual-grid bt-manual-grid--4">
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/21e7784b-82dd-47a1-9413-82f881bc6172/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="DIY Cascade Boxes and Canyon Matrix"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  DIY Cascade Box &amp; Canyon Matrix™ Installation Guide
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/pondless-diy-CascadeBox-CanyonMatrix-guide.pdf"
+                  >Download</a
+                >
+              </article>
+
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/4844437c-788d-47b3-b22d-da0a8ef54028/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="Elite Spillway Pump Canyon Matrix"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  Elite Spillway, Pump Canyon &amp; Matrix Installation Guide
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/elite-Spillway-PumpCanyon-Matrix-installation-guide.pdf"
+                  >Download</a
+                >
+              </article>
+
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/1b57d489-337c-47f2-acfb-be4892624193/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="Elite Cascade Falls Box"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  Elite Cascade Box, Matrix &amp; Pump Canyon Installation Guide
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/elite-CascadeFallsBox-PumpCanyon-Matrix-installation-guide.pdf"
+                  >Download</a
+                >
+              </article>
+
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/d1387e12-b70f-4729-a800-812fe705f429/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="Basin Matrix Assembly Guide"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  Basin Matrix Assembly Guide – Large and Small
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/matrix-assembly-guide.pdf"
+                  >Download</a
+                >
+              </article>
+            </div>
+          </section>
+
+          <section class="bt-section">
+            <h2 class="bt-group-title">Pond Product Installation Guides</h2>
+
+            <div class="bt-manual-grid bt-manual-grid--4">
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/f9985017-8806-49e7-8f39-db996b16d323/-/format/auto/-/quality/normal/"
+                    alt="Elite Waterfall Box"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  Elite Waterfall Box Installation
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/elite-waterfall-box-installation.pdf"
+                  >Download</a
+                >
+              </article>
+
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/f453ac61-c8a2-41bb-9c1a-1f150cbd4059/-/format/auto/-/quality/normal/"
+                    alt="Elite Skimmer"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  Elite Skimmer Box Installation
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/elite-skimmer-box-installation.pdf"
+                  >Download</a
+                >
+              </article>
+
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/c4f98c20-ee18-4319-887d-663b0bab7014/-/format/auto/-/quality/normal/"
+                    alt="DIY Crystal Falls Waterfalls and Pond Skimmer"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  DIY Crystal Falls Waterfall Boxes &amp; Skimmer Installation
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/diy-crystal-falls_skimmer-waterfall_installation.pdf"
+                  >Download</a
+                >
+              </article>
+
+              <article class="bt-manual-card">
+                <div class="bt-manual-card__frame">
+                  <img
+                    src="https://i.shgcdn.com/62aeec84-f74a-4ebc-974e-6942056b0a69/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                    alt="DIY Serenity Waterfall and Skimmer"
+                  />
+                </div>
+                <div class="bt-manual-card__caption">
+                  DIY Serenity Waterfall Box &amp; Skimmer Installation
+                </div>
+                <a
+                  class="bt-download-btn"
+                  href="https://shopbluethumb.com/content/instructions/diy-serenity_skimmer-waterfall_installation.pdf"
+                  >Download</a
+                >
+              </article>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="bt-parallax bt-parallax--maintenance bt-fw">
+        <div class="bt-parallax__inner">
+          <h2 class="bt-parallax__title">Water Feature Maintenance Guides</h2>
+          <p class="bt-parallax__copy">
+            Looking for water feature maintenance guides and tips? We have all
+            of those items in one convenient place for you to download directly
+            to your device.
+          </p>
+
+          <section class="bt-light-panel bt-fw">
+            <div class="bt-container bt-light-panel__inner">
+              <div class="bt-manual-grid bt-manual-grid--4">
+                <article class="bt-manual-card">
+                  <div class="bt-manual-card__frame">
+                    <img
+                      src="https://i.shgcdn.com/518cda09-4f3f-4d4e-8390-c963e9ed46d7/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                      alt="Pond Water Treatments"
+                    />
+                  </div>
+                  <div class="bt-manual-card__caption"></div>
+                  <a
+                    class="bt-download-btn"
+                    href="https://shopbluethumb.com/content/instructions/pond-maintenance.pdf"
+                    >Download</a
+                  >
+                </article>
+
+                <article class="bt-manual-card">
+                  <div class="bt-manual-card__frame">
+                    <img
+                      src="https://i.shgcdn.com/8d5e618e-e879-4050-afc4-4c61429809b9/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                      alt="Fountain Maintenance Tips"
+                    />
+                  </div>
+                  <div class="bt-manual-card__caption"></div>
+                  <a
+                    class="bt-download-btn"
+                    href="https://shopbluethumb.com/content/instructions/fountain-maintenance.pdf"
+                    >Download</a
+                  >
+                </article>
+
+                <article class="bt-manual-card">
+                  <div class="bt-manual-card__frame">
+                    <img
+                      src="https://i.shgcdn.com/38f292c2-d32f-4ef2-9f5f-0b70f2a74dd8/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                      alt="Copper Fountain Maintenance"
+                    />
+                  </div>
+                  <div class="bt-manual-card__caption"></div>
+                  <a
+                    class="bt-download-btn"
+                    href="https://shopbluethumb.com/content/instructions/copper-maintenance.pdf"
+                    >Download</a
+                  >
+                </article>
+
+                <article class="bt-manual-card">
+                  <div class="bt-manual-card__frame">
+                    <img
+                      src="https://i.shgcdn.com/443fbdce-37e8-4c32-a786-64008242886d/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                      alt="Pond-Less Waterfall Maintenance"
+                    />
+                  </div>
+                  <div class="bt-manual-card__caption"></div>
+                  <a
+                    class="bt-download-btn"
+                    href="https://shopbluethumb.com/content/instructions/pondless-maintenance.pdf"
+                    >Download</a
+                  >
+                </article>
+              </div>
+
+              <div class="bt-manual-grid bt-manual-grid--4">
+                <article class="bt-manual-card">
+                  <div class="bt-manual-card__frame">
+                    <img
+                      src="https://i.shgcdn.com/d1884a28-9dcc-4b7a-b580-4a9f3c7c8b04/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                      alt="Warranty"
+                    />
+                  </div>
+                  <div class="bt-manual-card__caption"></div>
+                  <a
+                    class="bt-download-btn"
+                    href="https://shopbluethumb.com/content/instructions/formalfalls-maintenance.pdf"
+                    >Warranty</a
+                  >
+                </article>
+
+                <article class="bt-manual-card">
+                  <div class="bt-manual-card__frame">
+                    <img
+                      src="https://i.shgcdn.com/27b9a327-aaa8-4918-a5db-6988f993a82d/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                      alt="Spring Pond Prep Guide"
+                    />
+                  </div>
+                  <div class="bt-manual-card__caption"></div>
+                  <a
+                    class="bt-download-btn"
+                    href="https://shopbluethumb.com/content/warranty-bt.pdf"
+                    >Download</a
+                  >
+                </article>
+
+                <article class="bt-manual-card">
+                  <div class="bt-manual-card__frame">
+                    <img
+                      src="https://i.shgcdn.com/f0554181-3adb-4462-8590-0dafc41fb122/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                      alt="Algae Prevention Center"
+                    />
+                  </div>
+                  <div class="bt-manual-card__caption"></div>
+                  <a
+                    class="bt-download-btn"
+                    href="https://shopbluethumb.com/content/instructions/spring-flyer.pdf"
+                    >Download</a
+                  >
+                </article>
+
+                <article class="bt-manual-card">
+                  <div class="bt-manual-card__frame">
+                    <img
+                      src="https://i.shgcdn.com/a5e9c51f-c782-4a1c-8e90-37b7eddc85d6/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                      alt="Fall Winter Pond Prep Guide"
+                    />
+                  </div>
+                  <div class="bt-manual-card__caption"></div>
+                  <a
+                    class="bt-download-btn"
+                    href="https://shopbluethumb.com/content/instructions/algae-prevention.pdf"
+                    >Download</a
+                  >
+                </article>
+                <article class="bt-manual-card">
+                  <div class="bt-manual-card__frame">
+                    <img
+                      src="https://i.shgcdn.com/1dd09668-9f12-44f3-893d-57535a26c0e1/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+                      alt="Fall Winter Pond Prep Guide"
+                    />
+                  </div>
+                  <div class="bt-manual-card__caption"></div>
+                  <a
+                    class="bt-download-btn"
+                    href="https://shopbluethumb.com/content/instructions/fall-flyer.pdf"
+                    >Download</a
+                  >
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const videos = document.querySelectorAll(".bt-video-thumb");
+
+    videos.forEach((video) => {
+      video.addEventListener("click", function () {
+        const id = this.getAttribute("data-video");
+
+        if (this.classList.contains("playing")) return;
+
+        this.classList.add("playing");
+
+        this.innerHTML = `
+          <iframe
+            src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&controls=1&modestbranding=1"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        `;
+      });
+    });
+  });
+</script>
+{{/partial}} {{> layout/base}}
