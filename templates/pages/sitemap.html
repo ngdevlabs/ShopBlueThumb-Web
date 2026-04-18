@@ -1,31 +1,202 @@
-{{#partial "page"}}
-<h1>{{lang 'sitemap.page_title'}}</h1>
+{{#partial "head"}}
+<style>
+  .bt-sitemap-page,
+  .bt-sitemap-page * {
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+  }
 
-<ul>
-{{#each sitemap}}
+  .bt-sitemap-page {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 28px 24px 56px;
+  }
+
+  .bt-sitemap-page > h1:first-of-type {
+    margin: 0 0 34px;
+    font-size: 3.2rem;
+    line-height: 1.2;
+    font-weight: 600;
+    color: #4a4a4a;
+  }
+
+  .bt-sitemap-page > ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+  }
+
+  .bt-sitemap-page > ul > li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .bt-sitemap-page > ul > li > h2 {
+    margin: 0 0 14px;
+    font-size: 1.95rem;
+    line-height: 1.3;
+    font-weight: 600;
+    color: #4a4a4a;
+  }
+
+  .bt-sitemap-page > ul > li > ul {
+    margin: 0;
+    padding-left: 14px;
+    list-style: none;
+  }
+
+  .bt-sitemap-page > ul > li > ul > li {
+    position: relative;
+    margin: 0 0 8px;
+    padding-left: 20px;
+    list-style: none;
+  }
+
+  .bt-sitemap-page > ul > li > ul > li::before {
+    content: "○";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #2f2f2f;
+    font-size: 1.2rem;
+    line-height: 1.8;
+  }
+
+  .bt-sitemap-page a {
+    color: #2f67af;
+    text-decoration: none;
+    font-size: 1.32rem;
+    line-height: 1.65;
+    font-weight: 400;
+    transition: color 0.2s ease;
+  }
+
+  .bt-sitemap-page a:hover,
+  .bt-sitemap-page a:focus {
+    color: #1f4f8e;
+    text-decoration: underline;
+  }
+
+  .bt-sitemap-page > ul > li > ul > li > ul {
+    margin: 6px 0 0;
+    padding-left: 18px;
+    list-style: none;
+  }
+
+  .bt-sitemap-page > ul > li > ul > li > ul > li {
+    position: relative;
+    margin: 0 0 4px;
+    padding-left: 14px;
+    list-style: none;
+  }
+
+  .bt-sitemap-page > ul > li > ul > li > ul > li::before {
+    content: "▪";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #101820;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .bt-sitemap-page > ul > li > ul > li > ul > li > ul {
+    margin-top: 6px;
+    padding-left: 18px;
+    list-style: none;
+  }
+
+  .bt-sitemap-page > ul > li > ul > li > ul > li > ul > li {
+    position: relative;
+    margin-bottom: 4px;
+    padding-left: 14px;
+    list-style: none;
+  }
+
+  .bt-sitemap-page > ul > li > ul > li > ul > li > ul > li::before {
+    content: "▪";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #101820;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .bt-sitemap-page {
+      padding: 24px 20px 48px;
+    }
+
+    .bt-sitemap-page > h1:first-of-type {
+      font-size: 2.7rem;
+      margin-bottom: 28px;
+    }
+
+    .bt-sitemap-page > ul > li > h2 {
+      font-size: 1.7rem;
+    }
+
+    .bt-sitemap-page a {
+      font-size: 1.24rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .bt-sitemap-page {
+      padding: 20px 16px 40px;
+    }
+
+    .bt-sitemap-page > h1:first-of-type {
+      font-size: 2.3rem;
+      margin-bottom: 22px;
+    }
+
+    .bt-sitemap-page > ul {
+      gap: 26px;
+    }
+
+    .bt-sitemap-page > ul > li > h2 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .bt-sitemap-page a {
+      font-size: 1.16rem;
+      line-height: 1.6;
+    }
+  }
+</style>
+{{/partial}} {{#partial "page"}}
+<div class="bt-sitemap-page">
+  <h1>{{lang 'sitemap.page_title'}}</h1>
+
+  <ul>
+    {{#each sitemap}}
     <li>
-        <h2>{{label}}</h2>
-        <ul>
-            {{#each body}}
-            <li>
-                <a href="{{url}}">{{label}}</a>
-                {{#if children}}
-                    <ul>
-                    {{#each children}}
-                        {{> components/sitemap/links}}
-                    {{/each}}
-                    </ul>
-                {{/if}}
-            </li>
-            {{/each}}
-            {{#if show_all_link}}
-            <li>
-                <a href="{{subsection_url}}">{{lang 'sitemap.show_all_link'}}</a>
-            </li>
-            {{/if}}
-        </ul>
+      <h2>{{label}}</h2>
+      <ul>
+        {{#each body}}
+        <li>
+          <a href="{{url}}">{{label}}</a>
+          {{#if children}}
+          <ul>
+            {{#each children}} {{> components/sitemap/links}} {{/each}}
+          </ul>
+          {{/if}}
+        </li>
+        {{/each}} {{#if show_all_link}}
+        <li>
+          <a href="{{subsection_url}}">{{lang 'sitemap.show_all_link'}}</a>
+        </li>
+        {{/if}}
+      </ul>
     </li>
-{{/each}}
-</ul>
-{{/partial}}
-{{> layout/base}}
+    {{/each}}
+  </ul>
+</div>
+{{/partial}} {{> layout/base}}

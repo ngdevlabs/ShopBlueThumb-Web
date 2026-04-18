@@ -1,0 +1,475 @@
+{{#partial "head"}}
+
+<style>
+  .full-page-logo {
+    position: relative;
+    background-image: url("https://cdn11.bigcommerce.com/s-g33rmoufv1/images/stencil/original/image-manager/logobar.png?t=1771429908");
+    width: 100vw;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-left: calc(-50vw + 50%);
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    opacity: 0.65;
+  }
+
+  .container.base-content-page.privacy-page,
+  .container.base-content-page.privacy-page * {
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+  }
+
+  .container.base-content-page.privacy-page .full-page-logo {
+    position: relative;
+    background-image: url("https://cdn11.bigcommerce.com/s-g33rmoufv1/images/stencil/original/image-manager/logobar.png?t=1771429908");
+    width: 100vw;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-left: calc(-50vw + 50%);
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    opacity: 0.65;
+  }
+
+  .container.base-content-page.privacy-page .privacy-content-wrap {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    background: #eef0f4;
+    padding-bottom: 64px;
+  }
+
+  .container.base-content-page.privacy-page .privacy-hero {
+    text-align: center;
+    padding: 24px 20px 34px;
+    border-bottom: 1px solid #d5d9df;
+  }
+
+  .container.base-content-page.privacy-page .privacy-hero h1.privacy-hero-title,
+  .container.base-content-page.privacy-page h1.privacy-hero-title {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center !important;
+    font-size: 3.9rem;
+    line-height: 1.15;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #1e4f99;
+  }
+
+  .container.base-content-page.privacy-page .privacy-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 38px 20px 0;
+  }
+
+  .container.base-content-page.privacy-page .privacy-section {
+    margin-bottom: 52px;
+  }
+
+  .container.base-content-page.privacy-page .privacy-section-title,
+  .container.base-content-page.privacy-page h2.privacy-section-title {
+    margin: 0 0 20px;
+    text-align: center !important;
+    font-size: 2.2rem;
+    line-height: 1.3;
+    font-weight: 400;
+    color: #171717;
+  }
+
+  .container.base-content-page.privacy-page .privacy-text,
+  .container.base-content-page.privacy-page p.privacy-text {
+    margin: 0 0 18px;
+    font-size: 1.28rem;
+    line-height: 1.75;
+    font-weight: 400;
+    color: #112d49;
+  }
+
+  .container.base-content-page.privacy-page .privacy-list {
+    margin: 0 0 24px 20px;
+    padding-left: 20px;
+    color: #112d49;
+  }
+
+  .container.base-content-page.privacy-page .privacy-list li {
+    margin-bottom: 6px;
+    font-size: 1.28rem;
+    line-height: 1.7;
+    font-weight: 400;
+  }
+
+  .container.base-content-page.privacy-page .privacy-link,
+  .container.base-content-page.privacy-page a.privacy-link {
+    color: #2f67af;
+    font-size: 1.28rem;
+    line-height: inherit;
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .container.base-content-page.privacy-page .privacy-link:hover,
+  .container.base-content-page.privacy-page a.privacy-link:hover {
+    color: #1f4e8d;
+  }
+
+  .container.base-content-page.privacy-page .privacy-strong {
+    font-weight: 700;
+  }
+
+  @media (max-width: 900px) {
+    .container.base-content-page.privacy-page
+      .privacy-hero
+      h1.privacy-hero-title,
+    .container.base-content-page.privacy-page h1.privacy-hero-title {
+      font-size: 3rem;
+      letter-spacing: 0.09em;
+    }
+
+    .container.base-content-page.privacy-page .privacy-section-title,
+    .container.base-content-page.privacy-page h2.privacy-section-title {
+      font-size: 1.95rem;
+    }
+
+    .container.base-content-page.privacy-page .privacy-text,
+    .container.base-content-page.privacy-page p.privacy-text,
+    .container.base-content-page.privacy-page .privacy-list li,
+    .container.base-content-page.privacy-page .privacy-link,
+    .container.base-content-page.privacy-page a.privacy-link {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .container.base-content-page.privacy-page .full-page-logo {
+      height: 120px;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .container.base-content-page.privacy-page .privacy-hero {
+      padding: 18px 16px 26px;
+    }
+
+    .container.base-content-page.privacy-page
+      .privacy-hero
+      h1.privacy-hero-title,
+    .container.base-content-page.privacy-page h1.privacy-hero-title {
+      font-size: 2.25rem;
+      letter-spacing: 0.06em;
+    }
+
+    .container.base-content-page.privacy-page .privacy-inner {
+      padding: 30px 16px 0;
+    }
+
+    .container.base-content-page.privacy-page .privacy-section {
+      margin-bottom: 42px;
+    }
+
+    .container.base-content-page.privacy-page .privacy-section-title,
+    .container.base-content-page.privacy-page h2.privacy-section-title {
+      font-size: 1.7rem;
+      margin-bottom: 16px;
+    }
+
+    .container.base-content-page.privacy-page .privacy-text,
+    .container.base-content-page.privacy-page p.privacy-text,
+    .container.base-content-page.privacy-page .privacy-list li,
+    .container.base-content-page.privacy-page .privacy-link,
+    .container.base-content-page.privacy-page a.privacy-link {
+      font-size: 1.12rem;
+      line-height: 1.7;
+    }
+
+    .container.base-content-page.privacy-page .privacy-list {
+      margin-left: 16px;
+      padding-left: 16px;
+    }
+  }
+</style>
+
+{{/partial}} {{#partial "page"}}
+<div class="container base-content-page privacy-page">
+  {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+  <div class="full-page-logo"></div>
+
+  <div class="privacy-content-wrap">
+    <div class="privacy-hero">
+      <h1 class="privacy-hero-title">Your Privacy Is Important</h1>
+    </div>
+
+    <div class="privacy-inner">
+      <section class="privacy-section">
+        <h2 class="privacy-section-title">Our Commitment</h2>
+        <p class="privacy-text">
+          Your privacy is important to us. To better protect your privacy we
+          provide this notice informing you of our intent to collect personal
+          information, explaining our online information practices and informing
+          you of the choices you can make about the way your information is
+          collected and used. To make this notice easy to find, we make it
+          available on our homepage and at every point where personally
+          identifiable information may be requested.
+        </p>
+      </section>
+
+      <section class="privacy-section">
+        <h2 class="privacy-section-title">Information We Collect</h2>
+        <p class="privacy-text">
+          This notice applies to all information collected or submitted on the
+          Blue Thumb website. On some pages, you can order products, make
+          requests, and register to receive materials. When you do this, the
+          types of personal information collected at these pages are:
+        </p>
+
+        <ul class="privacy-list">
+          <li>Your name</li>
+          <li>Your postal address</li>
+          <li>Your email address</li>
+          <li>Your phone number</li>
+          <li>Your credit/debit card information</li>
+          <li>The product(s) you ordered and the amount(s) paid</li>
+          <li>Your Internet service provider</li>
+          <li>The web page from which you came</li>
+          <li>The pages you visited on our site</li>
+        </ul>
+
+        <p class="privacy-text">
+          On some pages, you can submit information about other people. For
+          example, if you order a gift online and want it sent directly to the
+          recipient, you will need to submit the recipient's address. In this
+          circumstance, the types of personal information collected are:
+        </p>
+
+        <ul class="privacy-list">
+          <li>The recipient's name</li>
+          <li>The recipient's address</li>
+          <li>The recipient's phone number</li>
+        </ul>
+
+        <p class="privacy-text">
+          Blue Thumb may receive personal information from third parties. Blue
+          Thumb may also from time to time share some of your personal
+          information with third parties. How we use this information, ways to
+          correct your information or ways to remove your personal information
+          are outlined below.
+        </p>
+      </section>
+
+      <section class="privacy-section">
+        <h2 class="privacy-section-title">
+          How We Use Information &amp; How You Can Opt-Out
+        </h2>
+
+        <p class="privacy-text">
+          Blue Thumb respects the privacy needs and concerns of our customers.
+          It is our goal to provide you with an enjoyable and satisfying
+          shopping experience, and to meet and hopefully, exceed your
+          expectations. You can correct or remove all personally identifiable
+          information we collect and maintain by
+          <a class="privacy-link" href="/contact-us/">contacting us</a>. We use
+          this procedure to better safeguard your information.
+        </p>
+
+        <p class="privacy-text">
+          We process and confirm your order(s) with the information we collect.
+          The information we collect is used to improve your shopping experience
+          by making our website easier and more enjoyable to use.
+        </p>
+
+        <p class="privacy-text">
+          The information we collect may be used to send you catalogs, postcards
+          and/or emails about our products and services, as well as special
+          promotions or upcoming events for Blue Thumb. If you do not want to
+          receive mailings and/or emails from Blue Thumb, just let us know by
+          <a class="privacy-link" href="/contact-us/">contacting us</a>.
+        </p>
+
+        <p class="privacy-text">
+          We may share your name, addresses and/or email addresses with
+          contractors Blue Thumb hires to assist us in making improvements to
+          our website. Blue Thumb requires that such companies keep all such
+          information confidential and use it solely for the purpose of making
+          improvements to our website. If you do not want us to share your name,
+          address and/or email address with these contractors, just let us know
+          by <a class="privacy-link" href="/contact-us/">contacting us</a>.
+        </p>
+
+        <p class="privacy-text">
+          We may share name, address, email address and order(s) information
+          with cooperative database companies like the Epsilon, Wiland,
+          Datalogix or Oracle Advertising. When we do this, we do not share any
+          credit/debit card information. These cooperative database companies
+          use the information we provide to select names and addresses from
+          their databases to whom we mail our Blue Thumb catalogs. If you do not
+          want us to share your name and address with cooperative database
+          companies, just let us know by
+          <a class="privacy-link" href="/contact-us/">contacting us</a>.
+        </p>
+
+        <p class="privacy-text">
+          We contract with a third-party service provider to place our
+          advertising messages on other websites. This provider may collect
+          anonymous information about your visits to our website, and your
+          interaction with our products and services. They may also use
+          information about your visits to this and other websites to target
+          advertisements for goods and services. This anonymous information is
+          collected through the use of a pixel tag, which is industry-standard
+          technology used by most major websites. No personally identifiable
+          information is collected or used in this process.
+        </p>
+
+        <p class="privacy-text">
+          Notwithstanding the foregoing, we will not share with any third
+          parties your text messaging originator opt-in data and consent.
+        </p>
+      </section>
+
+      <section class="privacy-section">
+        <h2 class="privacy-section-title">In Regard to Google</h2>
+
+        <p class="privacy-text">
+          Blue Thumb makes use of Google Analytics Demographics and Interest
+          Reporting. Blue Thumb may also make use of other Google Analytics for
+          Display Advertising features, including Remarketing, Google Display
+          Network Impression Reporting and/or the DoubleClick Campaign Manager
+          integration.
+        </p>
+
+        <p class="privacy-text privacy-strong">
+          We are required by Google to disclose the following information to you
+          in our Privacy Statement in connection with our use of any Google
+          Analytics for Display Advertising features on the Blue Thumb Site:
+        </p>
+
+        <p class="privacy-text">
+          You may opt-out of Google Analytics for Display Advertising or
+          customize Google Display Network ads by using the Google Ads Settings
+          page. You may also prevent your data from being collected and used by
+          Google Analytics by opting out through the use of the
+          <a class="privacy-link" href="#"
+            >Google Analytics Opt-out Browser Add-on</a
+          >.
+        </p>
+
+        <p class="privacy-text">
+          If the Blue Thumb website makes use of the Google Analytics for
+          Display Advertising Remarketing feature, Blue Thumb will use such
+          Remarketing features to advertise online and third-party vendors,
+          including Google, may show Blue Thumb ads on sites across the
+          Internet.
+        </p>
+
+        <p class="privacy-text">
+          Blue Thumb and third-party vendors, including Google, may use
+          first-party cookies (such as the Google Analytics cookies) and
+          third-party cookies (such as the DoubleClick cookie) together to (a)
+          inform, optimize and serve ads based on a user's past visits to the
+          Blue Thumb site, and/or (b) report how your ad impressions, other uses
+          of ad services, and interactions with these ad impressions and ad
+          services are related to visits to the Blue Thumb site. This website
+          also uses cookies to help keep track of items you put in your shopping
+          cart, including when you have abandoned your cart, and this
+          information is used to determine when to send cart reminder messages
+          via text or SMS.
+        </p>
+
+        <p class="privacy-text">
+          Data from Google Analytics Demographics and Interest Reporting may be
+          utilized by Blue Thumb to help recognize and understand user
+          preferences, to make improvements to the Blue Thumb site, to choose
+          content and advertising to display to you, and for other business
+          purposes that will allow Blue Thumb to better serve you.
+        </p>
+      </section>
+
+      <section class="privacy-section">
+        <h2 class="privacy-section-title">Data Security</h2>
+
+        <p class="privacy-text">
+          Unauthorized use of this website may give rise to a claim for damages
+          and/or be a criminal offense. Any connection or usage of the site done
+          outside of the parameters of normal use is strictly prohibited,
+          including but not limited to, data scraping, website monitoring, and
+          load testing, without the, expressed written consent of Blue Thumb.
+        </p>
+
+        <p class="privacy-text">
+          To prevent unauthorized access, maintain data accuracy, and ensure the
+          correct use of information, we have put in place appropriate physical,
+          electronic, and managerial procedures to safeguard and secure the
+          information we collect online.
+        </p>
+
+        <p class="privacy-text">
+          We use the latest technology in online security such as site
+          identification and data encryption. With site identification, your
+          browser automatically ensures that you are connected only to our
+          website. If a problem arises, your browser will alert you to the
+          potential loss of security.
+        </p>
+
+        <p class="privacy-text">
+          The strict data encryption that we use hides sensitive information
+          like your name, address, and credit card information. Our ordering
+          process is protected by the Secure Sockets Layer (SSL) protocol, which
+          encrypts your information and confirms the identity of Blue Thumb
+          server before allowing your shopping cart to be checked out. Modern
+          browsers support the SSL protocol. We recommend that you use the
+          latest browsers to ensure that you are protected by advances in
+          security technology.
+        </p>
+      </section>
+
+      <section class="privacy-section">
+        <h2 class="privacy-section-title">
+          Our Commitment to Children's Privacy
+        </h2>
+        <p class="privacy-text">
+          Protecting the privacy of the very young is especially important. For
+          that reason, we never collect or maintain information at our website
+          from those we actually know are under 13, and no part of our website
+          is structured to attract anyone under 13.
+        </p>
+      </section>
+
+      <section class="privacy-section">
+        <h2 class="privacy-section-title">
+          How You Can Access or Correct Your Information
+        </h2>
+
+        <p class="privacy-text">
+          You can access all your personally identifiable information that we
+          collect online and maintain this information by
+          <a class="privacy-link" href="/contact-us/">contacting us</a>. We use
+          this procedure to better safeguard your information.
+        </p>
+
+        <p class="privacy-text">
+          You can correct factual errors in your personally identifiable
+          information by sending us a request that credibly shows error.
+        </p>
+      </section>
+
+      <section class="privacy-section">
+        <p class="privacy-text">
+          Unauthorized use of this website may give rise to a claim for damages
+          and/or be a criminal offense. Any connection or usage of the site done
+          outside of the parameters of normal use is strictly
+          prohibited-including but not limited to: data scraping, website
+          monitoring, load testing-without the expressed written consent of Blue
+          Thumb.
+        </p>
+      </section>
+    </div>
+  </div>
+</div>
+
+{{/partial}} {{> layout/base}}
