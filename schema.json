@@ -4475,12 +4475,12 @@
         "type": "text",
         "id": "ai_watermark_text",
         "label": "AI watermark text",
-         "default": "AI ENHANCED"
+        "default": "AI ENHANCED"
       }
     ]
   },
   {
-    "name" : "i18n.FeatureSections",
+    "name": "i18n.FeatureSections",
     "settings": [
       {
         "type": "heading",
@@ -4505,6 +4505,17 @@
         "default": false
       }
     ]
+  },
 
+  {
+    "name": "i18n.ContractorForm",
+    "settings": [
+      {
+        "type": "input",
+        "label": "Contractor Form Email",
+        "id": "contractor_form_email",
+        "default": "example@email.com"
+      }
+    ]
   }
 ]

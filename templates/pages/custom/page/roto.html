@@ -1,0 +1,1012 @@
+{{#partial "head"}}
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+  .container.base-content-page.roto-page,
+  .container.base-content-page.roto-page * {
+    box-sizing: border-box !important;
+    font-family: "Poppins", sans-serif !important;
+  }
+
+  .container.base-content-page.roto-page,
+  .container.base-content-page.roto-page p,
+  .container.base-content-page.roto-page a,
+  .container.base-content-page.roto-page span,
+  .container.base-content-page.roto-page li,
+  .container.base-content-page.roto-page label,
+  .container.base-content-page.roto-page input,
+  .container.base-content-page.roto-page textarea,
+  .container.base-content-page.roto-page button,
+  .container.base-content-page.roto-page h1,
+  .container.base-content-page.roto-page h2,
+  .container.base-content-page.roto-page h3,
+  .container.base-content-page.roto-page h4,
+  .container.base-content-page.roto-page h5,
+  .container.base-content-page.roto-page h6 {
+    font-family: "Poppins", sans-serif !important;
+  }
+
+  .container.base-content-page.roto-page {
+    color: #1f2f40;
+  }
+
+  .container.base-content-page.roto-page .breadcrumbs {
+    margin-bottom: 10px !important;
+  }
+
+  .container.base-content-page.roto-page .breadcrumbs,
+  .container.base-content-page.roto-page .breadcrumbs a,
+  .container.base-content-page.roto-page .breadcrumb-label {
+    font-size: 12px !important;
+    color: #9b9b9b !important;
+  }
+
+  .container.base-content-page.roto-page .heading {
+    width: 100vw;
+    height: 20vh;
+    min-height: 280px;
+    max-height: 420px;
+    background-image: url("https://i.shgcdn.com/7970c042-f283-43c3-ac64-b654bd3eed6f/-/format/auto/-/preview/3000x3000/-/quality/lighter/");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: calc(-50vw + 50%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .container.base-content-page.roto-page .heading-title-band {
+    width: 100%;
+    background: #e10606;
+    text-align: center;
+    padding: 22px 20px 20px;
+  }
+
+  .container.base-content-page.roto-page .heading-title {
+    margin: 0 !important;
+    color: #fff !important;
+    font-size: 3.4rem !important;
+    line-height: 1.1 !important;
+    font-weight: 300 !important;
+    text-align: center !important;
+  }
+
+  .container.base-content-page.roto-page .roto-content-wrap {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    background: #eef0f4;
+    padding-bottom: 70px;
+  }
+
+  .container.base-content-page.roto-page .roto-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 44px 24px 0;
+  }
+
+  .container.base-content-page.roto-page .roto-section {
+    margin-bottom: 72px;
+  }
+
+  .container.base-content-page.roto-page .roto-title-serif {
+    margin: 0 0 12px !important;
+    font-size: 4rem !important;
+    line-height: 1.15 !important;
+    font-weight: 300 !important;
+    text-align: center !important;
+    color: #666666 !important;
+  }
+
+  .container.base-content-page.roto-page .roto-subtitle {
+    max-width: 900px;
+    margin: 0 auto 34px !important;
+    font-size: 1.25rem !important;
+    line-height: 1.45 !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    color: #7a7a7a !important;
+  }
+
+  .container.base-content-page.roto-page .intro-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.35fr);
+    gap: 32px;
+    align-items: start;
+  }
+
+  .container.base-content-page.roto-page .intro-copy {
+    font-size: 1rem !important;
+    line-height: 1.85 !important;
+    color: #2d2d2d !important;
+  }
+
+  .container.base-content-page.roto-page .intro-copy p {
+    margin: 0 0 14px !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+  }
+
+  .container.base-content-page.roto-page .intro-divider {
+    height: 1px;
+    background: #d5d5d5;
+    margin: 22px 0 18px;
+  }
+
+  .container.base-content-page.roto-page .intro-image {
+    width: 100%;
+    display: block;
+    height: auto;
+    margin-bottom: 18px;
+  }
+
+  .container.base-content-page.roto-page .want-more {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .container.base-content-page.roto-page .want-more-title {
+    margin: 0 0 6px !important;
+    font-size: 4rem !important;
+    line-height: 1 !important;
+    font-weight: 800 !important;
+    color: #555 !important;
+    text-align: center !important;
+  }
+
+  .container.base-content-page.roto-page .want-more-text {
+    margin: 0 !important;
+    font-size: 1.1rem !important;
+    line-height: 1.45 !important;
+    font-weight: 700 !important;
+    color: #16395f !important;
+    text-align: center !important;
+  }
+
+  .container.base-content-page.roto-page .want-more-text a {
+    color: #2a72b6 !important;
+    text-decoration: none !important;
+    font-weight: 700 !important;
+    font-size: inherit !important;
+  }
+
+  /* exact style you provided */
+  .full-page-logo {
+    position: relative;
+    background-image: url("https://cdn11.bigcommerce.com/s-g33rmoufv1/images/stencil/original/image-manager/logobar.png?t=1771429908");
+    width: 100vw;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-left: calc(-50vw + 50%);
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    opacity: 0.65;
+  }
+
+  .container.base-content-page.roto-page .full-page-logo {
+    position: relative !important;
+    background-image: url("https://cdn11.bigcommerce.com/s-g33rmoufv1/images/stencil/original/image-manager/logobar.png?t=1771429908") !important;
+    width: 100vw !important;
+    height: 200px !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    background-position: center !important;
+    margin-left: calc(-50vw + 50%) !important;
+    margin-top: 4rem !important;
+    margin-bottom: 2rem !important;
+    opacity: 0.65 !important;
+  }
+
+  .container.base-content-page.roto-page .about-title {
+    margin: 0 0 34px !important;
+    font-size: 3rem !important;
+    line-height: 1.2 !important;
+    font-weight: 400 !important;
+    text-align: center !important;
+    color: #1d3147 !important;
+  }
+
+  .container.base-content-page.roto-page .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px 1fr;
+    gap: 36px;
+    align-items: start;
+  }
+
+  .container.base-content-page.roto-page .about-col {
+    font-size: 1.02rem !important;
+    line-height: 1.9 !important;
+    color: #2c2c2c !important;
+  }
+
+  .container.base-content-page.roto-page .about-col p {
+    margin: 0 0 16px !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+  }
+
+  .container.base-content-page.roto-page .about-badge img {
+    width: 100%;
+    display: block;
+    height: auto;
+  }
+
+  .container.base-content-page.roto-page .section-divider {
+    height: 1px;
+    background: #d6d6d6;
+    margin: 48px 0 38px;
+  }
+
+  .container.base-content-page.roto-page .machine-title,
+  .container.base-content-page.roto-page .services-title {
+    margin: 0 0 18px !important;
+    font-size: 3rem !important;
+    line-height: 1.2 !important;
+    font-weight: 400 !important;
+    text-align: center !important;
+    color: #666666 !important;
+  }
+
+  .container.base-content-page.roto-page .machine-copy {
+    max-width: 1050px;
+    margin: 0 auto 24px !important;
+    font-size: 1.05rem !important;
+    line-height: 1.8 !important;
+    color: #2d2d2d !important;
+    text-align: center !important;
+  }
+
+  .container.base-content-page.roto-page .bt-video-shell {
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+
+  .container.base-content-page.roto-page .bt-video-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px 18px;
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+
+  .container.base-content-page.roto-page .bt-video-card {
+    background: transparent;
+  }
+
+  .container.base-content-page.roto-page .bt-video-thumb {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    background: #000;
+    aspect-ratio: 16 / 9;
+    cursor: pointer;
+  }
+
+  .container.base-content-page.roto-page .bt-video-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .container.base-content-page.roto-page .bt-video-thumb::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.2)
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .container.base-content-page.roto-page .bt-video-thumb .play {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+    width: 58px;
+    height: 40px;
+    background: #ff1d1d;
+    border-radius: 12px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .container.base-content-page.roto-page .bt-video-thumb .play::before {
+    content: "";
+    position: absolute;
+    left: 22px;
+    top: 11px;
+    border-left: 16px solid #fff;
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+  }
+
+  .container.base-content-page.roto-page .bt-video-thumb iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    position: relative;
+    z-index: 3;
+  }
+
+  .container.base-content-page.roto-page .bt-video-thumb.playing::after,
+  .container.base-content-page.roto-page .bt-video-thumb.playing img,
+  .container.base-content-page.roto-page .bt-video-thumb.playing .play {
+    display: none;
+  }
+
+  .container.base-content-page.roto-page .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 56px 48px;
+    max-width: 1160px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  .container.base-content-page.roto-page .service-card {
+    text-align: left;
+  }
+
+  .container.base-content-page.roto-page .service-title {
+    margin: 0 0 16px !important;
+    min-height: 4.8rem !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+    font-style: italic !important;
+    font-weight: 400 !important;
+    text-align: center !important;
+    color: #87a5bf !important;
+  }
+
+  .container.base-content-page.roto-page .service-image {
+    width: 100%;
+    display: block;
+    height: auto;
+    margin-bottom: 14px;
+  }
+
+  .container.base-content-page.roto-page .service-text {
+    font-size: 1rem !important;
+    line-height: 1.72 !important;
+    color: #294056 !important;
+  }
+
+  .container.base-content-page.roto-page .parallax-advantage {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding: 100px 60px;
+    background-image: url("https://i.shgcdn.com/e5a470c2-9828-4835-af02-3b8fc3dd1892/-/format/auto/-/preview/3000x3000/-/quality/lighter/");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin-top: 4rem;
+  }
+
+  .container.base-content-page.roto-page .parallax-advantage-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  .container.base-content-page.roto-page .advantage-grid {
+    display: grid;
+    grid-template-columns: 0.88fr 1.45fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .container.base-content-page.roto-page .advantage-process-title {
+    margin: 0 0 24px !important;
+    font-size: 2.35rem !important;
+    line-height: 1.2 !important;
+    font-weight: 800 !important;
+    color: #0e2a45 !important;
+  }
+
+  .container.base-content-page.roto-page .advantage-process-text,
+  .container.base-content-page.roto-page .advantage-process-steps,
+  .container.base-content-page.roto-page .advantage-process-strong {
+    font-size: 1rem !important;
+    line-height: 1.9 !important;
+    color: #1f2f40 !important;
+  }
+
+  .container.base-content-page.roto-page .advantage-process-text p,
+  .container.base-content-page.roto-page .advantage-process-steps p,
+  .container.base-content-page.roto-page .advantage-process-strong p {
+    margin: 0 0 10px !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+  }
+
+  .container.base-content-page.roto-page .advantage-process-strong {
+    margin-top: 22px;
+    font-weight: 700 !important;
+  }
+
+  .container.base-content-page.roto-page .advantage-right-title {
+    margin: 0 0 26px !important;
+    font-size: 3.2rem !important;
+    line-height: 1.15 !important;
+    font-weight: 400 !important;
+    text-align: center !important;
+    color: #163049 !important;
+  }
+
+  .container.base-content-page.roto-page .advantage-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 42px 34px;
+  }
+
+  .container.base-content-page.roto-page .adv-card h3 {
+    margin: 0 0 10px !important;
+    font-size: 1.2rem !important;
+    line-height: 1.35 !important;
+    font-weight: 800 !important;
+    text-align: center !important;
+    color: #5a5a5a !important;
+  }
+
+  .container.base-content-page.roto-page .adv-card p {
+    margin: 0 !important;
+    font-size: 1rem !important;
+    line-height: 1.8 !important;
+    color: #2b3e50 !important;
+    text-align: left !important;
+  }
+
+  .container.base-content-page.roto-page .bottom-cta-wrap {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    background: #eef0f4;
+    padding: 52px 20px 0;
+  }
+
+  .container.base-content-page.roto-page .bottom-cta {
+    max-width: 980px;
+    margin: 0 auto;
+    background: #e10606;
+    padding: 28px 24px;
+    text-align: center;
+  }
+
+  .container.base-content-page.roto-page .bottom-cta p,
+  .container.base-content-page.roto-page .bottom-cta a,
+  .container.base-content-page.roto-page .bottom-cta span {
+    margin: 0 !important;
+    color: #fff !important;
+    font-size: 1.42rem !important;
+    line-height: 1.3 !important;
+    font-weight: 800 !important;
+    text-decoration: none !important;
+  }
+
+  @media (max-width: 1100px) {
+    .container.base-content-page.roto-page .intro-grid,
+    .container.base-content-page.roto-page .about-grid,
+    .container.base-content-page.roto-page .advantage-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .container.base-content-page.roto-page .about-badge {
+      max-width: 340px;
+      margin: 0 auto;
+    }
+
+    .container.base-content-page.roto-page .services-grid,
+    .container.base-content-page.roto-page .advantage-cards {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 800px) {
+    .container.base-content-page.roto-page .heading {
+      min-height: 220px;
+      height: 28vh;
+    }
+
+    .container.base-content-page.roto-page .heading-title {
+      font-size: 2.25rem !important;
+    }
+
+    .container.base-content-page.roto-page .roto-title-serif {
+      font-size: 2.65rem !important;
+    }
+
+    .container.base-content-page.roto-page .want-more-title {
+      font-size: 2.8rem !important;
+    }
+
+    .container.base-content-page.roto-page .about-title,
+    .container.base-content-page.roto-page .machine-title,
+    .container.base-content-page.roto-page .services-title,
+    .container.base-content-page.roto-page .advantage-right-title {
+      font-size: 2.35rem !important;
+    }
+
+    .container.base-content-page.roto-page .full-page-logo {
+      height: 120px !important;
+      margin-top: 2rem !important;
+      margin-bottom: 1rem !important;
+    }
+
+    .container.base-content-page.roto-page .services-grid,
+    .container.base-content-page.roto-page .advantage-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .container.base-content-page.roto-page .parallax-advantage {
+      background-attachment: scroll;
+      padding: 70px 24px;
+    }
+
+    .container.base-content-page.roto-page .bottom-cta p,
+    .container.base-content-page.roto-page .bottom-cta a,
+    .container.base-content-page.roto-page .bottom-cta span {
+      font-size: 1.12rem !important;
+    }
+  }
+
+  @media (max-width: 540px) {
+    .container.base-content-page.roto-page .roto-inner {
+      padding: 30px 16px 0;
+    }
+
+    .container.base-content-page.roto-page .heading-title-band {
+      padding: 16px 14px;
+    }
+
+    .container.base-content-page.roto-page .heading-title {
+      font-size: 1.8rem !important;
+    }
+
+    .container.base-content-page.roto-page .roto-title-serif {
+      font-size: 2.1rem !important;
+    }
+
+    .container.base-content-page.roto-page .roto-subtitle {
+      font-size: 1rem !important;
+    }
+
+    .container.base-content-page.roto-page .want-more-title {
+      font-size: 2.2rem !important;
+    }
+
+    .container.base-content-page.roto-page .about-title,
+    .container.base-content-page.roto-page .machine-title,
+    .container.base-content-page.roto-page .services-title,
+    .container.base-content-page.roto-page .advantage-right-title {
+      font-size: 1.9rem !important;
+    }
+
+    .container.base-content-page.roto-page .service-title {
+      min-height: auto !important;
+      font-size: 1.6rem !important;
+    }
+
+    .container.base-content-page.roto-page .parallax-advantage {
+      padding: 60px 16px;
+    }
+  }
+</style>
+{{/partial}} {{#partial "page"}}
+<div class="container base-content-page roto-page">
+  {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+  <div class="heading">
+    <div class="heading-title-band">
+      <h1 class="heading-title">Blue Thumb Custom Rotomolding</h1>
+    </div>
+  </div>
+
+  <div class="roto-content-wrap">
+    <div class="roto-inner">
+      <section class="roto-section">
+        <h2 class="roto-title-serif">Have a plastic product idea?</h2>
+        <p class="roto-subtitle">
+          Do you need help with manufacturing, finishing, or warehousing?<br />
+          Let Blue Thumb's Custom Rotomolding Department help!
+        </p>
+
+        <div class="intro-grid">
+          <div class="intro-copy">
+            <p>
+              Our mission is to provide superior products at a reasonable profit
+              by designing solutions that meet customer expectations while
+              establishing a reputation for reliability and durability. We treat
+              our clients with respect and strive to be a resource that supports
+              individual and company growth.
+            </p>
+
+            <p>
+              We make a wide range of products in the agricultural,
+              recreational, environmental, industrial, and medical, as well as
+              our beloved garden/water feature industries.
+            </p>
+
+            <p>
+              In addition to manufacturing rotomolded plastic products, we offer
+              additional services such as CAD design, finishing and assembly,
+              packaging, warehousing, quality assurance, and drop shipping.
+            </p>
+
+            <div class="intro-divider"></div>
+
+            <p>
+              Rotomolding is a low-pressure cast process that does not require
+              in-mold cooling or part ejection. Our molds are usually
+              manufactured from cast aluminum making the tooling process quick
+              and affordable. A typical lead time for a new tooling is only 4-10
+              weeks depending on size and complexity and all our molds are made
+              locally. Aluminum cast tooling also allows us to manufacture
+              multiple duplicate molds to increase production capacity. In
+              addition, tooling costs can be lower than alternate manufacturing
+              methods like blow molding and injection molding.
+            </p>
+          </div>
+
+          <div>
+            <img
+              class="intro-image"
+              src="https://i.shgcdn.com/beac38b9-75cc-47d4-9b24-385fe197c2dc/-/format/auto/-/preview/3000x3000/-/quality/lighter/-/resize/1920x/"
+              alt="Blue Thumb rotomolding machine"
+            />
+
+            <section class="want-more">
+              <h2 class="want-more-title">Want to know more?</h2>
+              <p class="want-more-text">
+                Contact us at
+                <a href="mailto:sales@bluethumbponds.com"
+                  >sales@bluethumbponds.com</a
+                ><br />
+                or call <a href="tel:8886193474">888-619-3474</a> ext. 7000.
+              </p>
+            </section>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="full-page-logo"></div>
+
+    <div class="roto-inner">
+      <section class="roto-section">
+        <h2 class="about-title">About Blue Thumb Rotomolding Division</h2>
+
+        <div class="about-grid">
+          <div class="about-col">
+            <p>
+              BlueThumb custom rotomolding is a family-owned business that has
+              been producing high-quality custom-engineered water feature
+              products for over 20 years.
+            </p>
+
+            <p>
+              In 2018, Blue Thumb proudly announced they were the first
+              manufacturer in the water feature industry to invest in its own
+              rotational molding machine. The investment allowed us to control
+              the quality and availability of our pond filtration and fountain
+              reservoir/basin products as well as helped us keep better control
+              of rising costs.
+            </p>
+          </div>
+
+          <div class="about-badge">
+            <img
+              src="https://i.shgcdn.com/b8930a60-3e59-4df4-b262-3dc9325d0e9e/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+              alt="Proudly Made in the USA"
+            />
+          </div>
+
+          <div class="about-col">
+            <p>
+              Roto molding has made it easier to create our Blue Thumb basins,
+              waterfall boxes, skimmers, and more. All of which have been
+              environmentally tested for strength and durability.
+            </p>
+
+            <p>
+              We want to help make it easier for your business to provide
+              quality products at a reasonable cost. We welcome the opportunity
+              to demonstrate how rotational molding can enhance your final
+              product, improve delivery times and contribute to your bottom
+              line. Please contact us for prompt, friendly, and professional
+              assistance.
+            </p>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <h2 class="machine-title">Our Machine</h2>
+        <p class="machine-copy">
+          The Rotoline 2.6 is a mid-size Rotational Molding machine that rotates
+          on an adjustable Major and Minor Axis with 3 independent carousel
+          arms. State-of-the-art technology is especially suited for the
+          production of plastic products with either a simple or complex design
+          and small to mid-size products serving many industries.
+        </p>
+
+        <div class="bt-video-shell">
+          <div class="bt-video-grid">
+            <div class="bt-video-card">
+              <div
+                class="bt-video-thumb"
+                data-video="Q8eRU06V-IE"
+                data-start="43"
+                aria-label="Play Blue Thumb Plastics video"
+              >
+                <img
+                  src="https://img.youtube.com/vi/Q8eRU06V-IE/maxresdefault.jpg"
+                  alt="Blue Thumb Plastics 3-Arm Swing"
+                />
+                <span class="play"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="roto-section">
+        <div class="section-divider"></div>
+        <h2 class="services-title">Our Extended Services</h2>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <h3 class="service-title">Engineering</h3>
+            <img
+              class="service-image"
+              src="https://i.shgcdn.com/3c6154d8-51b7-411a-997d-3101ac72fa71/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+              alt="Engineering"
+            />
+            <div class="service-text">
+              Whether our clients design innovative products or we create the
+              design, we manufacture every product using only the highest
+              quality plastics.
+            </div>
+          </div>
+
+          <div class="service-card">
+            <h3 class="service-title">Mold Maintenance</h3>
+            <img
+              class="service-image"
+              src="https://i.shgcdn.com/0d7c5c11-cb86-400f-afa6-dfd15cdb06ed/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+              alt="Mold Maintenance"
+            />
+            <div class="service-text">
+              Blue Thumb custom rotomolding provides in-house preventative
+              maintenance and tool repair to ensure your molds are always
+              production ready and running efficiently.
+            </div>
+          </div>
+
+          <div class="service-card">
+            <h3 class="service-title">Finishing</h3>
+            <img
+              class="service-image"
+              src="https://i.shgcdn.com/06a1c83a-5367-40fd-bfb8-8a9f0dbd83da/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+              alt="Finishing"
+            />
+            <div class="service-text">
+              Blue Thumb custom rotomolding uses the latest technologies to
+              ensure the accuracy, consistency, and finish of your products.
+            </div>
+          </div>
+
+          <div class="service-card">
+            <h3 class="service-title">Assembly</h3>
+            <img
+              class="service-image"
+              src="https://i.shgcdn.com/482ee16d-1f27-47f4-b5c8-8a5a34fa78b5/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+              alt="Assembly"
+            />
+            <div class="service-text">
+              Some manufacturers stop when the parts are done, we don’t. Blue
+              Thumb custom rotomolding offers complete assembly and packaging
+              customized to your needs.
+            </div>
+          </div>
+
+          <div class="service-card">
+            <h3 class="service-title">Warehousing / Distribution</h3>
+            <img
+              class="service-image"
+              src="https://i.shgcdn.com/47f99b89-0d45-4318-a2a5-c03d01ffbcc7/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+              alt="Warehousing and Distribution"
+            />
+            <div class="service-text">
+              With nearly 200,000 sq. ft. of manufacturing &amp; warehousing
+              space, Blue Thumb custom rotomolding can fulfill all of your
+              product storage and distribution needs.
+            </div>
+          </div>
+
+          <div class="service-card">
+            <h3 class="service-title">Drop Shipping</h3>
+            <img
+              class="service-image"
+              src="https://i.shgcdn.com/1ad801e2-173e-420d-a8da-d7e47e38add1/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+              alt="Drop Shipping"
+            />
+            <div class="service-text">
+              We have the ability to ship your products directly to the customer
+              – from single-unit shipments to large retail shipments.
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="parallax-advantage">
+      <div class="parallax-advantage-inner">
+        <div class="advantage-grid">
+          <div>
+            <h2 class="advantage-process-title">Our Process</h2>
+
+            <div class="advantage-process-text">
+              <p>
+                Rotational molding, also known as rotomolding, is a plastic
+                molding process that uses rotation and gravity, rather than
+                pressure, to mold parts and components. The molds are heated
+                while being rotated on two perpendicular axes. This disperses
+                the material and fills the mold. Interested?
+              </p>
+            </div>
+
+            <div class="advantage-process-steps">
+              <p>
+                <strong>Step 1:</strong> Project evaluation consultation, at no
+                charge
+              </p>
+              <p>
+                <strong>Step 2:</strong> Examine molds and assess possible
+                tooling needs
+              </p>
+              <p>
+                <strong>Step 3:</strong> Run prototypes to establish cost and
+                quality expectations
+              </p>
+              <p>
+                <strong>Step 4:</strong> Production scheduled for prompt
+                completion
+              </p>
+              <p>
+                <strong>Step 5:</strong> Shipping from our facility to yours, or
+                drop shipped
+              </p>
+            </div>
+
+            <div class="advantage-process-strong">
+              <p>
+                Our quality assurance team is second to none, able to clearly
+                identify and document customer requirements and continuous
+                improvement opportunities.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h2 class="advantage-right-title">The Blue Thumb Roto Advantage</h2>
+
+            <div class="advantage-cards">
+              <div class="adv-card">
+                <h3>Size</h3>
+                <p>
+                  Rotationally molded products can be as small as a ping pong
+                  ball and as large as a 20,000-gallon tank. These parts are
+                  also more uniform and have superior strength and durability
+                  when compared to other methods like blow molding, injection
+                  molding, and thermoforming.
+                </p>
+              </div>
+
+              <div class="adv-card">
+                <h3>Design</h3>
+                <p>
+                  Rotational molding allows much more flexibility in product
+                  design compared to blow molding. Complex shapes and moving
+                  sections are easier to manufacture and rotomolding offers a
+                  distinct advantage with uniform wall thickness and stress-free
+                  parts.
+                </p>
+              </div>
+
+              <div class="adv-card">
+                <h3>Mold-in Graphics</h3>
+                <p>
+                  Blue Thumb custom rotomolding is experienced with in-mold
+                  decorating techniques that allow detailed graphics to be
+                  permanently molded into your plastic product. Items like
+                  multi-colored logos, serial numbers, and even bar codes are
+                  seamlessly molded into the part and are significantly better
+                  quality than traditional labels.
+                </p>
+              </div>
+
+              <div class="adv-card">
+                <h3>Color Selections</h3>
+                <p>
+                  Blue Thumb custom rotomolding offers color blending to match
+                  nearly any Pantone imaginable without high volume
+                  requirements. Granite, sandstone, and other special colors are
+                  also available.
+                </p>
+              </div>
+
+              <div class="adv-card">
+                <h3>Inserts</h3>
+                <p>
+                  Metal inserts or threaded inserts are easily added in the
+                  rotational molding process and offer a low-cost, durable, and
+                  stable way to alternative assembly techniques.
+                </p>
+              </div>
+
+              <div class="adv-card">
+                <h3>Surface Finish</h3>
+                <p>
+                  From high gloss finishes to detailed textures and wood grains,
+                  rotational molding is a casting process that will duplicate
+                  any texture in the mold.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="bottom-cta-wrap">
+      <div class="bottom-cta">
+        <p>
+          Contact us at
+          <a href="mailto:sales@bluethumbponds.com">sales@bluethumbponds.com</a>
+          or call
+          <a href="tel:8886193474">888-619-3474</a>
+          ext. 7000
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const videos = document.querySelectorAll(".roto-page .bt-video-thumb");
+
+    videos.forEach((video) => {
+      video.addEventListener("click", function () {
+        const id = this.getAttribute("data-video");
+        const start = this.getAttribute("data-start") || "0";
+
+        if (this.classList.contains("playing")) return;
+
+        this.classList.add("playing");
+
+        this.innerHTML = `
+          <iframe
+            src="https://www.youtube.com/embed/${id}?autoplay=1&start=${start}&rel=0&controls=1&modestbranding=1"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        `;
+      });
+    });
+  });
+</script>
+{{/partial}} {{> layout/base}}

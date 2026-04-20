@@ -40,6 +40,7 @@
   "autoprefixer_cascade": true,
   "autoprefixer_browsers": ["> 1%", "last 2 versions", "Firefox ESR"],
   "settings": {
+    "contractor_form_email": "example@email.com",
     "home_show_featured_prod_1": false,
     "home_show_featured_prod_2": false,
     "home_show_featured_prod_3": false,

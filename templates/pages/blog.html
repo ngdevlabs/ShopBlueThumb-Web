@@ -1,57 +1,201 @@
 ---
 blog:
-    posts:
-        limit: 99
-        pages: 8
-        summary: 200
+  posts:
+    limit: 12
+    pages: 8
+    summary: 200
 ---
 
 {{#partial "head"}}
-    {{#unless theme_settings.category_banner_text_only}}
-        {{!-- Preload banner image --}}
-        {{#if theme_settings.blog_banner}}
-            <link rel="preload" as="image" href="{{getImageManagerImage theme_settings.blog_banner}}" />
-        {{else}}
-            <link rel="preload" as="image" href="{{cdn (multiConcat 'assets/img/ob-custom/' theme_settings.theme_type '/blog-banner.jpg')}}" />
-        {{/if}}
-    {{/unless}}
-{{/partial}}
+<style>
+  .ob-blog-header,
+  .ob-blog-header.ob-title-banner,
+  .page-sidebar,
+  aside.page-sidebar {
+    display: none !important;
+  }
 
-{{#partial "page"}}
-    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+  section.page {
+    display: block !important;
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+    padding: 0 40px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
 
-    <section class="page">
-        <div class="ob-blog-header ob-title-banner ob-full-width-mobile{{#unless theme_settings.show_title_banner_gradient}} no-overlay{{/unless}}{{#if theme_settings.category_banner_text_only}} no-image{{/if}}">
-            {{#unless theme_settings.category_banner_text_only}}
-                {{#if theme_settings.blog_banner}}
-                    <img src="{{getImageManagerImage theme_settings.blog_banner}}" fetchpriority="high" aria-hidden="true" />
-                {{else}}
-                    <img src="{{cdn (multiConcat 'assets/img/ob-custom/' theme_settings.theme_type '/blog-banner.jpg')}}" fetchpriority="high" aria-hidden="true" />
-                {{/if}}
-            {{/unless}}
-            <div class="blog-header-text">
-                <h1 class="page-heading">{{blog.name}}</h1>
-                <div class="blog-description">
-                    <p>{{blog.description}}</p>
-                </div>
-            </div>
-        </div>
+  .page .page-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    float: none !important;
+    padding: 30px 0 60px !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 40px 35px !important;
+    box-sizing: border-box !important;
+  }
 
-        <aside class="page-sidebar ob-desktop">
-            <h3 class="recent-posts">{{lang 'blog.recent_posts'}}</h3>
-            {{#each (limit blog.posts 4)}}
-                {{> components/blog/sidebar-post post=this}}
-            {{/each}}
-        </aside>
+  .page-content .pagination,
+  .page-content .paginator,
+  .page-content nav[aria-label="pagination"] {
+    grid-column: 1 / -1 !important;
+  }
 
-        <div class="page-content">
-            {{#each blog.posts}}
-                {{> components/blog/listing-post post=this theme_settings=../theme_settings}}
-            {{/each}}
+  .page-content .post,
+  .page-content .blog-post,
+  .page-content .listItem,
+  .page-content article {
+    display: flex !important;
+    flex-direction: column !important;
+    font-family: "Poppins", sans-serif !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
 
-            {{> components/common/paginator pagination.blog}}
-        </div>
-    </section>
-{{/partial}}
+  .page-content .post img,
+  .page-content .blog-post img,
+  .page-content .listItem img,
+  .page-content .post-thumbnail img,
+  .page-content .blog-thumbnail img,
+  .page-content article img {
+    width: 100% !important;
+    height: 280px !important;
+    object-fit: cover !important;
+    border-radius: 0 !important;
+    display: block !important;
+  }
 
-{{> layout/base}}
+  .page-content .post-title,
+  .page-content .post-title a,
+  .page-content .listItem-title,
+  .page-content .listItem-title a,
+  .page-content h2 a,
+  .page-content h3 a,
+  .page-content article h2,
+  .page-content article h2 a,
+  .page-content article h3,
+  .page-content article h3 a {
+    font-family: "Poppins", sans-serif !important;
+    color: #1a5276 !important;
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    text-decoration: none !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    border: none !important;
+    border-bottom: none !important;
+    margin: 14px 0 6px !important;
+  }
+
+  .page-content .post-title a:hover,
+  .page-content .listItem-title a:hover,
+  .page-content h2 a:hover,
+  .page-content h3 a:hover,
+  .page-content article h2 a:hover,
+  .page-content article h3 a:hover {
+    color: #d4870e !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
+  }
+
+  .page-content .post-date,
+  .page-content .post-author,
+  .page-content .listItem-date,
+  .page-content .post-info,
+  .page-content .blog-date,
+  .page-content article .post-date,
+  .page-content article .post-info {
+    font-family: "Poppins", sans-serif !important;
+    color: #aaa !important;
+    font-size: 0.75rem !important;
+    line-height: 1.4 !important;
+    margin: 0 0 8px !important;
+  }
+
+  .page-content .post-summary,
+  .page-content .post-body,
+  .page-content .post-excerpt,
+  .page-content .listItem-body,
+  .page-content .blog-summary,
+  .page-content article p,
+  .page-content .post p,
+  .page-content .blog-post p {
+    font-family: "Poppins", sans-serif !important;
+    color: #444 !important;
+    font-size: 0.9rem !important;
+    line-height: 1.65 !important;
+    margin: 4px 0 14px !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 4 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    max-height: none !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .page-content .read-more-link,
+  .page-content .read-more-link a,
+  .page-content .read-more a,
+  .page-content a.read-more,
+  .page-content a[class*="read"] {
+    font-family: "Poppins", sans-serif !important;
+    color: #1a5276 !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    border: none !important;
+    border-bottom: none !important;
+  }
+
+  .page-content .read-more-link a:hover,
+  .page-content .read-more a:hover,
+  .page-content a.read-more:hover {
+    color: #d4870e !important;
+    text-decoration: none !important;
+    border: none !important;
+  }
+
+  .page-content a {
+    text-decoration: none !important;
+    border-bottom: none !important;
+  }
+
+  @media (max-width: 991px) {
+    .page .page-content {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+  }
+
+  @media (max-width: 600px) {
+    section.page {
+      padding: 0 15px !important;
+    }
+    .page .page-content {
+      grid-template-columns: 1fr !important;
+      gap: 30px !important;
+      padding: 20px 0 40px !important;
+    }
+  }
+</style>
+{{/partial}} {{#partial "page"}} {{> components/common/breadcrumbs
+breadcrumbs=breadcrumbs}}
+
+<section class="page">
+  <div class="page-content">
+    {{#each blog.posts}} {{> components/blog/listing-post post=this
+    theme_settings=../theme_settings}} {{/each}} {{> components/common/paginator
+    pagination.blog}}
+  </div>
+</section>
+{{/partial}} {{> layout/base}}

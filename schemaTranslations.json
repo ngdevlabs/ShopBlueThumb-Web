@@ -4693,9 +4693,12 @@
   },
 
   "i18n.Images": {
-      "default": "Images"
+    "default": "Images"
   },
   "i18n.FeatureSections": {
-      "default": "Feature sections"
-    }
+    "default": "Feature sections"
+  },
+  "i18n.ContractorForm": {
+    "default": "Contractor Form"
+  }
 }
