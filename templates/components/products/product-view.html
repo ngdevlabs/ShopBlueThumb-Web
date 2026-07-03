@@ -1,3 +1,4 @@
+{{inject "ai_watermark_text" theme_settings.ai_watermark_text}}
 <div class="productView"
     {{#if settings.data_tag_enabled}}
     data-event-type="product"
@@ -28,6 +29,10 @@
             {{> components/common/alert/alert-success success}}
         {{/if}}
     {{/each}}
+
+    <div class="ob-product-name-row ob-full-name-row">
+            <h1 class="productView-title">{{product.title}}</h1>
+    </div>
 
     <section class="productView-images" data-image-gallery>
         {{!--
@@ -112,9 +117,7 @@
                 </div>
             {{/if}}
 
-            <div class="ob-product-name-row ob-full-name-row">
-                <h1 class="productView-title">{{product.title}}</h1>
-            </div>
+    
 
             <div class="productView-rating">
                 {{#if settings.show_product_rating}}
@@ -176,6 +179,15 @@
                         <dd class="productView-info-value" data-product-sku>{{product.sku}}</dd>
                     </div>
                     {{/if}}
+
+                    <div class="module">
+                        {{#if product.warranty}}
+                            <div class="ob-warranty">
+                                <div>{{{product.warranty}}}</div>
+                            </div>
+                        {{/if}}
+                    </div>
+
 
                     {{#all product.weight theme_settings.show_product_weight}}
                     <div class="module">
@@ -335,7 +347,7 @@
             {{/if}}
         </div>
 
-        {{> components/common/share url=product.url}}
+        <!-- {{> components/common/share url=product.url}} -->
     </section>
 </div>
 

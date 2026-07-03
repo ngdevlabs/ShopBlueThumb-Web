@@ -1,0 +1,916 @@
+{{#partial "head"}}
+<link
+  rel="preload"
+  as="image"
+  href="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/heading-bt-parallax-installation-srp-heading.jpg"
+/>
+
+<style>
+  .srp-breakout {
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+    max-width: 100vw;
+    box-sizing: border-box;
+  }
+
+  .srp-page-bg {
+    background: #f2f4f7;
+  }
+
+  .srp-inner {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px;
+    box-sizing: border-box;
+  }
+
+  .srp-heading {
+    min-height: 270px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image:
+      linear-gradient(rgba(19, 37, 53, 0.25), rgba(19, 37, 53, 0.25)),
+      url("https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/heading-bt-parallax-installation-srp-heading.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .srp-heading-title {
+    margin: 0;
+    padding: 20px;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    font-size: clamp(44px, 6vw, 88px);
+    line-height: 1.08;
+    font-weight: 300;
+    text-align: center;
+  }
+
+  .srp-section {
+    padding: 34px 0 42px;
+  }
+
+  .srp-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    margin: 0 0 28px;
+  }
+
+  .srp-divider-line {
+    flex: 1 1 auto;
+    height: 4px;
+    background: #2d6fba;
+    min-width: 40px;
+  }
+
+  .srp-divider img {
+    width: clamp(90px, 8vw, 140px);
+    height: auto;
+    display: block;
+    opacity: 0.2;
+  }
+
+  .srp-title {
+    margin: 0 0 22px;
+    text-align: center;
+    font-family: "Poppins", serif;
+    color: #132538;
+    font-size: clamp(34px, 4vw, 58px);
+    line-height: 1.18;
+    font-weight: 400;
+  }
+
+  .srp-title-small {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: clamp(24px, 2.5vw, 36px);
+  }
+
+  .srp-sublead {
+    margin: 0 0 34px;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    color: #132538;
+    font-size: clamp(28px, 3vw, 42px);
+    line-height: 1.2;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .srp-fastfacts-grid {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr) 220px;
+    gap: 34px;
+    align-items: start;
+  }
+
+  .srp-callout {
+    font-family: "Poppins", serif;
+    font-style: italic;
+    color: #4a78a8;
+    font-size: 25px;
+    line-height: 1.45;
+    text-align: center;
+    padding-top: 98px;
+  }
+
+  .srp-bullets {
+    margin: 0;
+    padding-left: 28px;
+    color: #132538;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    line-height: 1.75;
+  }
+
+  .srp-bullets li {
+    margin-bottom: 6px;
+  }
+
+  .srp-rule {
+    width: 100%;
+    height: 1px;
+    background: #cfd4da;
+    margin: 26px 0 28px;
+  }
+
+  .srp-timeline-subtitle {
+    margin: 0 0 28px;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    color: #132538;
+    font-size: 24px;
+    line-height: 1.3;
+    font-weight: 400;
+  }
+
+  .srp-steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    align-items: start;
+  }
+
+  .srp-step {
+    position: relative;
+    text-align: center;
+  }
+
+  .srp-step:not(:last-child)::after {
+    content: "➜";
+    position: absolute;
+    top: 108px;
+    right: -18px;
+    font-size: 44px;
+    color: #132538;
+    line-height: 1;
+  }
+
+  .srp-step-title {
+    margin: 0 0 12px;
+    font-family: "Poppins", sans-serif;
+    color: #132538;
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .srp-step-circle {
+    width: 176px;
+    height: 176px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    border: 4px solid #111;
+    background: linear-gradient(90deg, #bfe7fb 0%, #6ea9dc 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .srp-step-circle::before {
+    content: "";
+    position: absolute;
+    inset: 13px;
+    border: 2px solid rgba(17, 17, 17, 0.75);
+    border-radius: 50%;
+  }
+
+  .srp-step-circle::after {
+    content: "";
+    position: absolute;
+    top: 34px;
+    right: -8px;
+    width: 24px;
+    height: 24px;
+    background: #000;
+    border-radius: 50%;
+  }
+
+  .srp-step-circle img {
+    width: 76px;
+    height: 76px;
+    object-fit: contain;
+    position: relative;
+    z-index: 2;
+  }
+
+  .srp-step-text {
+    max-width: 225px;
+    margin: 0 auto;
+    font-family: "Poppins", sans-serif;
+    color: #132538;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .srp-note {
+    margin: 24px 0 0;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    color: #132538;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .srp-mosaic {
+    background: #cfdae5;
+    padding: 0;
+  }
+
+  .srp-mosaic-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .srp-panel {
+    min-height: 430px;
+    box-sizing: border-box;
+  }
+
+  .srp-panel-text {
+    padding: 42px 56px;
+    color: #132538;
+  }
+
+  .srp-panel-title {
+    margin: 0 0 22px;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 24px;
+    line-height: 1.2;
+    font-weight: 800;
+    color: #132538;
+  }
+
+  .srp-panel-text p,
+  .srp-panel-text li,
+  .srp-panel-text strong {
+    font-family: "Poppins", serif;
+    color: #132538;
+    font-size: 16px;
+    line-height: 1.85;
+  }
+
+  .srp-panel-text p {
+    margin: 0 0 14px;
+  }
+
+  .srp-panel-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 430px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .srp-warranty-box {
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    gap: 30px;
+    align-items: start;
+  }
+
+  .srp-warranty-left {
+    text-align: center;
+  }
+
+  .srp-warranty-left img {
+    width: 100%;
+    max-width: 190px;
+    display: block;
+    margin: 0 auto 18px;
+  }
+
+  .srp-btn {
+    display: inline-block;
+    padding: 11px 22px;
+    background: #6d8da6;
+    color: #fff !important;
+    text-decoration: none;
+    border-radius: 3px;
+    font-family: "Poppins", sans-serif !important;
+    font-size: 12px !important;
+    line-height: 1.2 !important;
+    transition: background 0.2s ease;
+  }
+
+  .srp-btn:hover {
+    background: #587790;
+    text-decoration: none;
+  }
+
+  .srp-warranty-list {
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  .srp-warranty-list li {
+    margin-bottom: 18px;
+  }
+
+  .srp-faq-section {
+    padding: 34px 0 34px;
+  }
+
+  .srp-accordion {
+    width: 100%;
+  }
+
+  .srp-accordion-item {
+    margin-bottom: 10px;
+    background: #eef0f4;
+    border: 1px solid #d5d9de;
+    overflow: hidden;
+  }
+
+  .srp-accordion-trigger {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    padding: 18px 62px 18px 26px;
+    cursor: pointer;
+    position: relative;
+    text-align: center;
+  }
+
+  .srp-accordion-title {
+    display: block;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    line-height: 1.35;
+    font-weight: 700;
+    color: #7f9dbd;
+    text-transform: uppercase;
+  }
+
+  .srp-accordion-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+    color: #7f9dbd;
+    font-size: 20px;
+    transition: transform 0.25s ease;
+  }
+
+  .srp-accordion-item.is-open .srp-accordion-icon {
+    transform: translateY(-50%) rotate(90deg);
+  }
+
+  .srp-accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    background: #ffffff;
+    transition: max-height 0.3s ease;
+  }
+
+  .srp-accordion-inner {
+    padding: 18px 24px 22px;
+  }
+
+  .srp-accordion-inner p {
+    margin: 0;
+    text-align: center;
+    font-family: "Poppins", serif;
+    color: #34495e;
+    font-size: 16px;
+    line-height: 1.9;
+  }
+
+  @media (max-width: 1200px) {
+    .srp-fastfacts-grid {
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+
+    .srp-callout {
+      padding-top: 0;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .srp-steps {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px 20px;
+    }
+
+    .srp-step:not(:last-child)::after {
+      display: none;
+    }
+
+    .srp-mosaic-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .srp-panel-image img {
+      min-height: 360px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .srp-warranty-box {
+      grid-template-columns: 1fr;
+    }
+
+    .srp-panel-text {
+      padding: 30px 22px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .srp-inner {
+      padding: 0 16px;
+    }
+
+    .srp-heading {
+      min-height: 220px;
+    }
+
+    .srp-divider {
+      gap: 14px;
+    }
+
+    .srp-divider-line {
+      height: 3px;
+    }
+
+    .srp-bullets {
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .srp-callout {
+      font-size: 20px;
+    }
+
+    .srp-steps {
+      grid-template-columns: 1fr;
+    }
+
+    .srp-step-circle {
+      width: 156px;
+      height: 156px;
+    }
+
+    .srp-step-circle img {
+      width: 68px;
+      height: 68px;
+    }
+
+    .srp-title {
+      font-size: 28px;
+    }
+
+    .srp-sublead {
+      font-size: 22px;
+    }
+
+    .srp-accordion-title {
+      font-size: 16px;
+    }
+  }
+</style>
+{{/partial}} {{#partial "page"}}
+
+<div class="container">
+  {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+</div>
+
+<section class="srp-breakout srp-heading">
+  <h1 class="srp-heading-title">Shipping &amp; Return Policy</h1>
+</section>
+
+<section class="srp-breakout srp-page-bg srp-section">
+  <div class="srp-inner">
+    <div class="srp-divider">
+      <span class="srp-divider-line"></span>
+      <img src="/assets/img/BlueThumbLogo.png" alt="Blue Thumb" />
+      <span class="srp-divider-line"></span>
+    </div>
+
+    <h2 class="srp-title srp-title-small">Shipment Fast Facts</h2>
+    <div class="srp-sublead">FREE SHIPPING ON RETAIL ORDERS OVER $99*</div>
+
+    <div class="srp-fastfacts-grid">
+      <div class="srp-callout">
+        We ship using the most economical means possible to keep freight costs
+        as low as possible.
+      </div>
+
+      <ul class="srp-bullets">
+        <li>Retail orders under $99 have a flat rate of $14.95.</li>
+        <li>
+          Retail orders over $99 ship free but may incur an oversize or heavy
+          item flat fee.
+        </li>
+        <li>
+          Shipping varies based on what is being shipped and where it is
+          shipping to.
+        </li>
+        <li>
+          Freight pallets sent to a commercial address will always be less than
+          shipping to a residential address.
+        </li>
+        <li>
+          For pallet delivery to residential address, please note that the
+          trucking company will bring the pallet to the ground at the end of the
+          driveway. If you want them to bring it to your garage, or another
+          place in your yard, there likely will be an additional fee for you to
+          pay directly to the freight company.
+        </li>
+        <li>
+          For our wholesale customers, we offer a reduced flat-rate shipping
+          program to cap your freight expenses so you can estimate projects with
+          confidence.
+        </li>
+        <li>
+          Delivery times have multiple variables. If faster or a scheduled
+          service is needed call 888-619-3474.
+        </li>
+      </ul>
+
+      <div class="srp-callout">
+        You will be notified by email when your items ship. We are available to
+        answer any questions that may come up.
+      </div>
+    </div>
+
+    <div class="srp-rule"></div>
+
+    <h2 class="srp-title">We Strive to Make Ordering Easy</h2>
+    <div class="srp-timeline-subtitle">Blue Thumb Delivery Timeline</div>
+
+    <div class="srp-steps">
+      <div class="srp-step">
+        <div class="srp-step-title">Order</div>
+        <div class="srp-step-circle">
+          <img
+            src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/order-icon.png"
+            alt="Order icon"
+          />
+        </div>
+        <p class="srp-step-text">
+          Place your order online. For assistance, text or call the Blue Thumb
+          Sales/Tech Team at 888.619.3474.
+        </p>
+      </div>
+
+      <div class="srp-step">
+        <div class="srp-step-title">Pack</div>
+        <div class="srp-step-circle">
+          <img
+            src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/pack-icon.png"
+            alt="Pack icon"
+          />
+        </div>
+        <p class="srp-step-text">
+          Our warehouse team carefully packages the order for shipping.
+          Packaging process time is 2-4 business days.
+        </p>
+      </div>
+
+      <div class="srp-step">
+        <div class="srp-step-title">Ship</div>
+        <div class="srp-step-circle">
+          <img
+            src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/ship-icon.png"
+            alt="Ship icon"
+          />
+        </div>
+        <p class="srp-step-text">
+          Once the order leaves our warehouse, it is in the hands of the
+          shipping company. Shipping time can vary, but is generally 5-7
+          business days.
+        </p>
+      </div>
+
+      <div class="srp-step">
+        <div class="srp-step-title">Deliver</div>
+        <div class="srp-step-circle">
+          <img
+            src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/deliver-icon.png"
+            alt="Deliver icon"
+          />
+        </div>
+        <p class="srp-step-text">
+          A tracking number will be provided for estimating the arrival of your
+          order after it has shipped.
+        </p>
+      </div>
+
+      <div class="srp-step">
+        <div class="srp-step-title">Inspect</div>
+        <div class="srp-step-circle">
+          <img
+            src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/inspect-icon.png"
+            alt="Inspect icon"
+          />
+        </div>
+        <p class="srp-step-text">
+          Upon receipt of your water feature immediately inspect your package
+          for damage and missing items.
+        </p>
+      </div>
+    </div>
+
+    <p class="srp-note">
+      NOTE: Delivery times have multiple variables such as destination location
+      and shipping method.
+    </p>
+  </div>
+</section>
+
+<section class="srp-breakout srp-mosaic">
+  <div class="srp-mosaic-grid">
+    <div class="srp-panel srp-panel-text">
+      <h3 class="srp-panel-title">Shipping Methods</h3>
+      <p>
+        We make every effort to deliver orders in a timely, efficient manner
+        using the following methods:
+      </p>
+      <p>
+        <strong>FedEx:</strong> Daily Shipments. This is the most economical way
+        to ship small orders. Actual freight charges will be added to the
+        invoice.
+      </p>
+      <p>
+        <strong>Common Carrier:</strong> Daily Shipments. This is often the best
+        option. We negotiate very favorable freight discounts and pass the
+        savings along to you. Actual freight charges will be added to the
+        invoice.
+      </p>
+      <p>
+        <strong>Direct Ship:</strong> Large orders may be shipped directly from
+        the manufacturer. Freight charges may apply.
+      </p>
+      <p>
+        <strong>Damaged Goods:</strong> Please report any damage immediately to
+        the shipping company. Note: Damage on the bill of lading to ensure a
+        claim can be filed.
+      </p>
+      <p>
+        <strong>Terms of Payment:</strong> Terms are printed on each invoice.
+        Standard terms are C.O.D. or Net 30 days from the date of shipment with
+        approved credit. Blue Thumb also accepts VISA, MasterCard, American
+        Express, and Discover. Net 30 accounts cannot be paid using a credit
+        card.
+      </p>
+    </div>
+
+    <div class="srp-panel srp-panel-image">
+      <img
+        src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/shipping-methods.jpg"
+        alt="Shipping methods"
+      />
+    </div>
+
+    <div class="srp-panel srp-panel-image">
+      <img
+        src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/return-policy.jpg"
+        alt="Return policy"
+      />
+    </div>
+
+    <div class="srp-panel srp-panel-text">
+      <h3 class="srp-panel-title">Return Policy</h3>
+      <p>
+        We want you to love your purchase. If you’re not completely satisfied,
+        eligible items may be returned within 30 days of delivery for a refund
+        or exchange. Please contact us at 989-921-3474 before returning any
+        item.
+      </p>
+      <p>
+        A 20% restocking fee will be charged for returned goods. Items must be
+        in like-new, sellable condition, and in season. Returns must be
+        accompanied by the original invoice.
+      </p>
+      <p>
+        All returns require a Returned Goods Receipt (RGR#) to be clearly marked
+        on the outside of each package returned. Please call Blue Thumb to
+        receive RGR# prior to returning merchandise.
+      </p>
+      <p>
+        Special order, clearance/specials, and custom-cut items like liner,
+        underlayment, anti-splash mat, and tubing are not returnable. Credit
+        will be issued to the customer’s house account within 5 business days.
+        The customer is responsible for returning items to Blue Thumb and for
+        freight costs.
+      </p>
+      <p>
+        <strong>Return address:</strong><br />
+        Blue Thumb<br />
+        2650 Schust Rd.<br />
+        Saginaw, MI 48603
+      </p>
+    </div>
+
+    <div class="srp-panel srp-panel-text">
+      <h3 class="srp-panel-title">In-Warranty Merchandise</h3>
+
+      <div class="srp-warranty-box">
+        <div class="srp-warranty-left">
+          <img
+            src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/warranty-document.jpg"
+            alt="Warranty document"
+          />
+          <a
+            class="srp-btn"
+            href="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/in-warranty-merchandise.jpg"
+            target="_blank"
+            rel="noopener"
+          >
+            Download Warranty
+          </a>
+        </div>
+
+        <ul class="srp-warranty-list">
+          <li>
+            Defective items may be returned to Blue Thumb without a restocking
+            fee during the warranty period of the merchandise.
+          </li>
+          <li>
+            The customer is responsible for returning the items to Blue Thumb
+            and for freight costs.
+          </li>
+          <li>
+            Each item must be accompanied by the original invoice showing the
+            date of purchase.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="srp-panel srp-panel-image">
+      <img
+        src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/blue-thumb-shipping-facility.jpg"
+        alt="Blue Thumb shipping facility"
+      />
+    </div>
+  </div>
+</section>
+
+<section class="srp-breakout srp-page-bg srp-faq-section">
+  <div class="srp-inner">
+    <div class="srp-divider">
+      <span class="srp-divider-line"></span>
+      <img src="/assets/img/BlueThumbLogo.png" alt="Blue Thumb" />
+      <span class="srp-divider-line"></span>
+    </div>
+
+    <h2 class="srp-title">Shipping and Return FAQs</h2>
+
+    <div class="srp-accordion" id="srpAccordion">
+      <div class="srp-accordion-item">
+        <button class="srp-accordion-trigger" type="button">
+          <span class="srp-accordion-title">Q: WHAT IS THE MINIMUM ORDER?</span>
+          <span class="srp-accordion-icon">▶</span>
+        </button>
+        <div class="srp-accordion-content">
+          <div class="srp-accordion-inner">
+            <p>
+              A: We do not have a minimum order requirement. We have quick
+              shipping turnaround times so order frequently but only as much as
+              you need.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="srp-accordion-item">
+        <button class="srp-accordion-trigger" type="button">
+          <span class="srp-accordion-title">Q: HOW DO YOU SHIP ORDERS?</span>
+          <span class="srp-accordion-icon">▶</span>
+        </button>
+        <div class="srp-accordion-content">
+          <div class="srp-accordion-inner">
+            <p>
+              A: We ship using the most economical means possible to keep
+              freight costs as low as possible. Smaller orders are shipped FedEx
+              ground. Larger orders will be shipped on a pallet usually through
+              FedEx freight or a similar carrier.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="srp-accordion-item">
+        <button class="srp-accordion-trigger" type="button">
+          <span class="srp-accordion-title"
+            >Q: HOW MUCH DOES SHIPPING COST?</span
+          >
+          <span class="srp-accordion-icon">▶</span>
+        </button>
+        <div class="srp-accordion-content">
+          <div class="srp-accordion-inner">
+            <p>
+              A: Retail orders over $99 ship free but may incur an oversize or
+              heavy item flat fee. Shipping varies based on what is being
+              shipped and where it is shipping to. Freight pallets sent to a
+              commercial address will always be less than shipping to a
+              residential address. For our wholesale customers, we offer a
+              reduced flat-rate shipping program to cap your freight expenses so
+              you can estimate projects with confidence.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="srp-accordion-item">
+        <button class="srp-accordion-trigger" type="button">
+          <span class="srp-accordion-title"
+            >Q: WHAT DO I DO IF THERE IS SOMETHING WRONG WITH MY ORDER?</span
+          >
+          <span class="srp-accordion-icon">▶</span>
+        </button>
+        <div class="srp-accordion-content">
+          <div class="srp-accordion-inner">
+            <p>
+              A: Please text or call our Sales/Tech Team at 888-619-3474 so we
+              can troubleshoot the problem.<br />
+              Many of our fountains are fragile. Please inspect your shipment
+              before accepting it.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="srp-accordion-item">
+        <button class="srp-accordion-trigger" type="button">
+          <span class="srp-accordion-title"
+            >Q: HOW LONG BEFORE I RECEIVE MY ORDER?</span
+          >
+          <span class="srp-accordion-icon">▶</span>
+        </button>
+        <div class="srp-accordion-content">
+          <div class="srp-accordion-inner">
+            <p>
+              A: You should receive your items in 7-10 business days. This
+              timeline may vary with the shipping method needed, such as for
+              oversized or heavy items.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    const items = document.querySelectorAll(".srp-accordion-item");
+
+    items.forEach(function (item) {
+      const trigger = item.querySelector(".srp-accordion-trigger");
+      const content = item.querySelector(".srp-accordion-content");
+
+      trigger.addEventListener("click", function () {
+        const isOpen = item.classList.contains("is-open");
+
+        items.forEach(function (otherItem) {
+          otherItem.classList.remove("is-open");
+          otherItem.querySelector(".srp-accordion-content").style.maxHeight =
+            null;
+        });
+
+        if (!isOpen) {
+          item.classList.add("is-open");
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    });
+  })();
+</script>
+
+{{/partial}} {{> layout/base}}

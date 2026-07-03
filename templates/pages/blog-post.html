@@ -1,42 +1,209 @@
 ---
 blog:
-    recent_posts:
-        limit: 4
+  recent_posts:
+    limit: 4
 ---
-{{#partial "page"}}
 
-{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+{{#partial "head"}}
+
+<style>
+  /* ===== KILL SIDEBAR & BANNER ===== */
+  .ob-blog-header,
+  .ob-blog-header.ob-title-banner,
+  .page-sidebar,
+  aside.page-sidebar {
+    display: none !important;
+  }
+
+  /* ===== PAGE LAYOUT ===== */
+  section.page {
+    display: block !important;
+    max-width: 860px !important;
+    margin: 0 auto !important;
+    padding: 40px 30px 80px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* ===== FULL WIDTH CONTENT ===== */
+  .page .page-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    float: none !important;
+    padding: 0 !important;
+  }
+
+  /* ===== GLOBAL FONT ===== */
+  section.page,
+  section.page *,
+  .page-content,
+  .page-content * {
+    font-family: "Poppins", sans-serif !important;
+  }
+
+  /* ===== POST TITLE ===== */
+  .page-content .blog-post-title,
+  .page-content h1.blog-post-title,
+  .page-content h1,
+  .page-content .post-title,
+  .page-content article h1 {
+    font-family: "Poppins", sans-serif !important;
+    color: #1a3c5e !important;
+    font-size: 2.4rem !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+    margin: 0 0 12px !important;
+    text-transform: none !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  /* ===== POST META (date, author) ===== */
+  .page-content .blog-post-date,
+  .page-content .post-date,
+  .page-content .post-info,
+  .page-content .post-author,
+  .page-content .blog-date,
+  .page-content article .post-date,
+  .page-content article .post-info {
+    font-family: "Poppins", sans-serif !important;
+    color: #999 !important;
+    font-size: 0.82rem !important;
+    font-weight: 400 !important;
+    line-height: 1.4 !important;
+    margin: 0 0 28px !important;
+    padding-bottom: 28px !important;
+    border-bottom: 1px solid #e8e8e8 !important;
+  }
+
+  /* ===== POST BODY ===== */
+  .page-content .blog-post-body,
+  .page-content .post-body,
+  .page-content article .post-body,
+  .page-content .blog-content {
+    font-family: "Poppins", sans-serif !important;
+    color: #333 !important;
+    font-size: 1.05rem !important;
+    line-height: 1.8 !important;
+    font-weight: 400 !important;
+  }
+
+  .page-content .blog-post-body p,
+  .page-content .post-body p,
+  .page-content article p {
+    margin: 0 0 1.5em !important;
+  }
+
+  .page-content .blog-post-body h2,
+  .page-content .post-body h2,
+  .page-content article h2 {
+    font-family: "Poppins", sans-serif !important;
+    color: #1a3c5e !important;
+    font-size: 1.6rem !important;
+    font-weight: 700 !important;
+    margin: 2em 0 0.6em !important;
+    line-height: 1.3 !important;
+  }
+
+  .page-content .blog-post-body h3,
+  .page-content .post-body h3,
+  .page-content article h3 {
+    font-family: "Poppins", sans-serif !important;
+    color: #1a3c5e !important;
+    font-size: 1.25rem !important;
+    font-weight: 600 !important;
+    margin: 1.8em 0 0.5em !important;
+    line-height: 1.35 !important;
+  }
+
+  /* ===== POST IMAGES ===== */
+  .page-content .blog-post-body img,
+  .page-content .post-body img,
+  .page-content article img {
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 2px !important;
+    margin: 1.5em 0 !important;
+  }
+
+  /* ===== LINKS ===== */
+  .page-content .blog-post-body a,
+  .page-content .post-body a,
+  .page-content article a {
+    color: #1a5276 !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid #1a527640 !important;
+  }
+
+  .page-content .blog-post-body a:hover,
+  .page-content .post-body a:hover,
+  .page-content article a:hover {
+    color: #d4870e !important;
+    border-bottom-color: #d4870e !important;
+  }
+
+  /* ===== TAGS ===== */
+  .page-content .blog-post-tags,
+  .page-content .post-tags,
+  .page-content .tags {
+    margin: 40px 0 0 !important;
+    padding-top: 24px !important;
+    border-top: 1px solid #e8e8e8 !important;
+  }
+
+  .page-content .blog-post-tags a,
+  .page-content .post-tags a,
+  .page-content .tags a {
+    font-family: "Poppins", sans-serif !important;
+    font-size: 0.8rem !important;
+    font-weight: 500 !important;
+    color: #1a5276 !important;
+    background: #f0f4f8 !important;
+    padding: 5px 14px !important;
+    border-radius: 3px !important;
+    margin: 0 8px 8px 0 !important;
+    display: inline-block !important;
+    text-decoration: none !important;
+    border: none !important;
+  }
+
+  .page-content .blog-post-tags a:hover,
+  .page-content .post-tags a:hover,
+  .page-content .tags a:hover {
+    background: #1a5276 !important;
+    color: #fff !important;
+  }
+
+  /* ===== KILL THEME NOISE ===== */
+  .page-content a {
+    text-decoration: none !important;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 600px) {
+    section.page {
+      padding: 24px 16px 60px !important;
+    }
+
+    .page-content .blog-post-title,
+    .page-content h1.blog-post-title,
+    .page-content h1,
+    .page-content article h1 {
+      font-size: 1.7rem !important;
+    }
+
+    .page-content .blog-post-body,
+    .page-content .post-body {
+      font-size: 0.95rem !important;
+    }
+  }
+</style>
+{{/partial}} {{#partial "page"}} {{> components/common/breadcrumbs
+breadcrumbs=breadcrumbs}}
 
 <section class="page">
-    <div class="ob-blog-header ob-title-banner ob-full-width-mobile
-    {{#unless theme_settings.show_title_banner_gradient}} no-overlay{{/unless}}
-    {{#if theme_settings.category_banner_text_only}} no-image{{/if}}">
-        {{#unless theme_settings.category_banner_text_only}}
-            {{#if theme_settings.blog_banner}}
-                <img rel="preload" src="{{getImageManagerImageSrcset theme_settings.blog_banner}}" alt="{{blog.name}}" />
-            {{else}}
-                <img rel="preload" src="{{cdn (multiConcat 'assets/img/ob-custom/' theme_settings.theme_type '/blog-banner.jpg')}}" alt="{{blog.name}}" />
-            {{/if}}
-        {{/unless}}
-        <div class="blog-header-text">
-            <h1 class="page-heading">{{blog.name}}</h1>
-            <div class="blog-description">
-                <p>{{blog.description}}</p>
-            </div>
-        </div>
-    </div>
-
-    <aside class="page-sidebar ob-desktop">
-        <h3 class="recent-posts">{{lang 'blog.recent_posts'}}</h3>
-        {{#each blog.recent_posts}}
-            {{> components/blog/sidebar-post post=this}}
-        {{/each}}
-    </aside>
-
-    <div class="page-content">
-        {{> components/blog/post post=blog.post show_tags=true}}
-    </div>
+  <div class="page-content">
+    {{> components/blog/post post=blog.post show_tags=true}}
+  </div>
 </section>
-
-{{/partial}}
-{{> layout/base}}
+{{/partial}} {{> layout/base}}

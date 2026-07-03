@@ -18,7 +18,6 @@ blog:
 {{inject 'videos' product.videos}}
 
 {{#partial "page"}}
-
     {{#any product.price.sale_price_with_tax.value product.price.sale_price_without_tax.value product.price.non_sale_price_with_tax.value product.price.non_sale_price_without_tax.value}}
         <div class="container narrow-container product-bread">
             {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
@@ -45,24 +44,20 @@ blog:
         <div class="ob-product-below-image">
             <div class="container narrow-container">
                 <div class="ob-description-block ob-mb-100 ob-mb-75-mobile">
-                    <div class="ob-description-col">
+                    <div class="ob-description">
                         {{#if product.description}}
                             <h3>{{lang 'products.description'}}</h3>
-                            <div>{{{product.description}}}</div>
+                            <div>{{{product.description}}}</div>             
                         {{/if}}
                     </div>
 
-                    <div class="ob-warranty-col">
-                        {{#if product.warranty}}
-                            <div class="ob-warranty">
-                                <h3>{{lang 'products.warranty'}}</h3>
-                                <div>{{{product.warranty}}}</div>
-                            </div>
-                        {{/if}}
+                    <div class="ob-warranty">
+                        {{#if product.downloads}}
                         <div class="ob-downloads">
                             <h3>{{theme_settings.product_download_title}}</h3>
                             <div class="download-list"></div>
                         </div>
+                        {{/if}}
                     </div>
                 </div>
             </div>
@@ -86,6 +81,18 @@ blog:
                     {{/if}}
                 {{/unless}}
             {{/if}}
+
+            <div class="main-product-video">
+                {{#if product.videos.list.length}}
+                    <div class="video-wrapper">
+                        <iframe
+                            src="https://www.youtube.com/embed/{{product.videos.list.[0].id}}?rel=0"
+                            frameborder="0"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                {{/if}}
+            </div>
 
             {{{region name="product_above_similar"}}}
 

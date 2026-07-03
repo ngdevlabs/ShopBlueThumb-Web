@@ -4467,5 +4467,55 @@
         ]
       }
     ]
+  },
+  {
+    "name": "i18n.Images",
+    "settings": [
+      {
+        "type": "text",
+        "id": "ai_watermark_text",
+        "label": "AI watermark text",
+        "default": "AI ENHANCED"
+      }
+    ]
+  },
+  {
+    "name": "i18n.FeatureSections",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "i18n.FeatureSections"
+      },
+      {
+        "type": "checkbox",
+        "id": "home_show_featured_prod_1",
+        "label": "Enable Featured Products section 1",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "home_show_featured_prod_2",
+        "label": "Enable Featured Products section 2",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "home_show_featured_prod_3",
+        "label": "Enable Featured Products section 3",
+        "default": false
+      }
+    ]
+  },
+
+  {
+    "name": "i18n.ContractorForm",
+    "settings": [
+      {
+        "type": "input",
+        "label": "Contractor Form Email",
+        "id": "contractor_form_email",
+        "default": "example@email.com"
+      }
+    ]
   }
 ]

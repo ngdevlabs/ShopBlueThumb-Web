@@ -1,0 +1,643 @@
+{{#partial "head"}}
+
+<style>
+  .container.base-content-page.contractor-page,
+  .container.base-content-page.contractor-page * {
+    box-sizing: border-box !important;
+    font-family: "Poppins", sans-serif !important;
+  }
+
+  .container.base-content-page.contractor-page .page-content,
+  .container.base-content-page.contractor-page .page,
+  .container.base-content-page.contractor-page .container {
+    font-family: "Poppins", sans-serif !important;
+  }
+
+  .full-page-logo {
+    position: relative;
+    background-image: url("https://cdn11.bigcommerce.com/s-g33rmoufv1/images/stencil/original/image-manager/logobar.png?t=1771429908");
+    width: 100vw;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-left: calc(-50vw + 50%);
+    opacity: 0.65;
+  }
+
+  .container.base-content-page.contractor-page .full-page-logo::before {
+    left: 18px !important;
+  }
+
+  .container.base-content-page.contractor-page .full-page-logo::after {
+    right: 18px !important;
+  }
+
+  .container.base-content-page.contractor-page .contractor-content-wrap {
+    width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    background: #eef0f4 !important;
+    padding: 10px 0 56px !important;
+  }
+
+  .container.base-content-page.contractor-page .contractor-hero {
+    text-align: center !important;
+    padding: 0 20px 18px !important;
+    margin: 0 auto !important;
+    max-width: 1280px !important;
+  }
+
+  .container.base-content-page.contractor-page .contractor-hero-title,
+  .container.base-content-page.contractor-page h1.contractor-hero-title {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 auto 10px !important;
+    text-align: center !important;
+    font-size: 4rem !important;
+    line-height: 1.15 !important;
+    font-weight: 300 !important;
+    letter-spacing: 0 !important;
+    color: #223246 !important;
+  }
+
+  .container.base-content-page.contractor-page .contractor-hero-subtitle,
+  .container.base-content-page.contractor-page p.contractor-hero-subtitle {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    font-size: 1.65rem !important;
+    line-height: 1.45 !important;
+    font-weight: 300 !important;
+    color: #8a9aaf !important;
+  }
+
+  .container.base-content-page.contractor-page .contractor-inner {
+    max-width: 1280px !important;
+    margin: 0 auto !important;
+    padding: 34px 30px 0 !important;
+  }
+
+  .container.base-content-page.contractor-page .contractor-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 58%) minmax(0, 42%) !important;
+    gap: 52px !important;
+    align-items: start !important;
+  }
+
+  .container.base-content-page.contractor-page .contractor-left-image {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    border: 6px solid #1768b2 !important;
+  }
+
+  .container.base-content-page.contractor-page .contractor-left-copy {
+    max-width: 92% !important;
+    margin: 38px auto 0 !important;
+    text-align: center !important;
+    font-size: 1.55rem !important;
+    line-height: 1.65 !important;
+    font-style: italic !important;
+    font-weight: 300 !important;
+    color: #2f6fa8 !important;
+  }
+
+  .container.base-content-page.contractor-page .contractor-form-wrap {
+    padding-top: 8px !important;
+  }
+
+  .container.base-content-page.contractor-page .contractor-form-title,
+  .container.base-content-page.contractor-page h2.contractor-form-title {
+    margin: 0 0 18px !important;
+    text-align: center !important;
+    font-size: 2.85rem !important;
+    line-height: 1.18 !important;
+    font-weight: 800 !important;
+    color: #102b48 !important;
+  }
+
+  .container.base-content-page.contractor-page .contractor-form-intro,
+  .container.base-content-page.contractor-page p.contractor-form-intro {
+    margin: 0 0 20px !important;
+    font-size: 1.15rem !important;
+    line-height: 1.7 !important;
+    font-weight: 400 !important;
+    color: #415264 !important;
+  }
+
+  .container.base-content-page.contractor-page form {
+    margin: 0 !important;
+  }
+
+  .container.base-content-page.contractor-page .contractor-form-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 14px 18px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .container.base-content-page.contractor-page .contractor-field {
+    display: flex !important;
+    flex-direction: column !important;
+    min-width: 0 !important;
+  }
+
+  .container.base-content-page.contractor-page .contractor-field-full {
+    grid-column: 1 / -1 !important;
+  }
+
+  .container.base-content-page.contractor-page .contractor-label {
+    display: block !important;
+    margin: 0 0 6px !important;
+    font-size: 0.98rem !important;
+    line-height: 1.4 !important;
+    font-weight: 500 !important;
+    color: #25394e !important;
+    text-align: left !important;
+  }
+
+  .container.base-content-page.contractor-page .contractor-required {
+    color: #d64545 !important;
+  }
+
+  .container.base-content-page.contractor-page .contractor-input,
+  .container.base-content-page.contractor-page .contractor-textarea,
+  .container.base-content-page.contractor-page input[type="text"],
+  .container.base-content-page.contractor-page input[type="email"],
+  .container.base-content-page.contractor-page input[type="tel"],
+  .container.base-content-page.contractor-page textarea {
+    width: 100% !important;
+    min-height: 42px !important;
+    padding: 10px 12px !important;
+    border: 1px solid #d8dde5 !important;
+    border-radius: 0 !important;
+    background: #fffefb !important;
+    box-shadow: none !important;
+    outline: none !important;
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+    font-weight: 400 !important;
+    color: #1e2f40 !important;
+    font-family: "Poppins", sans-serif !important;
+  }
+
+  .container.base-content-page.contractor-page .contractor-textarea,
+  .container.base-content-page.contractor-page textarea {
+    min-height: 84px !important;
+    resize: vertical !important;
+  }
+
+  .container.base-content-page.contractor-page .contractor-interest-wrap {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 170px !important;
+    gap: 22px !important;
+    align-items: start !important;
+    margin: 16px 0 18px !important;
+  }
+
+  .container.base-content-page.contractor-page .contractor-interest-title {
+    margin: 0 0 8px !important;
+    font-size: 1rem !important;
+    line-height: 1.45 !important;
+    font-weight: 500 !important;
+    color: #25394e !important;
+    text-align: left !important;
+  }
+
+  .container.base-content-page.contractor-page .contractor-checkbox-list {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 7px !important;
+  }
+
+  .container.base-content-page.contractor-page .contractor-checkbox-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    font-size: 1rem !important;
+    line-height: 1.45 !important;
+    font-weight: 400 !important;
+    color: #25394e !important;
+  }
+
+  .container.base-content-page.contractor-page
+    .contractor-checkbox-item
+    input[type="checkbox"] {
+    width: 16px !important;
+    height: 16px !important;
+    margin-top: 2px !important;
+    flex: 0 0 16px !important;
+  }
+
+  .container.base-content-page.contractor-page .contractor-authorized-image {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    margin-top: 6px !important;
+  }
+
+  .container.base-content-page.contractor-page .contractor-note,
+  .container.base-content-page.contractor-page p.contractor-note {
+    margin: 24px 0 10px !important;
+    font-size: 1.02rem !important;
+    line-height: 1.72 !important;
+    font-weight: 400 !important;
+    color: #34475d !important;
+  }
+
+  .container.base-content-page.contractor-page .contractor-human-note,
+  .container.base-content-page.contractor-page p.contractor-human-note {
+    margin: 0 0 14px !important;
+    font-size: 0.92rem !important;
+    line-height: 1.6 !important;
+    font-style: italic !important;
+    font-weight: 400 !important;
+    color: #34475d !important;
+  }
+
+  .container.base-content-page.contractor-page .contractor-submit-wrap {
+    text-align: center !important;
+    margin-top: 18px !important;
+  }
+
+  .container.base-content-page.contractor-page .contractor-submit,
+  .container.base-content-page.contractor-page button.contractor-submit {
+    appearance: none !important;
+    border: 0 !important;
+    border-radius: 4px !important;
+    background: #7690aa !important;
+    color: #fff !important;
+    min-width: 126px !important;
+    padding: 14px 24px !important;
+    font-size: 1.02rem !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0 !important;
+    font-family: "Poppins", sans-serif !important;
+    cursor: pointer !important;
+    box-shadow: none !important;
+  }
+
+  .container.base-content-page.contractor-page .contractor-bottom-disclaimer {
+    max-width: 1280px !important;
+    margin: 42px auto 0 !important;
+    padding: 0 30px !important;
+    text-align: center !important;
+    font-size: 0.8rem !important;
+    line-height: 1.65 !important;
+    font-style: italic !important;
+    color: #3d4f64 !important;
+  }
+
+  .container.base-content-page.contractor-page .breadcrumbs {
+    margin-bottom: 8px !important;
+  }
+
+  .container.base-content-page.contractor-page .breadcrumbs ol,
+  .container.base-content-page.contractor-page .breadcrumb {
+    margin-bottom: 0 !important;
+  }
+
+  @media (max-width: 1100px) {
+    .container.base-content-page.contractor-page .contractor-hero-title {
+      font-size: 3.2rem !important;
+    }
+
+    .container.base-content-page.contractor-page .contractor-form-title {
+      font-size: 2.35rem !important;
+    }
+
+    .container.base-content-page.contractor-page .contractor-grid {
+      grid-template-columns: 1fr !important;
+      gap: 34px !important;
+    }
+
+    .container.base-content-page.contractor-page .contractor-interest-wrap {
+      grid-template-columns: 1fr !important;
+    }
+
+    .container.base-content-page.contractor-page .contractor-authorized-image {
+      max-width: 170px !important;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .container.base-content-page.contractor-page .full-page-logo {
+      height: 84px !important;
+      margin-bottom: 4px !important;
+    }
+
+    .container.base-content-page.contractor-page .full-page-logo::before,
+    .container.base-content-page.contractor-page .full-page-logo::after {
+      width: calc(50% - 74px) !important;
+      height: 3px !important;
+    }
+
+    .container.base-content-page.contractor-page .contractor-content-wrap {
+      padding-top: 6px !important;
+    }
+
+    .container.base-content-page.contractor-page .contractor-hero {
+      padding: 0 16px 14px !important;
+    }
+
+    .container.base-content-page.contractor-page .contractor-hero-title {
+      font-size: 2.2rem !important;
+    }
+
+    .container.base-content-page.contractor-page .contractor-hero-subtitle {
+      font-size: 1.15rem !important;
+    }
+
+    .container.base-content-page.contractor-page .contractor-inner {
+      padding: 24px 16px 0 !important;
+    }
+
+    .container.base-content-page.contractor-page .contractor-form-grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    .container.base-content-page.contractor-page .contractor-left-copy {
+      max-width: 100% !important;
+      font-size: 1.12rem !important;
+      margin-top: 24px !important;
+    }
+
+    .container.base-content-page.contractor-page .contractor-form-title {
+      font-size: 1.9rem !important;
+    }
+  }
+</style>
+
+{{/partial}} {{#partial "page"}}
+<div class="container base-content-page contractor-page">
+  {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+  <div class="full-page-logo"></div>
+
+  <div class="contractor-content-wrap">
+    <div class="contractor-hero">
+      <h1 class="contractor-hero-title">
+        Connect with a Water Feature Installation Pro!
+      </h1>
+      <p class="contractor-hero-subtitle">
+        Qualified • Experienced • Knowledgeable
+      </p>
+    </div>
+
+    <div class="contractor-inner">
+      <div class="contractor-grid">
+        <div class="contractor-left">
+          <img
+            class="contractor-left-image"
+            src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/blue-thumb-contractor-collage.jpg"
+            alt="Blue Thumb contractor collage"
+          />
+
+          <p class="contractor-left-copy">
+            The Blue Thumb Authorized Contractor Program seeks out knowledgeable
+            landscapers, hardscapers and waterscapers to bring their experience
+            to your outdoor sanctuary. They can assist with perfecting your
+            plans for an easy installation, or guide you right from that first
+            backyard idea spark.
+          </p>
+        </div>
+
+        <div class="contractor-form-wrap">
+          <h2 class="contractor-form-title">
+            Let us Connect You with an Authorized Contractor
+          </h2>
+
+          <p class="contractor-form-intro">
+            Schedule a consultation with an Authorized Blue Thumb Contractor for
+            guidance on creating an outdoor space you'll absolutely love!
+          </p>
+
+          <form
+            action="https://formsubmit.co/{{theme_settings.contractor_form_email}}"
+            method="POST"
+          >
+            <input
+              type="hidden"
+              name="_subject"
+              value="Authorized Contractor Form Submission"
+            />
+            <input type="hidden" name="_template" value="table" />
+            <input
+              type="hidden"
+              name="_next"
+              value="https://yourdomain.com/thank-you/"
+            />
+            <input type="text" name="_honey" style="display: none" />
+
+            <div class="contractor-form-grid">
+              <div class="contractor-field">
+                <label class="contractor-label" for="first_name"
+                  >First Name<span class="contractor-required">*</span></label
+                >
+                <input
+                  class="contractor-input"
+                  type="text"
+                  id="first_name"
+                  name="First Name"
+                  required
+                />
+              </div>
+
+              <div class="contractor-field">
+                <label class="contractor-label" for="last_name"
+                  >Last Name<span class="contractor-required">*</span></label
+                >
+                <input
+                  class="contractor-input"
+                  type="text"
+                  id="last_name"
+                  name="Last Name"
+                  required
+                />
+              </div>
+
+              <div class="contractor-field">
+                <label class="contractor-label" for="email"
+                  >Email<span class="contractor-required">*</span></label
+                >
+                <input
+                  class="contractor-input"
+                  type="email"
+                  id="email"
+                  name="Email"
+                  required
+                />
+              </div>
+
+              <div class="contractor-field">
+                <label class="contractor-label" for="phone"
+                  >Phone<span class="contractor-required">*</span></label
+                >
+                <input
+                  class="contractor-input"
+                  type="tel"
+                  id="phone"
+                  name="Phone"
+                  required
+                />
+              </div>
+
+              <div class="contractor-field">
+                <label class="contractor-label" for="zip"
+                  >Zip / Postal Code<span class="contractor-required"
+                    >*</span
+                  ></label
+                >
+                <input
+                  class="contractor-input"
+                  type="text"
+                  id="zip"
+                  name="Zip / Postal Code"
+                  required
+                />
+              </div>
+
+              <div class="contractor-field">
+                <label class="contractor-label" for="state"
+                  >State/Province<span class="contractor-required"
+                    >*</span
+                  ></label
+                >
+                <input
+                  class="contractor-input"
+                  type="text"
+                  id="state"
+                  name="State/Province"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="contractor-interest-wrap">
+              <div>
+                <p class="contractor-interest-title">
+                  I am interested in... (check all that apply)
+                </p>
+
+                <div class="contractor-checkbox-list">
+                  <label class="contractor-checkbox-item"
+                    ><input
+                      type="checkbox"
+                      name="Pond Installation"
+                      value="Yes"
+                    /><span>Pond Installation</span></label
+                  >
+                  <label class="contractor-checkbox-item"
+                    ><input
+                      type="checkbox"
+                      name="Waterfall Installation"
+                      value="Yes"
+                    /><span>Waterfall Installation</span></label
+                  >
+                  <label class="contractor-checkbox-item"
+                    ><input
+                      type="checkbox"
+                      name="Fountain Installation"
+                      value="Yes"
+                    /><span>Fountain Installation</span></label
+                  >
+                  <label class="contractor-checkbox-item"
+                    ><input
+                      type="checkbox"
+                      name="Formal Falls Installation"
+                      value="Yes"
+                    /><span>Formal Falls® Installation</span></label
+                  >
+                  <label class="contractor-checkbox-item"
+                    ><input
+                      type="checkbox"
+                      name="Repair/Maintenance"
+                      value="Yes"
+                    /><span>Repair/Maintenance</span></label
+                  >
+                  <label class="contractor-checkbox-item"
+                    ><input
+                      type="checkbox"
+                      name="Commercial Project"
+                      value="Yes"
+                    /><span>Commercial Project</span></label
+                  >
+                </div>
+              </div>
+
+              <div>
+                <img
+                  class="contractor-authorized-image"
+                  src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/authorized-blue-thumb-contractor.png"
+                  alt="Authorized Blue Thumb Contractor"
+                />
+              </div>
+            </div>
+
+            <div class="contractor-field contractor-field-full">
+              <label class="contractor-label" for="kit">
+                If possible, please list the specific kit you are considering
+                for your project:
+              </label>
+              <input
+                class="contractor-input"
+                type="text"
+                id="kit"
+                name="Specific Kit"
+              />
+            </div>
+
+            <div
+              class="contractor-field contractor-field-full"
+              style="margin-top: 12px"
+            >
+              <label class="contractor-label" for="comments"
+                >Other/Comments (optional)</label
+              >
+              <textarea
+                class="contractor-textarea"
+                id="comments"
+                name="Other / Comments"
+              ></textarea>
+            </div>
+
+            <p class="contractor-note">
+              When you submit your form we will share your information with a
+              Blue Thumb Authorized Contractor near you, if there is one
+              available, to schedule your consultation. Depending on the
+              company, and/or project location, there may be a fee for a project
+              quote, which will be disclosed prior to the project evaluation. If
+              there is not a contractor near your location we will let you know
+              and assist in any way we can.
+            </p>
+
+            <p class="contractor-human-note">
+              Are you human? Be assured that we are and we will not share your
+              information in any other way than to connect you with an
+              Authorized Contractor.
+            </p>
+
+            <div class="contractor-submit-wrap">
+              <button class="contractor-submit" type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="contractor-bottom-disclaimer">
+      Our Authorized Contractors are familiar with the installation and usage of
+      Blue Thumb products. The Blue Thumb Authorized Contractor is not an
+      employee, agent, or in any other way associated with Blue Thumb, Inc. Any
+      agreement or contract you reach with the Contractor is solely between you
+      and the Contractor. Blue Thumb has no responsibility for, nor do we insure
+      or guarantee in any way the performance of any Blue Thumb Authorized
+      Contractors.
+    </div>
+  </div>
+</div>
+
+{{/partial}} {{> layout/base}}

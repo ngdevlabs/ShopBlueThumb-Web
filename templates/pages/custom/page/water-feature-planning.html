@@ -1,0 +1,1653 @@
+{{#partial "head"}}
+<style>
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Poppins", sans-serif !important;
+    color: #213548;
+    background: #fff;
+    line-height: 1.6;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  a {
+    color: #2d6fba;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  div,
+  li,
+  ul,
+  ol,
+  button,
+  a,
+  strong {
+    font-family: "Poppins", sans-serif !important;
+  }
+
+  /* ===== CONTAINER ===== */
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ===== HERO BANNER ===== */
+  .hero-banner {
+    width: 100%;
+    height: 260px;
+    background-image: url("https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/hero-banner.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-banner h1 {
+    color: #fff;
+    text-align: center;
+    font-size: 56px;
+    font-weight: 600;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  }
+
+  /* ===== COMMON HEADING ===== */
+  .section-heading {
+    text-align: center;
+    font-size: 38px;
+    font-weight: 600;
+    color: #213548;
+    margin-bottom: 50px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ===== FULL WIDTH DIVIDER ===== */
+  .section-divider-wrap {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .bt-divider {
+    width: min(100%, 520px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 24px 0 28px;
+  }
+
+  .bt-divider-line {
+    flex: 1 1 auto;
+    height: 2px;
+    background: #2d6fba;
+    min-width: 20px;
+  }
+
+  .bt-divider img {
+    width: 42px;
+    height: auto;
+    max-width: 42px;
+    opacity: 1;
+  }
+
+  /* ===== BUTTON ===== */
+  .btn {
+    display: inline-block;
+    padding: 0.95rem 1.8rem;
+    background: #6f8fb0;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-family: "Poppins", Arial, sans-serif !important;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    border: none;
+    line-height: 1;
+    transition:
+      background 0.25s ease,
+      transform 0.2s ease;
+  }
+
+  .btn:hover {
+    background: #5f7f9f;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    transform: translateY(-1px);
+  }
+
+  /* ===== SECTION: WHY BLUE THUMB ===== */
+  .why-section {
+    padding: 70px 20px 40px;
+    background: #f3f6f9;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .feature-card {
+    text-align: center;
+  }
+
+  .feature-card .card-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #213548;
+    margin-bottom: 18px;
+  }
+
+  .feature-card .card-img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 0;
+    margin-bottom: 18px;
+  }
+
+  .feature-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #555;
+    text-align: left;
+  }
+
+  .feature-card .tagline {
+    font-weight: 700;
+    font-size: 15px;
+    color: #213548;
+    text-align: center;
+    margin-top: 14px;
+  }
+
+  /* ===== PLANNING SECTION (FULL WIDTH PARALLAX) ===== */
+  .planning-section {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding: 100px 20px;
+    background-image: url("https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/philosophy-section-bt-video-band-bt-parallax-maintenance-container-base-content-page-roto.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin-top: 4rem;
+    position: relative;
+    font-family: "Poppins", Arial, sans-serif !important;
+  }
+
+  /* ===== OVERLAY ===== */
+  .planning-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.12);
+    z-index: 0;
+  }
+
+  /* ===== CONTENT WRAPPER ===== */
+  .planning-section .container {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* ===== SECTION TITLE ===== */
+  .planning-section .section-heading {
+    text-align: center;
+    font-family: "Poppins", Arial, sans-serif !important;
+    font-size: 38px;
+    font-weight: 600;
+    color: #213548;
+    margin-bottom: 50px;
+  }
+
+  /* ===== GRID ===== */
+  .planning-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px 40px;
+    align-items: stretch;
+  }
+
+  /* ===== CARD ===== */
+  .planning-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+  }
+
+  /* ===== IMAGE ===== */
+  .planning-card img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border-radius: 0;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  /* ===== TITLE ===== */
+  .planning-card h3 {
+    font-family: "Poppins", Arial, sans-serif !important;
+    font-size: 20px;
+    font-weight: 600;
+    color: #213548;
+    margin-bottom: 12px;
+    min-height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ===== TEXT ===== */
+  .planning-card p {
+    font-family: "Poppins", Arial, sans-serif !important;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 20px;
+    max-width: 90%;
+    min-height: 120px;
+  }
+
+  /* ===== BUTTON ALIGNMENT ===== */
+  .planning-card .btn {
+    margin-top: auto;
+  }
+
+  /* ===== SMALL BUTTON STYLE (YOUR STYLE ADAPTED) ===== */
+  .btn {
+    display: inline-block;
+    padding: 0.85rem 1.6rem;
+    background: #6f8fb0;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-family: "Poppins", Arial, sans-serif !important;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    border: none;
+    line-height: 1;
+    min-width: 120px;
+    text-align: center;
+    transition:
+      background 0.25s ease,
+      transform 0.2s ease;
+  }
+
+  .btn:hover {
+    background: #5f7f9f;
+    transform: translateY(-1px);
+  }
+
+  /* ===== SECTION: FAQs ===== */
+  .faq-section {
+    padding: 0;
+    background: #fff;
+  }
+
+  .faq-section .section-heading {
+    padding: 60px 20px 30px;
+    background: #fff;
+    margin-bottom: 0;
+  }
+
+  .faq-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 420px;
+  }
+
+  /* FORCE THE CORRECT ORDER LIKE YOUR IMAGE 4:
+     1st row = text left / image right
+     2nd row = image left / text right
+     3rd row = text left / image right
+     4th row = image left / text right
+  */
+  .faq-item:nth-of-type(odd) .faq-text {
+    order: 1;
+  }
+
+  .faq-item:nth-of-type(odd) .faq-img {
+    order: 2;
+  }
+
+  .faq-item:nth-of-type(even) .faq-text {
+    order: 2;
+  }
+
+  .faq-item:nth-of-type(even) .faq-img {
+    order: 1;
+  }
+
+  .faq-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 48px 56px;
+    background: #dfeaf3;
+    text-align: center;
+    min-height: 420px;
+  }
+
+  .faq-text h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #213548;
+    margin-bottom: 18px;
+    line-height: 1.4;
+  }
+
+  .faq-text p {
+    font-size: 15px;
+    line-height: 1.95;
+    color: #4a5a6a;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .faq-img {
+    min-height: 420px;
+    overflow: hidden;
+  }
+
+  .faq-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+  }
+
+  /* ===== SECTION: GALLERIES ===== */
+  .gallery-section {
+    padding: 70px 20px 60px;
+    background: #f3f6f9;
+  }
+
+  .galleries-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .gallery-block {
+    text-align: center;
+  }
+
+  .gallery-block h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #213548;
+    margin-bottom: 16px;
+  }
+
+  .gallery-slider {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+  }
+
+  .gallery-slider .slides-track {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .gallery-slider .slides-track img {
+    min-width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 0;
+  }
+
+  .gallery-slider .slide-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.45);
+    color: #fff;
+    font-size: 14px;
+    padding: 8px 14px;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.85);
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 6px 10px;
+    line-height: 1;
+    color: #333;
+    z-index: 3;
+    border-radius: 0;
+  }
+
+  .gallery-nav:hover {
+    background: #fff;
+  }
+
+  .gallery-nav.prev {
+    left: 8px;
+  }
+
+  .gallery-nav.next {
+    right: 8px;
+  }
+
+  .gallery-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .gallery-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #c5cdd5;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .gallery-dots span.active {
+    background: #5a6a7a;
+  }
+
+  /* ===== SECTION: CALCULATIONS ===== */
+  .calc-section {
+    padding: 70px 20px;
+    background: #f3f6f9;
+  }
+
+  .calc-section .section-heading {
+    margin-bottom: 34px;
+  }
+
+  .calc-tabs {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-wrap: nowrap;
+    gap: 0;
+    border-bottom: 1px solid #d7dde3;
+    max-width: 1120px;
+    margin: 0 auto 0;
+    overflow-x: auto;
+  }
+
+  .calc-tab {
+    padding: 14px 32px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #7e97ad;
+    cursor: pointer;
+    border: 1px solid #d7dde3;
+    border-bottom: none;
+    background: transparent;
+    transition: all 0.2s ease;
+    letter-spacing: 0;
+    text-transform: none;
+    margin-bottom: 0;
+    border-radius: 0;
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
+
+  .calc-tab + .calc-tab {
+    border-left: none;
+  }
+
+  .calc-tab:hover {
+    color: #213548;
+    background: #f9fbfc;
+  }
+
+  .calc-tab.active {
+    color: #213548;
+    background: #fff;
+    position: relative;
+    z-index: 2;
+    font-weight: 700;
+  }
+
+  .calc-content {
+    max-width: 1120px;
+    margin: 0 auto;
+    text-align: center;
+    background: #fff;
+    padding: 68px 40px 62px;
+    border: 1px solid #d7dde3;
+    border-top: none;
+    border-radius: 0;
+    box-shadow: none;
+    min-height: 560px; /* adjust if needed */
+    display: flex;
+    align-items: stretch;
+  }
+
+  .calc-panel {
+    display: none;
+    width: 100%;
+    min-height: 100%;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .calc-panel.active {
+    display: flex;
+  }
+
+  .calc-panel h4 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0d2d4d;
+    margin-bottom: 16px;
+  }
+
+  .calc-panel p {
+    font-size: 17px;
+    line-height: 1.85;
+    color: #284b67;
+    margin-bottom: 14px;
+  }
+
+  .calc-panel .formula {
+    font-size: 18px;
+    color: #0d2d4d;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1100px) {
+    .calc-tabs {
+      justify-content: flex-start;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .features-grid,
+    .planning-grid {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+    }
+
+    .galleries-grid {
+      grid-template-columns: 1fr;
+      max-width: 560px;
+    }
+
+    .faq-item {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+
+    .faq-item .faq-text,
+    .faq-item .faq-img {
+      order: unset !important;
+    }
+
+    .faq-img,
+    .faq-text {
+      min-height: auto;
+    }
+
+    .faq-img {
+      height: 280px;
+    }
+
+    .hero-banner h1 {
+      font-size: 38px;
+    }
+
+    .section-heading {
+      font-size: 30px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero-banner {
+      height: 180px;
+    }
+
+    .hero-banner h1 {
+      font-size: 28px;
+    }
+
+    .faq-text {
+      padding: 32px 20px;
+    }
+
+    .calc-content {
+      padding: 38px 18px;
+    }
+
+    .calc-tab {
+      padding: 12px 18px;
+      font-size: 12px;
+    }
+
+    .bt-divider img {
+      width: 34px;
+      max-width: 34px;
+    }
+  }
+</style>
+
+<!-- ===== HERO BANNER ===== -->
+<div class="hero-banner">
+  <h1>Planning &amp; Inspiration</h1>
+</div>
+
+<!-- ===== WHY BLUE THUMB ===== -->
+<section class="why-section">
+  <div class="container">
+    <h2 class="section-heading">
+      Why Put A Blue Thumb Water Feature in Your Landscape?
+    </h2>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="bt-divider">
+          <span class="bt-divider-line"></span>
+          <img src="/assets/img/BlueThumbLogo.png" alt="Blue Thumb divider" />
+          <span class="bt-divider-line"></span>
+        </div>
+        <h3 class="card-title">It's Attractive</h3>
+        <img
+          class="card-img"
+          src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/attractive-water-feature.jpg"
+          alt="Attractive water feature"
+        />
+        <p>
+          Water attracts your senses. Visually you see the moving water and you
+          are drawn to gaze closer. As you approach a water feature you are
+          filled with the tranquil sounds of the moving water and the wonderful
+          aroma of flowers.
+        </p>
+        <p style="margin-top: 10px">
+          When you have family and friends over, guess where they're inevitably
+          going to gravitate and congregate? Moving water is mesmerizing and
+          peaceful to look at.
+        </p>
+        <div class="tagline">Feels good, doesn't it?</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="bt-divider">
+          <span class="bt-divider-line"></span>
+          <img src="/assets/img/BlueThumbLogo.png" alt="Blue Thumb divider" />
+          <span class="bt-divider-line"></span>
+        </div>
+        <h3 class="card-title">It's Peaceful &amp; Tranquil</h3>
+        <img
+          class="card-img"
+          src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/peaceful-water-feature.jpg"
+          alt="Peaceful water feature"
+        />
+        <p>
+          Put down the cell phone, walk away from the television, and immerse
+          yourself into the wonderful world of water features.
+        </p>
+        <p style="margin-top: 10px">
+          The water feature experience is comforting and soothing. It transforms
+          your senses and calms your world. Grab your favorite drink and retire
+          to the patio and soak in the peacefulness of your water feature.
+        </p>
+        <div class="tagline">It's the Zen thing to do!</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="bt-divider">
+          <span class="bt-divider-line"></span>
+          <img src="/assets/img/BlueThumbLogo.png" alt="Blue Thumb divider" />
+          <span class="bt-divider-line"></span>
+        </div>
+        <h3 class="card-title">It's Low Maintenance</h3>
+        <img
+          class="card-img"
+          src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/low-maintenance-water-feature.jpg"
+          alt="Low maintenance water feature"
+        />
+        <p>
+          Following the trusted Blue Thumb methods of installing water features,
+          your new water feature will be very easy to maintain.
+        </p>
+        <p style="margin-top: 10px">
+          Some of the water features available have little to no maintenance at
+          all. Some will require you to spend 10 minutes a week. Choose the
+          style that fits your budget as well as your available maintenance
+          time.
+        </p>
+        <div class="tagline">Easy peazy, we like it!</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="bt-divider">
+          <span class="bt-divider-line"></span>
+          <img src="/assets/img/BlueThumbLogo.png" alt="Blue Thumb divider" />
+          <span class="bt-divider-line"></span>
+        </div>
+        <h3 class="card-title">It's Cocooning</h3>
+        <img
+          class="card-img"
+          src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/cocooning-water-feature.jpg"
+          alt="Cocooning water feature"
+        />
+        <p>
+          Why not bring "Up-North" to your backyard? Some of our favorite
+          memories are of sitting around outside near the water.
+        </p>
+        <p style="margin-top: 10px">
+          Bring that waterfront retreat from stress to your home, and enjoy its
+          soothing, comforting benefits everyday.
+        </p>
+        <div class="tagline">We can hear the cascading waterfall already!</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="bt-divider">
+          <span class="bt-divider-line"></span>
+          <img src="/assets/img/BlueThumbLogo.png" alt="Blue Thumb divider" />
+          <span class="bt-divider-line"></span>
+        </div>
+        <h3 class="card-title">It's a Good Investment</h3>
+        <img
+          class="card-img"
+          src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/good-investment.jpg"
+          alt="Good investment"
+        />
+        <p>
+          Many new water feature hobbyists tell us that the money they invested
+          into their water feature was the best money they ever spent.
+        </p>
+        <p style="margin-top: 10px">
+          What is peace of mind worth to you? You'll be happy to know that an
+          investment in your landscape is the best and most cost effective way
+          to increase the value of your home.
+        </p>
+        <div class="tagline">We like the sound of that!</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="bt-divider">
+          <span class="bt-divider-line"></span>
+          <img src="/assets/img/BlueThumbLogo.png" alt="Blue Thumb divider" />
+          <span class="bt-divider-line"></span>
+        </div>
+        <h3 class="card-title">We've Built it to Last</h3>
+        <img
+          class="card-img"
+          src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/built-to-last.jpg"
+          alt="Built to last"
+        />
+        <p>
+          Using Blue Thumb's quality equipment and components, your new water
+          feature will be built to last and stand the test of time.
+        </p>
+        <p style="margin-top: 10px">
+          We manufacture our products to withstand the elements and be the same
+          20 years down the road as they are today.
+        </p>
+        <div class="tagline">You have our unconditional guarantee on that!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PLANNING & INSPIRATION ===== -->
+<section class="planning-section">
+  <div class="container">
+    <h2 class="section-heading">Planning &amp; Inspiration</h2>
+
+    <div class="planning-grid">
+      <div class="planning-card">
+        <a
+          href="https://shopbluethumb.com/content/instructions/BT_PondPlanner.pdf"
+        >
+          <img
+            src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/pond-planner.jpg"
+            alt="Pond Planner"
+          />
+        </a>
+        <h3>Pond Planner</h3>
+        <p>
+          A great resource for both the professional and the novice Pond
+          Enthusiast. Design the pond that is right for you. We'll guide you!
+        </p>
+        <a
+          href="https://shopbluethumb.com/content/instructions/BT_PondPlanner.pdf"
+          class="btn"
+          >Download</a
+        >
+      </div>
+
+      <div class="planning-card">
+        <a href="https://shopbluethumb.com/connect">
+          <img
+            src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/find-a-pro.jpg"
+            alt="Find a Pro"
+          />
+        </a>
+        <h3>Perfect Your Plans</h3>
+        <p>
+          Schedule a consultation with an Authorized Blue Thumb Contractor for
+          guidance on creating an outdoor space you'll absolutely love!
+        </p>
+        <a href="https://shopbluethumb.com/connect" class="btn">Find a Pro</a>
+      </div>
+
+      <div class="planning-card">
+        <a href="https://shopbluethumb.com/content/catalogs/inspirations.pdf">
+          <img
+            src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/inspirations-booklet.jpg"
+            alt="Inspirations Booklet"
+          />
+        </a>
+        <h3>Inspirations Booklet</h3>
+        <p>
+          "A Picture is worth a 1,000 words" Browse through our Inspiration
+          Booklet detailing our most popular types of water feature options.
+        </p>
+        <a
+          href="https://shopbluethumb.com/content/catalogs/inspirations.pdf"
+          class="btn"
+          >Download</a
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WATER FEATURE FAQs ===== -->
+<section class="faq-section">
+  <h2 class="section-heading">Water Feature FAQs</h2>
+
+  <div class="faq-item">
+    <div class="faq-text">
+      <h3>Q: What type of water feature is best?</h3>
+      <p>
+        A: The answer to this question depends on how much space you have
+        available, your budget, and the amount of time you are willing to spend
+        maintaining the feature. Use this website to make the best choice for
+        you &amp; your family, or call our Blue Thumb water feature experts at
+        888-619-3474.
+      </p>
+    </div>
+    <div class="faq-img">
+      <img
+        src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/water-feature.jpg"
+        alt="Water feature"
+      />
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-text">
+      <h3>Q: What is the cost?</h3>
+      <p>
+        A: Typically, the installed cost of a water feature will range from
+        $1,000 to $10,000+. The average professional water feature installation
+        is around $3,500 depending on the type of feature and size you choose.
+      </p>
+    </div>
+    <div class="faq-img">
+      <img
+        src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/water-feature-investment.jpg"
+        alt="Water feature investment"
+      />
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-text">
+      <h3>Q: Can I have fish &amp; aquatic plants?</h3>
+      <p>
+        A: Yes! As long as you have a water garden or pond. Some of the other
+        water features can support plant life but not fish. Adding fish to your
+        pond has a positive effect on the ecosystem and creates a new and
+        exciting element to your feature.
+      </p>
+    </div>
+    <div class="faq-img">
+      <img
+        src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/fish-and-plants.jpg"
+        alt="Fish and plants"
+      />
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-text">
+      <h3>Q: What size is the best?</h3>
+      <p>
+        A: You usually base this on your available space and budget. We always
+        tell people to build as large as they can afford, but not so large that
+        it looks out of place in their landscape. Fact is, most people build
+        their water feature 3 times during its lifetime. Why? Because they want
+        it bigger. You'll save money building your dream water feature the first
+        time.
+      </p>
+    </div>
+    <div class="faq-img">
+      <img
+        src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/water-feature-size.jpg"
+        alt="Water feature size"
+      />
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-text">
+      <h3>Q: How long does installation take?</h3>
+      <p>
+        A: Most water features can be installed in one day or less with minimal
+        or no damage to your lawn. Some larger water features may take two or
+        three days. For specific details on your project, consult with your
+        local Authorized Blue Thumb Installation Contractor.
+      </p>
+    </div>
+    <div class="faq-img">
+      <img
+        src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/installation.jpg"
+        alt="Installation"
+      />
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-text">
+      <h3>Q: Do I need to winterize my water feature?</h3>
+      <p>
+        A: In some cases yes, but it's easy, and usually just consists of
+        removing the pump to preserve the lifetime of your investment.
+      </p>
+    </div>
+    <div class="faq-img">
+      <img
+        src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/winterize.jpg"
+        alt="Winterize"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- ===== WATER FEATURE GALLERIES ===== -->
+<section class="gallery-section">
+  <div class="container">
+    <div class="section-divider-wrap">
+      <div class="bt-divider">
+        <span class="bt-divider-line"></span>
+        <img src="/assets/img/BlueThumbLogo.png" alt="Blue Thumb divider" />
+        <span class="bt-divider-line"></span>
+      </div>
+    </div>
+
+    <h2 class="section-heading">Water Feature Galleries</h2>
+
+    <div class="galleries-grid">
+      <div class="gallery-block">
+        <h3>Pond Falls &amp; Water Gardens</h3>
+        <div class="gallery-slider" data-gallery="ponds">
+          <div class="slides-track">
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/pond-falls-1.jpg"
+              alt="Pond Falls 1"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/pond-falls-2.jpg"
+              alt="Pond Falls 2"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/pond-falls-3.jpg"
+              alt="Pond Falls 3"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/pond-falls-4.jpg"
+              alt="Pond Falls 4"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/pond-falls-5.jpg"
+              alt="Pond Falls 5"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/pond-falls-6.jpg"
+              alt="Pond Falls 6"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/pond-falls-7.jpg"
+              alt="Pond Falls 7"
+            />
+          </div>
+          <button class="gallery-nav prev" onclick="galleryPrev('ponds')">
+            &#8249;
+          </button>
+          <button class="gallery-nav next" onclick="galleryNext('ponds')">
+            &#8250;
+          </button>
+        </div>
+        <div class="gallery-dots" data-dots="ponds"></div>
+      </div>
+
+      <div class="gallery-block">
+        <h3>Pond-Less Waterfalls</h3>
+        <div class="gallery-slider" data-gallery="pondless">
+          <div class="slides-track">
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/pondless-1.jpg"
+              alt="Pondless 1"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/pondless-2.jpg"
+              alt="Pondless 2"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/pondless-3.jpg"
+              alt="Pondless 3"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/pondless-4.png"
+              alt="Pondless 4"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/pondless-5.jpg"
+              alt="Pondless 5"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/pondless-6.jpg"
+              alt="Pondless 6"
+            />
+          </div>
+          <button class="gallery-nav prev" onclick="galleryPrev('pondless')">
+            &#8249;
+          </button>
+          <button class="gallery-nav next" onclick="galleryNext('pondless')">
+            &#8250;
+          </button>
+        </div>
+        <div class="gallery-dots" data-dots="pondless"></div>
+      </div>
+
+      <div class="gallery-block">
+        <h3>Formal Falls</h3>
+        <div class="gallery-slider" data-gallery="formal">
+          <div class="slides-track">
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/formal-falls-1.jpg"
+              alt="Formal Falls 1"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/formal-falls-2.jpg"
+              alt="Formal Falls 2"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/formal-falls-3.jpg"
+              alt="Formal Falls 3"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/formal-falls-4.jpg"
+              alt="Formal Falls 4"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/formal-falls-5.png"
+              alt="Formal Falls 5"
+            />
+          </div>
+          <button class="gallery-nav prev" onclick="galleryPrev('formal')">
+            &#8249;
+          </button>
+          <button class="gallery-nav next" onclick="galleryNext('formal')">
+            &#8250;
+          </button>
+        </div>
+        <div class="gallery-dots" data-dots="formal"></div>
+      </div>
+
+      <div class="gallery-block">
+        <h3>Lakes &amp; Ponds</h3>
+        <div class="gallery-slider" data-gallery="lakes">
+          <div class="slides-track">
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/lakes-1.jpg"
+              alt="Lakes 1"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/lakes-2.png"
+              alt="Lakes 2"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/lakes-3.png"
+              alt="Lakes 3"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/lakes-4.jpg"
+              alt="Lakes 4"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/lakes-5.png"
+              alt="Lakes 5"
+            />
+          </div>
+          <button class="gallery-nav prev" onclick="galleryPrev('lakes')">
+            &#8249;
+          </button>
+          <button class="gallery-nav next" onclick="galleryNext('lakes')">
+            &#8250;
+          </button>
+        </div>
+        <div class="gallery-dots" data-dots="lakes"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WATER FOUNTAIN GALLERIES ===== -->
+<section class="gallery-section" style="background: #fff; padding-top: 50px">
+  <div class="container">
+    <div class="section-divider-wrap">
+      <div class="bt-divider">
+        <span class="bt-divider-line"></span>
+        <img src="/assets/img/BlueThumbLogo.png" alt="Blue Thumb divider" />
+        <span class="bt-divider-line"></span>
+      </div>
+    </div>
+
+    <h2 class="section-heading">Water Fountain Galleries</h2>
+
+    <div class="galleries-grid">
+      <div class="gallery-block">
+        <h3>Vase Fountains</h3>
+        <div class="gallery-slider" data-gallery="vase">
+          <div class="slides-track">
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/tuscany.jpg"
+              alt="Tuscany"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/oil-jar.jpg"
+              alt="Oil Jar"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/sienna.jpg"
+              alt="Sienna"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/milano.jpg"
+              alt="Milano"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/tivoli.jpg"
+              alt="Tivoli"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/luna.jpg"
+              alt="Luna"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/amphora.jpg"
+              alt="Amphora"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/genova.jpg"
+              alt="Genova"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/provence.jpg"
+              alt="Provence"
+            />
+          </div>
+          <div class="slide-label" id="vase-label">Tuscany</div>
+          <button class="gallery-nav prev" onclick="galleryPrev('vase')">
+            &#8249;
+          </button>
+          <button class="gallery-nav next" onclick="galleryNext('vase')">
+            &#8250;
+          </button>
+        </div>
+        <div class="gallery-dots" data-dots="vase"></div>
+      </div>
+
+      <div class="gallery-block">
+        <h3>Real Stone Fountains</h3>
+        <div class="gallery-slider" data-gallery="stone">
+          <div class="slides-track">
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/zenshu-yasuyuki.jpg"
+              alt="Zenshu Yasuyuki"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/limestone-ribbed-sphere.jpg"
+              alt="Limestone Ribbed Sphere"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/yellow-onyx-triple.jpg"
+              alt="Yellow Onyx Triple"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/basalt-bird-bath.jpg"
+              alt="Basalt Bird Bath"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/artisan-travertine.jpg"
+              alt="Artisan Travertine"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/artisan-towers.jpg"
+              alt="Artisan Towers"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/zenshu-heiho.jpg"
+              alt="Zenshu Heiho"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/rustic-basalt-towers.jpg"
+              alt="Rustic Basalt Towers"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/red-marble-almond.jpg"
+              alt="Red Marble Almond"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/natural-swirl-bowl.jpg"
+              alt="Natural Swirl Bowl"
+            />
+          </div>
+          <div class="slide-label" id="stone-label">Zenshu Yasuyuki</div>
+          <button class="gallery-nav prev" onclick="galleryPrev('stone')">
+            &#8249;
+          </button>
+          <button class="gallery-nav next" onclick="galleryNext('stone')">
+            &#8250;
+          </button>
+        </div>
+        <div class="gallery-dots" data-dots="stone"></div>
+      </div>
+
+      <div class="gallery-block">
+        <h3>Handcrafted Rock Fountains</h3>
+        <div class="gallery-slider" data-gallery="rock">
+          <div class="slides-track">
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/medium-bird-bath.jpg"
+              alt="Medium Bird Bath"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/cascade-spring-triple.jpg"
+              alt="Cascade Spring Triple"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/sonoma-rock.jpg"
+              alt="Sonoma Rock"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/mountain-spring.jpg"
+              alt="Mountain Spring"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/double-cascade.jpg"
+              alt="Double Cascade"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/slate-river-falls.jpg"
+              alt="Slate River Falls"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/bird-bath-triple.jpg"
+              alt="Bird Bath Triple"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/klamath-basin.jpg"
+              alt="Klamath® Basin"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/triple-column.jpg"
+              alt="Triple Column"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/triple-cascade.jpg"
+              alt="Triple Cascade"
+            />
+          </div>
+          <div class="slide-label" id="rock-label">Medium Bird Bath</div>
+          <button class="gallery-nav prev" onclick="galleryPrev('rock')">
+            &#8249;
+          </button>
+          <button class="gallery-nav next" onclick="galleryNext('rock')">
+            &#8250;
+          </button>
+        </div>
+        <div class="gallery-dots" data-dots="rock"></div>
+      </div>
+
+      <div class="gallery-block">
+        <h3>Copper-Metal Fountains</h3>
+        <div class="gallery-slider" data-gallery="copper">
+          <div class="slides-track">
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/copper-tree-with-lighting.jpg"
+              alt="Copper Tree with Lighting"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/copper-trees.jpg"
+              alt="Copper Trees"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/copper-flowers.jpg"
+              alt="Copper Flowers"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/artist-signed-mod.jpg"
+              alt="Artist signed MOD"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/sugar-kettle.jpg"
+              alt="Sugar Kettle"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/acrylic-cylinder.jpg"
+              alt="Acrylic Cylinder"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/tiered-fountains.jpg"
+              alt="Tiered Fountains"
+            />
+            <img
+              src="https://store-g33rmoufv1.mybigcommerce.com/content/themeImages/real-stone-benches.jpg"
+              alt="Real Stone Benches"
+            />
+          </div>
+          <div class="slide-label" id="copper-label">
+            Copper Tree with Lighting
+          </div>
+          <button class="gallery-nav prev" onclick="galleryPrev('copper')">
+            &#8249;
+          </button>
+          <button class="gallery-nav next" onclick="galleryNext('copper')">
+            &#8250;
+          </button>
+        </div>
+        <div class="gallery-dots" data-dots="copper"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HELPFUL CALCULATIONS ===== -->
+<section class="calc-section">
+  <div class="container">
+    <div class="section-divider-wrap">
+      <div class="bt-divider">
+        <span class="bt-divider-line"></span>
+        <img src="/assets/img/BlueThumbLogo.png" alt="Blue Thumb divider" />
+        <span class="bt-divider-line"></span>
+      </div>
+    </div>
+
+    <h2 class="section-heading">Helpful Water Feature Calculations</h2>
+
+    <div class="calc-tabs">
+      <button class="calc-tab active" onclick="showCalc('electricity', this)">
+        Electricity
+      </button>
+      <button class="calc-tab" onclick="showCalc('elec-costs', this)">
+        Electrical Costs
+      </button>
+      <button class="calc-tab" onclick="showCalc('liner', this)">
+        Liner Size
+      </button>
+      <button class="calc-tab" onclick="showCalc('pump', this)">
+        Pump Size
+      </button>
+      <button class="calc-tab" onclick="showCalc('surface', this)">
+        Surface Area
+      </button>
+      <button class="calc-tab" onclick="showCalc('tubing', this)">
+        Tubing Size
+      </button>
+      <button class="calc-tab" onclick="showCalc('volume', this)">
+        Water Volume
+      </button>
+    </div>
+
+    <div class="calc-content">
+      <div class="calc-panel active" id="calc-electricity">
+        <h4>Electricity</h4>
+        <p class="formula"><strong>Power = Watts</strong></p>
+        <p>Current (Amps) x Voltage (120v or 230v)</p>
+        <p class="formula">Watts = Current × Voltage</p>
+        <br />
+        <p class="formula"><strong>Current = Amps</strong></p>
+        <p>Power (Watts) / Voltage (120v or 230v)</p>
+        <p class="formula">Amps = Power / Voltage</p>
+      </div>
+
+      <div class="calc-panel" id="calc-elec-costs">
+        <h4>Electrical Costs</h4>
+        <p class="formula">Amps × Voltage / 1000 × KWH Cost × 24hrs × 30days</p>
+      </div>
+
+      <div class="calc-panel" id="calc-liner">
+        <h4>Liner Size</h4>
+        <p class="formula">(Depth × 2) + (Length or Width) + 3</p>
+      </div>
+
+      <div class="calc-panel" id="calc-pump">
+        <h4>Pump Size</h4>
+        <p class="formula">Pond Volume (Gallons)</p>
+        <p class="formula">Volume × 2 = GPH</p>
+      </div>
+
+      <div class="calc-panel" id="calc-surface">
+        <h4>Surface Area</h4>
+        <p><strong>Square or Rectangle Pond:</strong></p>
+        <p class="formula">Length × Width = Sq. Ft.</p>
+        <br />
+        <p><strong>Circular Pond:</strong></p>
+        <p class="formula">
+          Top Diameter × Bottom Diameter × Total Depth × 5.9 = Sq. Ft.
+        </p>
+        <br />
+        <p><strong>Oval Pond:</strong></p>
+        <p class="formula">
+          (Oval Length × 0.5) × (Oval Width × 0.5) × 3.14 = Sq. Ft.
+        </p>
+      </div>
+
+      <div class="calc-panel" id="calc-tubing">
+        <h4>Pump Size – Tubing &amp; Valve Size</h4>
+        <p>500 – 1,000 GPH — 1.25"</p>
+        <p>1,000 – 1,500 GPH — 1.25–1.5"</p>
+        <p>1,500 – 2,000 GPH — 1.5–2"</p>
+        <p>2,000 – 6,000 GPH — 2"</p>
+        <p>6,000 – 10,000 GPH — 3"</p>
+        <p>10,000 – 20,000 GPH — 3–4"</p>
+      </div>
+
+      <div class="calc-panel" id="calc-volume">
+        <h4>Water Volume (Gallons)</h4>
+        <p><strong>Square or Rectangle Pond:</strong></p>
+        <p class="formula">Length × Width × Avg Depth × 7.48 = Gallons</p>
+        <br />
+        <p><strong>Circular Pond:</strong></p>
+        <p class="formula">Diameter × Diameter × Avg. Depth × 5.9 = Gallons</p>
+        <br />
+        <p><strong>Oval Pond:</strong></p>
+        <p class="formula">Length × Width × Depth × 6.7 = Gallons</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/partial}} {{> layout/base}}
+
+<script>
+  const galleryState = {};
+  const galleryLabels = {
+    vase: [
+      "Tuscany",
+      "Oil Jar",
+      "Sienna",
+      "Milano",
+      "Tivoli",
+      "Luna",
+      "Amphora",
+      "Genova",
+      "Provence",
+    ],
+    stone: [
+      "Zenshu Yasuyuki",
+      "Limestone Ribbed Sphere",
+      "Yellow Onyx Triple",
+      "Basalt Bird Bath",
+      "Artisan Travertine",
+      "Artisan Towers",
+      "Zenshu Heiho",
+      "Rustic Basalt Towers",
+      "Red Marble Almond",
+      "Natural Swirl Bowl",
+    ],
+    rock: [
+      "Medium Bird Bath",
+      "Cascade Spring Triple",
+      "Sonoma Rock",
+      "Mountain Spring",
+      "Double Cascade",
+      "Slate River Falls",
+      "Bird Bath Triple",
+      "Klamath® Basin",
+      "Triple Column",
+      "Triple Cascade",
+    ],
+    copper: [
+      "Copper Tree with Lighting",
+      "Copper Trees",
+      "Copper Flowers",
+      "Artist signed MOD",
+      "Sugar Kettle",
+      "Acrylic Cylinder",
+      "Tiered Fountains",
+      "Real Stone Benches",
+    ],
+  };
+
+  function initGalleries() {
+    document.querySelectorAll(".gallery-slider").forEach(function (slider) {
+      const name = slider.dataset.gallery;
+      const imgs = slider.querySelectorAll(".slides-track img");
+      galleryState[name] = { index: 0, total: imgs.length };
+
+      const dotsEl = document.querySelector('[data-dots="' + name + '"]');
+      if (dotsEl) {
+        dotsEl.innerHTML = "";
+        for (let i = 0; i < imgs.length; i++) {
+          const dot = document.createElement("span");
+          if (i === 0) dot.classList.add("active");
+          dot.addEventListener("click", function () {
+            galleryGo(name, i);
+          });
+          dotsEl.appendChild(dot);
+        }
+      }
+    });
+  }
+
+  function galleryGo(name, idx) {
+    const state = galleryState[name];
+    state.index = idx;
+
+    const slider = document.querySelector(
+      '[data-gallery="' + name + '"] .slides-track',
+    );
+    if (slider) {
+      slider.style.transform = "translateX(-" + idx * 100 + "%)";
+    }
+
+    const dots = document.querySelectorAll('[data-dots="' + name + '"] span');
+    dots.forEach(function (dot, i) {
+      dot.classList.toggle("active", i === idx);
+    });
+
+    if (galleryLabels[name]) {
+      const label = document.getElementById(name + "-label");
+      if (label) label.textContent = galleryLabels[name][idx] || "";
+    }
+  }
+
+  function galleryNext(name) {
+    const s = galleryState[name];
+    galleryGo(name, (s.index + 1) % s.total);
+  }
+
+  function galleryPrev(name) {
+    const s = galleryState[name];
+    galleryGo(name, (s.index - 1 + s.total) % s.total);
+  }
+
+  function showCalc(id, btn) {
+    document.querySelectorAll(".calc-panel").forEach(function (panel) {
+      panel.classList.remove("active");
+    });
+
+    document.querySelectorAll(".calc-tab").forEach(function (tab) {
+      tab.classList.remove("active");
+    });
+
+    document.getElementById("calc-" + id).classList.add("active");
+    btn.classList.add("active");
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    initGalleries();
+  });
+</script>

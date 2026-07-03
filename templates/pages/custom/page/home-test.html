@@ -36,33 +36,35 @@ blog:
 {{> components/ob-custom-overrides/home/featured-categories}}
 
 
-{{#all products.featured theme_settings.home_show_featured_prod}}
+{{#if theme_settings.home_show_featured_prod_1}}
     <div class="container narrow-container ob-home-carousel ob-home-featured-container">
-        {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
+        <h2 class="page-heading pre-title">{{lang 'products.featured'}}</h2>
+        {{{region name="home_featured_products_1"}}}
     </div>
-{{/all}}
+{{/if}}
 {{{region name="home_below_featured_products"}}}
 
 
 {{> components/ob-custom-overrides/home/products_story}}
 
-{{#all products.featured theme_settings.home_show_featured_prod}}
+{{#if theme_settings.home_show_featured_prod_2}}
     <div class="container narrow-container ob-home-carousel ob-home-featured-container">
-        {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
+        <h2 class="page-heading pre-title">{{lang 'products.featured'}}</h2>
+        {{{region name="home_featured_products_2"}}}
     </div>
-{{/all}}
+{{/if}}
 
 {{> components/ob-custom-overrides/home/home_owners_Section}}
 
 {{> components/ob-custom-overrides/home/professionals_section}}
 
 
-{{#all products.featured theme_settings.home_show_featured_prod}}
+{{#if theme_settings.home_show_featured_prod_3}}
     <div class="container narrow-container ob-home-carousel ob-home-featured-container">
-        {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
+        <h2 class="page-heading pre-title">{{lang 'products.featured'}}</h2>
+        {{{region name="home_featured_products_3"}}}
     </div>
-{{/all}}
-
+{{/if}}
 
 {{> components/ob-custom-overrides/home/shipping_and_testimonials}}
 
